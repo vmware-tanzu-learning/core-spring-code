@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+              http://www.springframework.org/schema/beans/spring-beans.xsd
+              http://www.springframework.org/schema/context
+              http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Configuration for the rewards application.  Beans here define the heart of the application logic. -->
+	
+	<!-- Rewards accounts for dining: the application entry-point --> 
+	<bean id="rewardNetwork" class="rewards.internal.RewardNetworkImpl">
+		<constructor-arg ref="accountRepository"/>
+		<constructor-arg ref="restaurantRepository"/>
+		<constructor-arg ref="rewardRepository"/>
+	</bean>
+	
+	<!-- abstract bean -->
+	<bean id="abstractJdbcRepository" abstract="true">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<!-- Loads accounts from the data source -->
+	<bean id="accountRepository" class="rewards.internal.account.JdbcAccountRepository" parent="abstractJdbcRepository">
+	</bean>
+
+	<!-- Loads restaurants from the data source -->
+	<bean id="restaurantRepository" class="rewards.internal.restaurant.JdbcRestaurantRepository" parent="abstractJdbcRepository">
+	</bean>
+
+	<!-- Records reward confirmation records in the data source -->
+	<bean id="rewardRepository" class="rewards.internal.reward.JdbcRewardRepository" parent="abstractJdbcRepository">
+	</bean>
+
+</beans>

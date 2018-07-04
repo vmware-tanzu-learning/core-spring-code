@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+			http://java.sun.com/xml/ns/j2ee
+			http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+		version="2.4">
+
+	<!-- This is the "classic" web.xml file that can be used instead of Servlet 3.0 WebAppInitializer. -->
+
+	<!--
+	  // Load 'root' application context for the Account Manager application.
+	  // Uses an embedded Hypersonic test-database (see rewards-db project).
+	  //
+	  // This is using the JPA profile  If you prefer Hibernate Session API,
+	  // specify <param-value>hibernate</param-value> instead.
+	  -->
+   <context-param>
+      <param-name>contextClass</param-name>
+      <param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+    </context-param>	  
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>config.RootConfig</param-value>
+    </context-param>	  
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>jpa</param-value>
+	</context-param>
+
+	<listener> 	
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class> 
+	</listener>
+
+	<!-- Deploys the 'accounts' dispatcher servlet whose configuration resides in the config/MvcConfig class -->
+	<servlet>
+		<servlet-name>accounts</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>config.MvcConfig</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- Maps all /accounts URLs to the 'accounts' servlet -->
+	<servlet-mapping>
+		<servlet-name>accounts</servlet-name>
+		<url-pattern>/accounts/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

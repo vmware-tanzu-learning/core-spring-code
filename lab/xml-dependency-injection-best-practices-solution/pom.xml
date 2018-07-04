@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>xml-dependency-injection-best-practices-solution</artifactId>
+    <organization>
+        <name>Pivotal Education</name>
+        <url>http://pivotal.io/training</url>
+    </organization>
+    <packaging>jar</packaging>
+    <parent>
+        <groupId>io.pivotal.education.core-spring</groupId>
+        <artifactId>parentProject</artifactId>
+        <version>5.0.a.RELEASE</version>
+    </parent>
+    <dependencies>
+        <dependency>
+            <groupId>io.pivotal.education.core-spring</groupId>
+            <artifactId>rewards-common</artifactId>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <wtpversion>2.0</wtpversion>
+                    <sourceIncludes>
+                        <sourceInclude>**/*.*</sourceInclude>
+                    </sourceIncludes>
+                    <additionalProjectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                    </additionalProjectnatures>
+                    <additionalBuildcommands>
+                        <buildcommand>org.springframework.ide.eclipse.core.springbuilder</buildcommand>
+                    </additionalBuildcommands>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

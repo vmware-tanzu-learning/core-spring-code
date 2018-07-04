@@ -1,0 +1,298 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.pivotal.education.core-spring</groupId>
+    <artifactId>parentProject</artifactId>
+    <version>5.0.a.RELEASE</version>
+    <organization>
+        <name>Pivotal Education</name>
+        <url>http://pivotal.io/training</url>
+    </organization>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.0.M5</version>
+    </parent>
+    <properties>
+        <!-- Override some defaults from Spring Boot. -->
+        <spring.boot.maven.plugin>2.0.0.M5</spring.boot.maven.plugin>
+        <!-- <spring.cloud.version>2.0.0.M2</spring.cloud.version> -->
+        <spring.cloud.build>Finchley.M3</spring.cloud.build>
+        <!-- <spring.version>5.0.0.RELEASE</spring.version> -->
+        <!-- Versions of other dependencies not in spring IO. -->
+        <easymock.version>3.1</easymock.version>
+        <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
+        <jamon.version>2.81</jamon.version>
+        <!-- JUnit 5 related properties -->
+        <java.version>1.8</java.version>
+        <junit.version>4.12</junit.version>
+        <junit.jupiter.version>5.0.0</junit.jupiter.version>
+        <junit.vintage.version>${junit.version}.0</junit.vintage.version>
+        <junit.platform.version>1.0.0</junit.platform.version>
+        <!-- Enable maven support for Servlet 3 - no web.xml -->
+        <failOnMissingWebXml>false</failOnMissingWebXml>
+        <!-- Add JAXB that is dropped in JDK 9 -->
+        <jaxb-api.version>2.3.0</jaxb-api.version>
+    </properties>
+    <dependencies>
+        <!-- // Although we are not using Spring Boot until Day 3, we do use SpringApplication 
+            // which is a Spring Boot class. The starters are also a convenient way of 
+            pulling // in the most common Spring and Testing dependencies. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!-- JUnit 5 related dependencies -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- To run tests on IDE such as Eclipse, Intellij -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.vintage.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- Needed for the Spring jdbc namespace -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+        <!-- Database -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+        <!-- Add JAXB that is dropped in JDK 9 -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
+        </dependency>
+    </dependencies>
+    <!-- Dependencies we may need, and their versions -->
+    <dependencyManagement>
+        <dependencies>
+            <!-- Course specific -->
+            <dependency>
+                <groupId>io.pivotal.education.core-spring</groupId>
+                <artifactId>rewards-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.pivotal.education.core-spring</groupId>
+                <artifactId>rewards-db</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <!-- Spring Cloud  -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.build}</version>
+                <type>pom</type>
+                <scope>import</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework.cloud</groupId>
+                        <artifactId>spring-cloud-aws-dependencies</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Other -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-jmx</artifactId>
+                <version>${hibernate.jmx.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymock</artifactId>
+                <version>${easymock.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.jamonapi</groupId>
+                <artifactId>jamon</artifactId>
+                <version>${jamon.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <repositories>
+        <!-- Need this for Spring Boot -->
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <!-- For Spring Cloud -->
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>http://repo.spring.io/milestone</url>
+            <!-- <url>https://repo.spring.io/libs-snapshot</url> -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <!-- Need this for Spring Boot Maven Plugin -->
+        <pluginRepository>
+            <id>spring-milestones2</id>
+            <url>http://repo.spring.io/milestone</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <build>
+        <!-- Ensure resources are exported correctly - conflict with Spring Boot -->
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <!-- Set Java version -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <!-- Set Project Natures -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-eclipse-plugin</artifactId>
+                <configuration>
+                    <downloadSources>true</downloadSources>
+                    <downloadJavadocs>true</downloadJavadocs>
+                    <wtpversion>2.0</wtpversion>
+                    <sourceIncludes>
+                        <sourceInclude>**/*.*</sourceInclude>
+                    </sourceIncludes>
+                    <!-- All of them are listed manually to solve a limitation of the 
+                        mvn eclipse plugin (https://issuetracker.springsource.com/browse/STS-2938). 
+                        This might cause some issues when migrating to the next version of Eclipse/STS) 
+                        also see spring-intro/pom.xml (projectnatures defined explicitely there 
+                        as well) -->
+                    <projectnatures>
+                        <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
+                        <projectnature>org.eclipse.jdt.core.javanature</projectnature>
+                        <projectnature>org.eclipse.wst.common.project.facet.core.nature</projectnature>
+                        <projectnature>org.eclipse.wst.common.modulecore.ModuleCoreNature</projectnature>
+                        <projectnature>org.eclipse.jem.workbench.JavaEMFNature</projectnature>
+                    </projectnatures>
+                    <additionalBuildcommands>
+                        <name>org.springframework.ide.eclipse.core.springbuilder</name>
+                    </additionalBuildcommands>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <includes>
+                        <include>**/*Tests.java</include>
+                    </includes>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.junit.platform</groupId>
+                        <artifactId>junit-platform-surefire-provider</artifactId>
+                        <version>${junit.platform.version}</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.junit.jupiter</groupId>
+                        <artifactId>junit-jupiter-engine</artifactId>
+                        <version>${junit.jupiter.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!-- Ensure resources are handled correctly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    <modules>
+        <!--
+          // DO NOT MODIFY THESE MODULE ELEMENTS - GENERATED AUTOMATICALLY
+          -->
+        <!-- Section: instructor -->
+        <!-- Section: intro -->
+        <module>rewards-common</module>
+        <module>rewards-db</module>
+        <!-- Section: main -->
+        <!-- Day 1 -->
+        <module>spring-intro</module>
+        <module>spring-intro-solution</module>
+        <module>javaconfig-dependency-injection</module>
+        <module>javaconfig-dependency-injection-solution</module>
+        <module>annotations</module>
+        <module>annotations-solution</module>
+        <module>test</module>
+        <module>test-solution</module>
+        <module>aop</module>
+        <module>aop-solution</module>
+        <module>jdbc</module>
+        <module>jdbc-solution</module>
+        <!-- Day 3 -->
+        <module>tx</module>
+        <module>tx-solution</module>
+        <module>jpa</module>
+        <module>jpa-solution</module>
+        <module>spring-data-jpa</module>
+        <module>spring-data-jpa-solution</module>
+        <module>mvc</module>
+        <module>mvc-solution</module>
+        <module>security</module>
+        <module>security-solution</module>
+        <module>rest-ws</module>
+        <module>rest-ws-solution</module>
+        <module>ms-discovery-server</module>
+        <module>ms-discovery-server-solution</module>
+        <module>ms-accounts-server</module>
+        <module>ms-accounts-server-solution</module>
+        <module>ms-web-client</module>
+        <module>ms-web-client-solution</module>
+        <module>reactive-spring</module>
+        <module>reactive-spring-solution</module>
+        <!-- Section: optional -->
+        <module>mvc-no-boot</module>
+        <module>mvc-no-boot-solution</module>
+        <module>jms</module>
+        <module>jms-solution</module>
+        <module>jmx</module>
+        <module>jmx-solution</module>
+        <module>xml-di</module>
+        <module>xml-di-solution</module>
+        <module>xml-dependency-injection-best-practices</module>
+        <module>xml-dependency-injection-best-practices-solution</module>
+        <!-- Section: appendix -->
+    </modules>
+</project>

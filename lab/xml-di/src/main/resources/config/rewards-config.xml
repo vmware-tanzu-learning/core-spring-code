@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- TODO-02:  Use STS to add the "context" namespace to this XML configuration file -->
+	
+	<!-- TODO-03:  Add the component-scan element to this configuration.  Be
+	sure to set the base-package to the same "rewards" value used in the RewardsConfig.java
+	file (this XML configuration will replace the RewardsConfig.java file) -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- TODO-05:  Add a bean definition to instantiate the JdbcAccountRepository.
+	give the bean any id you like.  Use a property sub-element to set the dataSource
+	property to a ref to a bean named "dataSource".  (note that this bean is defined
+	elsewhere, so the editor may give you a warning.)  -->
+	
+	<!-- TODO-06:  Add a bean definition to instantiate the JdbcRestaurantRepository.
+	It should have its dataSource property set the same way as the last bean.
+	Use the "init-method" attribute to call the "populateRestaurantCache" method
+	on startup.  -->
+	
+	<!-- TODO-07:  Add a bean definition to instantiate the JdbcRewardRepository.
+	It should have its dataSource property set the same way as the other beans.  -->
+	
+	<!-- TODO-08:  Add a bean definition to instantiate the RewardNetworkImpl.
+	give the bean the id "rewardNetwork".  Use three constructor-arg sub elements
+	to set its dependencies.  -->
+	
+	
+
+	<!-- TODO-14 (Bonus):  Now that we explicitly defined XML bean definitions
+	for all of our objects, does the <context:component-scan /> entry above
+	serve any purpose?  Remove it and re-run the test.  It should pass.  -->
+	
+	
+</beans>

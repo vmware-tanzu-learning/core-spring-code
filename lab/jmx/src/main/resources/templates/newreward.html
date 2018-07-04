@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" href="resources/styles/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="resources/styles/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="resources/styles/pivotal.css" />
+	<title>jmx-solution: JMX Management of Performance Monitor</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a title="Spring IO" href="http://www.spring.io"> 
+							<img src="resources/images/spring-trans-dark.png" height="50"/>
+						</a>
+					</div>
+					<div>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="http://www.pivotal.io">
+									<img alt="Pivotal" title="Pivotal" height="20" src="resources/images/pivotal-logo-600.png" />
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</div>
+		
+		<div align="right">[ <a href="/">Home</a> ]</div>
+		
+		<div class="row">
+		
+			<h1>Reward Points</h1>
+			
+			<form action="rewards" method="post" role="form" class="form-horizontal">
+				<fieldset>
+					<legend>
+						Reward Points (Success Scenario)
+					</legend>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="creditCardNumber">
+							Credit Card Number				
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="creditCardNumber" value="1234123412341234" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="amount">
+							Amount
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="amount" value="100.00" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="merchantNumber">
+							Merchant Number
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="merchantNumber" value="1234567890" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn button-default">
+								Reward Points
+							</button>		
+						</div>
+					</div>
+				</fieldset>
+			
+			</form>
+			
+			<form action="rewards" method="post" role="form" class="form-horizontal">
+				<fieldset>
+					<legend>
+						Reward Points (Bogus credit card scenario)
+					</legend>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="creditCardNumber">
+							Credit Card Number				
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="creditCardNumber" value="bogus" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="amount">
+							Amount
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="amount" value="100.00" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-sm-2" for="merchantNumber">
+							Merchant Number
+						</label>
+						<div class="col-sm-4">
+							<input type="text" name="merchantNumber" value="1234567890" class="form-control"/>
+						</div>
+						<div class="col-sm-6">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn button-default">
+								Reward Points
+							</button>		
+						</div>
+					</div>
+				</fieldset>
+			
+			</form>
+		
+		</div>
+	</div>
+
+</body>
+
+</html>

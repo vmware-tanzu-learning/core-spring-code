@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/jdbc
+							http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+							http://www.springframework.org/schema/context 
+							http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Infrastructure configuration to support system testing the rewards 
+		application. These beans are defined in a separate file to isolate infrastructure 
+		config from application config, as infrastructure often varies between environments. 
+		For example, in a test environment you might use a lightweight in-memory 
+		DataSource, while in production you connect to a database server with a connection 
+		pool. -->
+	
+	<!-- TODO 04: use the <import /> tag so the current file always 
+	comes with application-config.xml. Modify the RewardNetworkTests to specify
+	only one file when loading the ApplicationContext.  When done, re-run 
+	RewardNetworkTests, it should pass.	-->
+	
+
+	<!-- Creates an in-memory "rewards" database populated with test data for 
+		fast testing -->
+		
+	<!-- TODO 03: Declare a tag to externalize property values. (hint: use context namespace).
+		Set its location attribute to point to /application.properties. 
+		Create a new /application.properties file in the classpath root for it to reference. 
+		Externalize the 'scripts' values used in the 'populator' bean below. 
+		Re-run RewardNetworkTests, it should pass.		
+	-->
+		
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactoryBean">
+        <property name="databasePopulator" ref="populator"/>
+    </bean> 
+        
+    <bean id="populator" class="org.springframework.jdbc.datasource.init.ResourceDatabasePopulator">
+        <property name="scripts">
+            <list>
+                <value>classpath:rewards/testdb/schema.sql</value>
+                <value>classpath:rewards/testdb/data.sql</value>
+            </list>
+        </property>
+    </bean>
+	
+	<!-- TODO 05: Replace the dataSource and populator beans above with a
+	    jdbc:embedded-database declaration -->
+
+</beans>
