@@ -2,8 +2,6 @@ package config;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * TODO-01: This class will be used to define our application beans. Annotate to
  * mark it as a special class for providing Spring with bean configuration
@@ -11,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * <p>
  * TODO-02: Define four empty @Bean methods, one for the reward-network and
  * three for the repositories. For consistency, the RewardNetworkImpl should
- * have the bean name 'rewardNetwork'. We have already provided three JDDC
+ * have the bean name 'rewardNetwork'. We have already provided three JDBC
  * repository implementations - for Accounts, Restaurants and Rewards
  * <p>
  * TODO-03: Each repository has a DataSource property to set, but the DataSource
