@@ -1,7 +1,9 @@
 package utils;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Level;
+
 import org.springframework.transaction.IllegalTransactionStateException;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -13,9 +15,6 @@ import org.springframework.transaction.support.DefaultTransactionDefinition;
  * <p>
  * <b>Note:</b> With Spring's @Transactional tests, you don't need any of this
  * <i>unless</i> you need to run multiple transactions in a single test.
- * 
- * @author paulchapman
- *
  */
 public class TransactionUtils {
 
@@ -35,8 +34,11 @@ public class TransactionUtils {
 		assert (transactionManager != null);
 
 		this.transactionManager = transactionManager;
-		logger = Logger.getLogger(getClass());
-		logger.setLevel(Level.INFO);
+
+		logger = LoggerFactory.getLogger(getClass());
+		if (logger instanceof ch.qos.logback.classic.Logger)
+			((ch.qos.logback.classic.Logger) logger).setLevel(Level.INFO);
+
 	}
 
 	/**

@@ -1,9 +1,10 @@
 package rewards.internal.aspects;
 
-import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import rewards.internal.monitor.Monitor;
 import rewards.internal.monitor.MonitorFactory;
@@ -18,7 +19,7 @@ public class LoggingAspect {
     public final static String BEFORE = "'Before'";
     public final static String AROUND = "'Around'";
 
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	private MonitorFactory monitorFactory;
 
 	

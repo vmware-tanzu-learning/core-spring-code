@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>rest-ws</artifactId>
+    <artifactId>32-rest-ws</artifactId>
     <organization>
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.pivotal.education.core-spring</groupId>
         <artifactId>parentProject</artifactId>
-        <version>5.0.a.RELEASE</version>
+        <version>5.0.c.RELEASE</version>
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -29,11 +29,11 @@
         </dependency>
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-common</artifactId>
+            <artifactId>00-rewards-common</artifactId>
         </dependency>
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-db</artifactId>
+            <artifactId>01-rewards-db</artifactId>
         </dependency>
 		<!-- Automatic application restart -->
 		<dependency>
@@ -46,7 +46,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.maven.plugin}</version>
             </plugin>
             <plugin>
                 <!-- Skip these tests.  They won't pass until the student completes the lab. -->

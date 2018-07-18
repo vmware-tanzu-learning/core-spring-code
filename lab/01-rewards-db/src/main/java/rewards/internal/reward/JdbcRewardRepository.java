@@ -2,15 +2,15 @@ package rewards.internal.reward;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import common.datetime.SimpleDate;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
-
-import common.datetime.SimpleDate;
 
 /**
  * JDBC implementation of a reward repository that records the result of a
@@ -20,7 +20,7 @@ public class JdbcRewardRepository implements RewardRepository {
 
 	public static final String TYPE = "jdbc";
 
-	private static final Logger logger = Logger.getLogger("config");
+	private static final Logger logger = LoggerFactory.getLogger("config");
 
 	private JdbcTemplate jdbcTemplate;
 

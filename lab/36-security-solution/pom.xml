@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>security-solution</artifactId>
+    <artifactId>36-security-solution</artifactId>
     <organization>
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
@@ -10,13 +10,13 @@
     <parent>
         <groupId>io.pivotal.education.core-spring</groupId>
         <artifactId>parentProject</artifactId>
-        <version>5.0.a.RELEASE</version>
+        <version>5.0.c.RELEASE</version>
     </parent>
     <dependencies>
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-common</artifactId>
+            <artifactId>00-rewards-common</artifactId>
         </dependency>
         <!--
   		  // Defines: Account, Beneficiary, AccountManager.
@@ -26,7 +26,7 @@
   		  -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-db</artifactId>
+            <artifactId>01-rewards-db</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

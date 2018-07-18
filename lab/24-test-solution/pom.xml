@@ -10,12 +10,12 @@
     <parent>
         <groupId>io.pivotal.education.core-spring</groupId>
         <artifactId>parentProject</artifactId>
-        <version>5.0.a.RELEASE</version>
+        <version>5.0.c.RELEASE</version>
     </parent>
     <dependencies>
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-common</artifactId>
+            <artifactId>00-rewards-common</artifactId>
         </dependency>
         <dependency>
             <groupId>simple-jndi</groupId>

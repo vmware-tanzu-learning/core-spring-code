@@ -7,7 +7,8 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -23,7 +24,7 @@ import common.money.Percentage;
 @Repository
 public class JdbcAccountRepository implements AccountRepository {
 
-	private Logger logger = Logger.getLogger(JdbcAccountRepository.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private DataSource dataSource;
 

@@ -3,7 +3,8 @@ package rewards.internal.account;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * An account repository that uses JPA to find accounts.
@@ -12,7 +13,8 @@ public class JpaAccountRepository implements AccountRepository {
 
 	public static final String INFO = "JPA";
 
-	private static final Logger logger = Logger.getLogger("config");
+	
+	private static final Logger logger = LoggerFactory.getLogger("config");
 	
 	private EntityManager entityManager;
 

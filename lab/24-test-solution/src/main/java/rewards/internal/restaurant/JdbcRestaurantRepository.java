@@ -11,7 +11,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -28,7 +29,7 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 
 	private DataSource dataSource;
 
-	private Logger logger = Logger.getLogger(JdbcRestaurantRepository.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	/**
 	 * The Restaurant object cache. Cached restaurants are indexed by their merchant numbers.

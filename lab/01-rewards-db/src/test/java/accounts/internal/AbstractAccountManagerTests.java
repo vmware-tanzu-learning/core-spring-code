@@ -7,9 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Level;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,8 +38,9 @@ public abstract class AbstractAccountManagerTests {
 	protected AccountManager accountManager;
 
 	public AbstractAccountManagerTests() {
-		logger = Logger.getLogger(getClass());
-		logger.setLevel(Level.INFO);
+		logger = LoggerFactory.getLogger(getClass());
+		if (logger instanceof ch.qos.logback.classic.Logger)
+			((ch.qos.logback.classic.Logger) logger).setLevel(Level.INFO);
 	}
 
 	/**
@@ -98,7 +101,7 @@ public abstract class AbstractAccountManagerTests {
 				&& this.getClass().getAnnotation(ContextConfiguration.class) == null)
 			return;
 
-		//long newAccountId = getNumAccountsExpected();
+		// long newAccountId = getNumAccountsExpected();
 
 		Account account = new Account("1010101", "Test");
 		account.addBeneficiary("Bene1", Percentage.valueOf("100%"));

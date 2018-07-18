@@ -3,15 +3,15 @@ package rewards.internal;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Profile;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
+import common.money.Percentage;
 import rewards.internal.restaurant.Restaurant;
 import rewards.internal.restaurant.RestaurantRepository;
-
-import common.money.Percentage;
 
 /**
  * A dummy restaurant repository implementation. Has a single restaurant
@@ -27,7 +27,7 @@ import common.money.Percentage;
 @Repository("restaurantRepository")
 public class StubRestaurantRepository implements RestaurantRepository {
 
-	private Logger logger = Logger.getLogger(StubRestaurantRepository.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private Map<String, Restaurant> restaurantsByMerchantNumber = new HashMap<String, Restaurant>();
 

@@ -5,7 +5,8 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -24,7 +25,8 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 public class SimpleJndiHelper implements BeanFactoryPostProcessor {
 
 	public static final String REWARDS_DB_JNDI_PATH = "java:/comp/env/jdbc/rewards";
-	protected Logger logger = Logger.getLogger(SimpleJndiHelper.class);
+
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public void doJndiSetup() {
 		System.setProperty(Context.INITIAL_CONTEXT_FACTORY,
@@ -49,7 +51,7 @@ public class SimpleJndiHelper implements BeanFactoryPostProcessor {
 			logger.info("JNDI Resource '" + REWARDS_DB_JNDI_PATH
 					+ "' instanceof " + ds.getClass().getSimpleName());
 		} catch (NamingException ex) {
-			Logger.getLogger(getClass()).error(ex);
+			logger.error("JNDI setup failed", ex);
 			ex.printStackTrace();
 			System.exit(0);
 		}

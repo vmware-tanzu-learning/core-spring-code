@@ -8,7 +8,8 @@ import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,7 @@ public class JpaAccountManager implements AccountManager {
 
 	public static final String INFO = "JPA";
 
-	private static final Logger logger = Logger.getLogger("config");
+	private static final Logger logger = LoggerFactory.getLogger("config");
 	
 	private EntityManager entityManager;
 

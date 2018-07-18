@@ -2,7 +2,8 @@ package rewards.internal;
 
 import java.util.Random;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import rewards.AccountContribution;
 import rewards.Dining;
@@ -14,7 +15,7 @@ import rewards.internal.reward.RewardRepository;
  */
 public class StubRewardRepository implements RewardRepository {
 
-	private Logger logger = Logger.getLogger(StubRewardRepository.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	/**
 	 * Constructor logs creation so we know which repository we are using.

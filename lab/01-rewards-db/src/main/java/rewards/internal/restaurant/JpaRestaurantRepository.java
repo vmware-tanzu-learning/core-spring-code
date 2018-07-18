@@ -3,7 +3,8 @@ package rewards.internal.restaurant;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Loads restaurants from a data source using JPA.
@@ -12,7 +13,7 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 
 	public static final String INFO = "JPA";
 
-	private static final Logger logger = Logger.getLogger("config");
+	private static final Logger logger = LoggerFactory.getLogger("config");
 
 	private EntityManager entityManager;
 

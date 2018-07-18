@@ -1,6 +1,7 @@
 package rewards;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
@@ -11,7 +12,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
  */
 public class LoggingBeanPostProcessor implements BeanPostProcessor {
 
-	Logger logger = Logger.getLogger(LoggingBeanPostProcessor.class);
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName)

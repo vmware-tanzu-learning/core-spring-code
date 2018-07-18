@@ -36,9 +36,12 @@
         <jaxb-api.version>2.3.0</jaxb-api.version>
     </properties>
     <dependencies>
-        <!-- // Although we are not using Spring Boot until Day 3, we do use SpringApplication 
-            // which is a Spring Boot class. The starters are also a convenient way of 
-            pulling // in the most common Spring and Testing dependencies. -->
+        <!--
+          // Although we are not using Spring Boot until Day 3, we do use
+          // SpringApplication which is a Spring Boot class. The starters
+          // are also a convenient way of pulling in the most common
+          // Spring and Testing dependencies.
+          -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -82,18 +85,19 @@
             <artifactId>jaxb-api</artifactId>
         </dependency>
     </dependencies>
+
     <!-- Dependencies we may need, and their versions -->
     <dependencyManagement>
         <dependencies>
             <!-- Course specific -->
             <dependency>
                 <groupId>io.pivotal.education.core-spring</groupId>
-                <artifactId>rewards-common</artifactId>
+                <artifactId>00-rewards-common</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.pivotal.education.core-spring</groupId>
-                <artifactId>rewards-db</artifactId>
+                <artifactId>01-rewards-db</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <!-- Spring Cloud  -->
@@ -242,7 +246,7 @@
           -->
         <!-- Section: Shared -->
         <module>00-rewards-common</module>
-        <module>00-rewards-db</module>
+        <module>01-rewards-db</module>
         
         <!-- Section: Spring Essentials -->
         <module>10-spring-intro</module>
@@ -261,25 +265,17 @@
         <module>28-transactions</module>
         <module>28-transactions-solution</module>
         
-        <!-- Sections: Spring Boot
-        <module>jpa</module>
-        <module>jpa-solution</module>
-        <module>spring-data-jpa</module>
-        <module>spring-data-jpa-solution</module>
-        <module>mvc</module>
-        <module>mvc-solution</module>
-        <module>security</module>
-        <module>security-solution</module>
-        <module>rest-ws</module>
-        <module>rest-ws-solution</module>
-        <module>ms-discovery-server</module>
-        <module>ms-discovery-server-solution</module>
-        <module>ms-accounts-server</module>
-        <module>ms-accounts-server-solution</module>
-        <module>ms-web-client</module>
-        <module>ms-web-client-solution</module>
-        <module>reactive-spring</module>
-        <module>reactive-spring-solution</module> -->
+        <!-- Sections: Spring Boot -->
+        <module>30-mvc</module>
+        <module>30-mvc-solution</module>
+        <module>32-rest-ws</module>
+        <module>32-rest-ws-solution</module>
+        <module>33-jpa-no-boot</module>
+        <module>33-jpa-no-boot-solution</module>
+        <module>34-spring-data-jpa</module>
+        <module>34-spring-data-jpa-solution</module>
+        <module>36-security</module>
+        <module>36-security-solution</module>
 
         <!-- Section: optional -->
         <!-- <module>mvc-no-boot</module>

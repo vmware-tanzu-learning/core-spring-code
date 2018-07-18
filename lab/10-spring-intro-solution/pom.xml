@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
-            <artifactId>rewards-common</artifactId>
+            <artifactId>00-rewards-common</artifactId>
         </dependency>
     </dependencies>
 </project>

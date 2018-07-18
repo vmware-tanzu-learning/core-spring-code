@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.apache.log4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
 import rewards.internal.account.Account;
@@ -45,7 +45,7 @@ public class StubAccountManager implements AccountManager {
 		account.getBeneficiary("Corgan").setEntityId(1L);
 		accountsById.put(0L, account);
 		
-		Logger.getLogger(StubAccountManager.class).info("Created StubAccountManager");
+		LoggerFactory.getLogger(StubAccountManager.class).info("Created StubAccountManager");
 	}
 
 	@Override

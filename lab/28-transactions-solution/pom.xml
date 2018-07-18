@@ -18,7 +18,6 @@
 		<dependency>
 			<groupId>io.pivotal.education.core-spring</groupId>
 			<artifactId>00-rewards-common</artifactId>
-			<version>5.0.c.RELEASE</version>
 		</dependency>
 	</dependencies>
 </project>

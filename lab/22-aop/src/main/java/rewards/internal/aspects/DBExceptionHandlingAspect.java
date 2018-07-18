@@ -1,7 +1,8 @@
 package rewards.internal.aspects;
 
-import org.apache.log4j.Logger;
 import org.aspectj.lang.annotation.Aspect;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import rewards.internal.exception.RewardDataAccessException;
 
@@ -11,7 +12,7 @@ public class DBExceptionHandlingAspect {
 	
 	public static final String EMAIL_FAILURE_MSG = "Failed sending an email to Mister Smith : ";
 	
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 
 	//	TODO-10 OPTIONAL REQUIREMENT #3: Use AOP to log an exception.
