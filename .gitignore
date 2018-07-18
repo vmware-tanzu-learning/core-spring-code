@@ -1,1 +1,13 @@
+build
+target
+.DS_Store
+*.iml
+pal.properties
+course.properties
+Thumbs.db
+
 .idea
+.gradle
+.vscode
+.project
+.settings
