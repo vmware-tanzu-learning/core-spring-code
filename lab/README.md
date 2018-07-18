@@ -1,11 +1,7 @@
 # Core Spring Lab Projects
 
-Please note that Spring Cloud is not yet compatible with Spring Boot.
+Labs for the Core Spring course: https://github.com/platform-acceleration-lab/core-spring-course/blob/master/README.md.
 
-For now I have removed these labs from modules.xml:
-* ms-discovery-server
-* ms-discovery-server-solution
-* ms-web-client
-* ms-web-client-solution
+For now the optional labs (numbered 70 and above) are excluded from the parent POM in `lab/` directory.
 
-Put them back when you can.
+To import these labs into your IDE, import the parent pom `lab/pom.xml`.
