@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.pivotal.education.core-spring</groupId>
     <artifactId>parentProject</artifactId>
-    <version>5.0.a.RELEASE</version>
+    <version>5.0.c.RELEASE</version>
     <organization>
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
@@ -11,26 +11,27 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.0.M5</version>
+        <version>2.0.3.RELEASE</version>
     </parent>
     <properties>
         <!-- Override some defaults from Spring Boot. -->
-        <spring.boot.maven.plugin>2.0.0.M5</spring.boot.maven.plugin>
-        <!-- <spring.cloud.version>2.0.0.M2</spring.cloud.version> -->
-        <spring.cloud.build>Finchley.M3</spring.cloud.build>
-        <!-- <spring.version>5.0.0.RELEASE</spring.version> -->
+        <spring.cloud.build>Finchley.RELEASE</spring.cloud.build>
+
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>3.1</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.81</jamon.version>
+
         <!-- JUnit 5 related properties -->
         <java.version>1.8</java.version>
         <junit.version>4.12</junit.version>
-        <junit.jupiter.version>5.0.0</junit.jupiter.version>
+        <junit.jupiter.version>5.1.1</junit.jupiter.version>
         <junit.vintage.version>${junit.version}.0</junit.vintage.version>
         <junit.platform.version>1.0.0</junit.platform.version>
+
         <!-- Enable maven support for Servlet 3 - no web.xml -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
+
         <!-- Add JAXB that is dropped in JDK 9 -->
         <jaxb-api.version>2.3.0</jaxb-api.version>
     </properties>
@@ -51,7 +52,6 @@
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- To run tests on IDE such as Eclipse, Intellij -->
@@ -64,7 +64,6 @@
         <dependency>
             <groupId>org.junit.vintage</groupId>
             <artifactId>junit-vintage-engine</artifactId>
-            <version>${junit.vintage.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- Needed for the Spring jdbc namespace -->
@@ -81,7 +80,6 @@
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
-            <version>${jaxb-api.version}</version>
         </dependency>
     </dependencies>
     <!-- Dependencies we may need, and their versions -->
@@ -213,7 +211,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.19.1</version>
                 <configuration>
                     <includes>
                         <include>**/*Tests.java</include>
@@ -243,27 +240,28 @@
         <!--
           // DO NOT MODIFY THESE MODULE ELEMENTS - GENERATED AUTOMATICALLY
           -->
-        <!-- Section: instructor -->
-        <!-- Section: intro -->
-        <module>rewards-common</module>
-        <module>rewards-db</module>
-        <!-- Section: main -->
-        <!-- Day 1 -->
-        <module>spring-intro</module>
-        <module>spring-intro-solution</module>
-        <module>javaconfig-dependency-injection</module>
-        <module>javaconfig-dependency-injection-solution</module>
-        <module>annotations</module>
-        <module>annotations-solution</module>
-        <module>test</module>
-        <module>test-solution</module>
-        <module>aop</module>
-        <module>aop-solution</module>
-        <module>jdbc</module>
-        <module>jdbc-solution</module>
-        <!-- Day 3 -->
-        <module>tx</module>
-        <module>tx-solution</module>
+        <!-- Section: Shared -->
+        <module>00-rewards-common</module>
+        <module>00-rewards-db</module>
+        
+        <!-- Section: Spring Essentials -->
+        <module>10-spring-intro</module>
+        <module>10-spring-intro-solution</module>
+        <module>12-javaconfig-dependency-injection</module>
+        <module>12-javaconfig-dependency-injection-solution</module>
+        <module>16-annotations</module>
+        <module>16-annotations-solution</module>
+
+        <module>24-test</module>
+        <module>24-test-solution</module>
+        <module>22-aop</module>
+        <module>22-aop-solution</module>
+        <module>26-jdbc</module>
+        <module>26-jdbc-solution</module>
+        <module>28-transactions</module>
+        <module>28-transactions-solution</module>
+        
+        <!-- Sections: Spring Boot
         <module>jpa</module>
         <module>jpa-solution</module>
         <module>spring-data-jpa</module>
@@ -281,9 +279,10 @@
         <module>ms-web-client</module>
         <module>ms-web-client-solution</module>
         <module>reactive-spring</module>
-        <module>reactive-spring-solution</module>
+        <module>reactive-spring-solution</module> -->
+
         <!-- Section: optional -->
-        <module>mvc-no-boot</module>
+        <!-- <module>mvc-no-boot</module>
         <module>mvc-no-boot-solution</module>
         <module>jms</module>
         <module>jms-solution</module>
@@ -292,7 +291,8 @@
         <module>xml-di</module>
         <module>xml-di-solution</module>
         <module>xml-dependency-injection-best-practices</module>
-        <module>xml-dependency-injection-best-practices-solution</module>
+        <module>xml-dependency-injection-best-practices-solution</module>-->
+
         <!-- Section: appendix -->
     </modules>
 </project>
