@@ -64,6 +64,7 @@ public class JdbcRewardRepositoryTests {
 		//	TODO-02: Use the JdbcTemplate to query for a map of all values in the T_REWARD table based on the
 		// 	confirmationNumber. After making the changes, execute the test class to verify its 
 		//	successful execution.
+		//   SQL: SELECT * FROM T_REWARD WHERE CONFIRMATION_NUMBER = ?
 		
 		Map<String, Object> values = null;
 		verifyInsertedValues(confirmation, dining, values);
@@ -81,6 +82,7 @@ public class JdbcRewardRepositoryTests {
 
 	private int getRewardCount() throws SQLException {
 		// TODO-01: Use the JdbcTemplate to query for the number of rows in the T_REWARD table
+		//          SQL: SELECT count(*) FROM T_REWARD
 		return -1;
 	}
 

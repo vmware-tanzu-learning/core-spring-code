@@ -10,15 +10,17 @@ import org.springframework.beans.factory.annotation.Autowired;
  * instructions.
  * <p>
  * TODO-02: Define four empty @Bean methods, one for the reward-network and
- * three for the repositories. For consistency, the RewardNetworkImpl should
- * have the bean name 'rewardNetwork'. We have already provided three JDDC
- * repository implementations - for Accounts, Restaurants and Rewards
+ * three for the repositories.
+ *  - The RewardNetworkImpl should the bean name 'rewardNetwork'.
+ *  - We have provided three JDDC repository implementations for
+ *    Accounts, Restaurants and Rewards. Their bean names should be
+ *    `accountRepository`, `restaurantRepository` and `rewardRepository`.
  * <p>
  * TODO-03: Each repository has a DataSource property to set, but the DataSource
  * is defined elsewhere (TestInfrastructureConfig.java), so you will need to
- * define a constructor to allow Spring to set the dataSource. As it is the only
- * constructor, Spring will automatically call it, so @Autowired is not
- * required.
+ * define a constructor for this class that accepts a dataSource parameter.
+ * As it is the only constructor, Spring will automatically call it, so
+ * @Autowired is optional.
  * <p>
  * TODO-04: Implement each @Bean method to contain the code needed to
  * instantiate its object and set its dependencies. Be careful - do you need to

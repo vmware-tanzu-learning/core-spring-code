@@ -17,11 +17,16 @@ import common.money.Percentage;
 /**
  * Loads restaurants from a data source using the JDBC API.
  */
-//	TODO-04: Add a field of type JdbcTemplate.  Refactor the constructor to instantiate it.
-//	Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper called RestaurantRowMapper.
-//	Note that the mapRestaurant() method contains logic which the RowMapper may wish to use.
-//  (If you prefer, use a lambda insead of the RestaurantRowMapper)
-//	When complete, save all changes and run JdbcRestaurantRepositoryTests.  It should pass.
+//	TODO-04: Replace the JDBC code in JdbcRestaurantRepository with JdbcTemplate.
+//   1. Add a field of type JdbcTemplate.
+//   2. Refactor the constructor to instantiate it.
+//	 3. Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
+//      called RestaurantRowMapper.
+//	    NOTE: The mapRestaurant() method contains logic which the RowMapper
+//      may wish to use.
+//      OPTIONAL: Use a lambda instead of the RestaurantRowMapper class
+//	 4. When complete, save all changes and run JdbcRestaurantRepositoryTests.
+//      It should pass.
 
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
@@ -32,43 +37,20 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	}
 
 	public Restaurant findByMerchantNumber(String merchantNumber) {
-		String sql = "select MERCHANT_NUMBER, NAME, BENEFIT_PERCENTAGE, BENEFIT_AVAILABILITY_POLICY from T_RESTAURANT where MERCHANT_NUMBER = ?";
+		String sql = "select MERCHANT_NUMBER, NAME, BENEFIT_PERCENTAGE, BENEFIT_AVAILABILITY_POLICY"
+				+ " from T_RESTAURANT where MERCHANT_NUMBER = ?";
 		Restaurant restaurant = null;
-		Connection conn = null;
-		PreparedStatement ps = null;
-		ResultSet rs = null;
-		try {
-			conn = dataSource.getConnection();
-			ps = conn.prepareStatement(sql);
+
+		try (Connection conn = dataSource.getConnection();
+			 PreparedStatement ps = conn.prepareStatement(sql) ){
 			ps.setString(1, merchantNumber);
-			rs = ps.executeQuery();
+			ResultSet rs = ps.executeQuery();
 			advanceToNextRow(rs);
 			restaurant = mapRestaurant(rs);
 		} catch (SQLException e) {
 			throw new RuntimeException("SQL exception occurred finding by merchant number", e);
-		} finally {
-			if (rs != null) {
-				try {
-					// Close to prevent database cursor exhaustion
-					rs.close();
-				} catch (SQLException ex) {
-				}
-			}
-			if (ps != null) {
-				try {
-					// Close to prevent database cursor exhaustion
-					ps.close();
-				} catch (SQLException ex) {
-				}
-			}
-			if (conn != null) {
-				try {
-					// Close to prevent database connection exhaustion
-					conn.close();
-				} catch (SQLException ex) {
-				}
-			}
 		}
+
 		return restaurant;
 	}
 
@@ -77,11 +59,12 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	 * @param rs the result set with its cursor positioned at the current row
 	 */
 	private Restaurant mapRestaurant(ResultSet rs) throws SQLException {
-		// get the row column data
+		// Get the row column data
 		String name = rs.getString("NAME");
 		String number = rs.getString("MERCHANT_NUMBER");
 		Percentage benefitPercentage = Percentage.valueOf(rs.getString("BENEFIT_PERCENTAGE"));
-		// map to the object
+
+		// Map to the object
 		Restaurant restaurant = new Restaurant(number, name);
 		restaurant.setBenefitPercentage(benefitPercentage);
 		restaurant.setBenefitAvailabilityPolicy(mapBenefitAvailabilityPolicy(rs));
