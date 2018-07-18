@@ -91,26 +91,23 @@ public class MockMvcTests {
 	 */
 	
 	// TODO-14: EXTRA CREDIT. Read the Javadoc above to see how this test works,
-	// Then try running the tests. The getAccountTest() test (below) should fail
-	// because even though you have just implemented it, the test still assumes a
-	// 404 is returned.
-
+	// Get rid of @Disabled. Then try running the tests again
+	// The getAccountTest() test (below) should pass but it is doing minimal validation.
 	@Test
+	@Disabled
 	public void getAccountTest() throws Exception {
 		this.mockMvc
 				.perform(get("/accountDetails") //
 						.param("entityId", "0") //
 						.accept(MediaType.parseMediaType("text/html;charset=UTF-8")))
 				// TODO-15: EXTRA CREDIT Fix this method
-				// 1. Modify the line below - the URL is now valid so we no
-				// longer get a 404.
-				// 2. Add 3 more andExpect() methods similar to the
+				// 1. Add 3 more andExpect() methods similar to the
 				// getAccountsTest() method above. Check that:
-				// 2a. The model contains 1 attribute
-				// 2b. That the attribute has the correct name
-				// 2c. That we are using the right view: "accountDetails"
-				// 3. Rerun the tests until they all pass.
-				.andExpect(status().isNotFound());
+				// 1a. The model contains 1 attribute
+				// 1b. That the attribute has the correct name
+				// 1c. That we are using the right view: "accountDetails"
+				// 2. Rerun the tests until they all pass.
+				.andExpect(status().isOk());
 	}
 
 }

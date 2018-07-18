@@ -70,7 +70,6 @@ public class AccountController {
 	// TODO 06: Complete this method. Add annotations to:
 	//  a. Respond to POST /accounts requests
     //  b. Automatically get an unmarshaled Account from the request
-    //  c. Indicate a "201 Created" status
 	public ResponseEntity<Void> createAccount(Account newAccount) {
 		// Saving the account also sets its entity Id
 		Account account = accountManager.save(newAccount);
@@ -97,10 +96,11 @@ public class AccountController {
 
 		// TODO 07: Set the Location header on a Response to the location of
 		//          the resource and return it.
-		//  a. Read the Javadoc for this method above to see what the URL should be
+		//  a. Read the Javadoc for this method (above) to see what the URL should be
 		//  b. You will need to use ServletUriComponentsBuilder and
 		//     ResponseEntity to implement this.
-		//  c. Refer to the POST example in the slides for more information
+		//  c. Use ResponseEntity.created()
+		//  d. Refer to the POST example in the slides for more information
 
 		return null; // Return something other than null
 	}

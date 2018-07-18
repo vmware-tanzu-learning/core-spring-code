@@ -49,7 +49,7 @@ public class AccountClientTests {
 	@Test
 	@Disabled
 	public void getAccount() {
-		//	TODO 05: Remove the @@Disabled on this test method.
+		//	TODO 05: Remove the @Disabled on this test method.
 		//	Use the restTemplate to retrieve the Account with id 0 using a URI template
 		//	Run the test and ensure that it passes.
 		Account account = null; // Modify this line to use the restTemplate
@@ -105,8 +105,9 @@ public class AccountClientTests {
 		try {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 
-			//	TODO 17: Try to retrieve the new Beneficiary again.  
-			//	You should get 404 Not Found.  If not, it is likely your delete was not successful. 
+			//	TODO 17: Try to retrieve the new Beneficiary again. 
+			//     Run this test, it should pass because we expect a 404 Not Found
+			//	   If not, it is likely your delete was not successful. 
 			
 			fail("Should have received 404 Not Found after deleting beneficiary");
 		} catch (HttpClientErrorException e) {
