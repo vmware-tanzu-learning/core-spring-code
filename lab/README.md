@@ -1,6 +1,6 @@
 # Core Spring Lab Projects
 
-Labs for the Core Spring course: https://github.com/platform-acceleration-lab/core-spring-course/blob/master/README.md.
+Labs for the Core Spring course: https://github.com/platform-acceleration-lab/core-spring-course.
 
 For now the optional labs (numbered 70 and above) are excluded from the parent POM in `lab/` directory.
 
