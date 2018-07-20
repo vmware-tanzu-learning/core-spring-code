@@ -1,15 +1,14 @@
 package rewards.internal.account;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
-import rewards.AccountContribution;
-import rewards.AccountContribution.Distribution;
-
 import common.money.MonetaryAmount;
 import common.money.Percentage;
 import common.repository.Entity;
+import rewards.AccountContribution;
+import rewards.AccountContribution.Distribution;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * An account for a member of the reward network. An account has one or more beneficiaries whose allocations must add up

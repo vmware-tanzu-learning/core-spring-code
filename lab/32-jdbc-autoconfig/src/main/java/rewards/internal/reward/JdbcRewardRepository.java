@@ -1,14 +1,12 @@
 package rewards.internal.reward;
 
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 
-import common.datetime.SimpleDate;
+import javax.sql.DataSource;
 
 /**
  * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward

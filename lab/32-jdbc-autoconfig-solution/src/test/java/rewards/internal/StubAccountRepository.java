@@ -1,14 +1,12 @@
 package rewards.internal;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import common.money.Percentage;
 import org.springframework.dao.EmptyResultDataAccessException;
-
 import rewards.internal.account.Account;
 import rewards.internal.account.AccountRepository;
 
-import common.money.Percentage;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A dummy account repository implementation. Has a single Account "Keith and Keri Donald" with two beneficiaries

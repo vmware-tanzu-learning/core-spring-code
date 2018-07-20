@@ -1,17 +1,14 @@
 package rewards.internal.restaurant;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.money.Percentage;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
 import rewards.Dining;
 import rewards.internal.account.Account;
 
-import common.money.Percentage;
+import javax.sql.DataSource;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Loads restaurants from a data source using the JDBC API.

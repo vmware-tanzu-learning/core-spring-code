@@ -1,11 +1,10 @@
 package rewards.internal.restaurant;
 
-import rewards.Dining;
-import rewards.internal.account.Account;
-
 import common.money.MonetaryAmount;
 import common.money.Percentage;
 import common.repository.Entity;
+import rewards.Dining;
+import rewards.internal.account.Account;
 
 /**
  * A restaurant establishment in the network. Like AppleBee's.

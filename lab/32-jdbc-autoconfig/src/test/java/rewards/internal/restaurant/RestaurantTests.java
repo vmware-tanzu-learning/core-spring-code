@@ -1,15 +1,13 @@
 package rewards.internal.restaurant;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import rewards.Dining;
 import rewards.internal.account.Account;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Unit tests for exercising the behavior of the Restaurant aggregate entity. A restaurant calculates a benefit to award

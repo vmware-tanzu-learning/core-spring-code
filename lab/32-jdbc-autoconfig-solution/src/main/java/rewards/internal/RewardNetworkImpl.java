@@ -1,5 +1,6 @@
 package rewards.internal;
 
+import common.money.MonetaryAmount;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
@@ -9,8 +10,6 @@ import rewards.internal.account.AccountRepository;
 import rewards.internal.restaurant.Restaurant;
 import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.RewardRepository;
-
-import common.money.MonetaryAmount;
 
 /**
  * Rewards an Account for Dining at a Restaurant.
