@@ -267,6 +267,8 @@
         <!-- Sections: Spring Boot -->
         <module>30-mvc</module>
         <module>30-mvc-solution</module>
+        <module>32-jdbc-autoconfig</module>
+        <module>32-jdbc-autoconfig-solution</module>
         <module>32-rest-ws</module>
         <module>32-rest-ws-solution</module>
         <module>33-jpa-no-boot</module>
