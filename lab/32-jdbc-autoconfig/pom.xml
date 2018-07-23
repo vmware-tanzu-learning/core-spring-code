@@ -12,6 +12,12 @@
         <artifactId>parentProject</artifactId>
         <version>5.0.c.RELEASE</version>
     </parent>
+
+    <!-- TODO-01 : Add the Spring Boot Plugin -->
+
+    <!-- TODO-02 : Refactor from discrete Spring Framework and 3rd
+         Party dependencies to JDBC and HSQLDB Spring Boot Starters -->
+
     <dependencies>
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>

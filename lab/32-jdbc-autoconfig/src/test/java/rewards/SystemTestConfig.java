@@ -8,8 +8,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 import javax.sql.DataSource;
 
-// TODO-09: Delete the `SystemTestConfig` class
-
 @Configuration
 @Import(RewardsConfig.class)
 public class SystemTestConfig {
