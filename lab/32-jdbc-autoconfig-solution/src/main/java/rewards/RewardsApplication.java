@@ -23,7 +23,6 @@ import javax.xml.crypto.Data;
 
 @SpringBootApplication
 @ComponentScan("config")
-//@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 public class RewardsApplication {
     private final Logger logger
             = LoggerFactory.getLogger(RewardsApplication.class);
@@ -38,11 +37,8 @@ public class RewardsApplication {
     public final class QueryAccountCountRunner
             implements CommandLineRunner {
 
-        private final JdbcTemplate jdbcTemplate;
-
-        public QueryAccountCountRunner(DataSource dataSource) {
-            this.jdbcTemplate = new JdbcTemplate(dataSource);
-        }
+        @Autowired
+        private JdbcTemplate jdbcTemplate;
 
         @Override
         public void run(String... args) throws Exception {
