@@ -256,6 +256,17 @@ public class Account {
 	}
 
 	/**
+	 * Used to restore an allocated beneficiary. Should only be called by the
+	 * repository responsible for reconstituting this account.
+	 * 
+	 * @param beneficiary
+	 *            the beneficiary
+	 */
+	void restoreBeneficiary(Beneficiary beneficiary) {
+		beneficiaries.add(beneficiary);
+	}
+
+	/**
 	 * String representation for debugging.
 	 */
 	public String toString() {
