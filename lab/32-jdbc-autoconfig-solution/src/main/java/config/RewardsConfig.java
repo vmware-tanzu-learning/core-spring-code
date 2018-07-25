@@ -22,6 +22,7 @@ import rewards.internal.reward.RewardRepository;
 import javax.sql.DataSource;
 
 @Configuration
+//@EnableAutoConfiguration(exclude = DataSourceAutoConfiguration.class)
 public class RewardsConfig {
 	private final Logger logger
 			= LoggerFactory.getLogger(RewardsConfig.class);
@@ -38,8 +39,8 @@ public class RewardsConfig {
 		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
 		EmbeddedDatabase db = builder
 				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("rewards/testdb/schema.sql")
-				.addScript("rewards/testdb/data.sql")
+				.addScript("classpath:/schema.sql")
+				.addScript("classpath:/data.sql")
 				.build();
 		return db;
 	}
