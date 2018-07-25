@@ -16,7 +16,7 @@ import rewards.internal.account.Account;
 import accounts.internal.StubAccountManager;
 
 /**
- * A JUnit test case testing the AccountController. 
+ * A JUnit test case testing the AccountController.
  */
 @RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
@@ -30,23 +30,25 @@ public class AccountControllerTests {
 
 	@Test
 	public void testHandleDetailsRequest() {
-		ExtendedModelMap model = new ExtendedModelMap();
-		String viewName = controller.accountDetails(0, model);
-		Account account = (Account) model.get("account");
-		assertEquals("accountDetails", viewName);
+		Account account = controller.accountDetails(0);
+
 		assertNotNull(account);
-		assertEquals(Long.valueOf(0), account.getEntityId());
+		assertEquals(StubAccountManager.TEST_ACCOUNT_ID, (long) account.getEntityId());
+		assertEquals(StubAccountManager.TEST_ACCOUNT_NUMBER, account.getNumber());
 	}
 
 	@Test
-	@SuppressWarnings("unchecked")
 	public void testHandleListRequest() {
-		ExtendedModelMap model = new ExtendedModelMap();
-		String viewName = controller.accountList(model);
-		List<Account> accounts = (List<Account>) model.get("accounts");
-		assertEquals("accountList", viewName);
+		List<Account> accounts = controller.accountList();
+
+		// Non-empty list containing the one and only test account
 		assertNotNull(accounts);
 		assertEquals(1, accounts.size());
-		assertEquals(Long.valueOf(0), accounts.get(0).getEntityId());
+
+		// Validate that account
+		Account account = accounts.get(0);
+		assertEquals(StubAccountManager.TEST_ACCOUNT_ID, (long) account.getEntityId());
+		assertEquals(StubAccountManager.TEST_ACCOUNT_NUMBER, account.getNumber());
+
 	}
 }

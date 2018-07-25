@@ -1,15 +1,15 @@
 package accounts.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import java.util.List;
 
-import rewards.internal.account.Account;
-import rewards.internal.account.Beneficiary;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import accounts.AccountManager;
+import rewards.internal.account.Account;
+import rewards.internal.account.Beneficiary;
 
 /**
  * A Spring MVC @Controller controller handling requests to view and modify
@@ -19,42 +19,49 @@ import accounts.AccountManager;
  * <tt>rewards-db</tt> project:
  * <ul>
  * <li>Domain objects: {@link Account} and {@link Beneficiary}</li>
- * <li>Service layer: {@link AccountManager} interface and its implementations</li>
- * <li>No repository layer is being used - the account-manager does everything</li>
+ * <li>Service layer: {@link AccountManager} interface and its
+ * implementations</li>
+ * <li>No repository layer is being used - the account-manager does
+ * everything</li>
  */
-@Controller
+@RestController
 public class AccountController {
-	
+
 	private AccountManager accountManager;
-	
+
 	/**
 	 * Creates a new AccountController with a given account manager.
 	 */
-	@Autowired 
+	@Autowired
 	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;
 	}
-	
+
 	/**
-	 * <p>Provide a model with an account for the account detail page.</p>
+	 * <p>
+	 * Provide a model with an account for the account detail page.
+	 * </p>
 	 * 
-	 * @param id the id of the account
-	 * @param model the "implicit" model created by Spring MVC
+	 * @param id
+	 *            the id of the account
+	 * @param model
+	 *            the "implicit" model created by Spring MVC
 	 */
-	@RequestMapping("/accountDetails")
-	public String accountDetails(@RequestParam("entityId") long id, Model model) {
-		model.addAttribute("account", accountManager.getAccount(id));
-		return "accountDetails";
+	@RequestMapping("/accounts/{entityId}")
+	public Account accountDetails(@PathVariable("entityId") long id) {
+		return accountManager.getAccount(id);
 	}
-	
+
 	/**
-	 * <p>Provide a model with a list of all accounts for the account List page.</p>
+	 * <p>
+	 * Provide a model with a list of all accounts for the account List page.
+	 * </p>
 	 * 
-	 * @param model the "implicit" model created by Spring MVC
+	 * @param model
+	 *            the "implicit" model created by Spring MVC
 	 */
-	@RequestMapping("/accountList")
-	public String accountList(Model model) {
-		model.addAttribute("accounts", accountManager.getAllAccounts());
-		return "accountList";
+	@RequestMapping("/accounts")
+	public List<Account> accountList() {
+		return accountManager.getAllAccounts();
 	}
 }

@@ -26,7 +26,7 @@ import org.springframework.test.web.servlet.MockMvc;
  */
 @RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
-@SpringBootTest(webEnvironment=WebEnvironment.MOCK)
+@SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @ActiveProfiles("jpa")
 @ComponentScan({ "accounts.web", "config:" })
@@ -51,12 +51,9 @@ public class MockMvcTests {
 	@Test
 	public void getAccountsTest() throws Exception {
 		this.mockMvc //
-				.perform(get("/accountList") //
-						.accept(MediaType.parseMediaType("text/html;charset=UTF-8"))) //
-				.andExpect(status().isOk()) //
-				.andExpect(model().size(1)) //
-				.andExpect(model().attributeExists("accounts")) //
-				.andExpect(view().name("accountList"));
+				.perform(get("/accounts") //
+						.accept(MediaType.parseMediaType("application/json"))) //
+				.andExpect(status().isOk());
 	}
 
 	/**
@@ -75,13 +72,9 @@ public class MockMvcTests {
 	 */
 	@Test
 	public void getAccountTest() throws Exception {
-		this.mockMvc.perform(get("/accountDetails") //
-				.param("entityId", "0") //
-				.accept(MediaType.parseMediaType("text/html;charset=UTF-8"))) //
-				.andExpect(status().isOk()) //
-				.andExpect(model().size(1)) //
-				.andExpect(model().attributeExists("account")) //
-				.andExpect(view().name("accountDetails"));
+		this.mockMvc.perform(get("/accounts/0") //
+				.accept(MediaType.parseMediaType("application/json"))) //
+				.andExpect(status().isOk());
 	}
 
 }
