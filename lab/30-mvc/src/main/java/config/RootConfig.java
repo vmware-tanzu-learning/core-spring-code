@@ -1,5 +1,7 @@
 package config;
 
+import javax.sql.DataSource;
+
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,13 +11,15 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import accounts.AccountManager;
-import accounts.internal.JpaAccountManager;
+import accounts.AccountManagerImpl;
+import rewards.internal.account.AccountRepository;
+import rewards.internal.account.JdbcAccountRepository;
 
 /**
  * Imports Rewards application from rewards-db project.
  */
 @Configuration
-@Import({ AppConfig.class, DbConfig.class })
+@Import(DbConfig.class)
 @EntityScan("rewards")
 @EnableTransactionManagement
 public class RootConfig implements WebMvcConfigurer {
@@ -26,16 +30,28 @@ public class RootConfig implements WebMvcConfigurer {
 	 * @return The new account-manager instance.
 	 */
 	@Bean
-	public AccountManager accountManager() {
-		return new JpaAccountManager();
+	public AccountManager accountManager(AccountRepository accountRepository) {
+		return new AccountManagerImpl(accountRepository);
+	}
+
+	/**
+	 * Repository for accessing Account information. This is an extended
+	 * implementation of the one used in the JDBC Template lab.
+	 * 
+	 * @return The new account-repository instance.
+	 */
+	@Bean
+	public AccountRepository accountRepository(DataSource dataSource) {
+		return new JdbcAccountRepository(dataSource);
 	}
 
 	/**
 	 * Enables the home page which is using server-side rendering of a minimal view.
 	 * 
 	 * @param registry
-	 *            View controller registry. Allows a simple mapping of a URL to a
-	 *            view.
+	 *            View controller registry. Allows you to register simple mappings
+	 *            of URLs to static views (since there is no dynamic content a
+	 *            Spring Controller is not required).
 	 */
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {

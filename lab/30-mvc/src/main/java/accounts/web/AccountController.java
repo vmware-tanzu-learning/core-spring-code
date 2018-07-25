@@ -26,7 +26,6 @@ import accounts.AccountManager;
 // TODO-03 Add the annotation for Spring MVC to recognize this class
 // - Save the change, wait for the application to restart
 // - From the home page, navigate to List Accounts - this should now work
-// - Clicking on any individual account fails - you will implement that shortly
 public class AccountController {
 
 	private AccountManager accountManager;
