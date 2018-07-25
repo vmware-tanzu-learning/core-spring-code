@@ -23,7 +23,7 @@ import accounts.AccountManager;
  * <li>No repository layer is being used - the account-manager does
  * everything</li>
  */
-// TODO-05 Add the annotation for Spring MVC to recognize this class
+// TODO-03 Add the annotation for Spring MVC to recognize this class
 // - Save the change, wait for the application to restart
 // - From the home page, navigate to List Accounts - this should now work
 // - Clicking on any individual account fails - you will implement that shortly
