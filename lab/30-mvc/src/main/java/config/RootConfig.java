@@ -19,8 +19,6 @@ import rewards.internal.account.JdbcAccountRepository;
  * Imports Rewards application from rewards-db project.
  */
 @Configuration
-@Import(DbConfig.class)
-@EntityScan("rewards")
 @EnableTransactionManagement
 public class RootConfig implements WebMvcConfigurer {
 
