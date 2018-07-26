@@ -19,16 +19,18 @@
 		<start-class>accounts.AccountsApplication</start-class>
 	</properties>
 	<dependencies>
-		<!-- These dependencies bring in the classroom files -->
-		<!-- Common classes: Percentage, MonetaryAmount -->
+		<!-- This dependency bring in the common classes -->
+		<!-- such as Percentage, MonetaryAmount         -->
 		<dependency>
 			<groupId>io.pivotal.education.core-spring</groupId>
 			<artifactId>00-rewards-common</artifactId>
 		</dependency>
 
-		<!-- // The Rewards application Defines: Account, Beneficiary, AccountManager. 
-			// NOTE: Dependencies for JPA, Hibernate and Spring are also provided by 
-			// this project - see rewards-db/pom.xml. -->
+		<!--
+		  // The Rewards application Defines: Account, Beneficiary, AccountManager. 
+		  // NOTE: Dependencies for JPA, Hibernate and Spring are also provided by 
+		  // this project - see rewards-db/pom.xml.
+		  -->
 		<dependency>
 			<groupId>io.pivotal.education.core-spring</groupId>
 			<artifactId>01-rewards-db</artifactId>
@@ -39,13 +41,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<!-- Enable Spring JDBC -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-mustache</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 
 		<!-- Automatic application restart -->
@@ -54,10 +54,10 @@
 			<artifactId>spring-boot-devtools</artifactId>
 		</dependency>
 
-		<!-- Enable Spring Data JPA -->
+		<!-- The home page is not RESTful -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<artifactId>spring-boot-starter-mustache</artifactId>
 		</dependency>
 	</dependencies>
 	<build>
