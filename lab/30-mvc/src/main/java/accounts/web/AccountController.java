@@ -1,31 +1,27 @@
 package accounts.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import java.util.List;
 
-import rewards.internal.account.Account;
-import rewards.internal.account.Beneficiary;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import accounts.AccountManager;
+import rewards.internal.account.Account;
+import rewards.internal.account.AccountRepository;
+import rewards.internal.account.Beneficiary;
 
 /**
- * A Spring MVC @Controller controller handling requests to view and modify
- * Account information.
+ * A Spring MVC REST Controller handling requests to view Account information.
  * <p>
- * Note that all the Account application classes are imported from the
+ * Note that some of the Account related classes are imported from the
  * <tt>rewards-db</tt> project:
  * <ul>
  * <li>Domain objects: {@link Account} and {@link Beneficiary}</li>
- * <li>Service layer: {@link AccountManager} interface and its
- * implementations</li>
- * <li>No repository layer is being used - the account-manager does
- * everything</li>
+ * <li>Service layer: {@link AccountManager} interface</li>
+ * <li>Repository layer: {@link AccountRepository} interface</li>
+ * </ul>
  */
-// TODO-03 Add the annotation for Spring MVC to recognize this class
-// - Save the change, wait for the application to restart
-// - From the home page, navigate to List Accounts - this should now work
+// TODO-03: Add the annotation for Spring MVC to recognize this class
+// as a REST controller.
 public class AccountController {
 
 	private AccountManager accountManager;
@@ -46,29 +42,35 @@ public class AccountController {
 	 * @param model
 	 *            the "implicit" model created by Spring MVC
 	 */
-	@RequestMapping("/accountList")
-	public String accountList(Model model) {
-		model.addAttribute("accounts", accountManager.getAllAccounts());
+	// TODO-04: Add the mapping for /accounts
+	public List<Account> accountList() {
 
-		// TODO-07a: Notice this is returning the full path to the template
-		// * Long template paths quickly get very tedious
-		// * Change it to return the logical view-name "accountList"
-		return "classpath:/templates/accountList.html";
+		// TODO-05: Implement the logic to find and return all accounts
+		// - Save the changes, wait for the application to restart
+		// - From the home page, click the link - this should now work
+		// - If you prefer, access http://localhost:8080/accounts using curl or Postman
+
+		return null; // REPLACE THIS LINE to return a list accounts
+		
+		// TODO-06: We are about to make lots of changes, so stop the application
+		//          otherwise Devtools will keep restarting it. 
 	}
 
 	// TODO-09: Implement the /accountDetails request handling method.
-	// 1. Use a method parameter to obtain the request parameter needed to
+	// 1. Call the method accountDetails().
+	// 2. Annotate to define URL mapping /accounts/{entityId} this method will
+	// respond to.
+	// 3. Use a method parameter to obtain the URI template parameter needed to
 	// retrieve an account.
-	// 2. Use another method parameter to gain access to the Model.
-	// 3. Use the accountManager to obtain an account. Place this on the model.
-	// - the attribute name should correspond to the {{variable}} used in the
-	// - template file(see src/main/resources/templates/accountDetails.html).
-	// 4. Finally tell Spring to use this template by returning the correct
-	// - logical view name.
+	// 4. Use the accountManager to obtain an account. This is the value to return
 	// 5. Save all work
 
+	// TODO-10: Run the test in AccountControllerTests, it should pass.
+	//          Fix any errors before moving on
 
-	// TODO-11: You should now be able to click any of the account links and reach
-	// their details page.
+	// TODO-11: Run the application as a Spring Boot or Java application in your IDE.
+	// You should now be able to invoke http://localhost:8080/accounts/N
+	// where N is 0-20 and get a response. You can use curl, Postman or your browser
+	// to do this.
 
 }

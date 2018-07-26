@@ -19,6 +19,9 @@ import rewards.internal.account.Account;
 @RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
 
+	private static final long expectedAccountId = StubAccountManager.TEST_ACCOUNT_ID;
+	private static final String expectedAccountNumber = StubAccountManager.TEST_ACCOUNT_NUMBER;
+
 	private AccountController controller;
 
 	@BeforeEach
@@ -31,8 +34,8 @@ public class AccountControllerTests {
 		Account account = controller.accountDetails(0);
 
 		assertNotNull(account);
-		assertEquals(StubAccountManager.TEST_ACCOUNT_ID, (long) account.getEntityId());
-		assertEquals(StubAccountManager.TEST_ACCOUNT_NUMBER, account.getNumber());
+		assertEquals(expectedAccountId, (long) account.getEntityId());
+		assertEquals(expectedAccountNumber, account.getNumber());
 	}
 
 	@Test
@@ -45,8 +48,7 @@ public class AccountControllerTests {
 
 		// Validate that account
 		Account account = accounts.get(0);
-		assertEquals(StubAccountManager.TEST_ACCOUNT_ID, (long) account.getEntityId());
-		assertEquals(StubAccountManager.TEST_ACCOUNT_NUMBER, account.getNumber());
-
+		assertEquals(expectedAccountId, (long) account.getEntityId());
+		assertEquals(expectedAccountNumber, account.getNumber());
 	}
 }

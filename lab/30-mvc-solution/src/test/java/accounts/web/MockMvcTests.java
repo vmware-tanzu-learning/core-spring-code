@@ -1,9 +1,9 @@
 package accounts.web;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -50,10 +50,14 @@ public class MockMvcTests {
 	 */
 	@Test
 	public void getAccountsTest() throws Exception {
+		int expectedNumberOfAccounts = 21;
+		
 		this.mockMvc //
 				.perform(get("/accounts") //
 						.accept(MediaType.parseMediaType("application/json"))) //
-				.andExpect(status().isOk());
+				.andExpect(status().isOk()) //
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.length()").value(expectedNumberOfAccounts));
 	}
 
 	/**
@@ -72,9 +76,15 @@ public class MockMvcTests {
 	 */
 	@Test
 	public void getAccountTest() throws Exception {
+		String expectedAccountNumber = "123456789";
+		String expectedAccountName = "Keith and Keri Donald";
+
 		this.mockMvc.perform(get("/accounts/0") //
 				.accept(MediaType.parseMediaType("application/json"))) //
-				.andExpect(status().isOk());
+				.andExpect(status().isOk()) //
+				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(jsonPath("$.number").value(expectedAccountNumber))
+				.andExpect(jsonPath("$.name").value(expectedAccountName));
 	}
 
 }

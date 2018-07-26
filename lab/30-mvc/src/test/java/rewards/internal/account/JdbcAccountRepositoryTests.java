@@ -27,8 +27,15 @@ public class JdbcAccountRepositoryTests {
 
 	@Test
 	public void getAccount() {
-		Account account = repo.getAccount(0L);
-		assertEquals(0L, (long) account.getEntityId());
+		// An account with Beneficiaries
+		Account account0 = repo.getAccount(0L);
+		assertEquals(0L, (long) account0.getEntityId());
+		assertEquals("123456789", account0.getNumber());
+
+		// An account without Beneficiaries
+		Account account2 = repo.getAccount(2L);
+		assertEquals(2L, (long) account2.getEntityId());
+		assertEquals("123456002", account2.getNumber());
 	}
 
 	@Test
@@ -39,7 +46,7 @@ public class JdbcAccountRepositoryTests {
 
 	@Test
 	public void updateBeneficiaries() {
-
+		// Not used in this application
 	}
 
 }
