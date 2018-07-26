@@ -21,12 +21,7 @@ import common.money.Percentage;
  */
 public class JdbcAccountRepository implements AccountRepository {
 
-	private static String ACCOUNTS_QUERY = "SELECT a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME,"
-			+ " c.NUMBER as CREDIT_CARD_NUMBER,"
-			+ " b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE,"
-			+ " b.SAVINGS as BENEFICIARY_SAVINGS from T_ACCOUNT a, T_ACCOUNT_BENEFICIARY b, T_ACCOUNT_CREDIT_CARD c";
-
-	private static String ACCOUNTS_JOIN_QUERY = //
+	private static String ACCOUNTS_QUERY = //
 			"SELECT a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME,"
 					+ " c.NUMBER as CREDIT_CARD_NUMBER,"
 					+ " b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE,"
@@ -56,7 +51,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	 * {@inheritDoc}
 	 */
 	public List<Account> getAllAccounts() {
-		String sql = ACCOUNTS_JOIN_QUERY; // + " WHERE ID = b.ACCOUNT_ID and ID = c.ACCOUNT_ID";
+		String sql = ACCOUNTS_QUERY;
 		return jdbcTemplate.query(sql, accountsListExtractor);
 	}
 
@@ -64,7 +59,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	 * {@inheritDoc}
 	 */
 	public Account getAccount(Long id) {
-		String sql = ACCOUNTS_QUERY + " WHERE ID = b.ACCOUNT_ID and ID = c.ACCOUNT_ID and ID = ?";
+		String sql = ACCOUNTS_QUERY + " WHERE a.ID = ?";
 		return jdbcTemplate.query(sql, accountExtractor, id);
 	}
 
@@ -72,7 +67,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	 * {@inheritDoc}
 	 */
 	public Account findByCreditCard(String creditCardNumber) {
-		String sql = ACCOUNTS_QUERY + " WHERE ID = b.ACCOUNT_ID and ID = c.ACCOUNT_ID and c.NUMBER = ?";
+		String sql = ACCOUNTS_QUERY + " WHERE c.NUMBER = ?";
 		return jdbcTemplate.query(sql, accountExtractor, creditCardNumber);
 	}
 
@@ -138,8 +133,7 @@ public class JdbcAccountRepository implements AccountRepository {
 
 		if (accounts.size() == 0) {
 			// Only one row expected - throw an exception
-			System.out.println(" >> FOUND " + accounts.size() + " accounts");
-			System.out.println(" >>    >> " + accounts);
+			System.out.println(" >> NO ACCOUNTS FOUND");
 			throw new EmptyResultDataAccessException(1);
 		}
 

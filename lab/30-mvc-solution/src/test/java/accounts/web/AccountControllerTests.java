@@ -3,17 +3,15 @@ package accounts.web;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
-import java.util.List;
-
-import org.springframework.ui.ExtendedModelMap;
-
-import rewards.internal.account.Account;
 import accounts.internal.StubAccountManager;
+import rewards.internal.account.Account;
 
 /**
  * A JUnit test case testing the AccountController.

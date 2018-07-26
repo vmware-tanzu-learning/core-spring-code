@@ -9,20 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import accounts.AccountManager;
 import rewards.internal.account.Account;
+import rewards.internal.account.AccountRepository;
 import rewards.internal.account.Beneficiary;
 
 /**
- * A Spring MVC @Controller controller handling requests to view and modify
- * Account information.
+ * A Spring MVC REST Controller handling requests to view Account information.
  * <p>
- * Note that all the Account application classes are imported from the
+ * Note that some of the Account related classes are imported from the
  * <tt>rewards-db</tt> project:
  * <ul>
  * <li>Domain objects: {@link Account} and {@link Beneficiary}</li>
- * <li>Service layer: {@link AccountManager} interface and its
- * implementations</li>
- * <li>No repository layer is being used - the account-manager does
- * everything</li>
+ * <li>Service layer: {@link AccountManager} interface</li>
+ * <li>Repository layer: {@link AccountRepository} interface</li>
+ * </ul>
  */
 @RestController
 public class AccountController {
