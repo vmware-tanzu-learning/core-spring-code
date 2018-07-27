@@ -1,7 +1,8 @@
 package config;
 
-import javax.sql.DataSource;
+import javax.persistence.EntityManager;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -9,36 +10,32 @@ import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import accounts.AccountManager;
-import accounts.AccountManagerImpl;
-import rewards.internal.account.AccountRepository;
-import rewards.internal.account.JdbcAccountRepository;
+import accounts.internal.JpaAccountManager;
 
 /**
  * Imports Rewards application from rewards-db project.
  */
 @Configuration
+@EntityScan("rewards.internal")
 @EnableTransactionManagement
 public class RootConfig implements WebMvcConfigurer {
 
 	/**
-	 * A new service has been created for accessing Account information.
+	 * A new service has been created for accessing Account information. Internally
+	 * it uses JPA directly so no Respository class is required.
 	 * 
+	 * @param entityaAnager
+	 *            The JPA Entity Manager (actually a proxy).
+	 *            <p>
+	 *            Spring Boot initializes JPA automatically and Spring creates a
+	 *            singleton EntityManager proxy for injection. At runtime this proxy
+	 *            resolves to the current EntityManager for the current transaction
+	 *            of the current thread.
 	 * @return The new account-manager instance.
 	 */
 	@Bean
-	public AccountManager accountManager(AccountRepository accountRepository) {
-		return new AccountManagerImpl(accountRepository);
-	}
-
-	/**
-	 * Repository for accessing Account information. This is an extended
-	 * implementation of the one used in the JDBC Template lab.
-	 * 
-	 * @return The new account-repository instance.
-	 */
-	@Bean
-	public AccountRepository accountRepository(DataSource dataSource) {
-		return new JdbcAccountRepository(dataSource);
+	public AccountManager accountManager(EntityManager entityaAnager) {
+		return new JpaAccountManager(entityaAnager);
 	}
 
 	/**

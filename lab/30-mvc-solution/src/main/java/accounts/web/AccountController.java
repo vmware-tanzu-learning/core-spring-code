@@ -26,7 +26,7 @@ import rewards.internal.account.Beneficiary;
 @RestController
 public class AccountController {
 
-	private AccountManager accountManager;
+	private final AccountManager accountManager;
 
 	/**
 	 * Creates a new AccountController with a given account manager.

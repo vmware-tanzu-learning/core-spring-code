@@ -76,8 +76,8 @@ public class MockMvcTests {
 	 */
 	@Test
 	public void getAccountTest() throws Exception {
-		String expectedAccountNumber = "123456789";
-		String expectedAccountName = "Keith and Keri Donald";
+		final String expectedAccountNumber = "123456789";
+		final String expectedAccountName = "Keith and Keri Donald";
 
 		this.mockMvc.perform(get("/accounts/0") //
 				.accept(MediaType.parseMediaType("application/json"))) //

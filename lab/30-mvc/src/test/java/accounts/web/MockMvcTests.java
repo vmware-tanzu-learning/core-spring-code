@@ -77,7 +77,7 @@ public class MockMvcTests {
 	 * Finally we run the request by invoking
 	 * {@link MockMvc#perform(org.springframework.test.web.servlet.RequestBuilder)}.
 	 * <p>
-	 * We can tell MockMVC what we expect in the response:
+	 * We tell MockMVC what we expect in the response:
 	 * <ul>
 	 * <li>Response Status OK (200)
 	 * <li>A response containing JSON data representing an account
@@ -89,14 +89,14 @@ public class MockMvcTests {
 	 *             If anything fails.
 	 */
 	
-	// TODO-15: EXTRA CREDIT. Read the Javadoc above to see how this test works,
+	// TODO-15: EXTRA CREDIT. Read the Javadoc above to see how this test should work,
 	// Get rid of @Disabled. Then try running the tests again
 	// The getAccountTest() test (below) should pass but it is doing no validation.
 	@Test
 	@Disabled
 	public void getAccountTest() throws Exception {
-		String expectedAccountNumber = "123456789";
-		String expectedAccountName = "Keith and Keri Donald";
+		final String expectedAccountNumber = "123456789";
+		final String expectedAccountName = "Keith and Keri Donald";
 
 		this.mockMvc
 				.perform(get("/accounts/0") //
