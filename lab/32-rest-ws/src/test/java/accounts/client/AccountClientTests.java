@@ -1,12 +1,6 @@
 package accounts.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.util.Random;
-
+import common.money.Percentage;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -14,10 +8,12 @@ import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
-import common.money.Percentage;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 public class AccountClientTests {
@@ -116,10 +112,8 @@ public class AccountClientTests {
 	}
 
 	//	TODO 10: (OPTIONAL - unless your createAccount is NOT working) Monitor test execution using the TCP/IP monitor.
-	//	In STS press Ctrl+3 and type 'tcp' in the popup,  then press Enter to open the TCP/IP Monitor View.
-	//	Click the small arrow pointing downwards and choose "properties".
-	//	Choose "Add..." to add a new monitor.  Set local monitoring port = 8081, host = "localhost", 
-	//	port = 8080.  Use "Start" to launch the monitor.
+	//	Use TCP/IP monitoring tool of your IDE.
+	//  Set local monitoring port = 8081.
 	//	Above, adjust BASE_URL's port number to 8081 so all requests pass through the monitor.
 	//	Re-run these tests and examine the results in the TCP/IP Monitor View.
 	//
