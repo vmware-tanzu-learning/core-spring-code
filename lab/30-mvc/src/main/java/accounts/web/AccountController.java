@@ -56,7 +56,7 @@ public class AccountController {
 		//          otherwise Devtools will keep restarting it. 
 	}
 
-	// TODO-09: Implement the /accountDetails request handling method.
+	// TODO-09: Implement the /accounts/{entityId} request handling method.
 	// 1. Call the method accountDetails().
 	// 2. Annotate to define URL mapping /accounts/{entityId} this method will
 	// respond to.
