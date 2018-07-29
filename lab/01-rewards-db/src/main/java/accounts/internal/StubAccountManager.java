@@ -17,13 +17,13 @@ import accounts.AccountManager;
 import common.money.Percentage;
 
 /**
- * IMPORTANT!!!
- * Per best practices, this class shouldn't be in 'src/main/java' but rather in 'src/test/java'.
- * However, it is used by numerous Test classes inside multiple projects. Maven does not 
- * provide an easy way to access a class that is inside another project's 'src/test/java' folder.
- * 
- * Rather than using some complex Maven configuration, we decided it is acceptable to place this test 
- * class inside 'src/main/java'.
+ * IMPORTANT!!! Per best practices, this class shouldn't be in 'src/main/java'
+ * but rather in 'src/test/java'. However, it is used by numerous Test classes
+ * inside multiple projects. Maven does not provide an easy way to access a
+ * class that is inside another project's 'src/test/java' folder.
+ *<p>
+ * Rather than using some complex Maven configuration, we decided it is
+ * acceptable to place this test class inside 'src/main/java'.
  *
  */
 public class StubAccountManager implements AccountManager {
@@ -32,19 +32,36 @@ public class StubAccountManager implements AccountManager {
 
 	public static final int NUM_ACCOUNTS_IN_STUB = 1;
 
+	public static final long TEST_ACCOUNT_ID = 0L;
+	public static final String TEST_ACCOUNT_NUMBER = "123456789";
+	public static final String TEST_ACCOUNT_NAME = "Keith and Keri Donald";
+
+	public static final long TEST_BEN0_ID = 0L;
+	public static final String TEST_BEN0_NAME = "Annabelle";
+	public static final long TEST_BEN1_ID = 0L;
+	public static final String TEST_BEN1_NAME = "Corgan";
+	public static final String BENEFICIARY_SHARE = "50%";
+
 	private Map<Long, Account> accountsById = new HashMap<Long, Account>();
 
 	private AtomicLong nextEntityId = new AtomicLong(3);
 
 	public StubAccountManager() {
-		Account account = new Account("123456789", "Keith and Keri Donald");
-		account.addBeneficiary("Annabelle", Percentage.valueOf("50%"));
-		account.addBeneficiary("Corgan", Percentage.valueOf("50%"));
-		account.setEntityId(0L);
-		account.getBeneficiary("Annabelle").setEntityId(0L);
-		account.getBeneficiary("Corgan").setEntityId(1L);
+		// One test account
+		Account account = new Account(TEST_ACCOUNT_NUMBER, TEST_ACCOUNT_NAME);
+		account.setEntityId(TEST_ACCOUNT_ID);
+
+		// Two test beneficiaries
+		account.addBeneficiary(TEST_BEN0_NAME, Percentage.valueOf(BENEFICIARY_SHARE));
+		account.addBeneficiary(TEST_BEN1_NAME, Percentage.valueOf(BENEFICIARY_SHARE));
+
+		// Retrieve each Beneficiary and set its entityId
+		account.getBeneficiary(TEST_BEN0_NAME).setEntityId(TEST_BEN0_ID);
+		account.getBeneficiary(TEST_BEN1_NAME).setEntityId(TEST_BEN1_ID);
+
+		// Save the account
 		accountsById.put(0L, account);
-		
+
 		LoggerFactory.getLogger(StubAccountManager.class).info("Created StubAccountManager");
 	}
 
@@ -97,7 +114,8 @@ public class StubAccountManager implements AccountManager {
 	}
 
 	@Override
-	public void removeBeneficiary(Long accountId, String beneficiaryName, Map<String, Percentage> allocationPercentages) {
+	public void removeBeneficiary(Long accountId, String beneficiaryName,
+			Map<String, Percentage> allocationPercentages) {
 		accountsById.get(accountId).removeBeneficiary(beneficiaryName);
 		updateBeneficiaryAllocationPercentages(accountId, allocationPercentages);
 	}

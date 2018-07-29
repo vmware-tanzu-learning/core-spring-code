@@ -1,24 +1,19 @@
 package accounts.web;
 
-import java.util.HashMap;
-import java.util.List;
-
+import accounts.AccountManager;
+import common.money.Percentage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-import accounts.AccountManager;
-import common.money.Percentage;
+import org.springframework.web.bind.annotation.*;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A controller handling requests for CRUD operations on Accounts and their
@@ -56,7 +51,7 @@ public class AccountController {
 	 */
 	// TODO 04: Complete this method. Add annotations to:
 	//   a. Respond to GET /accounts/{accountId}
-    //   b. Return  an Account to be converted to the response body
+    //   b. Return an Account to be converted to the response body
 	// Save your work and restart the application.
 	// You should get JSON results in your browser when accessing http://localhost:8080/accounts/0
 	public Account accountDetails(int id) {

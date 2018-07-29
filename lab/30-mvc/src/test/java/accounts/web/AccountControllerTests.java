@@ -3,24 +3,25 @@ package accounts.web;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
-import java.util.List;
-
-import org.springframework.ui.ExtendedModelMap;
-
-import rewards.internal.account.Account;
 import accounts.internal.StubAccountManager;
+import rewards.internal.account.Account;
 
 /**
- * A JUnit test case testing the AccountController. The AccountController has
- * two handler methods, therefore, two tests.
+ * A JUnit test case testing the AccountController.
  */
 @RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
+
+	private static final long expectedAccountId = StubAccountManager.TEST_ACCOUNT_ID;
+	private static final String expectedAccountNumber = StubAccountManager.TEST_ACCOUNT_NUMBER;
 
 	private AccountController controller;
 
@@ -29,31 +30,37 @@ public class AccountControllerTests {
 		controller = new AccountController(new StubAccountManager());
 	}
 
-	// TODO-06: The AccountController can be unit tested to ensure it returns the right model
-	// data and view name.
-	// Run this test now, it should pass.
-	@SuppressWarnings("unchecked")
+	// TODO-07: Run this test, it should now pass.
+	// Strictly speaking we should have tested the Controller before we ran the
+	// application.
 	@Test
 	public void testHandleListRequest() {
-		ExtendedModelMap model = new ExtendedModelMap();
-		String viewName = controller.accountList(model);
+		List<Account> accounts = controller.accountList();
 
-		List<Account> accounts = (List<Account>) model.get("accounts");
+		// Non-empty list containing the one and only test account
 		assertNotNull(accounts);
 		assertEquals(1, accounts.size());
-		assertEquals(Long.valueOf(0), accounts.get(0).getEntityId());
 
-		// TODO-08: Change this to expect a logical view name
-		// Re-run the test and make sure it passes
-		//
-		assertEquals("classpath:/templates/accountList.html", viewName);
+		// Validate that account
+		Account account = accounts.get(0);
+		assertEquals(expectedAccountId, (long) account.getEntityId());
+		assertEquals(expectedAccountNumber, account.getNumber());
 	}
 
-	// TODO-10: Add a test for the accountDetails() method of AccountController.
-	// * Use the test method above for hints. Supply 0 for the ID value to
-	// - retrieve.
-	// * Create assertions for model contents (check the entity id and account number)
-	// * Create an assertion for the view name.
-	// * When complete run the test. It should pass.
+	// TODO-10: Remove the @Disabled annotation, run the test, it should pass.
+	@Test
+	@Disabled
+	public void testHandleDetailsRequest() {
+		// TODO-08a: Call the controller to find the account with entityId 0
+		//  - A new method is required - call it accountDetails().
+		//  - It takes one parameter - a long entityId
+		//  - It will return an Account.
+		//  - This class won't compile until you modify the AccountController in TO DO 09
+
+		// TODO-08b: Define the following assertions:
+		// The account is not null
+		// The account id matches expectedAccountId (see above)
+		// The account number matches expectedAccountNumber  (see above)
+	}
 
 }

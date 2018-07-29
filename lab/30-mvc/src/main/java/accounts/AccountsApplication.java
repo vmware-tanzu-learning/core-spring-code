@@ -2,24 +2,26 @@ package accounts;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Import;
-
 
 import config.RootConfig;
 
-// TODO-01: Take a quick look at pom.xml to see the dependencies we are using.
-//          DO NOT modify pom.xml in any way.
-//          Note also that this class is already a Spring Boot application
-//
-// TODO-02: Run it now using Run As -> Spring Boot App (or as Java Application).
-//          Go to http://localhost:8080 and you should see a simple home page.
-//          None of the links should work (yet).
-//          
-
+/**
+ * Spring Boot application.
+ * <p>
+ * TODO-01: Open the pom.xml for this project and check the dependencies. In
+ * particular we are using the Spring Boot starters for web, jdbc and devtools.
+ * <p>
+ * TODO-02: Run the application as a Spring Boot or Java application in your
+ * IDE.  You should be able to see the home page: http://localhost:8080
+ * The link won't work - you need to implement it.
+ * <p>
+ * TODO-12: Make this server listen on port 8088.
+ *  - Go to application.properties and set the appropriate property
+ *  - Once the application restarts, try accessing http://localhost:8088
+ */
 @SpringBootApplication
 @Import(RootConfig.class)
-@EntityScan("rewards")
 public class AccountsApplication {
 
 	public static void main(String[] args) {

@@ -3,23 +3,24 @@ package accounts.web;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
-import java.util.List;
-
-import org.springframework.ui.ExtendedModelMap;
-
-import rewards.internal.account.Account;
 import accounts.internal.StubAccountManager;
+import rewards.internal.account.Account;
 
 /**
- * A JUnit test case testing the AccountController. 
+ * A JUnit test case testing the AccountController.
  */
 @RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
+
+	private static final long expectedAccountId = StubAccountManager.TEST_ACCOUNT_ID;
+	private static final String expectedAccountNumber = StubAccountManager.TEST_ACCOUNT_NUMBER;
 
 	private AccountController controller;
 
@@ -30,23 +31,24 @@ public class AccountControllerTests {
 
 	@Test
 	public void testHandleDetailsRequest() {
-		ExtendedModelMap model = new ExtendedModelMap();
-		String viewName = controller.accountDetails(0, model);
-		Account account = (Account) model.get("account");
-		assertEquals("accountDetails", viewName);
+		Account account = controller.accountDetails(0);
+
 		assertNotNull(account);
-		assertEquals(Long.valueOf(0), account.getEntityId());
+		assertEquals(expectedAccountId, (long) account.getEntityId());
+		assertEquals(expectedAccountNumber, account.getNumber());
 	}
 
 	@Test
-	@SuppressWarnings("unchecked")
 	public void testHandleListRequest() {
-		ExtendedModelMap model = new ExtendedModelMap();
-		String viewName = controller.accountList(model);
-		List<Account> accounts = (List<Account>) model.get("accounts");
-		assertEquals("accountList", viewName);
+		List<Account> accounts = controller.accountList();
+
+		// Non-empty list containing the one and only test account
 		assertNotNull(accounts);
 		assertEquals(1, accounts.size());
-		assertEquals(Long.valueOf(0), accounts.get(0).getEntityId());
+
+		// Validate that account
+		Account account = accounts.get(0);
+		assertEquals(expectedAccountId, (long) account.getEntityId());
+		assertEquals(expectedAccountNumber, account.getNumber());
 	}
 }
