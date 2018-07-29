@@ -20,7 +20,7 @@ import common.money.Percentage;
  * Restaurants calculate how much benefit may be awarded to an account for
  * dining based on a availability policy and a benefit percentage.
  */
-// TODO-04: Map this class using JPA Annotations.  See schema.sql file
+// TODO-05: Map this class using JPA Annotations.  See schema.sql file
 // for guidance on table and column names.
 public class Restaurant {
 

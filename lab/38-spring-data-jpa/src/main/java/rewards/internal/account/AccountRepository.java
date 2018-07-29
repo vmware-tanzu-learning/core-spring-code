@@ -8,7 +8,7 @@ package rewards.internal.account;
  * Objects returned by this repository are guaranteed to be fully initialized
  * and ready to use.
  */
-//  TODO-02: Alter this interface to extend a proper Spring Data interface.
+//  TODO-03: Alter this interface to extend a proper Spring Data interface.
 //          The finder method on this class must be changed to obey Spring Data
 //           conventions - use refactoring
 public interface AccountRepository {

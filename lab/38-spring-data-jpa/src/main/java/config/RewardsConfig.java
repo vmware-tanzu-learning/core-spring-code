@@ -14,10 +14,10 @@ import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
-//	TODO-06: Add an annotation that will scan for your new JPA repositories. 
+//	TODO-07: Add an annotation that will scan for your new JPA repositories.
 //	Note that this configuration class is not in the same base package as the
 //	repository components you would have created in the previous steps.
-// 	TODO-07: Add annotation that will enable transaction management
+// 	Add annotation that will enable transaction management
 @Configuration
 public class RewardsConfig {
 
