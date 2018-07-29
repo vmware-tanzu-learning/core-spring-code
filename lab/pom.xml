@@ -278,6 +278,9 @@
         <module>36-security</module>
         <module>36-security-solution</module>
 
+        <module>38-spring-data-jpa</module>
+        <module>38-spring-data-jpa-solution</module>
+
         <!-- Section: optional -->
         <!-- <module>mvc-no-boot</module>
         <module>mvc-no-boot-solution</module>
