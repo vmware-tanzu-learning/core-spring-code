@@ -15,12 +15,6 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
 
-// TODO-07 : Switch to imperative `DataSource` configuration
-
-// TODO-08 : Switch to imperative `DataSource` configuration
-
-// TODO-10 : Disable the `DataSource` autoconfiguration exclusion annotation.
-
 @SpringBootApplication
 @ComponentScan("config")
 public class RewardsApplication {

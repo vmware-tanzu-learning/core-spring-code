@@ -18,8 +18,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
 
-// TODO-06: Refactor to a Spring Boot Integration test
-
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
 public class RewardNetworkTests {
