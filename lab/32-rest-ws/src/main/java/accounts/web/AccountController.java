@@ -37,24 +37,26 @@ public class AccountController {
 	/**
 	 * Provide a list of all accounts.
 	 */
-	// TODO 02: Complete this method. Add annotations to:
+	// TODO 02: Review the code that performs the following
 	//   a. Respond to GET /accounts
     //   b. Return a List<Account> to be converted to the response body
 	// Save your work and restart the application.
 	// You should get JSON results in your browser when accessing http://localhost:8080/accounts
-	public List<Account> accountSummary() {
+	@GetMapping(value = "/accounts")
+	public @ResponseBody List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
 
 	/**
 	 * Provide the details of an account with the given id.
 	 */
-	// TODO 04: Complete this method. Add annotations to:
+	// TODO 04: Review the code that performs the following
 	//   a. Respond to GET /accounts/{accountId}
     //   b. Return an Account to be converted to the response body
 	// Save your work and restart the application.
 	// You should get JSON results in your browser when accessing http://localhost:8080/accounts/0
-	public Account accountDetails(int id) {
+	@GetMapping(value = "/accounts/{id}")
+	public @ResponseBody Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
 	}
 
