@@ -11,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
+import java.net.URI;
 import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -66,6 +67,10 @@ public class AccountClientTests {
 		
 		//	TODO 08: Remove the @Disabled on this test method.
 		//	Create a new Account by POSTing to the right URL and store its location in a variable
+		//  The `RestTemplate` has two methods for this.
+		//  Use the one that returns the location of the newly created
+		//  resource and assign that to a variable.
+		URI newAccountLocation = null; // Modify this line to use the restTemplate
 
 		//	TODO 09: Retrieve the Account you just created from the location that was returned.
 		//	Run this test.  Whether it passes or not, proceed with the next step.
