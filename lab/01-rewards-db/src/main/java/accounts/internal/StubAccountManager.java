@@ -38,7 +38,7 @@ public class StubAccountManager implements AccountManager {
 
 	public static final long TEST_BEN0_ID = 0L;
 	public static final String TEST_BEN0_NAME = "Annabelle";
-	public static final long TEST_BEN1_ID = 0L;
+	public static final long TEST_BEN1_ID = 1L;
 	public static final String TEST_BEN1_NAME = "Corgan";
 	public static final String BENEFICIARY_SHARE = "50%";
 
