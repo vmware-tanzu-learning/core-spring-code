@@ -277,7 +277,8 @@
         <module>34-spring-data-jpa-solution</module>
         <module>36-security</module>
         <module>36-security-solution</module>
-
+        <module>37-actuator</module>
+        <module>37-actuator-solution</module>
         <module>38-spring-data-jpa</module>
         <module>38-spring-data-jpa-solution</module>
 
