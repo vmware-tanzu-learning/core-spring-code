@@ -1,12 +1,8 @@
 package accounts.web;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.util.List;
-
-//import org.junit.Assert;
+import accounts.internal.StubAccountManager;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -15,10 +11,16 @@ import org.springframework.http.HttpEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import accounts.internal.StubAccountManager;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+//import org.junit.Assert;
 
 /**
  * A JUnit test case testing the AccountController.
@@ -27,10 +29,16 @@ import rewards.internal.account.Beneficiary;
 public class AccountControllerTests {
 
 	private AccountController controller;
+	private MeterRegistry registry;
+	private Counter counter;
 
 	@BeforeEach
 	public void setUp() throws Exception {
-		controller = new AccountController(new StubAccountManager());
+		registry = mock(MeterRegistry.class);
+		counter = mock(Counter.class);
+		doReturn(counter).when(registry).counter(any(String.class));
+
+		controller = new AccountController(new StubAccountManager(), registry);
 	}
 
 	@Test
@@ -62,6 +70,8 @@ public class AccountControllerTests {
 
 		// See StubAccountManager.nextEntityId - initialized to 3
 		assertEquals("http://localhost/accounts/3", result.getHeaders().getLocation().toString());
+		verify(registry).counter("account.count");
+		verify(counter).increment();
 	}
 
 	@Test
@@ -103,7 +113,7 @@ public class AccountControllerTests {
 	 * Add a mocked up HttpServletRequest to Spring's internal request-context
 	 * holder. Normally the DispatcherServlet does this, but we must do it
 	 * manually to run our test.
-	 * 
+	 *
 	 * @param url
 	 *            The URL we are creating the fake request for.
 	 */
