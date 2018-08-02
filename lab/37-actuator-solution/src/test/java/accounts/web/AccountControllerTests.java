@@ -46,6 +46,9 @@ public class AccountControllerTests {
 		Account account = controller.accountDetails(0);
 		assertNotNull(account);
 		assertEquals(Long.valueOf(0), account.getEntityId());
+
+		verify(registry).counter("account.fetch");
+		verify(counter).increment();
 	}
 
 	@Test
@@ -70,8 +73,6 @@ public class AccountControllerTests {
 
 		// See StubAccountManager.nextEntityId - initialized to 3
 		assertEquals("http://localhost/accounts/3", result.getHeaders().getLocation().toString());
-		verify(registry).counter("account.count");
-		verify(counter).increment();
 	}
 
 	@Test

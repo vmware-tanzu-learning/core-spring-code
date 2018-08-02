@@ -48,7 +48,7 @@ public class AccountController {
 	@Autowired
 	public AccountController(AccountManager accountManager, MeterRegistry registry) {
 		this.accountManager = accountManager;
-		this.counter = registry.counter("account.count");
+		this.counter = registry.counter("account.fetch");
 	}
 
 	/**
@@ -64,6 +64,8 @@ public class AccountController {
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {
+		counter.increment();
+
 		return retrieveAccount(id);
 	}
 
@@ -76,7 +78,6 @@ public class AccountController {
 	public ResponseEntity<Void> createAccount(@RequestBody Account newAccount) {
 		Account account = accountManager.save(newAccount);
 
-		counter.increment();
 		return entityWithLocation(account.getEntityId());
 	}
 
