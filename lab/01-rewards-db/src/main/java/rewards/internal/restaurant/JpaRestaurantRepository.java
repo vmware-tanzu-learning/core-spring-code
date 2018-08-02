@@ -2,6 +2,9 @@ package rewards.internal.restaurant;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.ParameterExpression;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,4 +50,13 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 				.setParameter("merchantNumber", merchantNumber).getSingleResult();
 	}
 
+	@Override
+	public Long getRestaurantCount() {
+		CriteriaBuilder qb = entityManager.getCriteriaBuilder();
+
+		CriteriaQuery<Long> cq = qb.createQuery(Long.class);
+		cq.select(qb.count(cq.from(Restaurant.class)));
+
+		return entityManager.createQuery(cq).getSingleResult();
+	}
 }

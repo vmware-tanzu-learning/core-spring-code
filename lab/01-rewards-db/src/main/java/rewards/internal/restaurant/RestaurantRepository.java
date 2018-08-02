@@ -27,4 +27,5 @@ public interface RestaurantRepository {
 	 */
 	public Restaurant findByMerchantNumber(String merchantNumber);
 
+	public Long getRestaurantCount();
 }

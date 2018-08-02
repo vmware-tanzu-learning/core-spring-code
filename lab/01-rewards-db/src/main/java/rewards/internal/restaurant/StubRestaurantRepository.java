@@ -44,6 +44,11 @@ public class StubRestaurantRepository implements RestaurantRepository {
 		return restaurant;
 	}
 
+	@Override
+	public Long getRestaurantCount() {
+		return 1L;
+	}
+
 	/**
 	 * A simple "dummy" benefit availability policy that always returns true. Only useful for testing--a real
 	 * availability policy might consider many factors such as the day of week of the dining, or the account's reward
