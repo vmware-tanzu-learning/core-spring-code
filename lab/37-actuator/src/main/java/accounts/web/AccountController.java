@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import io.micrometer.core.instrument.Counter;
 
 
 import accounts.AccountManager;
@@ -40,15 +38,13 @@ public class AccountController {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private AccountManager accountManager;
-	private Counter counter;
 
 	/**
 	 * Creates a new AccountController with a given account manager.
 	 */
 	@Autowired
-	public AccountController(AccountManager accountManager, MeterRegistry registry) {
+	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;
-		this.counter = registry.counter("account.fetch");
 	}
 
 	/**
@@ -64,8 +60,6 @@ public class AccountController {
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {
-		counter.increment();
-
 		return retrieveAccount(id);
 	}
 
