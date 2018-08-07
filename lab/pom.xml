@@ -281,6 +281,8 @@
         <module>37-actuator-solution</module>
         <module>38-spring-data-jpa</module>
         <module>38-spring-data-jpa-solution</module>
+        <module>40-boot-test</module>
+        <module>40-boot-test-solution</module>
 
         <!-- Section: optional -->
         <!-- <module>mvc-no-boot</module>
