@@ -42,6 +42,7 @@ public class AccountControllerBootTests {
         // act and assert
         mockMvc.perform(get("/accounts/0"))
                .andExpect(status().isOk())
+               .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                .andExpect(jsonPath("name").value("John Doe"))
                .andExpect(jsonPath("number").value("1234567890"));
 
@@ -72,6 +73,7 @@ public class AccountControllerBootTests {
 
         mockMvc.perform(get("/accounts"))
                .andExpect(status().isOk())
+               .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                .andExpect(jsonPath("$..number").value("123456789"))
                .andExpect(jsonPath("$..name").value("John Doe"));
 
@@ -119,6 +121,7 @@ public class AccountControllerBootTests {
 
         mockMvc.perform(get("/accounts/{accountId}/beneficiaries/{beneficiaryName}", 0L, "Corgan"))
                .andExpect(status().isOk())
+               .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
                .andExpect(jsonPath("name").value("Corgan"))
                .andExpect(jsonPath("allocationPercentage").value("0.1"));
 
