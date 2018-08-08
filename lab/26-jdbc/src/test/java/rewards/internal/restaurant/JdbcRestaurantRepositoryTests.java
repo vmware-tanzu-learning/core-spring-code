@@ -1,18 +1,14 @@
 package rewards.internal.restaurant;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import javax.sql.DataSource;
-
+import common.money.Percentage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.EmptyResultDataAccessException;
-
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-import common.money.Percentage;
+import javax.sql.DataSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests the JDBC restaurant repository with a test data source to verify data access and relational-to-object mapping
@@ -40,12 +36,9 @@ public class JdbcRestaurantRepositoryTests {
 
 	@Test
 	public void testFindRestaurantByBogusMerchantNumber() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, ()-> {
 			repository.findByMerchantNumber("bogus");
-			fail("Should have thrown EmptyResultDataAccessException for a 'bogus' merchant number");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	private DataSource createTestDataSource() {

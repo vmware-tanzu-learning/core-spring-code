@@ -1,12 +1,6 @@
 package accounts.web;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.util.List;
-
-//import org.junit.Assert;
+import accounts.internal.StubAccountManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -15,10 +9,14 @@ import org.springframework.http.HttpEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-
-import accounts.internal.StubAccountManager;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+//import org.junit.Assert;
 
 /**
  * A JUnit test case testing the AccountController.
@@ -91,12 +89,9 @@ public class AccountControllerTests {
 
 	@Test
 	public void testDeleteBeneficiaryFail() {
-		try {
+		assertThrows(IllegalArgumentException.class, () -> {
 			controller.removeBeneficiary(0L, "Fred");
-			fail("No such beneficiary 'Fred', " + "IllegalArgumentException expected");
-		} catch (IllegalArgumentException e) {
-			// Expected result
-		}
+		});
 	}
 
 	/**

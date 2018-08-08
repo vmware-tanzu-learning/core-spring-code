@@ -53,12 +53,9 @@ public class JdbcAccountRepositoryTests {
 
 	@Test
 	public void testFindAccountByCreditCardNoAccount() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByCreditCard("bogus");
-			fail("Should've failed");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test

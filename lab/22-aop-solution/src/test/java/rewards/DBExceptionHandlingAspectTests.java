@@ -1,10 +1,5 @@
 package rewards;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -16,6 +11,10 @@ import rewards.CaptureSystemOutput.OutputCapture;
 import rewards.internal.account.AccountRepository;
 import rewards.internal.aspects.DBExceptionHandlingAspect;
 import rewards.internal.exception.RewardDataAccessException;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 @RunWith(JUnitPlatform.class)
@@ -29,13 +28,9 @@ public class DBExceptionHandlingAspectTests {
 	@Test
 	@CaptureSystemOutput
 	public void testReportException(OutputCapture capture) {
-		try {
+		assertThrows(RewardDataAccessException.class, () -> {
 			repository.findByCreditCard("1234123412341234");
-			fail("RewardDataAccessException expected");
-		} catch (Exception e) {
-			System.out.println("Exception occured...... " + e);
-			assertTrue(e instanceof RewardDataAccessException);
-		}
+		});
 
 		// The error message should have been logged to the console as a warning
 		assertThat(capture.toString(), containsString(DBExceptionHandlingAspect.EMAIL_FAILURE_MSG));
