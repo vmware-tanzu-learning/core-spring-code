@@ -22,11 +22,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
