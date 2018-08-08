@@ -276,7 +276,7 @@
         <module>36-mvc</module>
         <module>36-mvc-solution</module>
 
-        <!-- Day 2 ... renumber from 40 -->
+        <!-- Day 2 -->
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
         <module>40-security</module>
@@ -286,22 +286,5 @@
         <module>44-boot-test</module>
         <module>44-boot-test-solution</module>
 
-        <!-- Section: optional -->
-        <!--
-        <module>70-mvc-no-boot</module>
-        <module>70-mvc-no-boot-solution</module>
-        <module>71-jpa-no-boot</module>
-        <module>71-jpa-no-boot-solution</module>
-        <module>72-jms</module>
-        <module>72-jms-solution</module>
-        <module>72-jmx</module>
-        <module>72-jmx-solution</module>
-        <module>80-xml-di</module>
-        <module>80-xml-di-solution</module>
-        <module>82-xml-dependency-injection-best-practices</module>
-        <module>82-xml-dependency-injection-best-practices-solution</module>
-        -->
-
-        <!-- Section: appendix -->
     </modules>
 </project>
