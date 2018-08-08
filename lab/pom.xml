@@ -279,10 +279,10 @@
         <!-- Day 2 ... renumber from 40 -->
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
-        <module>42-security</module>
-        <module>42-security-solution</module>
-        <module>40-actuator</module>
-        <module>40-actuator-solution</module>
+        <module>40-security</module>
+        <module>40-security-solution</module>
+        <module>42-actuator</module>
+        <module>42-actuator-solution</module>
         <module>44-boot-test</module>
         <module>44-boot-test-solution</module>
 
