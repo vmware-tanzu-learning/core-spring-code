@@ -4,7 +4,6 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -15,13 +14,11 @@ import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
+//	TODO-07: Add an annotation that will scan for your new JPA repositories.
+//	Note that this configuration class is not in the same base package as the
+//	repository components you would have created in the previous steps.
+// 	Add annotation that will enable transaction management
 @Configuration
-//  TODO-05: Replace @ComponentScan annotation below with one that will
-//  enable automatic JPA repositories.
-//  Note that this configuration class is not in the same base package as the
-//  interfaces annotated in the previous steps.
-@ComponentScan(basePackages="rewards")
-@EnableTransactionManagement
 public class RewardsConfig {
 
 	@Autowired

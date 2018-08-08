@@ -5,8 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import rewards.AccountContribution;
 
@@ -16,7 +14,6 @@ import common.money.Percentage;
 /**
  * Unit tests for the Account class that verify Account behavior works in isolation.
  */
-@RunWith(JUnitPlatform.class)
 public class AccountTests {
 
 	private Account account = new Account("1", "Keith and Keri Donald");

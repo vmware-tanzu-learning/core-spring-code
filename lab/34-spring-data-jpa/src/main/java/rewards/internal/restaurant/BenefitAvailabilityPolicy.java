@@ -6,7 +6,7 @@ import rewards.internal.account.Account;
 /**
  * Determines if benefit is available for an account for dining.
  * 
- * A value object. A strategy. Scoped by the Resturant aggregate.
+ * A value object. A strategy. Scoped by the Restaurant aggregate.
  */
 public interface BenefitAvailabilityPolicy {
 

@@ -11,22 +11,20 @@ import javax.sql.DataSource;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 import rewards.internal.account.Account;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 
 /**
  * Tests the JDBC reward repository with a test data source to verify data access and relational-to-object mapping
  * behavior works as expected.
  */
-@RunWith(JUnitPlatform.class)
 public class JdbcRewardRepositoryTests {
 
 	private JdbcRewardRepository repository;
@@ -51,7 +49,7 @@ public class JdbcRewardRepositoryTests {
 		AccountContribution contribution = account.makeContribution(MonetaryAmount.valueOf("8.00"));
 		RewardConfirmation confirmation = repository.confirmReward(contribution, dining);
 		assertNotNull(confirmation, "confirmation should not be null");
-		assertNotNull("confirmation number should not be null", confirmation.getConfirmationNumber());
+		assertNotNull(confirmation.getConfirmationNumber(), "confirmation number should not be null");
 		assertEquals(contribution, confirmation.getAccountContribution(), "wrong contribution object");
 		verifyRewardInserted(confirmation, dining);
 	}

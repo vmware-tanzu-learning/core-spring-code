@@ -4,8 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import rewards.Dining;
 import rewards.internal.account.Account;
@@ -17,7 +15,6 @@ import common.money.Percentage;
  * Unit tests for exercising the behavior of the Restaurant aggregate entity. A restaurant calculates a benefit to award
  * to an account for dining based on an availability policy and benefit percentage.
  */
-@RunWith(JUnitPlatform.class)
 public class RestaurantTests {
 
 	private Restaurant restaurant;

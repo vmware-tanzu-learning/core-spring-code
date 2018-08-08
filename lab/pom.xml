@@ -241,13 +241,14 @@
     </build>
     <modules>
         <!--
-          // DO NOT MODIFY THESE MODULE ELEMENTS - GENERATED AUTOMATICALLY
+          // KEEP IN SYNC WITH SLIDES
           -->
         <!-- Section: Shared -->
         <module>00-rewards-common</module>
         <module>01-rewards-db</module>
         
         <!-- Section: Spring Essentials -->
+        <!-- Day 1 -->
         <module>10-spring-intro</module>
         <module>10-spring-intro-solution</module>
         <module>12-javaconfig-dependency-injection</module>
@@ -255,6 +256,7 @@
         <module>16-annotations</module>
         <module>16-annotations-solution</module>
 
+        <!-- Day 2 -->
         <module>24-test</module>
         <module>24-test-solution</module>
         <module>22-aop</module>
@@ -263,38 +265,42 @@
         <module>26-jdbc-solution</module>
         <module>28-transactions</module>
         <module>28-transactions-solution</module>
-        
-        <!-- Sections: Spring Boot -->
-        <module>30-mvc</module>
-        <module>30-mvc-solution</module>
+
+        <!-- Section: Spring Boot -->
+        <!-- Day 1 -->
+        <module>30-jdbc-boot-solution</module>
         <module>32-jdbc-autoconfig</module>
         <module>32-jdbc-autoconfig-solution</module>
-        <module>32-rest-ws</module>
-        <module>32-rest-ws-solution</module>
-        <module>33-jpa-no-boot</module>
-        <module>33-jpa-no-boot-solution</module>
         <module>34-spring-data-jpa</module>
         <module>34-spring-data-jpa-solution</module>
-        <module>36-security</module>
-        <module>36-security-solution</module>
-        <module>37-actuator</module>
-        <module>37-actuator-solution</module>
-        <module>38-spring-data-jpa</module>
-        <module>38-spring-data-jpa-solution</module>
-        <module>40-boot-test</module>
-        <module>40-boot-test-solution</module>
+        <module>36-mvc</module>
+        <module>36-mvc-solution</module>
+
+        <!-- Day 2 ... renumber from 40 -->
+        <module>38-rest-ws</module>
+        <module>38-rest-ws-solution</module>
+        <module>42-security</module>
+        <module>42-security-solution</module>
+        <module>40-actuator</module>
+        <module>40-actuator-solution</module>
+        <module>44-boot-test</module>
+        <module>44-boot-test-solution</module>
 
         <!-- Section: optional -->
-        <!-- <module>mvc-no-boot</module>
-        <module>mvc-no-boot-solution</module>
-        <module>jms</module>
-        <module>jms-solution</module>
-        <module>jmx</module>
-        <module>jmx-solution</module>
-        <module>xml-di</module>
-        <module>xml-di-solution</module>
-        <module>xml-dependency-injection-best-practices</module>
-        <module>xml-dependency-injection-best-practices-solution</module>-->
+        <!--
+        <module>70-mvc-no-boot</module>
+        <module>70-mvc-no-boot-solution</module>
+        <module>71-jpa-no-boot</module>
+        <module>71-jpa-no-boot-solution</module>
+        <module>72-jms</module>
+        <module>72-jms-solution</module>
+        <module>72-jmx</module>
+        <module>72-jmx-solution</module>
+        <module>80-xml-di</module>
+        <module>80-xml-di-solution</module>
+        <module>82-xml-dependency-injection-best-practices</module>
+        <module>82-xml-dependency-injection-best-practices-solution</module>
+        -->
 
         <!-- Section: appendix -->
     </modules>

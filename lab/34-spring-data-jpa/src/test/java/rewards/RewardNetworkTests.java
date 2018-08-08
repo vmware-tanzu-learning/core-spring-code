@@ -1,32 +1,22 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A system test that verifies the components of the RewardNetwork application work together to reward for dining
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
 
-// TODO-07: Run this test, it should still work.
-//
-// TODO-13: Make this a Spring Boot test, removing @ContextConfiguration
-//          You still need to tell Spring Boot to use SystemTestConfig.
-// TODO-14: Run this test, it should work again.
-
-@RunWith(JUnitPlatform.class)
+@SpringBootTest
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(classes={SystemTestConfig.class})
 public class RewardNetworkTests {
 
 	/**
