@@ -56,25 +56,18 @@ public class JdbcRestaurantRepositoryTests {
 
 	@Test
 	public void findRestaurantByBogusMerchantNumber() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByMerchantNumber("bogus");
-			fail("Should have thrown EmptyResultDataAccessException for a 'bogus' merchant number");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test
 	public void restaurantCacheClearedAfterDestroy() throws Exception {
 		// force early tear down
 		tearDown();
-		try {
-			// try what normally is a valid number
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByMerchantNumber("1234567890");
-			fail("Should have thrown EmptyResultDataAccessException - cache not cleared?");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	private DataSource createTestDataSource() {

@@ -52,12 +52,9 @@ public class JdbcRestaurantRepositoryTests {
 
 	@Test
 	public void findRestaurantByBogusMerchantNumber() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByMerchantNumber("bogus");
-			fail("Should have thrown EmptyResultDataAccessException for a 'bogus' merchant number");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test

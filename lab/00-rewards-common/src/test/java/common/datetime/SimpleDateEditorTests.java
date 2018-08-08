@@ -1,9 +1,9 @@
 package common.datetime;
 
-import static org.assertj.core.api.Assertions.fail;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SimpleDateEditorTests {
 
@@ -25,12 +25,8 @@ public class SimpleDateEditorTests {
 
 	@Test
 	public void testSetAsTextBogus() {
-		try {
+		assertThrows(IllegalArgumentException.class, () -> {
 			editor.setAsText("December 29th, 1977");
-			fail("Should have failed - illegal argument");
-		}
-		catch (IllegalArgumentException e) {
-
-		}
+		});
 	}
 }

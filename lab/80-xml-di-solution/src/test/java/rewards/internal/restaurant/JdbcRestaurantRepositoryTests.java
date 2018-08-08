@@ -1,19 +1,15 @@
 package rewards.internal.restaurant;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.fail;
-
-import javax.sql.DataSource;
-
+import common.money.Percentage;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.EmptyResultDataAccessException;
-
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-import common.money.Percentage;
+import javax.sql.DataSource;
+
+import static org.junit.Assert.*;
 
 /**
  * Tests the JDBC restaurant repository with a test data source to verify data access and relational-to-object mapping
@@ -56,25 +52,19 @@ public class JdbcRestaurantRepositoryTests {
 
 	@Test
 	public void findRestaurantByBogusMerchantNumber() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByMerchantNumber("bogus");
-			fail("Should have thrown EmptyResultDataAccessException for a 'bogus' merchant number");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test
 	public void restaurantCacheClearedAfterDestroy() throws Exception {
 		// force early tear down
 		tearDown();
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			// try what normally is a valid number
 			repository.findByMerchantNumber("1234567890");
-			fail("Should have thrown EmptyResultDataAccessException - cache not cleared?");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	private DataSource createTestDataSource() {

@@ -1,22 +1,18 @@
 package rewards.internal.account;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+import javax.sql.DataSource;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests the JDBC account repository with a test data source to verify data access and relational-to-object mapping
@@ -58,12 +54,9 @@ public class JdbcAccountRepositoryTests {
 
 	@Test
 	public void testFindAccountByCreditCardNoAccount() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, () -> {
 			repository.findByCreditCard("bogus");
-			fail("Should've failed");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test

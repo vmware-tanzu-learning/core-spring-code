@@ -1,17 +1,15 @@
 package rewards.internal.restaurant;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
-
+import common.money.Percentage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import javax.sql.DataSource;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import common.money.Percentage;
+
+import javax.sql.DataSource;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests the JDBC restaurant repository with a test data source to verify data access and relational-to-object mapping
@@ -59,25 +57,18 @@ public class JdbcRestaurantRepositoryTests {
 
 	@Test
 	public void findRestaurantByBogusMerchantNumber() {
-		try {
+		assertThrows(EmptyResultDataAccessException.class, ()-> {
 			repository.findByMerchantNumber("bogus");
-			fail("Should have thrown EmptyResultDataAccessException for a 'bogus' merchant number");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	@Test
 	public void restaurantCacheClearedAfterDestroy() throws Exception {
 		// force early tear down
 		tearDown();
-		try {
-			// try what normally is a valid number
+		assertThrows(EmptyResultDataAccessException.class, ()-> {
 			repository.findByMerchantNumber("1234567890");
-			fail("Should have thrown EmptyResultDataAccessException - cache not cleared?");
-		} catch (EmptyResultDataAccessException e) {
-			// expected
-		}
+		});
 	}
 
 	private DataSource createTestDataSource() {

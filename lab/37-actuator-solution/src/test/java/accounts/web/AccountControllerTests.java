@@ -102,12 +102,9 @@ public class AccountControllerTests {
 
 	@Test
 	public void testDeleteBeneficiaryFail() {
-		try {
+		assertThrows(IllegalArgumentException.class, () -> {
 			controller.removeBeneficiary(0L, "Fred");
-			fail("No such beneficiary 'Fred', " + "IllegalArgumentException expected");
-		} catch (IllegalArgumentException e) {
-			// Expected result
-		}
+		});
 	}
 
 	/**
