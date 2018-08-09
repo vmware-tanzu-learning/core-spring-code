@@ -9,10 +9,10 @@ import config.DbConfig;
 
 @SpringBootApplication
 @Import({AppConfig.class,DbConfig.class})
-public class RestWsApplication {
+public class BootTestSolutionApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RestWsApplication.class, args);
+        SpringApplication.run(BootTestSolutionApplication.class, args);
     }
 
 }

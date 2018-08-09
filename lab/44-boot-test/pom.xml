@@ -14,7 +14,7 @@
     </parent>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <start-class>accounts.RestWsApplication</start-class>
+        <start-class>accounts.BootTestApplication</start-class>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
