@@ -7,6 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
@@ -65,7 +68,7 @@ public class AccountClientBootTests {
 		assertEquals(accountBeneficiary.getName(), retrievedAccountBeneficiary.getName());
 		assertNotNull(retrievedAccount.getEntityId());
 	}
-	
+
 	@Test
 	public void addAndDeleteBeneficiary() {
 		// perform both add and delete to avoid issues with side effects
@@ -73,10 +76,14 @@ public class AccountClientBootTests {
 		URI newBeneficiaryLocation = restTemplate.postForLocation(addUrl, "David", 1);
 		Beneficiary newBeneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
 		assertEquals("David", newBeneficiary.getName());
-		
+
 		restTemplate.delete(newBeneficiaryLocation);
 
-		Beneficiary beneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
-		assertEquals(null, beneficiary);
+		// use exchange method to receive a 404 response
+		ResponseEntity<Account> response = restTemplate
+				.exchange(newBeneficiaryLocation, HttpMethod.DELETE, null, Account.class);
+
+		assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
 	}
+
 }
