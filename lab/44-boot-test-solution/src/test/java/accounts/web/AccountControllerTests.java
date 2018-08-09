@@ -32,14 +32,14 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void accountDetailsTest() {
+	public void accountDetails() {
 		Account account = controller.accountDetails(0);
 		assertNotNull(account);
 		assertEquals(Long.valueOf(0), account.getEntityId());
 	}
 
 	@Test
-	public void accountSummaryTest() {
+	public void accountSummary() {
 		List<Account> accounts = controller.accountSummary();
 		assertNotNull(accounts);
 		assertEquals(1, accounts.size());
@@ -47,7 +47,7 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void createAccountTest() {
+	public void createAccount() {
 		Account newAccount = new Account("11223344", "Test");
 
 		// ServletUriComponentsBuilder expects to find the HttpRequest in the
@@ -63,14 +63,14 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void getBeneficiaryTest() {
+	public void getBeneficiary() {
 		Beneficiary beneficiary = controller.getBeneficiary(0, "Corgan");
 		assertNotNull(beneficiary);
 		assertEquals(Long.valueOf(1), beneficiary.getEntityId());
 	}
 
 	@Test
-	public void addBeneficiaryTest() {
+	public void addBeneficiary() {
 
 		// ServletUriComponentsBuilder expects to find the HttpRequest in the
 		// current thread (Spring MVC does this for you). For our test, we need
@@ -83,12 +83,12 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void removeBeneficiaryTest() {
+	public void removeBeneficiary() {
 		controller.removeBeneficiary(0L, "Corgan");
 	}
 
 	@Test
-	public void removeBeneficiaryFailTest() {
+	public void removeBeneficiaryFail() {
 		try {
 			controller.removeBeneficiary(0L, "Fred");
 			fail("No such beneficiary 'Fred', " + "IllegalArgumentException expected");

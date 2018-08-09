@@ -33,7 +33,7 @@ public class AccountControllerBootTests {
     private AccountManager accountManager;
 
     @Test
-    public void accountDetailsTest() throws Exception {
+    public void accountDetails() throws Exception {
 
         // arrange
         given(accountManager.getAccount(0L))
@@ -52,7 +52,7 @@ public class AccountControllerBootTests {
     }
 
     @Test
-    public void accountDetailsFailTest() throws Exception {
+    public void accountDetailsFail() throws Exception {
 
         given(accountManager.getAccount(any(Long.class)))
                 .willThrow(new IllegalArgumentException("No such account with id " + 0L));
@@ -66,7 +66,7 @@ public class AccountControllerBootTests {
     }
 
     @Test
-    public void accountSummaryTest() throws Exception {
+    public void accountSummary() throws Exception {
 
         List<Account> testAccounts = Arrays.asList(new Account("123456789", "John Doe"));
         given(accountManager.getAllAccounts()).willReturn(testAccounts);
@@ -82,7 +82,7 @@ public class AccountControllerBootTests {
     }
 
     @Test
-    public void createAccountTest() throws Exception {
+    public void createAccount() throws Exception {
 
         Account testAccount = new Account("1234512345", "Mary Jones");
         testAccount.setEntityId(21L);
@@ -112,7 +112,7 @@ public class AccountControllerBootTests {
 
 
     @Test
-    public void getBeneficiaryTest() throws Exception {
+    public void getBeneficiary() throws Exception {
 
         Account account = new Account("1234567890", "John Doe");
         account.addBeneficiary("Corgan", new Percentage(0.1));
@@ -130,7 +130,7 @@ public class AccountControllerBootTests {
 
 
     @Test
-    public void addBeneficiaryTest() throws Exception {
+    public void addBeneficiary() throws Exception {
 
         mockMvc.perform(post("/accounts/{entityId}/beneficiaries", 0L)
                 .content("Kate"))
@@ -140,7 +140,7 @@ public class AccountControllerBootTests {
 
 
     @Test
-    public void removeBeneficiaryTest() throws Exception {
+    public void removeBeneficiary() throws Exception {
 
         Account account = new Account("1234567890", "John Doe");
         account.addBeneficiary("Corgan", new Percentage(0.1));
@@ -155,7 +155,7 @@ public class AccountControllerBootTests {
     }
 
     @Test
-    public void removeBeneficiaryFailTest() throws Exception {
+    public void removeBeneficiaryFail() throws Exception {
         Account account = new Account("1234567890", "John Doe");
         given(accountManager.getAccount(0L))
                 .willReturn(account);
