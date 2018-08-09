@@ -32,14 +32,14 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void testHandleDetailsRequest() {
+	public void accountDetailsTest() {
 		Account account = controller.accountDetails(0);
 		assertNotNull(account);
 		assertEquals(Long.valueOf(0), account.getEntityId());
 	}
 
 	@Test
-	public void testHandleSummaryRequest() {
+	public void accountSummaryTest() {
 		List<Account> accounts = controller.accountSummary();
 		assertNotNull(accounts);
 		assertEquals(1, accounts.size());
@@ -47,7 +47,7 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void testCreateAccount() {
+	public void createAccountTest() {
 		Account newAccount = new Account("11223344", "Test");
 
 		// ServletUriComponentsBuilder expects to find the HttpRequest in the
@@ -63,14 +63,14 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void testGetBeneficiary() {
+	public void getBeneficiaryTest() {
 		Beneficiary beneficiary = controller.getBeneficiary(0, "Corgan");
 		assertNotNull(beneficiary);
 		assertEquals(Long.valueOf(1), beneficiary.getEntityId());
 	}
 
 	@Test
-	public void testAddBeneficiary() {
+	public void addBeneficiaryTest() {
 
 		// ServletUriComponentsBuilder expects to find the HttpRequest in the
 		// current thread (Spring MVC does this for you). For our test, we need
@@ -83,12 +83,12 @@ public class AccountControllerTests {
 	}
 
 	@Test
-	public void testDeleteBeneficiary() {
+	public void removeBeneficiaryTest() {
 		controller.removeBeneficiary(0L, "Corgan");
 	}
 
 	@Test
-	public void testDeleteBeneficiaryFail() {
+	public void removeBeneficiaryFailTest() {
 		try {
 			controller.removeBeneficiary(0L, "Fred");
 			fail("No such beneficiary 'Fred', " + "IllegalArgumentException expected");
@@ -101,7 +101,7 @@ public class AccountControllerTests {
 	 * Add a mocked up HttpServletRequest to Spring's internal request-context
 	 * holder. Normally the DispatcherServlet does this, but we must do it
 	 * manually to run our test.
-	 * 
+	 *
 	 * @param url
 	 *            The URL we are creating the fake request for.
 	 */
@@ -119,3 +119,4 @@ public class AccountControllerTests {
 	}
 
 }
+
