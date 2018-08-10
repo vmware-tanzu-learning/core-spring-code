@@ -77,11 +77,10 @@ public class JpaAccountManager implements AccountManager {
 	public Account getAccount(Long id) {
 		Account account = (Account) entityManager.find(Account.class, id);
 
-		if (account == null)
-			throw new ObjectRetrievalFailureException(Account.class, id);
-
-		// Force beneficiaries to load too - avoid Hibernate lazy loading error
-		account.getBeneficiaries().size();
+		if (account != null) {
+			// Force beneficiaries to load too - avoid Hibernate lazy loading error
+			account.getBeneficiaries().size();
+		}
 
 		return account;
 	}

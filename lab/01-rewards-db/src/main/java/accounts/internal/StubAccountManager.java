@@ -77,11 +77,7 @@ public class StubAccountManager implements AccountManager {
 
 	@Override
 	public Account getAccount(Long id) {
-		Account account = accountsById.get(id);
-		if (account == null) {
-			throw new ObjectRetrievalFailureException(Account.class, id);
-		}
-		return account;
+		return accountsById.get(id);
 	}
 
 	@Override
