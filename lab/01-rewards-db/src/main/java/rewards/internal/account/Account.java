@@ -2,6 +2,7 @@ package rewards.internal.account;
 
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -272,5 +273,22 @@ public class Account {
 	public String toString() {
 		return entityId + ": Number = '" + number + "', name = " + name
 				+ "', beneficiaries = " + beneficiaries;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Account account = (Account) o;
+		return Objects.equals(entityId, account.entityId) &&
+				Objects.equals(number, account.number) &&
+				Objects.equals(name, account.name) &&
+				Objects.equals(beneficiaries, account.beneficiaries);
+	}
+
+	@Override
+	public int hashCode() {
+
+		return Objects.hash(entityId, number, name, beneficiaries);
 	}
 }
