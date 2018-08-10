@@ -255,12 +255,12 @@
         <module>12-javaconfig-dependency-injection-solution</module>
         <module>16-annotations</module>
         <module>16-annotations-solution</module>
+        <module>22-aop</module>
+        <module>22-aop-solution</module>
 
         <!-- Day 2 -->
         <module>24-test</module>
         <module>24-test-solution</module>
-        <module>22-aop</module>
-        <module>22-aop-solution</module>
         <module>26-jdbc</module>
         <module>26-jdbc-solution</module>
         <module>28-transactions</module>
