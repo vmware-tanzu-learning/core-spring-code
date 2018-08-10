@@ -119,7 +119,7 @@ public class AccountController {
 		// out the benefit of the deleted beneficiary amongst all the others
 		if (account.getBeneficiaries().size() != 1
 				&& (!deletedBeneficiary.getAllocationPercentage().equals(Percentage.zero()))) {
-			// This logic is very simplistic, doesn't account for roundign errors
+			// This logic is very simplistic, doesn't account for rounding errors
 			Percentage p = deletedBeneficiary.getAllocationPercentage();
 			int remaining = account.getBeneficiaries().size() - 1;
 			double extra = p.asDouble() / remaining;
