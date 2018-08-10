@@ -110,6 +110,9 @@ public class AccountController {
 	@ResponseStatus(HttpStatus.NO_CONTENT) // 204
 	public void removeBeneficiary(@PathVariable long accountId, @PathVariable String beneficiaryName) {
 		Account account = accountManager.getAccount(accountId);
+		if (account == null) {
+			throw new IllegalArgumentException("No such account with id " + accountId);
+		}
 		Beneficiary deletedBeneficiary = account.getBeneficiary(beneficiaryName);
 
 		HashMap<String, Percentage> allocationPercentages = new HashMap<String, Percentage>();

@@ -3,6 +3,7 @@ package accounts.web;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -51,7 +52,11 @@ public class AccountController {
 
 	@RequestMapping("/accountDetails")
 	public String getAccountDetails(Long entityId, Model model, Principal principal) {
-		model.addAttribute("account", accountManager.getAccount(entityId));
+		Account account = accountManager.getAccount(entityId);
+		if(account == null) {
+			throw new ObjectRetrievalFailureException(Account.class, entityId);
+		}
+		model.addAttribute("account", account);
 		return "accountDetails";
 	}
 

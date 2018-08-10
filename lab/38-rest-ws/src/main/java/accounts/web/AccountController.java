@@ -141,6 +141,9 @@ public class AccountController {
 	//  b. Indicate a "204 No Content" status
 	public void removeBeneficiary(long accountId, String beneficiaryName) {
 		Account account = accountManager.getAccount(accountId);
+		if (account == null) {
+			throw new IllegalArgumentException("No such account with id " + accountId);
+		}
 		Beneficiary b = account.getBeneficiary(beneficiaryName);
 
 		// We ought to reset the allocation percentages, but for now we won't
