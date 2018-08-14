@@ -21,23 +21,18 @@ import javax.sql.DataSource;
 
 // TODO-08 : Switch to imperative `DataSource` configuration
 
-// TODO-10 : Disable the `DataSource` autoconfiguration exclusion annotation.
+// TODO-10 : Disable the `DataSource` auto-configuration exclusion annotation.
 
 @Configuration
 public class RewardsConfig {
 	private final Logger logger
 			= LoggerFactory.getLogger(RewardsConfig.class);
 
-	// TODO-04 : Switch to Autowired
+	DataSource dataSource;
 
-	// TODO-08 : Switch back to imperative `DataSource` configuration
-	@Bean
-	public DataSource dataSource() {
-		return
-			(new EmbeddedDatabaseBuilder())
-			.addScript("classpath:rewards/testdb/schema.sql")
-			.addScript("classpath:rewards/testdb/data.sql")
-			.build();
+	@Autowired  // Optional, Spring will call this constructor anyway
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
 	}
 
 	@Bean
@@ -50,19 +45,19 @@ public class RewardsConfig {
 	
 	@Bean
 	public AccountRepository accountRepository(){
-		JdbcAccountRepository repository = new JdbcAccountRepository(dataSource());
+		JdbcAccountRepository repository = new JdbcAccountRepository(dataSource);
 		return repository;
 	}
 	
 	@Bean
 	public RestaurantRepository restaurantRepository(){
-		JdbcRestaurantRepository repository = new JdbcRestaurantRepository(dataSource());
+		JdbcRestaurantRepository repository = new JdbcRestaurantRepository(dataSource);
 		return repository;
 	}
 	
 	@Bean
 	public RewardRepository rewardRepository(){
-		JdbcRewardRepository repository = new JdbcRewardRepository(dataSource());
+		JdbcRewardRepository repository = new JdbcRewardRepository(dataSource);
 		return repository;
 	}
 	

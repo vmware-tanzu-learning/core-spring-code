@@ -11,13 +11,18 @@ import javax.sql.DataSource;
 @Configuration
 @Import(RewardsConfig.class)
 public class SystemTestConfig {
-
 	
+	// TODO-04 : Spring Boot will create the DataSource for us
+	//           Comment out @Bean so this method is no longer called
+
+	// TODO-08 : Switch back to imperative `DataSource` configuration
+    //           Restore the @Bean method
+
 	/**
 	 * Creates an in-memory "rewards" database populated 
 	 * with test data for fast testing
 	 */
-	@Bean
+//	@Bean
 	public DataSource dataSource(){
 		return
 			(new EmbeddedDatabaseBuilder())
