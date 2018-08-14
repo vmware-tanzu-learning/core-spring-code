@@ -2,26 +2,105 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>32-jdbc-autoconfig</artifactId>
+    <version>5.0.c.RELEASE</version>
+
     <organization>
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
     </organization>
     <packaging>jar</packaging>
     <parent>
-        <groupId>io.pivotal.education.core-spring</groupId>
-        <artifactId>parentProject</artifactId>
-        <version>5.0.c.RELEASE</version>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.3.RELEASE</version>
     </parent>
 
-    <!-- TODO-01 : Add the Spring Boot Plugin -->
+    <properties>
+        <!-- JUnit 5 related properties -->
+        <junit.jupiter.version>5.2.0</junit.jupiter.version>
+        <junit.vintage.version>5.2.0</junit.vintage.version>
+        <junit.platform.version>1.2.0</junit.platform.version>
+    </properties>
+    
+    <build>
+         <plugins>
+		    <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
+		         for the XML you need. -->
+<plugin>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-maven-plugin</artifactId>
+</plugin>
 
-    <!-- TODO-02 : Refactor from discrete Spring Framework and 3rd
-         Party dependencies to JDBC and HSQLDB Spring Boot Starters -->
-
+            <!-- Ensure resources are handled correctly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+    
     <dependencies>
+       <!--
+          // Although we are not using Spring Boot yet, we are using
+          // SpringApplication which is a Spring Boot class.
+          -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+ 
+        <!-- TO-DO-02 : Refactor from discrete Spring Framework and 3rd
+             Party dependencies to JDBC and HSQLDB Spring Boot Starters -->
+ 
+        <!-- Needed for the Spring JdbcTemplate -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+        </dependency>
+
+        <!--  Spring Integration testing support -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+        </dependency>
+
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+</dependency>
+
+        <!-- JUnit 5 related dependencies - DO NOT MODIFY -->
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- To run tests on older IDEs that support JUnit 4 - DO NOT MODIFY -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        
+        <!-- Database - DO NOT MODIFY -->
+        <dependency>
+            <groupId>org.hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+        </dependency>
+
+        <!--  Common convenience classes - DO NOT MODIFY -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
+            <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 </project>
