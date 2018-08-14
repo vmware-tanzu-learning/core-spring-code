@@ -8,7 +8,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import common.money.MonetaryAmount;
@@ -18,14 +18,14 @@ import common.money.MonetaryAmount;
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
 
-// TODO-07: Refactor to a Spring Boot Integration test
+// TODO-09: Refactor to a Spring Boot Integration test
 //          There is no need to specify any configuration classes, it will
 //          find and use the configuration of RewardApplication automatically.
+//          Run the test, it should pass.
 
 @RunWith(JUnitPlatform.class) // DO NOT MODIFY
 @ExtendWith(SpringExtension.class) // DO NOT MODIFY
-//@ContextConfiguration(classes={SystemTestConfig.class})
-@SpringBootTest
+@ContextConfiguration(classes={SystemTestConfig.class}) // REPLACE ME
 public class RewardNetworkTests {
 
 	/**

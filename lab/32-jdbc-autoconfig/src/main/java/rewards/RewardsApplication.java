@@ -1,16 +1,8 @@
 package rewards;
 
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.stereotype.Component;
 
 // TODO-01 : Open pom.xml, look for TO-DO-01
 
@@ -19,13 +11,24 @@ import org.springframework.stereotype.Component;
 // TODO-03 : Turn the RewardsApplication into a Spring Boot application
 //           by adding an annotation and a main method.
 
-@SpringBootApplication
+// TODO-11 : Disable the `DataSource` auto-configuration using the
+//           @SpringBootApplication exclude attribute - this was
+//           the positive match we asked you to remember earlier.
+
+// TODO-12 : Look in application.properties for the next step.
+
+// TODO-13 : Remove the `DataSource` auto-configuration exclusion.
+//           Rerun the application again. 
+//           Spring Boot auto-configuration should be creating the DataSource again.
+
+// TODO-14 : Look in application.properties for the next step.
+
 public class RewardsApplication {
-    private final Logger logger
+	static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
+	
+    final Logger logger
             = LoggerFactory.getLogger(RewardsApplication.class);
     
-    private static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
-
     public static void main(String[] args) {
 		SpringApplication.run(RewardsApplication.class, args);
 	}
@@ -40,22 +43,14 @@ public class RewardsApplication {
     //           Use the SQL query and logger provided above.
     //           Use the JdbcTemplate bean that Spring Boot creates for you
     //           automatically.
+    //
+    // TODO-07   Enable full debugging - follow TO-DO-07 in application.properties
+    //           then come back here.
+    //
+    //           Run the application - do you see the accounts log message?
+    //           In the console output, find "CONDITIONS EVALUATION REPORT"
+    //           What is the first positive match? REMEMBER its name.
     
-    /**
-     * Spring Boot automatically invokes the run() method of any
-     * CommandLineRunner Spring Bean it finds.
-     */
-    @Component
-    public class JdbcApplicationRunner implements CommandLineRunner {
-        @Autowired
-        JdbcTemplate jdbcTemplate;
-
-        @Override
-        public void run(String... args) throws Exception {
-            // Do some work ...
-            logger.info("Hello, there are "
-                    + jdbcTemplate.queryForObject(SQL, Long.class)
-                    + " accounts");
-        }
-    }
+    // TODO-08   Follow the instructions in the detailed instructions.
+    //           The section titled "Build and Run using Command Line tools".
 }

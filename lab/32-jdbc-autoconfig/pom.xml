@@ -26,10 +26,7 @@
          <plugins>
 		    <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
 		         for the XML you need. -->
-<plugin>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-maven-plugin</artifactId>
-</plugin>
+
 
             <!-- Ensure resources are handled correctly -->
             <plugin>
@@ -64,10 +61,6 @@
             <artifactId>spring-test</artifactId>
         </dependency>
 
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-test</artifactId>
-</dependency>
 
         <!-- JUnit 5 related dependencies - DO NOT MODIFY -->
         <dependency>
