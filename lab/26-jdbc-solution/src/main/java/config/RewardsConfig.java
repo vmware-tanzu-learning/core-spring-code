@@ -18,9 +18,13 @@ import rewards.internal.reward.RewardRepository;
 @Configuration
 public class RewardsConfig {
 
-	@Autowired
 	DataSource dataSource;
-		
+
+	@Autowired  // Optional, Spring will call this constructor anyway
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
+
 	@Bean
 	public RewardNetwork rewardNetwork(){
 		return new RewardNetworkImpl(
