@@ -1,11 +1,9 @@
-package servers;
+package auth;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * Configure browser-based access. Restrict access to the admin pages to the
@@ -16,17 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * {@link AuthorizationServer}.
  */
 @Configuration
-public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter implements WebMvcConfigurer {
-
-	/**
-	 * Provide a home page so we can see it's running
-	 */
-	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("console");
-		registry.addViewController("/login");
-		registry.addViewController("/done");
-		registry.addViewController("/console");
-	}
+public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	/**
 	 * Define a master user. This has nothing to do with the OAuth2 configuration.

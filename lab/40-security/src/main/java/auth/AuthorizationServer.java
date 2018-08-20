@@ -1,4 +1,4 @@
-package servers;
+package auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -11,15 +11,34 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 import config.Constants;
 
+/**
+ * OAuth2 Authorization server for authenticating access to the Account server.
+ * <p>
+ * Normally this would be in a separate project. Because this is in he same
+ * project as the Account Server, Spring Boot will pick up its JPA
+ * configuration, so all JPA auto-configuration is disabled (we don't need it).
+ * <p>
+ * TODO-01: Run this application as a Spring Boot or Java application and open
+ * http://locahost:1111 in your browser. Login and you should see the console
+ * page. The user-name is "user" and the password is in your console output.
+ * <p>
+ * TODO-02: If you browser can display JSON, you might like to look at the
+ * actuator pages.
+ * <p>
+ * TODO-03: What happens if you access the Superuser Only page? We need to fix
+ * that! Open the {@link AuthServerConsoleSecurityConfiguration}.
+ * <p>
+ * TODO-08: Now to convert this process into an OAuth2 Server. Go on to the next
+ * step.
+ */
 @SpringBootApplication
-@EnableAuthorizationServer
+// TODO-09: Add the annotation to make this an OAuth Server
 @SuppressWarnings("deprecation")
-@EnableAutoConfiguration(exclude= {JpaRepositoriesAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
+@EnableAutoConfiguration(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
 
 	public static final String CLIENT_CREDENTIALS = "client_credentials";
@@ -30,7 +49,7 @@ public class AuthorizationServer {
 
 	public static void main(String[] args) {
 		// This is the name of the properties file to read. Instead of
-		// application.properties it will read account-server.properties.
+		// "application.properties" it will read "account-server.properties".
 		System.setProperty("spring.config.name", "auth-server");
 
 		SpringApplication.run(AuthorizationServer.class, args);
@@ -46,7 +65,7 @@ public class AuthorizationServer {
 	 * 
 	 * @return
 	 */
-	@Bean
+	// @Bean
 	AuthorizationServerConfigurer authServerConfig() {
 		return new AuthorizationServerConfigurerAdapter() {
 			/**
@@ -54,6 +73,8 @@ public class AuthorizationServer {
 			 */
 			@Override
 			public void configure(AuthorizationServerSecurityConfigurer security) {
+				// TODO-10: Check token access - must have trusted client authority
+				// You can use ROLE_TRUSTED_CLIENT above.
 				security.checkTokenAccess("hasAuthority('" + ROLE_TRUSTED_CLIENT + "')");
 			}
 
@@ -69,17 +90,15 @@ public class AuthorizationServer {
 			 */
 			@Override
 			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-				// In-memory definitions
+				// TODO-11: Setup in-memory definitions as described in the Javadoc for this
+				// method. The two clients you need to setup have been started for you
 				clients.inMemory() //
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server
-						.secret("secret") //
-						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
-						.authorities(ROLE_TRUSTED_CLIENT) //
-					.and() //
+						// Add configuration here
+						.and() //
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client
-						.secret("secret")//
-						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
-						.scopes(ACCOUNT_READ);
+				// Add configuration here
+				;
 			}
 
 		};

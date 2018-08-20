@@ -1,4 +1,4 @@
-package servers;
+package auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,6 +16,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 
 import config.Constants;
 
+/**
+ * OAuth2 Authorization server for authenticating access to the Account server.
+ */
 @SpringBootApplication
 @EnableAuthorizationServer
 @SuppressWarnings("deprecation")

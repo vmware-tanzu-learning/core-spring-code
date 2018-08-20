@@ -1,3 +1,4 @@
+package accounts.client;
 import java.net.URI;
 import java.net.URISyntaxException;
 
