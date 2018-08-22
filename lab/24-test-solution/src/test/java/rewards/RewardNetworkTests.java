@@ -24,8 +24,8 @@ import common.money.MonetaryAmount;
 
 // Uncomment the profile you wish to use
 @ActiveProfiles("stub")
-//@ActiveProfiles({ "jdbc-dev", "jdbc" })
-//@ActiveProfiles({ "jdbc-production", "jdbc" })
+//@ActiveProfiles({ "local", "jdbc" })
+//@ActiveProfiles({ "jndi", "jdbc" })
 public class RewardNetworkTests {
 
 	/**

@@ -22,7 +22,7 @@ import common.money.MonetaryAmount;
  */
 @RunWith(JUnitPlatform.class)
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
-@ActiveProfiles({ "jdbc-dev", "jdbc" })
+@ActiveProfiles({ "local", "jdbc" })
 public class DevRewardNetworkTests {
 
 	/**

@@ -51,15 +51,15 @@ import common.money.MonetaryAmount;
 /* TODO 05: Go to corresponding step in TestInfrastructureDevConfig.
  */
 
-/* TODO 06: Now that the bean 'dataSource' is specific to the jdbc-dev profile, should we expect 
+/* TODO 06: Now that the bean 'dataSource' is specific to the local profile, should we expect 
  * 			this test to be successful?
- * 			Make the appropriate changes so the current test uses 2 profiles ('jdbc' and 'jdbc-dev').
+ * 			Make the appropriate changes so the current test uses 2 profiles ('jdbc' and 'local').
  * 			Rerun the test, it should pass.
  */
 
 /* TODO 07: Open TestInfrastructureProductionConfig and note the different datasource that will be
- * 			used if the profile = 'jdbc-production'.
- * 			Now update the current test so it uses profiles 'jdbc' and 'jdbc-production'. 
+ * 			used if the profile = 'jndi'.
+ * 			Now update the current test so it uses profiles 'jdbc' and 'jndi'. 
  * 			Rerun the test, it should pass.
  */
 
@@ -95,7 +95,7 @@ public class RewardNetworkTests {
 	}
 
 	@Test
-	@DisplayName("test if reward computation and distribution works")
+	@DisplayName("Test if reward computation and distribution works")
 	public void testRewardForDining() {
 		// create a new dining of 100.00 charged to credit card
 		// '1234123412341234' by merchant '123457890' as test input
@@ -125,8 +125,9 @@ public class RewardNetworkTests {
 		// distributions
 		assertEquals(2, contribution.getDistributions().size());
 
-		// the total contribution amount should have been split into 2 distributions
-		// each distribution should be 4.00 (as both have a 50% allocation)
+		// The total contribution amount should have been split into 2 distributions
+		// each distribution should be 4.00 (as both have a 50% allocation).
+		// The assertAll() is from JUnit 5 to group related checks together.
 		assertAll("distribution of reward",
 				() -> assertEquals(2, contribution.getDistributions().size()),
 				() -> assertEquals(MonetaryAmount.valueOf("4.00"), contribution.getDistribution("Annabelle").getAmount()),

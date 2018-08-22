@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 @Configuration
-@Profile("jdbc-production")
-public class TestInfrastructureProductionConfig {
+@Profile("jndi")
+public class TestInfrastructureJndiConfig {
 
 	/**
 	 * Static method because we are defining a Bean post-processor.

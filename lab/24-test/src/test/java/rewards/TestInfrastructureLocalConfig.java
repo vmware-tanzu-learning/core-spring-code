@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 /* TODO 05: Update this configuration class so that its
- *          beans are members of the "jdbc-dev" profile.
+ *          beans are members of the "local" profile.
  */
 @Configuration
-public class TestInfrastructureDevConfig {
+public class TestInfrastructureLocalConfig {
 
 	/**
 	 * Creates an in-memory "rewards" database populated 

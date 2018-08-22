@@ -58,6 +58,10 @@ public class SimpleJndiHelper implements BeanFactoryPostProcessor {
 		logger.info("JNDI Registrations completed.");
 	}
 
+	/**
+	 * Using the BeanFactoryPostProcessor as a convenient entry-point to do setup
+	 * before Spring creates any brans.
+	 */
 	@Override
 	public void postProcessBeanFactory( //
 			ConfigurableListableBeanFactory beanFactory) throws BeansException {

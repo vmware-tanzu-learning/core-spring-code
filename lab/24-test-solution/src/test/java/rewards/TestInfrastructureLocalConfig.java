@@ -8,8 +8,8 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
 @Configuration
-@Profile("jdbc-dev")
-public class TestInfrastructureDevConfig {
+@Profile("local")
+public class TestInfrastructureLocalConfig {
 
 	/**
 	 * Creates an in-memory "rewards" database populated 
