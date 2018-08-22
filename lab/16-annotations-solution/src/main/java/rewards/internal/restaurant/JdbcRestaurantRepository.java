@@ -23,7 +23,7 @@ import common.money.Percentage;
  * This implementation caches restaurants to improve performance. The cache is populated on initialization and cleared
  * on destruction.
  */
-@Repository
+@Repository("restaurantRepository")
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
 	private DataSource dataSource;

@@ -17,7 +17,7 @@ import common.money.Percentage;
 /**
  * Loads accounts from a data source using the JDBC API.
  */
-@Repository
+@Repository("accountRepository")
 public class JdbcAccountRepository implements AccountRepository {
 
 	private DataSource dataSource;

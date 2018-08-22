@@ -21,7 +21,7 @@ import common.datetime.SimpleDate;
  * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
  * confirmation record.
  */
-@Repository
+@Repository("rewardRepository")
 public class JdbcRewardRepository implements RewardRepository {
 
 	private DataSource dataSource;
