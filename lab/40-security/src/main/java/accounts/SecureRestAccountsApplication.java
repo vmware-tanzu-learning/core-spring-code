@@ -17,7 +17,7 @@ import config.DbConfig;
  * The Account Server is now also a Resource Server so access to Account
  * information is restricted by OAuth2.
  */
-@EnableResourceServer
+// TODO-15: Annotate to make this an OAuth2 resource-server
 @SpringBootApplication
 @Import({ AppConfig.class, DbConfig.class })
 public class SecureRestAccountsApplication {
@@ -35,11 +35,22 @@ public class SecureRestAccountsApplication {
 	 * 
 	 * @return Configuration as a Resource Server.
 	 */
-	@Bean
+	// TODO-16: Make Spring create this bean - uncomment @Bean.
+	//          Note below that GET access requires account.read scope and
+	//          POST access requires account.write scope.
+	//          Scopes are a form of Authority (an alternative to a Role).
+	//
+	// TODO-17: Review the Client properties in account-server.properties.
+	//
+	// TODO-18: Try to access http://localhost:8080/accounts. You should get
+	//          a 401 error.
+	
+	//@Bean
 	ResourceServerConfigurer resourceServerConfigurer() {
 		return new ResourceServerConfigurer() {
 			@Override
 			public void configure(ResourceServerSecurityConfigurer resources) {
+				// This is the security "Realm"
 				resources.resourceId("accounts");
 			}
 

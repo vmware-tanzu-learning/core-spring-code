@@ -32,11 +32,10 @@ import config.Constants;
  * TODO-03: What happens if you access the Superuser Only page? We need to fix
  * that! Open the {@link AuthServerConsoleSecurityConfiguration}.
  * <p>
- * TODO-08: Now to convert this process into an OAuth2 Server. Go on to the next
- * step.
+ * TODO-08: Now to convert this process into an OAuth2 Server. Add the necessary
+ * annotation to this class
  */
 @SpringBootApplication
-// TODO-09: Add the annotation to make this an OAuth Server
 @SuppressWarnings("deprecation")
 @EnableAutoConfiguration(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
@@ -65,6 +64,7 @@ public class AuthorizationServer {
 	 * 
 	 * @return
 	 */
+	// TODO-09: Make this bean active - uncomment @Bean
 	// @Bean
 	AuthorizationServerConfigurer authServerConfig() {
 		return new AuthorizationServerConfigurerAdapter() {
@@ -75,30 +75,39 @@ public class AuthorizationServer {
 			public void configure(AuthorizationServerSecurityConfigurer security) {
 				// TODO-10: Check token access - must have trusted client authority
 				// You can use ROLE_TRUSTED_CLIENT above.
-				security.checkTokenAccess("hasAuthority('" + ROLE_TRUSTED_CLIENT + "')");
+				security.checkTokenAccess("TODO-10 - replace this string");
 			}
 
 			/**
 			 * Configure access credentials.
 			 * <ul>
-			 * <li>To access the Resource Server you must submit account-server:secret as
-			 * identification and have a token allowing you access as a trusted-client.
-			 * <li>To get an authorization token you must submit account-tester:secret as
-			 * identification and you will be granted client credentials and allowed access
-			 * to anything allowing access to the "account.read" authority.
+			 * <li>To access as the Resource Server you must:<br/>
+			 * - submit account-server:secret as identification<br/>
+			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
+			 * - have authority {@link ROLE_TRUSTED_CLIENT}<br/>
+			 * <p>
+			 * <li>To get an authorization token you must<br/>
+			 * - submit account-tester:secret as identification<br/>
+			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
+			 * - have scopes {@link ACCOUNT_READ} and {@link ACCOUNT_WRITE}
 			 * </ul>
 			 */
 			@Override
 			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-				// TODO-11: Setup in-memory definitions as described in the Javadoc for this
-				// method. The two clients you need to setup have been started for you
+				// TODO-11: Setup in-memory definitions.
+				// - The two clients you need to setup have been started for you.
+				// - Refer to the Javadoc for this method or the lab instructions for the
+				//   values to use.
 				clients.inMemory() //
-						.withClient(Constants.ACCOUNT_SERVER) // Resource Server
+						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
+						.secret("???")               // Set password
+						.authorizedGrantTypes("???") // = CLIENT_CREDENTIALS
+						.authorities("...")          // Has ROLE_TRUSTED_CLIENT
 						// Add configuration here
-						.and() //
-						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client
-				// Add configuration here
-				;
+					.and() //
+						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client username
+						// Add configuration here
+						;
 			}
 
 		};

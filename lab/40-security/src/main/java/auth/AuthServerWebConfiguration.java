@@ -21,10 +21,11 @@ public class AuthServerWebConfiguration implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("console");
+		registry.addViewController("/").setViewName("dashboard");
 
-		// These are used once browser-based login is enabled
-		registry.addViewController("/console");
+		// Maps URLs to a "template" (or view) of the same name - see
+		// /src/main/resources/templates.
+		registry.addViewController("/dashboard");
 		registry.addViewController("/login");
 		registry.addViewController("/denied");
 		registry.addViewController("/done");

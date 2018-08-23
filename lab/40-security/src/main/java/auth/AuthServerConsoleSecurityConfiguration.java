@@ -3,6 +3,7 @@ package auth;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
@@ -15,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  */
 // TODO-04: Enable this configuration by removing the // comment characters
 //@Configuration
+@EnableWebSecurity
 public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	public static final String ADMIN_USER = "admin";
@@ -36,6 +38,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
+
 		http.formLogin() //
 		         // Setup a login page, and allow open-access
 				.loginPage("/login").permitAll() // Enable a login page

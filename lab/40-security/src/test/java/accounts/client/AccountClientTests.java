@@ -40,10 +40,16 @@ import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
 /**
- * In this scenario, the test is the OAuth2 client.
+ * TODO-20: Run these tests. They should succeed.
+ * <ul>
+ * <li>In this scenario, this test is the OAuth2 client.
+ * <li>Read the rest of this Javadoc for more information.
+ * </ul>
+ * Congratulations, the lab is finished.
  * <p>
+ * <h3>Details</h3>
  * This is basically the same test-client as the REST lab used. But it uses
- * OAuth2 validation because the {@link RestTemplate} it uses is a
+ * OAuth2 validation because its {@link RestTemplate} is actually a
  * {@link OAuth2RestTemplate}.
  * <p>
  * <b>Note 1:</b> This client does not need to be secure so security
@@ -111,7 +117,6 @@ public class AccountClientTests {
 	}
 
 	@Test
-	@Disabled
 	public void listAccounts() {
 		String url = BASE_URL + "/accounts";
 
