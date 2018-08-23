@@ -48,7 +48,7 @@ import common.money.MonetaryAmount;
  * 			Which repository implementations are being used now?
  */
 
-/* TODO 05: Go to corresponding step in TestInfrastructureDevConfig.
+/* TODO 05: Go to corresponding step in TestInfrastructureLocalConfig.
  */
 
 /* TODO 06: Now that the bean 'dataSource' is specific to the local profile, should we expect 
@@ -57,7 +57,7 @@ import common.money.MonetaryAmount;
  * 			Rerun the test, it should pass.
  */
 
-/* TODO 07: Open TestInfrastructureProductionConfig and note the different datasource that will be
+/* TODO 07: Open TestInfrastructureJndiConfig and note the different datasource that will be
  * 			used if the profile = 'jndi'.
  * 			Now update the current test so it uses profiles 'jdbc' and 'jndi'. 
  * 			Rerun the test, it should pass.
