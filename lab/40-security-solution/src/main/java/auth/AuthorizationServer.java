@@ -82,7 +82,7 @@ public class AuthorizationServer {
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client
 						.secret("secret")//
 						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
-						.scopes(ACCOUNT_READ);
+						.scopes(ACCOUNT_READ, ACCOUNT_WRITE);
 			}
 
 		};

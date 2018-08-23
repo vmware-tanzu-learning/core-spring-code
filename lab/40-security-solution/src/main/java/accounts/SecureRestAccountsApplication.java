@@ -40,6 +40,7 @@ public class SecureRestAccountsApplication {
 		return new ResourceServerConfigurer() {
 			@Override
 			public void configure(ResourceServerSecurityConfigurer resources) {
+				// This is the security "Realm"
 				resources.resourceId("accounts");
 			}
 
