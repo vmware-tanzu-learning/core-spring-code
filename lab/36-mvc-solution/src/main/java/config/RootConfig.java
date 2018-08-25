@@ -27,15 +27,17 @@ public class RootConfig implements WebMvcConfigurer {
 	 * @param entityManager
 	 *            The JPA Entity Manager (actually a proxy).
 	 *            <p>
-	 *            Spring Boot initializes JPA automatically and Spring creates a
-	 *            singleton EntityManager proxy for injection. At runtime this proxy
-	 *            resolves to the current EntityManager for the current transaction
-	 *            of the current thread.
+	 *            Spring Boot initializes JPA automatically and Spring's JPA support
+	 *            injects a singleton EntityManager proxy by calling
+	 *            {@link JpaAccountManager#setEntityManager(EntityManager)}.
+	 *            <p>
+	 *            At runtime this proxy resolves to the current EntityManager for
+	 *            the current transaction of the current thread.
 	 * @return The new account-manager instance.
 	 */
 	@Bean
-	public AccountManager accountManager(EntityManager entityManager) {
-		return new JpaAccountManager(entityManager);
+	public AccountManager accountManager() {
+		return new JpaAccountManager();
 	}
 
 	/**
