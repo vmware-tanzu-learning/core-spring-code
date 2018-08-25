@@ -41,7 +41,7 @@ public class MockMvcTests {
 	/**
 	 * Test a GET to /accountList (note the URL is relative to the servlet
 	 * context - hence /accountList instead of /mvc/accounts/accountList). We
-	 * tell the request that we will accept HTML then run the request by calling
+	 * tell the request that we will accept JSON then run the request by calling
 	 * {@link MockMvc#perform(org.springframework.test.web.servlet.RequestBuilder)}.
 	 * <p>
 	 * We can tell MockMVC what we expect in the response: status OK, a model
@@ -72,7 +72,7 @@ public class MockMvcTests {
 	/**
 	 * Test a GET to /account/0 (we just need the URL, no host name or port).
 	 * <p>
-	 * We tell the request that we will accept HTML.
+	 * We tell the request that we will accept JSON.
 	 * <p>
 	 * Finally we run the request by invoking
 	 * {@link MockMvc#perform(org.springframework.test.web.servlet.RequestBuilder)}.
