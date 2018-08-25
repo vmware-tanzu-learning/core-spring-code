@@ -6,7 +6,7 @@
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
     </organization>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <parent>
         <groupId>io.pivotal.education.core-spring</groupId>
         <artifactId>parentProject</artifactId>

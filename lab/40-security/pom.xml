@@ -76,7 +76,7 @@
             </plugin>
 
             <plugin>
-                <!-- Skip these tests. They won't pass without running RestWsApplication 
+                <!-- Skip these tests. They won't pass without running servers 
                      first -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
