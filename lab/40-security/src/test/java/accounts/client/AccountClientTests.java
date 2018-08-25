@@ -11,7 +11,6 @@ import java.util.Random;
 
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
@@ -40,9 +39,12 @@ import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
 /**
+ * TODO-19: Review the Client properties in client-oauth2.properties.
+ * Note the <code>@TestPropertySource</code> below.
+ *<p>
  * TODO-20: Run these tests. They should succeed.
  * <ul>
- * <li>In this scenario, this test is the OAuth2 client.
+ * <li>In this scenario, AccountClientTests IS the OAuth2 client.
  * <li>Read the rest of this Javadoc for more information.
  * </ul>
  * Congratulations, the lab is finished.

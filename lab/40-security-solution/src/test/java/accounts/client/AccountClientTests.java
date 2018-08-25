@@ -111,7 +111,6 @@ public class AccountClientTests {
 	}
 
 	@Test
-	@Disabled
 	public void listAccounts() {
 		String url = BASE_URL + "/accounts";
 

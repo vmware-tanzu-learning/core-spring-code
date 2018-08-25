@@ -79,7 +79,11 @@ public class AuthorizationServer {
 			}
 
 			/**
-			 * Configure access credentials.
+			 * TODO-11: Configure access credentials.
+			 * <p>
+			 * The two clients you need to setup have been started for you.
+			 * <p>
+			 * Setup the following configuration:
 			 * <ul>
 			 * <li>To access as the Resource Server you must:<br/>
 			 * - submit account-server:secret as identification<br/>
@@ -94,10 +98,7 @@ public class AuthorizationServer {
 			 */
 			@Override
 			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-				// TODO-11: Setup in-memory definitions.
-				// - The two clients you need to setup have been started for you.
-				// - Refer to the Javadoc for this method or the lab instructions for the
-				//   values to use.
+
 				clients.inMemory() //
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
 						.secret("???")               // Set password
@@ -108,6 +109,9 @@ public class AuthorizationServer {
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client username
 						// Add configuration here
 						;
+				
+				// TODO-16b: If you configured this properly, the ACCOUNT_TESTER_CLIENT
+				//           should have scopes ACCOUNT_READ and ACCOUNT_WRITE.
 			}
 
 		};

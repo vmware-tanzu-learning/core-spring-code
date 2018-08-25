@@ -67,7 +67,7 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-19b: Remove @Disabled and run this test. It should succeed and fetch
+	 * TODO-18b: Remove @Disabled and run this test. It should succeed and fetch
 	 * data from the account-server.
 	 */
 	@Test
@@ -157,7 +157,7 @@ public class AuthorizationServerTests {
 	/**
 	 * Using the access token, fetch data from the account-service.
 	 * <p>
-	 * TODO-19a: Review the code. Makes an HTTP request using the token for
+	 * TODO-18a: Review the code. Makes an HTTP request using the access token for
 	 * Authentication.
 	 * 
 	 * @param token
@@ -182,7 +182,7 @@ public class AuthorizationServerTests {
 
 		ResponseEntity<String> response = template.exchange(request, String.class);
 
-		// Shuld get a valid REST response containing account 0
+		// Should get a valid REST response containing account 0
 		System.out.println(response.getStatusCodeValue());
 		Assert.assertEquals(200, response.getStatusCodeValue());
 		System.out.println(response.getBody());
