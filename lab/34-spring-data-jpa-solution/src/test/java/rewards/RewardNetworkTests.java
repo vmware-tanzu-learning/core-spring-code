@@ -5,19 +5,21 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import common.money.MonetaryAmount;
+import config.RewardsConfig;
 
 /**
- * A system test that verifies the components of the RewardNetwork application work together to reward for dining
- * successfully. Uses Spring to bootstrap the application for use in a test environment.
+ * A system test that verifies the components of the RewardNetwork application
+ * work together to reward for dining successfully. Uses Spring to bootstrap the
+ * application for use in a test environment.
  */
-@SpringBootTest
+@EnableAutoConfiguration
+@SpringBootTest(classes = RewardsConfig.class)
 @ExtendWith(SpringExtension.class)
 public class RewardNetworkTests {
 
@@ -29,7 +31,8 @@ public class RewardNetworkTests {
 
 	@Test
 	public void testRewardForDining() {
-		// create a new dining of 100.00 charged to credit card '1234123412341234' by merchant '123457890' as test input
+		// create a new dining of 100.00 charged to credit card '1234123412341234' by
+		// merchant '123457890' as test input
 		Dining dining = Dining.createDining("100.00", "1234123412341234", "1234567890");
 
 		// call the 'rewardNetwork' to test its rewardAccountFor(Dining) method
