@@ -7,12 +7,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.atomic.AtomicLong;
 
-import org.slf4j.LoggerFactory;
 import org.springframework.orm.ObjectRetrievalFailureException;
 
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
-import accounts.AccountManager;
 
 import common.money.Percentage;
 
@@ -26,9 +24,7 @@ import common.money.Percentage;
  * acceptable to place this test class inside 'src/main/java'.
  *
  */
-public class StubAccountManager implements AccountManager {
-
-	public static final String INFO = "Stub";
+public class StubAccountManager extends AbstractAccountManager {
 
 	public static final int NUM_ACCOUNTS_IN_STUB = 1;
 
@@ -62,12 +58,7 @@ public class StubAccountManager implements AccountManager {
 		// Save the account
 		accountsById.put(0L, account);
 
-		LoggerFactory.getLogger(StubAccountManager.class).info("Created StubAccountManager");
-	}
-
-	@Override
-	public String getInfo() {
-		return INFO;
+		logger.info("Created StubAccountManager");
 	}
 
 	@Override

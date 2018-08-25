@@ -1,8 +1,8 @@
 package config;
 
+import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -26,13 +26,6 @@ import rewards.internal.reward.RewardRepository;
 @Configuration
 public class AppConfig {
 
-	DataSource dataSource;
-
-	@Autowired
-	public AppConfig(DataSource dataSource) {
-		this.dataSource = dataSource;
-	}
-
 	@Bean
 	public AccountManager accountManager() {
 		return new JpaAccountManager();
@@ -49,7 +42,7 @@ public class AppConfig {
 	}
 
 	@Bean
-	public RewardRepository rewardRepository() {
+	public RewardRepository rewardRepository(DataSource dataSource) {
 		return new JdbcRewardRepository(dataSource);
 	}
 

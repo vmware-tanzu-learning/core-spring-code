@@ -13,7 +13,6 @@ public class JpaAccountRepository implements AccountRepository {
 
 	public static final String INFO = "JPA";
 
-	
 	private static final Logger logger = LoggerFactory.getLogger("config");
 	
 	private EntityManager entityManager;
@@ -22,16 +21,16 @@ public class JpaAccountRepository implements AccountRepository {
 		logger.info("Created JpaAccountManager");
 	}
 
-	/**
-	 * Creates a new JPA account manager.
-	 * 
-	 * @param entityManager
-	 *            the JPA entity manager
-	 */
-	public JpaAccountRepository(EntityManager entityManager) {
-		this.entityManager = entityManager;
-		logger.info("Created JpaAccountManager");
-	}
+//	/**
+//	 * Creates a new JPA account manager.
+//	 * 
+//	 * @param entityManager
+//	 *            the JPA entity manager
+//	 */
+//	public JpaAccountRepository(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//		logger.info("Created JpaAccountManager");
+//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {

@@ -23,16 +23,16 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 		logger.info("Created JpaRestaurantRepository");
 	}
 
-	/**
-	 * Creates a new JPA account manager.
-	 * 
-	 * @param entityManager
-	 *            the JPA entity manager
-	 */
-	public JpaRestaurantRepository(EntityManager entityManager) {
-		this.entityManager = entityManager;
-		logger.info("Created JpaRestaurantRepository");
-	}
+//	/**
+//	 * Creates a new JPA account manager.
+//	 * 
+//	 * @param entityManager
+//	 *            the JPA entity manager
+//	 */
+//	public JpaRestaurantRepository(EntityManager entityManager) {
+//		this.entityManager = entityManager;
+//		logger.info("Created JpaRestaurantRepository");
+//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {

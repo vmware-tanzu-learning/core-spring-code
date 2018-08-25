@@ -24,7 +24,10 @@ public class JpaAccountRepositoryTests extends AbstractAccountRepositoryTests {
 	@Before
 	public void setUp() throws Exception {
 		DataManagementSetup dataManagementSetup = new DataManagementSetup();
-		accountRepository = new JpaAccountRepository(dataManagementSetup.createEntityManager());
+
+		JpaAccountRepository accountRepository = new JpaAccountRepository();
+		accountRepository.setEntityManager(dataManagementSetup.createEntityManager());
+		this.accountRepository = accountRepository;
 
 		// begin a transaction
 		transactionManager = dataManagementSetup.getTransactionManager();

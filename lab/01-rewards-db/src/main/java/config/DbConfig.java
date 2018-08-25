@@ -29,7 +29,7 @@ import org.springframework.transaction.PlatformTransactionManager;
  * <code>spring.jpa.show-sql</code> property.
  */
 @Configuration
-@PropertySource(value="application.properties",ignoreResourceNotFound=true)
+@PropertySource(value = "application.properties", ignoreResourceNotFound = true)
 public class DbConfig {
 
 	public static final String DOMAIN_OBJECTS_PARENT_PACKAGE = "rewards.internal";
@@ -43,7 +43,8 @@ public class DbConfig {
 	 */
 	@Bean
 	public DataSource dataSource() {
-		return (new EmbeddedDatabaseBuilder()).addScript("classpath:rewards/testdb/schema.sql")
+		return (new EmbeddedDatabaseBuilder()) //
+				.addScript("classpath:rewards/testdb/schema.sql") //
 				.addScript("classpath:rewards/testdb/data.sql").build();
 	}
 
@@ -102,11 +103,4 @@ public class DbConfig {
 		return new EclipseLinkJpaVendorAdapter();
 	}
 
-	/**
-	 * Translates ORM exceptions to Spring Data Access Exceptions
-	 */
-	// @Bean
-	// public BeanPostProcessor exceptionTranslator(){
-	// return new PersistenceExceptionTranslationPostProcessor();
-	// }
 }

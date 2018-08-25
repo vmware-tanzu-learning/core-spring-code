@@ -42,7 +42,9 @@ public class JpaAccountManagerManualIntegrationTests extends AbstractDatabaseAcc
 	private void setupForTest() {
 		dataSource = dataManagementSetup.getDataSource();
 
-		accountManager = new JpaAccountManager(dataManagementSetup.createEntityManager());
+		JpaAccountManager accountManager = new JpaAccountManager();
+		accountManager.setEntityManager(dataManagementSetup.createEntityManager());
+		this.accountManager = accountManager;
 		transactionManager = dataManagementSetup.getTransactionManager();
 	}
 

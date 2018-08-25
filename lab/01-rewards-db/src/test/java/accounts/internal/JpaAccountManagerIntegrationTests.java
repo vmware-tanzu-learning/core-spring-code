@@ -25,7 +25,7 @@ public class JpaAccountManagerIntegrationTests extends AbstractDatabaseAccountMa
 	@Override
 	public void testProfile() {
 		assertTrue("JPA expected but found " + accountManager.getInfo(),
-				accountManager.getInfo().equals(JpaAccountManager.INFO));
+				accountManager.getInfo().equals("JPA"));
 	}
 
 }

@@ -8,49 +8,43 @@ import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.transaction.annotation.Transactional;
 
 import rewards.internal.account.Account;
-import accounts.AccountManager;
 
 import common.money.Percentage;
 
 /**
  * An account manager that uses JPA to find accounts.
  */
-public class JpaAccountManager implements AccountManager {
+public class JpaAccountManager extends AbstractAccountManager {
 
-	public static final String INFO = "JPA";
-
-	private static final Logger logger = LoggerFactory.getLogger("config");
-	
 	private EntityManager entityManager;
-
-	public JpaAccountManager() {
-		logger.info("Created JpaAccountManager");
-	}
 
 	/**
 	 * Creates a new JPA account manager.
-	 * 
-	 * @param entityManager
-	 *            the JPA entity manager
+	 * <p>
+	 * Its entityManager will be set automatically by
+	 * {@link #setEntityManager(EntityManager)}.
 	 */
-	public JpaAccountManager(EntityManager entityManager) {
-		this.entityManager = entityManager;
+	public JpaAccountManager() {
 	}
+
+//	/**
+//	 * Creates a new JPA account manager.
+//	 * 
+//	 * @param entityManager
+//	 *            the JPA entity manager
+//	 */
+//	public JpaAccountManager(EntityManager entityManager) {
+//		super();
+//		this.entityManager = entityManager;
+//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
-	}
-
-	@Override
-	public String getInfo() {
-		return INFO;
 	}
 
 	@Override
