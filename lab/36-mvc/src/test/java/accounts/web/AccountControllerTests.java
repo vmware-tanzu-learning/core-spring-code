@@ -30,10 +30,11 @@ public class AccountControllerTests {
 		controller = new AccountController(new StubAccountManager());
 	}
 
-	// TODO-07: Run this test, it should now pass.
+	// TODO-07: Remove the @Disabled annotation, run the test, it should now pass.
 	// Strictly speaking we should have tested the Controller before we ran the
 	// application.
 	@Test
+	@Disabled
 	public void testHandleListRequest() {
 		List<Account> accounts = controller.accountList();
 
