@@ -22,9 +22,9 @@ public class RootConfig implements WebMvcConfigurer {
 
 	/**
 	 * A new service has been created for accessing Account information. Internally
-	 * it uses JPA directly so no Respository class is required.
+	 * it uses JPA directly so no Repository class is required.
 	 * 
-	 * @param entityaAnager
+	 * @param entityManager
 	 *            The JPA Entity Manager (actually a proxy).
 	 *            <p>
 	 *            Spring Boot initializes JPA automatically and Spring creates a
@@ -34,8 +34,8 @@ public class RootConfig implements WebMvcConfigurer {
 	 * @return The new account-manager instance.
 	 */
 	@Bean
-	public AccountManager accountManager(EntityManager entityaAnager) {
-		return new JpaAccountManager(entityaAnager);
+	public AccountManager accountManager(EntityManager entityManager) {
+		return new JpaAccountManager(entityManager);
 	}
 
 	/**
