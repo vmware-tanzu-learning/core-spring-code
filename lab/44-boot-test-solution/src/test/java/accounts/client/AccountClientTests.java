@@ -1,6 +1,13 @@
 package accounts.client;
 
-import common.money.Percentage;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import java.net.URI;
+import java.util.Random;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +18,16 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import accounts.BootTestSolutionApplication;
+import common.money.Percentage;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
-import java.net.URI;
-import java.util.Random;
-
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-
+/**
+ * Test the Account Server by running this test as a REST client. Run
+ * {@link BootTestSolutionApplication} first or these tests will fail.
+ */
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class AccountClientTests {

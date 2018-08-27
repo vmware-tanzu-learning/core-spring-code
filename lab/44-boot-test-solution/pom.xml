@@ -18,15 +18,6 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
@@ -42,6 +33,22 @@
             <groupId>io.pivotal.education.core-spring</groupId>
             <artifactId>01-rewards-db</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
 		<!-- Automatic application restart -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

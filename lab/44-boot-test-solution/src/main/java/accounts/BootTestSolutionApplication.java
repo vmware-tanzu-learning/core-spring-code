@@ -7,6 +7,9 @@ import org.springframework.context.annotation.Import;
 
 import config.AppConfig;
 
+/**
+ * Runs the Account Server.
+ */
 @SpringBootApplication
 @Import(AppConfig.class)
 @EntityScan("rewards.internal")
