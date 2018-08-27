@@ -15,14 +15,13 @@ import rewards.internal.account.Beneficiary;
 import common.money.Percentage;
 
 /**
- * IMPORTANT!!! Per best practices, this class shouldn't be in 'src/main/java'
+ * IMPORTANT: Per best practices, this class shouldn't be in 'src/main/java'
  * but rather in 'src/test/java'. However, it is used by numerous Test classes
  * inside multiple projects. Maven does not provide an easy way to access a
  * class that is inside another project's 'src/test/java' folder.
  *<p>
  * Rather than using some complex Maven configuration, we decided it is
  * acceptable to place this test class inside 'src/main/java'.
- *
  */
 public class StubAccountManager extends AbstractAccountManager {
 
@@ -57,8 +56,6 @@ public class StubAccountManager extends AbstractAccountManager {
 
 		// Save the account
 		accountsById.put(0L, account);
-
-		logger.info("Created StubAccountManager");
 	}
 
 	@Override

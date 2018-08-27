@@ -13,6 +13,9 @@ import javax.persistence.criteria.CriteriaQuery;
  */
 public class JpaRestaurantRepository implements RestaurantRepository {
 
+	public static final String RESTAURANT_BY_MERCHANT_QUERY = //
+			"select r from Restaurant r where r.number = :merchantNumber";
+
 	public static final String INFO = "JPA";
 
 	private static final Logger logger = LoggerFactory.getLogger("config");
@@ -22,17 +25,6 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 	public JpaRestaurantRepository() {
 		logger.info("Created JpaRestaurantRepository");
 	}
-
-//	/**
-//	 * Creates a new JPA account manager.
-//	 * 
-//	 * @param entityManager
-//	 *            the JPA entity manager
-//	 */
-//	public JpaRestaurantRepository(EntityManager entityManager) {
-//		this.entityManager = entityManager;
-//		logger.info("Created JpaRestaurantRepository");
-//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {
@@ -44,9 +36,12 @@ public class JpaRestaurantRepository implements RestaurantRepository {
 		return INFO;
 	}
 
+	@Override
 	public Restaurant findByMerchantNumber(String merchantNumber) {
-		return (Restaurant) entityManager.createQuery("from Restaurant r where r.number = :merchantNumber")
-				.setParameter("merchantNumber", merchantNumber).getSingleResult();
+		return entityManager //
+				.createQuery(RESTAURANT_BY_MERCHANT_QUERY, Restaurant.class) //
+				.setParameter("merchantNumber", merchantNumber) //
+				.getSingleResult();
 	}
 
 	@Override

@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
  */
 public class JpaAccountRepository implements AccountRepository {
 
+	public static final String ACCOUNT_BY_CC_QUERY = "select ACCOUNT_ID from T_ACCOUNT_CREDIT_CARD where NUMBER = :ccn";
+
 	public static final String INFO = "JPA";
 
 	private static final Logger logger = LoggerFactory.getLogger("config");
@@ -20,17 +22,6 @@ public class JpaAccountRepository implements AccountRepository {
 	public JpaAccountRepository() {
 		logger.info("Created JpaAccountManager");
 	}
-
-//	/**
-//	 * Creates a new JPA account manager.
-//	 * 
-//	 * @param entityManager
-//	 *            the JPA entity manager
-//	 */
-//	public JpaAccountRepository(EntityManager entityManager) {
-//		this.entityManager = entityManager;
-//		logger.info("Created JpaAccountManager");
-//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {
@@ -46,7 +37,7 @@ public class JpaAccountRepository implements AccountRepository {
 		// Find id account of account with this credit-card using a direct
 		// SQL query on the unmapped T_ACCOUNT_CREDIT_CARD table.
 		Integer accountId = (Integer) entityManager
-				.createNativeQuery("select ACCOUNT_ID from T_ACCOUNT_CREDIT_CARD where NUMBER = :ccn")
+				.createNativeQuery(ACCOUNT_BY_CC_QUERY)
 				.setParameter("ccn", creditCardNumber).getSingleResult();
 
 		Account account = (Account) entityManager.find(Account.class, accountId.longValue());

@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import config.RootConfig;
+import config.AccountsConfig;
 
 @SpringBootApplication
-@Import(RootConfig.class)
+@Import(AccountsConfig.class)
 public class AccountsApplication {
 
     public static void main(String[] args) {

@@ -13,12 +13,12 @@ import accounts.AccountManager;
 import accounts.internal.JpaAccountManager;
 
 /**
- * Imports Rewards application from rewards-db project.
+ * Sets up the Accounts database only.
  */
 @Configuration
 @EntityScan("rewards.internal")
 @EnableTransactionManagement
-public class RootConfig implements WebMvcConfigurer {
+public class AccountsConfig implements WebMvcConfigurer {
 
 	/**
 	 * A new service has been created for accessing Account information. Internally

@@ -36,7 +36,8 @@ public class AccountClientTests {
 		String url = BASE_URL + "/accounts";
 		// we have to use Account[] instead of List<Account>, or Jackson won't know what type to unmarshal to
 		Account[] accounts = restTemplate.getForObject(url, Account[].class);
-		assertTrue(accounts.length >= 21);
+		System.out.println(accounts.length);
+		assertTrue(accounts.length >= 21, "Expected 21 accounts, but found " + accounts.length);
 		assertEquals("Keith and Keri Donald", accounts[0].getName());
 		assertEquals(2, accounts[0].getBeneficiaries().size());
 		assertEquals(Percentage.valueOf("50%"), accounts[0].getBeneficiary("Annabelle").getAllocationPercentage());

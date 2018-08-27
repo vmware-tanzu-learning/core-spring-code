@@ -27,5 +27,10 @@ public interface RestaurantRepository {
 	 */
 	public Restaurant findByMerchantNumber(String merchantNumber);
 
+	/**
+	 * Find the number of restaurants in the repository.
+	 * 
+	 * @return The number of restaurants - zero or more.
+	 */
 	public Long getRestaurantCount();
 }

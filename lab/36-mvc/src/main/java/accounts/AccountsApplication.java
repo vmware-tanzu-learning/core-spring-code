@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
-import config.RootConfig;
+import config.AccountsConfig;
 
 /**
  * Spring Boot application.
@@ -21,7 +21,7 @@ import config.RootConfig;
  *  - Once the application restarts, try accessing http://localhost:8088
  */
 @SpringBootApplication
-@Import(RootConfig.class)
+@Import(AccountsConfig.class)
 public class AccountsApplication {
 
 	public static void main(String[] args) {

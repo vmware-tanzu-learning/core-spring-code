@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import config.AppConfig;
 import config.DbConfig;
@@ -17,15 +17,14 @@ import config.DbConfig;
  * components.
  */
 @ActiveProfiles("jpa")
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @ContextConfiguration(classes = { AppConfig.class, DbConfig.class })
 public class JpaAccountManagerIntegrationTests extends AbstractDatabaseAccountManagerTests {
 
 	@Test
 	@Override
 	public void testProfile() {
-		assertTrue("JPA expected but found " + accountManager.getInfo(),
-				accountManager.getInfo().equals("JPA"));
+		assertTrue("JPA expected but found " + accountManager.getInfo(), accountManager.getInfo().equals("JPA"));
 	}
 
 }

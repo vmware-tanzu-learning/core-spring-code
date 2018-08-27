@@ -36,6 +36,7 @@ public class StubRestaurantRepository implements RestaurantRepository {
 		return TYPE;
 	}
 
+	@Override
 	public Restaurant findByMerchantNumber(String merchantNumber) {
 		Restaurant restaurant = (Restaurant) restaurantsByMerchantNumber.get(merchantNumber);
 		if (restaurant == null) {

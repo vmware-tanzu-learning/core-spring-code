@@ -1,12 +1,11 @@
 package rewards.internal.reward;
 
 import org.junit.Assert;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import config.AppConfig;
 import config.DbConfig;
@@ -17,7 +16,7 @@ import config.DbConfig;
  * and that Spring is configuring things properly.
  */
 @ActiveProfiles("jpa")
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @ContextConfiguration(classes={AppConfig.class,DbConfig.class})
 public class JdbcRewardRepositoryIntegrationTests extends
 		AbstractRewardRepositoryTests {

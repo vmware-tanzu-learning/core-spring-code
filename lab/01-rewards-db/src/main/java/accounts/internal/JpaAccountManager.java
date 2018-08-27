@@ -8,12 +8,10 @@ import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.transaction.annotation.Transactional;
 
-import rewards.internal.account.Account;
-
 import common.money.Percentage;
+import rewards.internal.account.Account;
 
 /**
  * An account manager that uses JPA to find accounts.
@@ -30,17 +28,6 @@ public class JpaAccountManager extends AbstractAccountManager {
 	 */
 	public JpaAccountManager() {
 	}
-
-//	/**
-//	 * Creates a new JPA account manager.
-//	 * 
-//	 * @param entityManager
-//	 *            the JPA entity manager
-//	 */
-//	public JpaAccountManager(EntityManager entityManager) {
-//		super();
-//		this.entityManager = entityManager;
-//	}
 
 	@PersistenceContext
 	public void setEntityManager(EntityManager entityManager) {

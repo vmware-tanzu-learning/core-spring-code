@@ -1,6 +1,5 @@
 package config;
 
-import javax.persistence.EntityManager;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
@@ -16,7 +15,7 @@ import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
 /**
- * Application configuration - services and repositories.
+ * Rewards application configuration - services and repositories.
  * <p>
  * Because this is used by many similar lab projects with slightly different
  * classes and packages, everything is explicitly created using @Bean methods.

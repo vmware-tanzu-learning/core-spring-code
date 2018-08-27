@@ -10,7 +10,7 @@ public abstract class AbstractAccountManager implements AccountManager {
 	protected final Logger logger;
 
 	public AbstractAccountManager() {
-		logger = LoggerFactory.getLogger(AccountManager.class);
+		logger = LoggerFactory.getLogger(getClass());
 		logger.info("Created " + getInfo() + " account-manager");
 	}
 
