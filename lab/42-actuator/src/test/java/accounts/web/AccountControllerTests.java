@@ -4,6 +4,7 @@ import accounts.internal.StubAccountManager;
 import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
@@ -18,10 +19,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
-//import org.junit.Assert;
+import static org.mockito.Mockito.*;
 
 /**
  * A JUnit test case testing the AccountController.
@@ -39,10 +37,15 @@ public class AccountControllerTests {
 		counter = mock(Counter.class);
 		doReturn(counter).when(registry).counter(any(String.class));
 
-		controller = new AccountController(new StubAccountManager(), registry);
+		// TODO-08: Fix this test - this constructor has a new parameter
+		// Run the test, it should pass
+		controller = new AccountController(new StubAccountManager());
 	}
 
 	@Test
+	// TODO-15: Remove @Disabled annotation
+	// - Run all the tests in this class. All should pass.
+	@Disabled
 	public void testHandleDetailsRequest() {
 		Account account = controller.accountDetails(0);
 		assertNotNull(account);
@@ -110,8 +113,8 @@ public class AccountControllerTests {
 
 	/**
 	 * Add a mocked up HttpServletRequest to Spring's internal request-context
-	 * holder. Normally the DispatcherServlet does this, but we must do it
-	 * manually to run our test.
+	 * holder. Normally the DispatcherServlet does this, but we must do it manually
+	 * to run our test.
 	 *
 	 * @param url
 	 *            The URL we are creating the fake request for.

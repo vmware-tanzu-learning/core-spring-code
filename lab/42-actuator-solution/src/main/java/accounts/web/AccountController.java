@@ -1,11 +1,9 @@
 package accounts.web;
 
 import java.net.URI;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
-import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-import io.micrometer.core.instrument.Counter;
-
 
 import accounts.AccountManager;
 import common.money.Percentage;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
@@ -82,8 +80,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Returns the Beneficiary with the given name for the Account with the
-	 * given id.
+	 * Returns the Beneficiary with the given name for the Account with the given
+	 * id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
 	public @ResponseBody Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
@@ -103,8 +101,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Removes the Beneficiary with the given name from the Account with the
-	 * given id.
+	 * Removes the Beneficiary with the given name from the Account with the given
+	 * id.
 	 */
 	@DeleteMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
 	@ResponseStatus(HttpStatus.NO_CONTENT) // 204
@@ -139,8 +137,7 @@ public class AccountController {
 	}
 
 	/**
-	 * Maps UnsupportedOperationException to a 501 Not Implemented HTTP status
-	 * code.
+	 * Maps UnsupportedOperationException to a 501 Not Implemented HTTP status code.
 	 */
 	@ResponseStatus(HttpStatus.NOT_IMPLEMENTED)
 	@ExceptionHandler({ UnsupportedOperationException.class })
@@ -170,8 +167,8 @@ public class AccountController {
 	}
 
 	/**
-	 * Finds the Account with the given id, throwing an IllegalArgumentException
-	 * if there is no such Account.
+	 * Finds the Account with the given id, throwing an IllegalArgumentException if
+	 * there is no such Account.
 	 */
 	private Account retrieveAccount(long accountId) throws IllegalArgumentException {
 		Account account = accountManager.getAccount(accountId);
@@ -182,12 +179,12 @@ public class AccountController {
 	}
 
 	/**
-	 * Return a response with the location of the new resource. It's URL is
-	 * assumed to be a child of the URL just received.
+	 * Return a response with the location of the new resource. It's URL is assumed
+	 * to be a child of the URL just received.
 	 * <p>
 	 * Suppose we have just received an incoming URL of, say,
-	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code>
-	 * is "12345". Then the URL of the new resource will be
+	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code> is
+	 * "12345". Then the URL of the new resource will be
 	 * <code>http://localhost:8080/accounts/12345</code>.
 	 * 
 	 * @param resourceId
