@@ -3,6 +3,7 @@ package accounts;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -19,8 +20,9 @@ import config.DbConfig;
  * <p>
  * TODO-15: Annotate this class to make it an OAuth2 resource-server
  * <p>
- * TODO-18: Try to access http://localhost:8080/accounts. You should get a 401
- * error.
+ * TODO-17: Run this class as a Spring Boot application.
+ * - Try to access http://localhost:8080/accounts. You should get an access
+ *   restricted or denied response
  */
 @SpringBootApplication
 @Import(AppConfig.class)
