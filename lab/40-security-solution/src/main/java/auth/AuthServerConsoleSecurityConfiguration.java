@@ -26,7 +26,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 
 	/**
 	 * Restrict the home page to the master user. In a real system you might provide
-	 * a web-interface to configure your server.
+	 * an administration dashboard like this to control/configure the server.
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
