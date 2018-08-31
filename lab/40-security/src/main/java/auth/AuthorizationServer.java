@@ -86,12 +86,12 @@ public class AuthorizationServer {
 			 * Setup the following configuration:
 			 * <ul>
 			 * <li>To access as the Resource Server you must:<br/>
-			 * - submit account-server:secret as identification<br/>
+			 * - submit account-server:secret as clientId/password<br/>
 			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
 			 * - have authority {@link ROLE_TRUSTED_CLIENT}<br/>
 			 * <p>
 			 * <li>To get an authorization token you must<br/>
-			 * - submit account-tester:secret as identification<br/>
+			 * - submit account-tester:secret as clientId/password<br/>
 			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
 			 * - have scopes {@link ACCOUNT_READ} and {@link ACCOUNT_WRITE}
 			 * </ul>
