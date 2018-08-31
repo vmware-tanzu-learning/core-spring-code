@@ -56,7 +56,8 @@ public class AuthorizationServerTests {
 	 * <p>
 	 * TODO-14: Return to dashboard at http://localhost:1111 and click the "Recent
 	 * requests" link. Can you see the OAuth URLs being used to get and check a
-	 * token?
+	 * token?  If you had to login, rerun the tests then refresh the "Recent
+	 * requests" page.  The top two URLs should be the token POSTs.
 	 */
 	@Test
 	@Disabled
