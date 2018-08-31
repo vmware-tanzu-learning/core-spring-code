@@ -26,7 +26,7 @@ import config.Constants;
  * http://locahost:1111 in your browser. Login and you should see the console
  * page. The user-name is "user" and the password is in your console output.
  * <p>
- * TODO-02: If you browser can display JSON, you might like to look at the
+ * TODO-02: If your browser can display JSON, you might like to look at the
  * actuator pages.
  * <p>
  * TODO-03: What happens if you access the Superuser Only page? We need to fix

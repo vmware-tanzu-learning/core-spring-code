@@ -14,9 +14,9 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
  * an OAuth2 Authorization server. That configuration is in the
  * {@link AuthorizationServer}.
  */
-// TODO-04: Enable this configuration by removing the // comment characters
+// TODO-04: Enable this configuration by removing both the // comment characters
 //@Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	public static final String ADMIN_USER = "admin";
@@ -60,6 +60,10 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 		// - Go to http://locahost:1111 again. You should be forced to login
 		//   as the "admin" user to see the console page.
 		// - What happens if you try and access the Superuser Only page now?
+		//
+		//   If you are running short of time or are not interested in OAuths,
+		//   you may stop here.  There are some optional bonus steps in the 
+		//   lab-instructions if you have a 5 minutes to fill.
 		
 	}
 }
