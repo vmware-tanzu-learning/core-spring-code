@@ -22,11 +22,11 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 /**
  * Configuration class for Persistence-specific objects, including profile
- * choices for JPA via Hibernate or JPA via EclipseLink.
+ * choices for JPA via Hibernate or JPA via EclipseLink. Only used by tests in
+ * this class (since Spring Boot cannot be assumed).
  * <p>
- * Sometimes this class is used in labs without Spring Boot. So we load
- * <code>application.properties</code> manually and mimic Boot's
- * <code>spring.jpa.show-sql</code> property.
+ * To simulate Spring Boot we load <code>application.properties</code> manually,
+ * if it exists, and mimic Boot's <code>spring.jpa.show-sql</code> property.
  */
 @Configuration
 @PropertySource(value = "application.properties", ignoreResourceNotFound = true)
@@ -34,7 +34,7 @@ public class DbConfig {
 
 	public static final String DOMAIN_OBJECTS_PARENT_PACKAGE = "rewards.internal";
 
-	@Value("${spring.jpa.show-sql:true}")
+	@Value("${spring.jpa.show-sql:true}")  // Default to true if not set elsewhere
 	private String showSql;
 
 	/**

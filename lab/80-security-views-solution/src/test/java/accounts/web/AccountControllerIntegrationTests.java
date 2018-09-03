@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,11 +18,9 @@ import accounts.internal.JpaAccountManager;
 /**
  * A JUnit test case testing the AccountController. Inherits and runs all the
  * tests in {@link AbstractAccountControllerTests} using the rewards in-memory
- * test-database and a {@link JpaAccountManager} - since "jpa" is the active
- * profile.
+ * test-database and a {@link JpaAccountManager}.
  */
 @Transactional
-@ActiveProfiles("jpa")
 @RunWith(JUnitPlatform.class)
 @SpringBootTest
 @ExtendWith(SpringExtension.class)
