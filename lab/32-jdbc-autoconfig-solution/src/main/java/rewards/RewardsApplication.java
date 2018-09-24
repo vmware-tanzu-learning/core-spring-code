@@ -15,13 +15,10 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import javax.xml.crypto.Data;
 
-@SpringBootApplication
-@ComponentScan("config")
+@SpringBootApplication(scanBasePackages = "config")
 public class RewardsApplication {
     private final Logger logger
             = LoggerFactory.getLogger(RewardsApplication.class);
-    
-    private static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
 
     public static void main(String[] args) {
         SpringApplication.run(RewardsApplication.class,args);
@@ -30,6 +27,7 @@ public class RewardsApplication {
     @Component
     public final class QueryAccountCountRunner
             implements CommandLineRunner {
+        private static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
 
         @Autowired
         private JdbcTemplate jdbcTemplate;
