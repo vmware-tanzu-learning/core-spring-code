@@ -286,5 +286,8 @@
         <module>44-boot-test</module>
         <module>44-boot-test-solution</module>
 
+        <!-- Extra material -->
+        <module>60-reactive-spring</module>
+        <module>60-reactive-spring-solution</module>
     </modules>
 </project>
