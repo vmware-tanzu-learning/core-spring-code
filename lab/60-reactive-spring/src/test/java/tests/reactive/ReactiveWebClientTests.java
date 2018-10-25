@@ -179,7 +179,7 @@ public class ReactiveWebClientTests {
 	 * TODO-10: Go to AccountsController - look for TO DO 10
 	 * <p>
 	 * TODO-11: Run this test again. Now the WebClient should be about 10x faster.
-	 * When the system you are making requests for is slow, the WebClient i faster
+	 * When the system you are making requests for is slow, the WebClient is faster
 	 * because it runs multiple requests in parallel. The RestTemplate has to wait
 	 * for each to finish because it is running sequentially,
 	 * <p>
