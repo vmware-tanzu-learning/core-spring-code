@@ -1,16 +1,15 @@
 package tests.reactive;
 
-import java.util.Arrays;
-
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
+
+import java.util.Arrays;
 
 /**
  * Demonstration of the code used in the slides.
@@ -47,9 +46,8 @@ public class SimpleReactiveTests {
 
 		System.out.println();
 
-		// Iterate over a collection using stream
-		// Log output shows everything running in the main thread
-		// The first item in the log output, [main], is the thread name
+		// Iterate over a collection using parallel stream
+		// Log output shows that pool of threads are used
 		System.out.println("JDK Streams - multiple threads");
 		Arrays.asList(TEST_DATA) //
 				.parallelStream() //

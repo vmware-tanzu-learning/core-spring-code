@@ -1,30 +1,25 @@
 package tests.reactive;
 
-import static org.junit.Assert.assertEquals;
-
-import java.net.Socket;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.logging.Logger;
-
+import ch.qos.logback.classic.Level;
+import common.util.ThreadUtils;
 import org.junit.Assert;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-
-import ch.qos.logback.classic.Level;
-import common.util.ThreadUtils;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import rewards.internal.account.Account;
+
+import java.net.Socket;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+import java.util.logging.Logger;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Reactive tests comparing RestTemplate with WebClient.
@@ -171,7 +166,7 @@ public class ReactiveWebClientTests {
 		// Again check the log output - note all accounts are logged by different
 		// threads
 
-		ThreadUtils.delay(100); // Wait for the flux to catch up
+		ThreadUtils.delay(500); // Wait for the flux to catch up
 		assertEquals(21, counter.get());
 	}
 
@@ -184,7 +179,7 @@ public class ReactiveWebClientTests {
 	 * TODO-10: Go to AccountsController - look for TO DO 10
 	 * <p>
 	 * TODO-11: Run this test again. Now the WebClient should be about 10x faster.
-	 * When the system you are making requests for is slow, the WebClient i faster
+	 * When the system you are making requests for is slow, the WebClient is faster
 	 * because it runs multiple requests in parallel. The RestTemplate has to wait
 	 * for each to finish because it is running sequentially,
 	 * <p>
