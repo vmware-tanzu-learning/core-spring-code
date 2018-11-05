@@ -289,5 +289,7 @@
         <!-- Extra material -->
         <module>60-reactive-spring</module>
         <module>60-reactive-spring-solution</module>
+        <module>62-jms-spring</module>
+        <module>62-jms-spring-solution</module>
     </modules>
 </project>
