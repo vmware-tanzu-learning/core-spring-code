@@ -16,8 +16,6 @@ import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
 @Configuration
-@EnableTransactionManagement
-@EnableJpaRepositories(basePackages="rewards")
 public class RewardsConfig {
 
 	@Autowired
