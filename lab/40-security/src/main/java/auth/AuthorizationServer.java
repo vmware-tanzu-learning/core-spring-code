@@ -27,7 +27,8 @@ import config.Constants;
  * page. The user-name is "user" and the password is in your console output.
  * <p>
  * TODO-02: If your browser can display JSON, you might like to look at the
- * actuator pages.
+ * actuator pages. Note that management.endpoints.web.base-path is set to
+ * /admin in the auth-server.properties file.
  * <p>
  * TODO-03: What happens if you access the Superuser Only page? We need to fix
  * that! Open the {@link AuthServerConsoleSecurityConfiguration}.
