@@ -33,7 +33,7 @@ import rewards.internal.account.Beneficiary;
  * TODO-09: The application should have restarted by now.
  * <li>Access the metrics endpoint, the new metric should be visible.
  * <li>Fetch some accounts using the REST API, then view the counter value at
- * http://localhost:8080/metrics/account.fetch
+ * http://localhost:8080/actuator/metrics/account.fetch
  * <li>Restart the application. What happens to the counter?
  */
 @Controller
