@@ -15,6 +15,8 @@ import config.AppConfig;
  * <li>http://localhost:8080/actuator/metrics - fails (404), why?
  * <p>
  * TODO-03: Open a CMD or Terminal and run `jconsole`.
+ * <li>Select `accounts.ActuatorApplication` under `Local Process`
+ * then click `Connect`
  * <li>Accept the insecure connection if prompted
  * <li>Select the MBeans tab, find the `org.springframework.boot` folder, then
  * open the Endpoint sub-folder
