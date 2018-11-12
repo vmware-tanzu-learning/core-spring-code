@@ -40,8 +40,8 @@ public class AccountController {
 	// TODO 02: Review the code that performs the following
 	//   a. Respond to GET /accounts
     //   b. Return a List<Account> to be converted to the response body
-	// Save your work and restart the application.
-	// You should get JSON results in your browser when accessing http://localhost:8080/accounts
+	// Access http://localhost:8080/accounts using a browser or curl
+	// and verify that you see the list of accounts in JSON format.
 	@GetMapping(value = "/accounts")
 	public @ResponseBody List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
@@ -53,8 +53,8 @@ public class AccountController {
 	// TODO 04: Review the code that performs the following
 	//   a. Respond to GET /accounts/{accountId}
     //   b. Return an Account to be converted to the response body
-	// Save your work and restart the application.
-	// You should get JSON results in your browser when accessing http://localhost:8080/accounts/0
+	// Access http://localhost:8080/accounts/0 using a browser or curl
+	// and verify that you see the account detail in JSON format
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
