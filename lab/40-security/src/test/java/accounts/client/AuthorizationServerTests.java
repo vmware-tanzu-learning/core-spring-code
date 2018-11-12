@@ -58,6 +58,7 @@ public class AuthorizationServerTests {
 	 * requests" link. Can you see the OAuth URLs being used to get and check a
 	 * token?  If you had to login, rerun the tests then refresh the "Recent
 	 * requests" page.  The top two URLs should be the token POSTs.
+	 * Or search for "oauth" string.
 	 */
 	@Test
 	@Disabled
