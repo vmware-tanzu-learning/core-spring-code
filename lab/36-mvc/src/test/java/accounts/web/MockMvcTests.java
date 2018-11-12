@@ -102,7 +102,7 @@ public class MockMvcTests {
 				.perform(get("/accounts/0") //
 						.accept(MediaType.parseMediaType("application/json")))
 				// TODO-16: EXTRA CREDIT Fix this method
-				// 1. Add 3 andExpect() methods similar to getAccountsTest()
+				// 1. Add 4 andExpect() methods similar to getAccountsTest()
 				//    Check that:
 				// 1a. We get a 200 OK response
 				// 1b. We have the right response type (JSON again)
