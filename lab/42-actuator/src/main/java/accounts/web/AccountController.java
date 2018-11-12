@@ -66,7 +66,7 @@ public class AccountController {
 	/**
 	 * Provide the details of an account with the given id.
 	 * <p>
-	 * TODO-07: Initialize the Counter each time this method is called.
+	 * TODO-07: Increment the Counter each time this method is called.
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {
