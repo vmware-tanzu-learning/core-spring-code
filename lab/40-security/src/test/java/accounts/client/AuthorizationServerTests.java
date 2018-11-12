@@ -1,15 +1,14 @@
 package accounts.client;
 
-import java.net.URI;
-import java.net.URISyntaxException;
-
+import org.junit.Assert;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import org.junit.Assert;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AuthorizationServerTests {
 

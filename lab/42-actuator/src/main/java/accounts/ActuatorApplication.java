@@ -12,7 +12,7 @@ import config.AppConfig;
  * <p>
  * TODO-02: Run the application. Try these URLs:
  * <li>http://localhost:8080/actuator - should work
- * <li>http://localhost:8080/metrics - fails (404), why?
+ * <li>http://localhost:8080/actuator/metrics - fails (404), why?
  * <p>
  * TODO-03: Open a CMD or Terminal and run `jconsole`.
  * <li>Accept the insecure connection if prompted
