@@ -1,7 +1,7 @@
 package accounts.web;
 
 /**
- * TODO-12a: Make this class implement HelathCheck
+ * TODO-12a: Make this class implement HealthIndicator
  * <p>
  * Add a constructor to pass in the restaurant repository and use it to
  * implement health().
