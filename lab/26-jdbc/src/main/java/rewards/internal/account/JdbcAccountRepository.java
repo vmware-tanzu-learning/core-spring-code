@@ -29,7 +29,7 @@ public class JdbcAccountRepository implements AccountRepository {
 	}
 
 	// TODO-07: OPTIONAL STEP. Refactor this method using a ResultSetExtractor.
-    //          (Note: If you prefer, use a lambda insead of the AccountExtractor)
+    //          (Note: If you prefer, use a lambda instead of the AccountExtractor)
 	// 1. Implement a ResultSetExtractor called AccountExtractor
 	// 2. Make this a private inner class and let extractData() call mapAccount() to do all the work.
 	// 3. Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
