@@ -57,7 +57,7 @@ public class SimpleJndiHelper implements BeanFactoryPostProcessor {
 
 	/**
 	 * Using the BeanFactoryPostProcessor as a convenient entry-point to do setup
-	 * before Spring creates any brans.
+	 * before Spring creates any beans.
 	 */
 	@Override
 	public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
