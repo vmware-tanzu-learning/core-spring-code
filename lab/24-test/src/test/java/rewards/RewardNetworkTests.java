@@ -1,9 +1,6 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -11,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A system test that verifies the components of the RewardNetwork application
@@ -25,7 +22,7 @@ import common.money.MonetaryAmount;
  *            and @ContextConfiguration
  *          - Use @RunWith(JUnitPlatform.class) to run JUnit 5 test using JUnit 4 runner
  * 			- Remove the attribute 'context' which is not needed anymore.
- * 			- Use @Autowire to populate the rewardNetwork instance.
+ * 			- Use @Autowired to populate the rewardNetwork instance.
  *			- Re-run the current test, it should pass.
  */
 
