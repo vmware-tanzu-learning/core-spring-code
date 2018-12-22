@@ -59,8 +59,13 @@ subprojects {
         options.encoding = 'UTF-8'
     }
 
-    // Enable JUnit 5 testing
     test {
+        // Enable JUnit 5 testing
         useJUnitPlatform()
+
+        // Log on the console
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
     }
 }
