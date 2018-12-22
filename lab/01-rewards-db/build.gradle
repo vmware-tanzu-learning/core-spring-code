@@ -1,0 +1,5 @@
+dependencies {
+    compile project(':00-rewards-common')
+    compile 'org.springframework:spring-orm:5.0.7.RELEASE'
+    compile 'org.hibernate:hibernate-entitymanager:5.2.17.Final'
+}

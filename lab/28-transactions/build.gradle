@@ -1,0 +1,9 @@
+dependencies {
+    compile project(':00-rewards-common')
+}
+
+test {
+    exclude '**/RewardNetworkTests.class'
+    exclude '**/RewardNetworkSideEffectTests.class'
+    exclude '**/RewardNetworkPropagationTests.class'
+}

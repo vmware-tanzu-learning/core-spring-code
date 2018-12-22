@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':00-rewards-common')
+    compile 'org.springframework:spring-aspects:5.0.7.RELEASE'
+    compile 'org.easymock:easymock:3.1'
+    compile 'com.jamonapi:jamon:2.81'
+}
