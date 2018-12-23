@@ -1,4 +1,9 @@
+// TO-DO-01 : Add the Spring Boot Plugin
+
 dependencies {
     compile project(':00-rewards-common')
 
+    // TO-DO-02 : Refactor from discrete Spring Framework
+    // dependency to JDBC Boot Starter
+    compile 'org.springframework:spring-jdbc'
 }
