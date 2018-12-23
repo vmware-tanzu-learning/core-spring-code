@@ -4,6 +4,7 @@ dependencies {
 
 test {
     exclude '**/RewardNetworkTests.class'
-    exclude '**/RewardNetworkSideEffectTests.class'
     exclude '**/RewardNetworkPropagationTests.class'
+    exclude '**/RewardNetworkSideEffectTests.class'
 }
+
