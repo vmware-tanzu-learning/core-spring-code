@@ -9,8 +9,8 @@ import config.AccountsConfig;
 /**
  * Spring Boot application.
  * <p>
- * TODO-01: Open the pom.xml for this project and check the dependencies. In
- * particular we are using the Spring Boot starters for web, jdbc and devtools.
+ * TODO-01: Open the pom.xml or build.gradle for this project and check the dependencies.
+ * In particular we are using the Spring Boot starters for web, jdbc and devtools.
  * <p>
  * TODO-02: Run the application as a Spring Boot or Java application in your
  * IDE.  You should be able to see the home page: http://localhost:8080
