@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 import config.AppConfig;
 
 /**
- * TODO-01: Look for TO-DO-01 in the pom.xml
+ * TODO-01: Look for TO-DO-01 in the pom.xml or build.gradle
  * <p>
  * TODO-02: Run the application. Try these URLs:
  * <li>http://localhost:8080/actuator - should work
