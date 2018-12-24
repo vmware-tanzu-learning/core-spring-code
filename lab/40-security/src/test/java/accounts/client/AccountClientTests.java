@@ -43,6 +43,8 @@ import rewards.internal.account.Beneficiary;
  * Note the <code>@TestPropertySource</code> below.
  *<p>
  * TODO-20: Run these tests. They should succeed.
+ * (If you are using Gradle, remote test exclude statement
+ *  from the build.gradle before running these test.)
  * <ul>
  * <li>In this scenario, AccountClientTests IS the OAuth2 client.
  * <li>Read the rest of this Javadoc for more information.
