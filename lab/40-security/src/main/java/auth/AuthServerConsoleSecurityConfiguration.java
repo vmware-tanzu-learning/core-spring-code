@@ -1,9 +1,7 @@
 package auth;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
@@ -60,10 +58,6 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 		// - Go to http://locahost:1111 again. You should be forced to login
 		//   as the "admin" user to see the console page.
 		// - What happens if you try and access the Superuser Only page now?
-		//
-		//   If you are running short of time or are not interested in OAuths,
-		//   you may stop here.  There are some optional bonus steps in the 
-		//   lab-instructions if you have a 5 minutes to fill.
 		
 	}
 }
