@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 
-// TODO-01 : Open pom.xml, look for TO-DO-01
+// TODO-01 : Open pom.xml or build.gradle, look for TO-DO-01
 
-// TODO-02 : In pom.xml  look for TO-DO-02
+// TODO-02 : In pom.xml or build.gradle, look for TO-DO-02
 
 // TODO-03 : Turn the RewardsApplication into a Spring Boot application
 //           by adding an annotation.
