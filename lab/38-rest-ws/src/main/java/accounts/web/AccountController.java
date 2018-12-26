@@ -129,7 +129,7 @@ public class AccountController {
 		//     should be.  What are we using to identify the Beneficiary?
 		//  b. Use the entityWithLocation method - like we did for createAccount().
 		
-		return null;  // TODO 12: Modify this to return something 
+		return null;  // Modify this to return something
 	}
 
 	/**
