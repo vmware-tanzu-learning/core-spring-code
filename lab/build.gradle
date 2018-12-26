@@ -63,7 +63,7 @@ subprojects {
         // Enable JUnit 5 testing
         useJUnitPlatform()
 
-        // Log on the console
+        // Test result on console
         testLogging {
             events "passed", "skipped", "failed"
         }
