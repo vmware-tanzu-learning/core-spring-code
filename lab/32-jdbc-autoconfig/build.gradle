@@ -7,3 +7,9 @@ dependencies {
     // dependency to JDBC Boot Starter
     compile 'org.springframework:spring-jdbc'
 }
+
+// Create original jar file with "gradlew assemble"
+jar {
+    enabled = true
+    classifier = 'original'
+}
