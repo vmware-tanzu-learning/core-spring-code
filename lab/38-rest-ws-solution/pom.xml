@@ -42,11 +42,6 @@
             <groupId>io.pivotal.education.core-spring</groupId>
             <artifactId>01-rewards-db</artifactId>
         </dependency>
-		<!-- Automatic application restart -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-devtools</artifactId>
-		</dependency>
     </dependencies>
     <build>
         <plugins>
