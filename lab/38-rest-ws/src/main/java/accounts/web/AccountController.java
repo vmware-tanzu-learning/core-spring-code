@@ -125,8 +125,7 @@ public class AccountController {
 
 		// TODO 12: Create a ResponseEntity containing the location of the newly
 		// created beneficiary.
-		//  a. Look at the mapping for getBeneficiary() above to see what the URL
-		//     should be.  What are we using to identify the Beneficiary?
+		//  a. Use accountManager to add a beneficiary to an account
 		//  b. Use the entityWithLocation method - like we did for createAccount().
 		
 		return null;  // Modify this to return something
