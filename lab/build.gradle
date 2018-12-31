@@ -2,6 +2,15 @@ buildscript {
     ext {
         springBootVersion = "2.0.3.RELEASE"
         springVersion = "5.0.7.RELEASE"
+        hsqldbVersion = "2.4.1"
+        jaxbAPIVersion = "2.3.0"
+        hibernateEntityManagerVersion = "5.2.17.Final"
+        simpleJndiVersion = "0.11.4.1"
+        reactorSpringVersion = "1.0.1.RELEASE"
+        activeMQBrokerVersion = "5.15.4"
+        junit5JupiterEngineVersion= "5.1.1"
+        junit5PlatformRunnerVersion= "1.2.0"
+        junit5VintageEngineVersion= "5.1.1"
     }
 
     repositories {
@@ -43,15 +52,15 @@ subprojects {
     }
 
     dependencies {
-        compile 'org.springframework.boot:spring-boot-starter:2.0.3.RELEASE'
-        compile 'org.springframework:spring-jdbc:5.0.7.RELEASE'
-        compile 'org.hsqldb:hsqldb:2.4.1'
-        compile 'javax.xml.bind:jaxb-api:2.3.0'
+        compile "org.springframework.boot:spring-boot-starter:$springBootVersion"
+        compile "org.springframework:spring-jdbc:$springVersion"
+        compile "org.hsqldb:hsqldb:$hsqldbVersion"
+        compile "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
 
-        testCompile 'org.springframework.boot:spring-boot-starter-test:2.0.3.RELEASE'
-        testCompile 'org.junit.jupiter:junit-jupiter-engine:5.1.1'
-        testCompile 'org.junit.platform:junit-platform-runner:1.2.0'
-        testRuntimeOnly 'org.junit.vintage:junit-vintage-engine:5.1.1'
+        testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+        testCompile "org.junit.jupiter:junit-jupiter-engine:$junit5JupiterEngineVersion"
+        testCompile "org.junit.platform:junit-platform-runner:$junit5PlatformRunnerVersion"
+        testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit5VintageEngineVersion"
     }
 
     sourceCompatibility = '1.8'
