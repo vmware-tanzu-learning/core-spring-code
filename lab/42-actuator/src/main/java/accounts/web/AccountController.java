@@ -1,9 +1,7 @@
 package accounts.web;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-
+import accounts.AccountManager;
+import common.money.Percentage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,26 +9,20 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import accounts.AccountManager;
-import common.money.Percentage;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  * <p>
- * TODO-09: The application should have restarted by now.
+ * TODO-10: The application should have restarted by now.
  * <li>Access the metrics endpoint, the new metric should be visible.
  * <li>Fetch some accounts using the REST API, then view the counter value at
  * http://localhost:8080/actuator/metrics/account.fetch
@@ -43,7 +35,7 @@ public class AccountController {
 
 	private AccountManager accountManager;
 
-	// TODO-06: Add a Counter and initialize it via the constructor
+	// TODO-07: Add a Counter and initialize it via the constructor
 	// You will need to inject a MeterRegistry
 	// Call the counter "account.fetch".
 
@@ -57,6 +49,11 @@ public class AccountController {
 
 	/**
 	 * Provide a list of all accounts.
+     * <p>
+     * TODO-06: Change log level via ./actuator/loggers endpoint
+     * - Add logger.debug("Logging message within accountSummary()");
+     * - Change logging level of accounts.web package via
+     *   curl -i -XPOST -H"Content-Type: application/json" localhost:8080/actuator/loggers/accounts.web -d'{"configuredLevel": "DEBUG"}'
 	 */
 	@GetMapping(value = "/accounts")
 	public @ResponseBody List<Account> accountSummary() {
@@ -66,7 +63,7 @@ public class AccountController {
 	/**
 	 * Provide the details of an account with the given id.
 	 * <p>
-	 * TODO-07: Increment the Counter each time this method is called.
+	 * TODO-08: Increment the Counter each time this method is called.
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {
