@@ -52,8 +52,7 @@ public class AccountController {
      * <p>
      * TODO-06: Change log level via ./actuator/loggers endpoint
      * - Add logger.debug("Logging message within accountSummary()");
-     * - Change logging level of accounts.web package via
-     *   curl -i -XPOST -H"Content-Type: application/json" localhost:8080/actuator/loggers/accounts.web -d'{"configuredLevel": "DEBUG"}'
+     * - Change logging level of accounts.web package as described in the lab document
 	 */
 	@GetMapping(value = "/accounts")
 	public @ResponseBody List<Account> accountSummary() {
