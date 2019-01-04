@@ -8,3 +8,16 @@ dependencies {
     compile 'io.micrometer:micrometer-core'
     compile 'org.springframework.boot:spring-boot-devtools'
 }
+
+springBoot  {
+    buildInfo {
+        properties {
+            name = "actuator app"
+            additional = [
+                javaVersion:     System.properties['java.version'],
+                operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})"
+            ]
+        }
+    }
+}
+

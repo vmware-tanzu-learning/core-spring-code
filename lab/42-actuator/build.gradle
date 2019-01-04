@@ -10,3 +10,7 @@ dependencies {
     compile 'io.micrometer:micrometer-core'
     compile 'org.springframework.boot:spring-boot-devtools'
 }
+
+// TODO-07: Add BuildInfo task to the Spring Boot Gradle plugin
+
+// TODO-08: Add additional properties of name, javaVersion, operatingSystem

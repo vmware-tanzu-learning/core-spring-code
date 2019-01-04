@@ -68,6 +68,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- TODO-07: Add build-info goal -->
+                <!-- TODO-08: Add additional properties of name, javaVersion, operatingSystem -->
             </plugin>
             <plugin>
                 <!-- Skip these tests. They won't pass without running RestWsApplication 

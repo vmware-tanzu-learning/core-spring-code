@@ -26,12 +26,12 @@ import config.AppConfig;
  * <p>
  * TODO-05: Look for TO-DO-05 in application.properties
  * <p>
- * TODO-11: Look for TO-DO-11 in application.properties
+ * TODO-13: Look for TO-DO-13 in application.properties
  * <p>
- * TODO-14: Restart the application and check the health
+ * TODO-16: Restart the application and check the health
  * indicator - it should be DOWN as there are no restaurants.
  *<p>
- * TODO-15: Modify the `spring.datasource.data` property to use
+ * TODO-17: Modify the `spring.datasource.data` property to use
  * `data-with-restaurants.sql`.  Wait for the application to
  * restart. Now the heath indicator should be UP.
 

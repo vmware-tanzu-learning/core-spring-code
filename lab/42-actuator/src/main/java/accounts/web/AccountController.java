@@ -22,7 +22,7 @@ import java.util.List;
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  * <p>
- * TODO-10: The application should have restarted by now.
+ * TODO-12: The application should have restarted by now.
  * <li>Access the metrics endpoint, the new metric should be visible.
  * <li>Fetch some accounts using the REST API, then view the counter value at
  * http://localhost:8080/actuator/metrics/account.fetch
@@ -35,7 +35,7 @@ public class AccountController {
 
 	private AccountManager accountManager;
 
-	// TODO-07: Add a Counter and initialize it via the constructor
+	// TODO-09: Add a Counter and initialize it via the constructor
 	// You will need to inject a MeterRegistry
 	// Call the counter "account.fetch".
 
@@ -62,7 +62,7 @@ public class AccountController {
 	/**
 	 * Provide the details of an account with the given id.
 	 * <p>
-	 * TODO-08: Increment the Counter each time this method is called.
+	 * TODO-10: Increment the Counter each time this method is called.
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {

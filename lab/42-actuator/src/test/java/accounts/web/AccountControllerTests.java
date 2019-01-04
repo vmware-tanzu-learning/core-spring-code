@@ -37,13 +37,13 @@ public class AccountControllerTests {
 		counter = mock(Counter.class);
 		doReturn(counter).when(registry).counter(any(String.class));
 
-		// TODO-09: Fix this test - this constructor has a new parameter
+		// TODO-11: Fix this test - this constructor has a new parameter
 		// Run the test, it should pass
 		controller = new AccountController(new StubAccountManager());
 	}
 
 	@Test
-	// TODO-16: Remove @Disabled annotation
+	// TODO-18: Remove @Disabled annotation
 	// - Run all the tests in this class. All should pass.
 	@Disabled
 	public void testHandleDetailsRequest() {
