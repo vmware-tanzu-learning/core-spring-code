@@ -2,6 +2,7 @@ package accounts.web;
 
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.boot.actuate.health.Status;
 import org.springframework.stereotype.Component;
 import rewards.internal.restaurant.RestaurantRepository;
 
@@ -15,10 +16,14 @@ public class RestaurantHealthCheck implements HealthIndicator {
 
     @Override
     public Health health() {
-        if(restaurantRepository.getRestaurantCount() > 0) {
-            return Health.up().build();
+        Long restaurantCount = restaurantRepository.getRestaurantCount();
+        if (restaurantCount > 0) {
+            return Health.up()
+                         .withDetail("restaurantCount", restaurantCount)
+                         .build();
         } else {
-            return Health.down().build();
+            return Health.status(new Status("NO_RESTAURANTS"))
+                         .build();
         }
     }
 }
