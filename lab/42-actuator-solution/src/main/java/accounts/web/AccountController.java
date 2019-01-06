@@ -1,9 +1,9 @@
 package accounts.web;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-
+import accounts.AccountManager;
+import common.money.Percentage;
+import io.micrometer.core.instrument.Counter;
+import io.micrometer.core.instrument.MeterRegistry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,22 +11,14 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import accounts.AccountManager;
-import common.money.Percentage;
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A controller handling requests for CRUD operations on Accounts and their
@@ -53,6 +45,7 @@ public class AccountController {
 	 * Provide a list of all accounts.
 	 */
 	@GetMapping(value = "/accounts")
+	@IncrementCounter
 	public @ResponseBody List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
