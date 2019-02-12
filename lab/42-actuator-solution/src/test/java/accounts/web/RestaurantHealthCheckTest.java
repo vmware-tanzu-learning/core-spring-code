@@ -41,6 +41,6 @@ public class RestaurantHealthCheckTest {
         Health result = restaurantHealthCheck.health();
 
         verify(restaurantRepository).getRestaurantCount();
-        assert(result.getStatus()).equals(Status.DOWN);
+        assert(result.getStatus()).equals(new Status("NO_RESTAURANTS"));
     }
 }
