@@ -1,17 +1,16 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A system test that verifies the components of the RewardNetwork application work together to reward for dining
@@ -25,7 +24,8 @@ import common.money.MonetaryAmount;
 
 @RunWith(JUnitPlatform.class) // DO NOT MODIFY
 @ExtendWith(SpringExtension.class) // DO NOT MODIFY
-@ContextConfiguration(classes={SystemTestConfig.class}) // REPLACE ME
+//@ContextConfiguration(classes={SystemTestConfig.class}) // REPLACE ME
+@SpringBootTest
 public class RewardNetworkTests {
 
 	/**

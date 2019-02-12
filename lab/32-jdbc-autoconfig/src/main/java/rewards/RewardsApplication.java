@@ -2,7 +2,12 @@ package rewards;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.annotation.Bean;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 // TODO-01 : Open pom.xml or build.gradle, look for TO-DO-01
 
@@ -22,7 +27,7 @@ import org.springframework.boot.SpringApplication;
 //           Spring Boot auto-configuration should be creating the DataSource again.
 
 // TODO-14 : Look in application.properties for the next step.
-
+@SpringBootApplication(exclude = DataSourceAutoConfiguration.class, scanBasePackages = {"config"})
 public class RewardsApplication {
 	static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
 	
@@ -43,6 +48,17 @@ public class RewardsApplication {
     //           Use the SQL query and logger provided above.
     //           Use the JdbcTemplate bean that Spring Boot creates for you
     //           automatically.
+
+	@Bean
+	public CommandLineRunner commandLineRunner(JdbcTemplate jdbcTemplate){
+
+    	return args -> {
+            Long numberOfAccounts = jdbcTemplate.queryForObject(SQL, Long.class);
+            logger.info("--> number of accounts: {}", numberOfAccounts);
+        };
+
+	}
+
     //
     // TODO-07   Enable full debugging - follow TO-DO-07 in application.properties
     //           then come back here.
