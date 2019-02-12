@@ -18,7 +18,7 @@ import org.springframework.boot.SpringApplication;
 // TODO-12 : Look in application.properties for the next step.
 
 // TODO-13 : Remove the `DataSource` auto-configuration exclusion.
-//           Rerun the test again.
+//           Rerun the application again.
 //           Spring Boot auto-configuration should be creating the DataSource again.
 
 // TODO-14 : Look in application.properties for the next step.

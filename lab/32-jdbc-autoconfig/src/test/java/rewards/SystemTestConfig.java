@@ -23,7 +23,7 @@ public class SystemTestConfig {
 	//           Comment out @Bean so this method is no longer called
 
 	// TODO-10 : Switch back to explicit `DataSource` configuration
-    //           Restore the @Bean method
+    //           Copy the @Bean method below to the RewardConfig class.
 	//           The scripts have moved to the root of the classpath,
 	//           so you need to change the addScript() calls.
 	//           NOTE the debug logging
