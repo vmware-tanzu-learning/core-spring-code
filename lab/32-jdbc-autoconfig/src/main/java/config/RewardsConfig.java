@@ -2,9 +2,9 @@ package config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import rewards.RewardNetwork;
 import rewards.internal.RewardNetworkImpl;
 import rewards.internal.account.AccountRepository;
@@ -19,25 +19,14 @@ import javax.sql.DataSource;
 @Configuration
 public class RewardsConfig {
 
-//	DataSource dataSource;
-//
-//	@Autowired  // Optional, Spring will call this constructor anyway
-//	public RewardsConfig(DataSource dataSource) {
-//		this.dataSource = dataSource;
-//	}
-
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
-    @Bean
-    public DataSource dataSource() {
-        logger.debug("---->Creating the datasource bean explicitly");
+	DataSource dataSource;
 
-        return
-                (new EmbeddedDatabaseBuilder())
-                        .addScript("classpath:schema.sql")
-                        .addScript("classpath:data.sql")
-                        .build();
-    }
+	@Autowired  // Optional, Spring will call this constructor anyway
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 
     @Bean
     public RewardNetwork rewardNetwork() {
@@ -49,19 +38,19 @@ public class RewardsConfig {
 
     @Bean
     public AccountRepository accountRepository() {
-        JdbcAccountRepository repository = new JdbcAccountRepository(dataSource());
+        JdbcAccountRepository repository = new JdbcAccountRepository(dataSource);
         return repository;
     }
 
     @Bean
     public RestaurantRepository restaurantRepository() {
-        JdbcRestaurantRepository repository = new JdbcRestaurantRepository(dataSource());
+        JdbcRestaurantRepository repository = new JdbcRestaurantRepository(dataSource);
         return repository;
     }
 
     @Bean
     public RewardRepository rewardRepository() {
-        JdbcRewardRepository repository = new JdbcRewardRepository(dataSource());
+        JdbcRewardRepository repository = new JdbcRewardRepository(dataSource);
         return repository;
     }
 
