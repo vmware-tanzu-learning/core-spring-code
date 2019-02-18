@@ -14,7 +14,8 @@ import org.springframework.boot.SpringApplication;
 // TODO-11 : Disable the `DataSource` auto-configuration using the
 //           @SpringBootApplication exclude attribute - this was
 //           the positive match we asked you to remember earlier.
-//           Import RewardConfig class.
+//           Import RewardsConfig class (since it will not be
+//           auto-detected through component scanning).
 
 // TODO-12 : Look in application.properties for the next step.
 
