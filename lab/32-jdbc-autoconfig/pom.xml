@@ -46,8 +46,8 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
  
-        <!-- TO-DO-02 : Refactor from discrete Spring Framework and 3rd
-             Party dependencies to JDBC and HSQLDB Spring Boot Starters -->
+        <!-- TO-DO-02 : Refactor from discrete Spring Framework
+             dependencies to JDBC and Test Spring Boot Starters -->
  
         <!-- Needed for the Spring JdbcTemplate -->
         <dependency>
