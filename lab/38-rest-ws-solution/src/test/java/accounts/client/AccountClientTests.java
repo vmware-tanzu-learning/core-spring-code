@@ -1,24 +1,19 @@
 package accounts.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.net.URI;
-import java.util.Random;
-
+import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
-import common.money.Percentage;
+import java.net.URI;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(JUnitPlatform.class)
 public class AccountClientTests {
@@ -69,6 +64,21 @@ public class AccountClientTests {
 		
 		assertEquals(accountBeneficiary.getName(), retrievedAccountBeneficiary.getName());
 		assertNotNull(retrievedAccount.getEntityId());
+	}
+
+	@Test
+	public void createSameAccountTwiceResultsIn409() {
+		Account account = new Account("123123123", "John Doe");
+		account.addBeneficiary("Jane Doe");
+
+		restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
+
+		try {
+			restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
+			fail("Should have received 409");
+		} catch (HttpClientErrorException e) {
+			assertEquals(HttpStatus.CONFLICT, e.getStatusCode());
+		}
 	}
 	
 	@Test
