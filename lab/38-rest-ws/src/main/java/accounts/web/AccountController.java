@@ -121,8 +121,7 @@ public class AccountController {
 	//   b. Extract a beneficiary name from the incoming request
 	//   c. Indicate a "201 Created" status
 	public ResponseEntity<Void> addBeneficiary(long accountId, String beneficiaryName) {
-		accountManager.addBeneficiary(accountId, beneficiaryName);
-
+		
 		// TODO 12: Create a ResponseEntity containing the location of the newly
 		// created beneficiary.
 		//  a. Use accountManager to add a beneficiary to an account
