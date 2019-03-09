@@ -21,7 +21,7 @@ public class SystemTestConfig {
 	// TODO-04 : Spring Boot will create the DataSource for us
 	//           Comment out @Bean so this method is no longer called
 
-	// TODO-10 : Switch back to explicit `DataSource` configuration
+	// TODO-09 : Switch back to explicit `DataSource` configuration
     //           - Uncomment @Bean method below (which was commented out in
 	//             the previous step) and move it to the RewardsConfig class.
 	//           - The scripts have moved to the root of the classpath,

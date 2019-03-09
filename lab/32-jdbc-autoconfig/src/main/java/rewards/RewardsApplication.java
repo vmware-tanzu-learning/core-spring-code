@@ -11,19 +11,22 @@ import org.springframework.boot.SpringApplication;
 // TODO-03 : Turn the RewardsApplication into a Spring Boot application
 //           by adding an annotation.
 
-// TODO-11 : Disable the `DataSource` auto-configuration using the
+// TODO-10 : Disable the `DataSource` auto-configuration using the
 //           @SpringBootApplication exclude attribute - this was
 //           the positive match we asked you to remember earlier.
 //           Import RewardsConfig class (since it will not be
 //           auto-detected through component scanning).
 
-// TODO-12 : Look in application.properties for the next step.
+// TODO-11 : Look in application.properties for the next step.
 
-// TODO-13 : Remove the `DataSource` auto-configuration exclusion.
+// TODO-12 : Remove the `DataSource` auto-configuration exclusion.
 //           Rerun the application again.
 //           Spring Boot auto-configuration should be creating the DataSource again.
 
-// TODO-14 : Look in application.properties for the next step.
+// TODO-13 : Look in application.properties for the next step.
+
+// TODO-14   Follow the instructions in the detailed instructions.
+//           The section titled "Build and Run using Command Line tools".
 
 public class RewardsApplication {
 	static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
@@ -52,7 +55,5 @@ public class RewardsApplication {
     //           Run the application - do you see the accounts log message?
     //           In the console output, find "CONDITIONS EVALUATION REPORT"
     //           What is the first positive match? REMEMBER its name.
-    
-    // TODO-08   Follow the instructions in the detailed instructions.
-    //           The section titled "Build and Run using Command Line tools".
+
 }
