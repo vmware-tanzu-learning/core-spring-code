@@ -170,6 +170,8 @@ public class AccountController {
 	// DataIntegrityViolationExceptions to a 409 Conflict status code.
 	// Use the handleNotFound method above for guidance and/or look at
 	// the Advanced materials in the slides.
+	//
+	// Read the lab document for writing client side test.
 	
 	/**
 	 * Finds the Account with the given id, throwing an IllegalArgumentException
