@@ -66,37 +66,32 @@ public class AccountClientTests {
 		assertNotNull(retrievedAccount.getEntityId());
 	}
 
-	@Test
-	public void createSameAccountTwiceResultsIn409() {
-		Account account = new Account("123123123", "John Doe");
-		account.addBeneficiary("Jane Doe");
+    @Test
+    public void createSameAccountTwiceResultsIn409() {
+        Account account = new Account("123123123", "John Doe");
+        account.addBeneficiary("Jane Doe");
 
-		restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
+        HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
+            restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
+            restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
+        });
+        assertEquals(HttpStatus.CONFLICT, httpClientErrorException.getStatusCode());
+    }
 
-		try {
-			restTemplate.postForObject(BASE_URL + "/accounts", account, Account.class);
-			fail("Should have received 409");
-		} catch (HttpClientErrorException e) {
-			assertEquals(HttpStatus.CONFLICT, e.getStatusCode());
-		}
-	}
-	
-	@Test
-	public void addAndDeleteBeneficiary() {
-		// perform both add and delete to avoid issues with side effects
-		String addUrl = BASE_URL + "/accounts/{accountId}/beneficiaries";
-		URI newBeneficiaryLocation = restTemplate.postForLocation(addUrl, "David", 1);
-		Beneficiary newBeneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
-		assertEquals("David", newBeneficiary.getName());
-		
-		restTemplate.delete(newBeneficiaryLocation);
+    @Test
+    public void addAndDeleteBeneficiary() {
+        // perform both add and delete to avoid issues with side effects
+        String addUrl = BASE_URL + "/accounts/{accountId}/beneficiaries";
+        URI newBeneficiaryLocation = restTemplate.postForLocation(addUrl, "David", 1);
+        Beneficiary newBeneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
+        assertEquals("David", newBeneficiary.getName());
 
-		try {
-			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
-			restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
-			fail("Should have received 404 Not Found after deleting beneficiary at " + newBeneficiaryLocation);
-		} catch (HttpClientErrorException e) {
-			assertEquals(HttpStatus.NOT_FOUND, e.getStatusCode());
-		}
-	}
+        restTemplate.delete(newBeneficiaryLocation);
+
+        HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
+            System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
+            restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
+        });
+        assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
+    }
 }
