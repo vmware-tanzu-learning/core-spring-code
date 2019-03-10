@@ -1,24 +1,20 @@
 package accounts.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.net.URI;
-import java.util.Random;
-
+import accounts.BootTestApplication;
+import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
-import accounts.BootTestApplication;
-import common.money.Percentage;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.net.URI;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test the Account Server by running this test as a REST client. Run
@@ -86,12 +82,10 @@ public class AccountClientTests {
 
 		restTemplate.delete(newBeneficiaryLocation);
 
-		try {
+		HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 			restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
-			fail("Should have received 404 Not Found after deleting beneficiary at " + newBeneficiaryLocation);
-		} catch (HttpClientErrorException e) {
-			assertEquals(HttpStatus.NOT_FOUND, e.getStatusCode());
-		}
+		});
+		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
 	}
 }
