@@ -37,7 +37,6 @@ subprojects {
     apply plugin: "io.spring.dependency-management"
 
     repositories {
-        mavenLocal()
         maven {
             url = 'https://repo.spring.io/libs-milestone'
         }
@@ -76,6 +75,15 @@ subprojects {
         // Test result on console
         testLogging {
             events "passed", "skipped", "failed"
+        }
+    }
+
+    apply plugin: 'idea'
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
         }
     }
 }
