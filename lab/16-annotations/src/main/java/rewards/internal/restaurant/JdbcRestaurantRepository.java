@@ -1,17 +1,15 @@
 package rewards.internal.restaurant;
 
+import common.money.Percentage;
+import org.springframework.dao.EmptyResultDataAccessException;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.sql.DataSource;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import common.money.Percentage;
 
 /**
  * Loads restaurants from a data source using the JDBC API.
@@ -29,9 +27,10 @@ import common.money.Percentage;
 
 /*
  * TODO-08: Change the configuration to set the dataSource property using
- * setDataSource(). To do this you must MOVE the @Autowired annotation. Neither
- * constructor should be annotated with @Autowired now, so Spring uses the
- * default constructor by default.
+ * setDataSource(). To do this, you must MOVE the @Autowired annotation
+ * you might have set in the previous step on the constructor injecting DataSource.
+ * So neither constructor should be annotated with @Autowired now, so Spring uses
+ * the default constructor by default.
  *
  * Re-run the test. It should fail. Examine the stack trace and see if you can
  * understand why. (If not, refer to the detailed lab instructions). We will fix
