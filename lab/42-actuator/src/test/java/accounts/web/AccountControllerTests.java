@@ -35,7 +35,7 @@ public class AccountControllerTests {
 	public void setUp() throws Exception {
 		registry = mock(MeterRegistry.class);
 		counter = mock(Counter.class);
-		doReturn(counter).when(registry).counter(any(String.class));
+		doReturn(counter).when(registry).counter(any(String.class), any(String.class), any(String.class));
 
 		// TODO-11: Fix this test - this constructor has a new parameter
 		// Run the test, it should pass
@@ -51,7 +51,7 @@ public class AccountControllerTests {
 		assertNotNull(account);
 		assertEquals(Long.valueOf(0), account.getEntityId());
 
-		verify(registry).counter("account.fetch");
+		verify(registry).counter("account.fetch", "type", "fromCode");
 		verify(counter).increment();
 	}
 

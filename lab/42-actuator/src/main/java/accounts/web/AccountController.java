@@ -36,8 +36,10 @@ public class AccountController {
 	private AccountManager accountManager;
 
 	// TODO-09: Add a Counter and initialize it via the constructor
-	// You will need to inject a MeterRegistry
-	// Call the counter "account.fetch".
+	// - You will need to inject a MeterRegistry
+	// - Call the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
+	//   (In the "Extra credit" exercise later on, you will create "account.fetch"
+	//   counter with a tag of "type"/"fromAspect" key/value pair.)
 
 	/**
 	 * Creates a new AccountController with a given account manager.
