@@ -8,6 +8,8 @@ package accounts.web;
  * <p>
  * health() should return DOWN if the repository is empty (no restaurants) or UP
  * otherwise.
+ *
+ * TODO-19 (Extra credit): Experiment with HealthIndicator (Read lab document)
  */
 public class RestaurantHealthCheck {
 

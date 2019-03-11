@@ -55,6 +55,8 @@ public class AccountController {
      * TODO-06: Change log level via ./actuator/loggers endpoint
      * - Add logger.debug("Logging message within accountSummary()");
      * - Change logging level of accounts.web package as described in the lab document
+	 *
+	 * TODO-20 (Extra credit): Use annotation and AOP for counter (Read lab document)
 	 */
 	@GetMapping(value = "/accounts")
 	public @ResponseBody List<Account> accountSummary() {
