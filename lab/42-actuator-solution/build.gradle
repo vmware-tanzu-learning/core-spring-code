@@ -5,7 +5,6 @@ dependencies {
     compile project(':01-rewards-db')
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'io.micrometer:micrometer-core'
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-aop'
 }

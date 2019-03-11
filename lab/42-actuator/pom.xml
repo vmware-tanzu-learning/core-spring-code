@@ -40,15 +40,10 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-	<!-- TODO-01: Note that the Actuator and micrometer dependencies are already 
-		          here for you. -->
+	    <!-- TODO-01: Note that the Actuator starter is already here for you. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.micrometer</groupId>
-			<artifactId>micrometer-core</artifactId>
 		</dependency>
 
         <dependency>

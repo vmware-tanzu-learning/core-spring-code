@@ -4,8 +4,7 @@ dependencies {
     compile project(':00-rewards-common')
     compile project(':01-rewards-db')
     compile 'org.springframework.boot:spring-boot-starter-web'
-    // TODO-01: Note that the Actuator and micrometer dependencies
-    // are already here for you.
+    // TODO-01: Note that the Actuator starter is already here for you.
     compile 'org.springframework.boot:spring-boot-starter-actuator'
     compile 'io.micrometer:micrometer-core'
     compile 'org.springframework.boot:spring-boot-devtools'
