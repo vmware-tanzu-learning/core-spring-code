@@ -38,7 +38,7 @@ public class AccountController {
 	@Autowired
 	public AccountController(AccountManager accountManager, MeterRegistry registry) {
 		this.accountManager = accountManager;
-		this.counter = registry.counter("account.fetch");
+		this.counter = registry.counter("account.fetch", "type", "fromCode");
 	}
 
 	/**

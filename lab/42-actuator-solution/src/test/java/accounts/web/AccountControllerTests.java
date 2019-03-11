@@ -36,7 +36,7 @@ public class AccountControllerTests {
 	public void setUp() throws Exception {
 		registry = mock(MeterRegistry.class);
 		counter = mock(Counter.class);
-		doReturn(counter).when(registry).counter(any(String.class));
+		doReturn(counter).when(registry).counter(any(String.class), any(String.class), any(String.class));
 
 		controller = new AccountController(new StubAccountManager(), registry);
 	}
@@ -47,7 +47,7 @@ public class AccountControllerTests {
 		assertNotNull(account);
 		assertEquals(Long.valueOf(0), account.getEntityId());
 
-		verify(registry).counter("account.fetch");
+		verify(registry).counter("account.fetch", "type", "fromCode");
 		verify(counter).increment();
 	}
 

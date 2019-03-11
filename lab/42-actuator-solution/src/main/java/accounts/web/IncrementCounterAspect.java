@@ -13,7 +13,7 @@ public class IncrementCounterAspect {
     private Counter counter;
 
     public IncrementCounterAspect(MeterRegistry meterRegistry) {
-        this.counter = meterRegistry.counter("account.fetchall");
+        this.counter = meterRegistry.counter("account.fetch", "type", "fromAspect");
     }
 
     @Before("@annotation(accounts.web.IncrementCounter)")
