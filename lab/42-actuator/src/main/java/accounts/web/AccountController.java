@@ -21,12 +21,12 @@ import java.util.List;
 /**
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
- * <p>
+ *
  * TODO-12: The application should have restarted by now.
- * <li>Access the metrics endpoint, the new metric should be visible.
- * <li>Fetch some accounts using the REST API, then view the counter value at
- * http://localhost:8080/actuator/metrics/account.fetch
- * <li>Restart the application. What happens to the counter?
+ *  - Access the metrics endpoint, the new metric should be visible.
+ *  - Fetch some accounts using the REST API, then view the counter value
+ *    at  http://localhost:8080/actuator/metrics/account.fetch
+ *  - Restart the application. What happens to the counter?
  */
 @Controller
 public class AccountController {
@@ -51,7 +51,7 @@ public class AccountController {
 
 	/**
 	 * Provide a list of all accounts.
-     * <p>
+     *
      * TODO-06: Change log level via ./actuator/loggers endpoint
      * - Add logger.debug("Logging message within accountSummary()");
      * - Change logging level of accounts.web package as described in the lab document
@@ -65,7 +65,7 @@ public class AccountController {
 
 	/**
 	 * Provide the details of an account with the given id.
-	 * <p>
+	 *
 	 * TODO-10: Increment the Counter each time this method is called.
 	 */
 	@GetMapping(value = "/accounts/{id}")

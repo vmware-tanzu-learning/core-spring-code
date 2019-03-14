@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 
 /**
  * TODO-14: IMPORTANT: Stop the ActuatorApplication whilst we add new classes.
- *          <p>
+ *
  *          Modify this class to test the RestaurantHealthCheck class.
  *          The RestaurantHealthCheck class will implement HealthCheck
  *          so a health() method will exist - use it in the tests.
