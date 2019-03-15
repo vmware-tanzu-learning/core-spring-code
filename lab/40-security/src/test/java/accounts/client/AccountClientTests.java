@@ -1,14 +1,8 @@
 package accounts.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Random;
-
+import accounts.client.AccountClientTests.TestClientConfig;
+import common.money.Percentage;
+import config.Constants;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,17 +25,19 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
-import accounts.client.AccountClientTests.TestClientConfig;
-import common.money.Percentage;
-import config.Constants;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * TODO-19: Review the Client properties in client-oauth2.properties.
  * Note the <code>@TestPropertySource</code> below.
- *<p>
+ *
  * TODO-20: Run these tests. They should succeed.
  * (If you are using Gradle, remote test exclude statement
  *  from the build.gradle before running these test.)

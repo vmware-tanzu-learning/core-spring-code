@@ -17,22 +17,22 @@ import config.Constants;
 
 /**
  * OAuth2 Authorization server for authenticating access to the Account server.
- * <p>
+ *
  * Normally this would be in a separate project. Because this is in he same
  * project as the Account Server, Spring Boot will pick up its JPA
  * configuration, so all JPA auto-configuration is disabled (we don't need it).
- * <p>
+ *
  * TODO-01: Run this application as a Spring Boot or Java application and open
  * http://locahost:1111 in your browser. Login and you should see the console
  * page. The user-name is "user" and the password is in your console output.
- * <p>
+ *
  * TODO-02: If your browser can display JSON, you might like to look at the
  * actuator pages. Note that management.endpoints.web.base-path is set to
  * /admin in the auth-server.properties file.
- * <p>
+ *
  * TODO-03: What happens if you access the Superuser Only page? We need to fix
  * that! Open the {@link AuthServerConsoleSecurityConfiguration}.
- * <p>
+ *
  * TODO-08: Now to convert this process into an OAuth2 Server. Add the necessary
  * annotation to this class
  */
@@ -81,11 +81,11 @@ public class AuthorizationServer {
 
 			/**
 			 * TODO-11: Configure access credentials.
-			 * <p>
+			 *
 			 * The two clients you need to setup have been started for you.
-			 * <p>
+			 *
 			 * Setup the following configuration:
-			 * <ul>
+			 *
 			 * <li>To access as the Resource Server you must:<br/>
 			 * - submit account-server:secret as clientId/password<br/>
 			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>

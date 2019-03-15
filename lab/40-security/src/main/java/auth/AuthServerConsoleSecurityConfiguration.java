@@ -7,10 +7,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 /**
  * Configure browser-based access. Restrict access to the admin pages to the
  * admin user and provide for login and logout.
- * <p>
- * <b>NOTE:</b> This has nothing to do with the ability to use this process as
+ *
+ * NOTE: This has nothing to do with the ability to use this process as
  * an OAuth2 Authorization server. That configuration is in the
- * {@link AuthorizationServer}.
+ * AuthorizationServer.
  */
 // TODO-04: Enable this configuration by removing both the // comment characters
 //@Configuration

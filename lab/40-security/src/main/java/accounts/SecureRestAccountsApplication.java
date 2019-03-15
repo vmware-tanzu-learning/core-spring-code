@@ -1,25 +1,22 @@
 package accounts;
 
+import auth.AuthorizationServer;
+import config.AppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
 
-import auth.AuthorizationServer;
-import config.AppConfig;
-import config.DbConfig;
-
 /**
  * The Account Server is now also a Resource Server so access to Account
  * information is restricted by OAuth2.
- * <p>
+ *
  * TODO-15: Annotate this class to make it an OAuth2 resource-server
- * <p>
+ *
  * TODO-17: Run this class as a Spring Boot application.
  * - Try to access http://localhost:8080/accounts. You should get an access
  *   restricted or denied response
