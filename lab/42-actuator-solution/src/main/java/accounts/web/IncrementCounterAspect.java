@@ -16,7 +16,8 @@ public class IncrementCounterAspect {
         this.counter = meterRegistry.counter("account.fetch", "type", "fromAspect");
     }
 
-    @Before("@annotation(accounts.web.IncrementCounter)")
+    // @Before("@annotation(accounts.web.IncrementCounter)")   // this also works
+    @Before("execution(@accounts.web.IncrementCounter * *(..))")
     public void increment(){
         counter.increment();
     }
