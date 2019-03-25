@@ -1,14 +1,14 @@
 package accounts.web;
 
 /**
- * TODO-15a: Make this class implement HealthIndicator
+ * TODO-17a: Make this class implement HealthIndicator
  *  - Make it a component
  *  - Add a constructor to pass in the restaurant repository and use it to
  *    implement health().
  *  - health() should return DOWN if the repository is empty
  *    (no restaurants) or UP otherwise.
  *
- * TODO-19 (Extra credit): Experiment with HealthIndicator (Read lab document)
+ * TODO-21 (Extra credit): Experiment with HealthIndicator (Read lab document)
  */
 public class RestaurantHealthCheck {
 

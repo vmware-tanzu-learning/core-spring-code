@@ -56,7 +56,11 @@ public class AccountController {
      * - Add logger.debug("Logging message within accountSummary()");
      * - Change logging level of accounts.web package as described in the lab document
 	 *
-	 * TODO-20 (Extra credit): Use annotation and AOP for counter (Read lab document)
+     * TODO-13: Add Timer metric using @Timed annotation
+     * -Set the metric name to "account.timer"
+     * -Set a extra tag with "source"/"accountSummary" key/value pair
+     *
+	 * TODO-22 (Extra credit): Use annotation and AOP for counter (Read lab document)
 	 */
 	@GetMapping(value = "/accounts")
 	public @ResponseBody List<Account> accountSummary() {
@@ -67,6 +71,10 @@ public class AccountController {
 	 * Provide the details of an account with the given id.
 	 *
 	 * TODO-10: Increment the Counter each time this method is called.
+     *
+     * TODO-14: Add Timer metric using @Timed annotation
+     * -Set the metric name to "account.timer"
+     * -Set a extra tag with "source"/"accountDetails" key/value pair
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public @ResponseBody Account accountDetails(@PathVariable int id) {

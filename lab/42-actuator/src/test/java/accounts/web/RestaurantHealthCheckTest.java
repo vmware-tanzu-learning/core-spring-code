@@ -13,7 +13,7 @@ import rewards.internal.restaurant.RestaurantRepository;
 import static org.mockito.Mockito.*;
 
 /**
- * TODO-14: IMPORTANT: Stop the ActuatorApplication whilst we add new classes.
+ * TODO-16: Stop the ActuatorApplication whilst we add new classes.
  *
  *          Modify this class to test the RestaurantHealthCheck class.
  *          The RestaurantHealthCheck class will implement HealthCheck
@@ -29,7 +29,7 @@ public class RestaurantHealthCheckTest {
 	public void setUp() {
 		restaurantRepository = mock(JpaRestaurantRepository.class);
 		
-		// TODO-15b: Create an instance of RestaurantHealthCheck class
+		// TODO-17b: Create an instance of RestaurantHealthCheck class
 		// - Remove the two @Disabled annotations below
 		// - Run the test, make sure it passes.
 		restaurantHealthCheck = null;
@@ -41,7 +41,7 @@ public class RestaurantHealthCheckTest {
 		// Mock the Repository so getRestaurantCount returns 1
 		doReturn(1L).when(restaurantRepository).getRestaurantCount();
 
-		// TODO-14a: Modify to invoke the health() method on RestaurantHealthCheck
+		// TODO-16a: Modify to invoke the health() method on RestaurantHealthCheck
 		// (which you will write in the next step)
 		Health result = null;
 
@@ -56,7 +56,7 @@ public class RestaurantHealthCheckTest {
 		// Mock the Repository so getRestaurantCount returns 0
 		doReturn(0L).when(restaurantRepository).getRestaurantCount();
 
-		// TODO-14b: Modify to invoke the health() method
+		// TODO-16b: Modify to invoke the health() method
 		Health result = null;
 
 		// Health check should return DOWN
