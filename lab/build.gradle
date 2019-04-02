@@ -11,6 +11,7 @@ buildscript {
         junit5JupiterEngineVersion= "5.1.1"
         junit5PlatformRunnerVersion= "1.2.0"
         junit5VintageEngineVersion= "5.1.1"
+        springCloudStarterOauth2="2.1.0.RELEASE"
     }
 
     repositories {
