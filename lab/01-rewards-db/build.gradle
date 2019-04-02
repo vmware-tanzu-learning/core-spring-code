@@ -1,5 +1,5 @@
 dependencies {
     compile project(':00-rewards-common')
     compile "org.springframework.boot:spring-boot-starter-data-jpa:$springBootVersion"
-    compile "org.hibernate:hibernate-entitymanager:$hibernateEntityManagerVersion"
+    compile "org.hibernate:hibernate-entitymanager"
 }
