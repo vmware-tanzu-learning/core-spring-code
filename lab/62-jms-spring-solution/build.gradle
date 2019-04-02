@@ -1,6 +1,5 @@
 dependencies {
     compile project(':00-rewards-common')
     compile project(':01-rewards-db')
-    compile "org.springframework:spring-jms:$springVersion"
-    compile "org.apache.activemq:activemq-broker:$activeMQBrokerVersion"
+    compile "org.springframework.boot:spring-boot-starter-activemq:$springBootVersion"
 }
