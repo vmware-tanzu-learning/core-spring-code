@@ -25,6 +25,7 @@ import config.Constants;
  * TODO-01: Run this application as a Spring Boot or Java application and open
  * http://locahost:1111 in your browser. Login and you should see the console
  * page. The user-name is "user" and the password is in your console output.
+ * (If the browser keeps displaying login screen, use Chrome Incognito browser.)
  *
  * TODO-02: If your browser can display JSON, you might like to look at the
  * actuator pages. Note that management.endpoints.web.base-path is set to
