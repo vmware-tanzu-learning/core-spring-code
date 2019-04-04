@@ -38,7 +38,6 @@ import config.Constants;
  * annotation to this class
  */
 @SpringBootApplication
-@SuppressWarnings("deprecation")
 @EnableAutoConfiguration(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
 
@@ -54,11 +53,6 @@ public class AuthorizationServer {
 		System.setProperty("spring.config.name", "auth-server");
 
 		SpringApplication.run(AuthorizationServer.class, args);
-	}
-
-	@Bean
-	PasswordEncoder passwordEncoder() {
-		return NoOpPasswordEncoder.getInstance();
 	}
 
 	/**

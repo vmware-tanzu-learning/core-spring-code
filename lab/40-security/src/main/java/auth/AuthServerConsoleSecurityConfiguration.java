@@ -28,6 +28,8 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		// TODO-05: Add an in-memory user-details service configurer and
 		// setup a single user using the ADMIN_??? constants above.
+        // For password encoding, use DelegatingPasswordEncoder,
+		// which can be created from PasswordEncoderFactories
 	}
 
 	/**
