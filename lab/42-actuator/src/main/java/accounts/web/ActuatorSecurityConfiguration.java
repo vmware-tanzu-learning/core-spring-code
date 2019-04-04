@@ -2,9 +2,9 @@ package accounts.web;
 
 // TODO-22: Add security configuration
 // - Make this class a configuration class extending WebSecurityConfigurerAdapter
-// - Add two users to in-memory identity store
-//   1. actuator/{noop}actuator with ACTUATOR role
-//   2. admin/{noop}admin with ADMIN and ACTUATOR role
+// - Add two users to in-memory identity store using DelegatingPasswordEncoder
+//   1. actuator/actuator with ACTUATOR role
+//   2. admin/admin with ADMIN and ACTUATOR role
 // - Add access control configuration
 //   1. Anybody can access "health" and "info" endpoints without logging in
 //   2. Only "admin" role can access "conditions" endpoint
