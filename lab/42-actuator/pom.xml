@@ -52,6 +52,8 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- TODO-21: Add Spring Boot security starter -->
+
 		<!-- Automatic application restart -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
