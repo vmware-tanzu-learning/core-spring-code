@@ -1,7 +1,11 @@
 package accounts.web;
 
+import org.springframework.context.annotation.Configuration;
+
 // TODO-22: Add security configuration
-// - Make this class a configuration class extending WebSecurityConfigurerAdapter
+// - Make this class a configuration class
+//   1. Add @EnableWebSecurity annotation to the class
+//   2. Extend WebSecurityConfigurerAdapter
 // - Add two users to in-memory identity store using DelegatingPasswordEncoder
 //   1. actuator/actuator with ACTUATOR role
 //   2. admin/admin with ADMIN and ACTUATOR role
@@ -18,6 +22,6 @@ package accounts.web;
 // - Close the current Chrome Incognito browser and open a new one
 // - Access "conditions" endpoint as "admin" user and observe successful response
 // - Access other endpoints such as "mappings" and observe successful response
-
+@Configuration
 public class ActuatorSecurityConfiguration {
 }
