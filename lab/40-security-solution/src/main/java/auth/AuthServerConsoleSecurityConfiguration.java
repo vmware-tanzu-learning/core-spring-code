@@ -3,6 +3,7 @@ package auth;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -16,7 +17,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * {@link AuthorizationServer}.
  */
 @Configuration
+@EnableWebSecurity
 public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	public static final String ADMIN_USER = "admin";
+	public static final String ADMIN_PASSWORD = "admin";
+	public static final String ADMIN_ROLE = "ADMIN";
 
 	/**
 	 * Define a master user. This has nothing to do with the OAuth2 configuration.
@@ -25,7 +31,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		auth.inMemoryAuthentication()
-			.withUser("admin").password(passwordEncoder.encode("admin")).roles("ADMIN");
+			.withUser(ADMIN_USER).password(passwordEncoder.encode(ADMIN_PASSWORD)).roles(ADMIN_ROLE);
 	}
 
 	/**
