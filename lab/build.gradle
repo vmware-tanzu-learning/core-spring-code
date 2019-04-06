@@ -3,7 +3,6 @@ buildscript {
         springBootVersion = "2.1.3.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
-        reactorSpringVersion = "1.0.1.RELEASE"
         junit5JupiterEngineVersion= "5.1.1"
         junit5PlatformRunnerVersion= "1.2.0"
         junit5VintageEngineVersion= "5.1.1"

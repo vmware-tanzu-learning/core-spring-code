@@ -9,5 +9,4 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
     compile 'org.springframework.boot:spring-boot-starter-webflux'
-    compile "org.projectreactor:reactor-spring:$reactorSpringVersion"
 }
