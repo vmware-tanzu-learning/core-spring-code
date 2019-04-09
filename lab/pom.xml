@@ -22,8 +22,12 @@
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.81</jamon.version>
 
-        <!-- JUnit 5 related properties -->
+
+        <!-- Uncomment the Java version you want, comment the other -->
         <java.version>1.8</java.version>
+        <!--<java.version>11</java.version>-->
+
+        <!-- JUnit 5 related properties -->
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
         <junit.vintage.version>5.2.0</junit.vintage.version>
         <junit.platform.version>1.2.0</junit.platform.version>
@@ -291,5 +295,7 @@
         <module>60-reactive-spring-solution</module>
         <module>62-jms-spring</module>
         <module>62-jms-spring-solution</module>
+        <module>80-security-views</module>
+        <module>80-security-views-solution</module>
     </modules>
 </project>

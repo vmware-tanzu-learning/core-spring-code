@@ -64,7 +64,9 @@ subprojects {
         testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit5VintageEngineVersion"
     }
 
+    // Uncomment the Java version you want, comment the other
     sourceCompatibility = '1.8'
+//    sourceCompatibility = '11'
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
