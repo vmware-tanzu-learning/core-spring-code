@@ -15,7 +15,7 @@
     </parent>
     <properties>
         <!-- Override some defaults from Spring Boot. -->
-        <spring.cloud.build>Greenwich.RELEASE</spring.cloud.build>
+        <spring.cloud.build>Greenwich.SR1</spring.cloud.build>
 
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>3.1</easymock.version>
@@ -140,34 +140,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <repositories>
-        <!-- Need this for Spring Boot -->
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!-- For Spring Cloud -->
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>http://repo.spring.io/milestone</url>
-            <!-- <url>https://repo.spring.io/libs-snapshot</url> -->
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <!-- Need this for Spring Boot Maven Plugin -->
-        <pluginRepository>
-            <id>spring-milestones2</id>
-            <url>http://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
     <build>
         <!-- Ensure resources are exported correctly - conflict with Spring Boot -->
         <resources>
