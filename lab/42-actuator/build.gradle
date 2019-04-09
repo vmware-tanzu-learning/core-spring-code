@@ -6,7 +6,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     // TODO-01: Note that the Actuator starter is already here for you.
     compile 'org.springframework.boot:spring-boot-starter-actuator'
-    compile 'io.micrometer:micrometer-core'
     compile 'org.springframework.boot:spring-boot-devtools'
     // TODO-21: Add Spring Boot security starter
 }
