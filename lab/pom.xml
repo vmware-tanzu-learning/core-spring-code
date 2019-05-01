@@ -27,10 +27,18 @@
         <java.version>1.8</java.version>
         <!--<java.version>11</java.version>-->
 
-        <!-- JUnit 5 related properties -->
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
+        <!-- ========= JUnit 5 related properties ========= -->
+        <!-- Used mainly by the tooling for the STS. This parameter overrides the default value specified in the
+             spring-boot-dependencies (defined in the parent POM) that pulls in the junit-jupiter BOM.
+          -->
+        <junit-jupiter.version>5.4.2</junit-jupiter.version>
+
+        <!-- Used by the maven surfire test plugin to support Jupiter (JUnit 5) tests -->
+        <junit.jupiter.version>5.4.2</junit.jupiter.version>
+        <junit.platform.version>1.3.2</junit.platform.version>
+        
+	<!-- Legacy - maybe not used at all -->
         <junit.vintage.version>5.2.0</junit.vintage.version>
-        <junit.platform.version>1.2.0</junit.platform.version>
 
         <!-- Enable maven support for Servlet 3 - no web.xml -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
