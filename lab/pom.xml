@@ -15,27 +15,22 @@
     </parent>
     <properties>
         <!-- Override some defaults from Spring Boot. -->
-        <spring.cloud.build>Greenwich.RELEASE</spring.cloud.build>
+        <spring.cloud.build>Greenwich.SR1</spring.cloud.build>
 
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>3.1</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.81</jamon.version>
 
-        <!-- JUnit 5 related properties -->
+
+        <!-- Uncomment the Java version you want, comment the other -->
         <java.version>1.8</java.version>
+        <!--<java.version>11</java.version>-->
 
-        <!-- Used mainly by the tooling for the STS. This parameter overrides the default value specified in the
-             spring-boot-dependencies (defined in the parent POM) that pulls in the junit-jupiter BOM.
-          -->
-        <junit-jupiter.version>5.4.2</junit-jupiter.version>
-
-        <!-- Used by the maven surfire test plugin to support Jupiter (JUnit 5) tests -->
+        <!-- JUnit 5 related properties -->
         <junit.jupiter.version>5.2.0</junit.jupiter.version>
-        <junit.platform.version>1.2.0</junit.platform.version>
-        
-		<!-- Legacy - maybe not used at all -->
         <junit.vintage.version>5.2.0</junit.vintage.version>
+        <junit.platform.version>1.2.0</junit.platform.version>
 
         <!-- Enable maven support for Servlet 3 - no web.xml -->
         <failOnMissingWebXml>false</failOnMissingWebXml>
@@ -69,6 +64,7 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -144,34 +140,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-    <repositories>
-        <!-- Need this for Spring Boot -->
-        <repository>
-            <id>spring-milestones</id>
-            <name>Spring Milestones</name>
-            <url>https://repo.spring.io/libs-milestone</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-        <!-- For Spring Cloud -->
-        <repository>
-            <id>spring-snapshots</id>
-            <name>Spring Snapshots</name>
-            <url>http://repo.spring.io/milestone</url>
-            <!-- <url>https://repo.spring.io/libs-snapshot</url> -->
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <!-- Need this for Spring Boot Maven Plugin -->
-        <pluginRepository>
-            <id>spring-milestones2</id>
-            <url>http://repo.spring.io/milestone</url>
-        </pluginRepository>
-    </pluginRepositories>
     <build>
         <!-- Ensure resources are exported correctly - conflict with Spring Boot -->
         <resources>
@@ -299,5 +267,7 @@
         <module>60-reactive-spring-solution</module>
         <module>62-jms-spring</module>
         <module>62-jms-spring-solution</module>
+        <module>80-security-views</module>
+        <module>80-security-views-solution</module>
     </modules>
 </project>
