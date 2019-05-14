@@ -1,19 +1,15 @@
 package auth;
 
+import config.Constants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
-
-import config.Constants;
 
 /**
  * OAuth2 Authorization server for authenticating access to the Account server.
@@ -23,7 +19,7 @@ import config.Constants;
  * configuration, so all JPA auto-configuration is disabled (we don't need it).
  *
  * TODO-01: Run this application as a Spring Boot or Java application and open
- * http://locahost:1111 in your browser. Login and you should see the console
+ * http://localhost:1111 in your browser. Login and you should see the console
  * page. The user-name is "user" and the password is in your console output.
  * (If the browser keeps displaying login screen, use Chrome Incognito browser.)
  *
