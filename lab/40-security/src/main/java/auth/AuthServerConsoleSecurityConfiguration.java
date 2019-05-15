@@ -57,7 +57,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 		
 		// TODO-07: Let's see if it works ...
 		// - Save your changes and wait for the application to restart.
-		// - Go to http://locahost:1111 again. You should be forced to login
+		// - Go to http://localhost:1111 again. You should be forced to login
 		//   as the "admin" user to see the console page.
 		// - What happens if you try and access the Superuser Only page now?
 		
