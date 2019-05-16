@@ -6,6 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -51,25 +53,28 @@ public class AuthorizationServer {
 
 			/**
 			 * Configure access credentials.
-			 * <ul>
-			 * <li>To access the Resource Server you must submit account-server:secret as
-			 * identification and have a token allowing you access as a trusted-client.
-			 * <li>To get an authorization token you must submit account-tester:secret as
-			 * identification and you will be granted client credentials and allowed access
-			 * to anything allowing access to the "account.read" authority.
-			 * </ul>
+			 *
+			 *  - To access the Resource Server, you must submit account-server:secret as
+			 *    identification and have a token allowing you access as a trusted-client.
+			 *  - To get an authorization token, you must submit account-tester:secret as
+			 *    identification and you will be granted client credentials and allowed access
+			 *    to anything allowing access to the "account.read" authority.
+			 *
 			 */
 			@Override
 			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+
+				PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
 				// In-memory definitions
 				clients.inMemory() //
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server
-						.secret("secret") //
+						.secret(passwordEncoder.encode("secret")) //
 						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
 						.authorities(ROLE_TRUSTED_CLIENT) //
 					.and() //
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client
-						.secret("secret")//
+					    . secret(passwordEncoder.encode("secret")) //
 						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
 						.scopes(ACCOUNT_READ, ACCOUNT_WRITE);
 			}

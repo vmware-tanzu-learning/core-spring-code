@@ -5,6 +5,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -75,23 +77,25 @@ public class AuthorizationServer {
 			 *
 			 * Setup the following configuration:
 			 *
-			 * <li>To access as the Resource Server you must:<br/>
-			 * - submit account-server:secret as clientId/password<br/>
-			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
-			 * - have authority {@link ROLE_TRUSTED_CLIENT}<br/>
-			 * <p>
-			 * <li>To get an authorization token you must<br/>
-			 * - submit account-tester:secret as clientId/password<br/>
-			 * - have {@link CLIENT_CREDENTIALS} as grant<br/>
-			 * - have scopes {@link ACCOUNT_READ} and {@link ACCOUNT_WRITE}
-			 * </ul>
+			 * To access as the Resource Server you must:
+			 * - submit account-server:secret as clientId/password
+			 * - have CLIENT_CREDENTIALS as grant
+			 * - have authority ROLE_TRUSTED_CLIENT
+			 *
+			 * To get an authorization token you must
+			 * - submit account-tester:secret as clientId/password
+			 * - have CLIENT_CREDENTIALS as grant
+			 * - have scopes ACCOUNT_READ and ACCOUNT_WRITE
+			 *
 			 */
 			@Override
 			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
 
+				PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
 				clients.inMemory() //
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
-						.secret("???")               // Set password
+						.secret("???")               // Set encrypted password
 						.authorizedGrantTypes("???") // = CLIENT_CREDENTIALS
 						.authorities("...")          // Has ROLE_TRUSTED_CLIENT
 						// Add configuration here
