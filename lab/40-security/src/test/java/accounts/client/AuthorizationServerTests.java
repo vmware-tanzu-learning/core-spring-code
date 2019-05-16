@@ -22,7 +22,7 @@ public class AuthorizationServerTests {
 	public static final String APPLICATION_JSON_MINE_TYPES = "application/json, application/*+json";
 
 	public static final String CLIENT_AUTH = // account-tester:secret
-			"Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0";
+			"Basic YWNjb3VudC10ZXN0ZXI6c2VjcmV0";
 
 	public static final String ACCOUNT_SERVER_AUTH = // account-server:secret
 			"Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0";
@@ -131,7 +131,7 @@ public class AuthorizationServerTests {
 		// Performs the equivalent of this curl command:
 		//
 		// curl -X POST localhost:1111/oauth/check_token
-		// -u account-tester:secret
+		// -u account-server:secret
 		// -H "Content-Type: application/json, application/*+json"
 		// -d token={{token}}
 		//
