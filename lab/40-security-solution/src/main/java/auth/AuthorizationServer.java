@@ -2,7 +2,6 @@ package auth;
 
 import config.Constants;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
@@ -16,9 +15,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 /**
  * OAuth2 Authorization server for authenticating access to the Account server.
  */
-@SpringBootApplication
+@SpringBootApplication(exclude= {JpaRepositoriesAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 @EnableAuthorizationServer
-@EnableAutoConfiguration(exclude= {JpaRepositoriesAutoConfiguration.class,HibernateJpaAutoConfiguration.class})
 public class AuthorizationServer {
 
 	public static final String CLIENT_CREDENTIALS = "client_credentials";

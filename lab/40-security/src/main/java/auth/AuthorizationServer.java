@@ -2,7 +2,6 @@ package auth;
 
 import config.Constants;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
@@ -33,8 +32,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * TODO-08: Now to convert this process into an OAuth2 Server. Add the necessary
  * annotation to this class
  */
-@SpringBootApplication
-@EnableAutoConfiguration(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
+@SpringBootApplication(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
 
 	public static final String CLIENT_CREDENTIALS = "client_credentials";
