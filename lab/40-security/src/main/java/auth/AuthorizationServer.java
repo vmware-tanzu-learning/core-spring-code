@@ -95,7 +95,7 @@ public class AuthorizationServer {
 
 				clients.inMemory() //
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
-						.secret("???")               // Set encrypted password
+						.secret("???")               // Set encoded password
 						.authorizedGrantTypes("???") // = CLIENT_CREDENTIALS
 						.authorities("...")          // Has ROLE_TRUSTED_CLIENT
 						// Add configuration here
