@@ -13,7 +13,8 @@ import rewards.internal.monitor.MonitorFactory;
 //           any repository find find...() method is invoked.
 //  Indicate this class is an aspect.
 //	Also mark it as a component.  
-//	Place an @Autowired annotation on the constructor.
+//	Optionally place an @Autowired annotation on the constructor.
+//  (It is optional since there is only a single constructor in the class.)
 
 public class LoggingAspect {
     public final static String BEFORE = "'Before'";
