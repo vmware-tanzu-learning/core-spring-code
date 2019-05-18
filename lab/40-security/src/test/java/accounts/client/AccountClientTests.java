@@ -35,10 +35,10 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TODO-19: Review the Client properties in client-oauth2.properties.
+ * TODO-20: Review the Client properties in client-oauth2.properties.
  * Note the @TestPropertySource below.
  *
- * TODO-20: Run these tests. They should succeed.
+ * TODO-21: Run these tests. They should succeed.
  * (If you are using Gradle, remove test exclude statement
  *  from the build.gradle before running these test.)
  *

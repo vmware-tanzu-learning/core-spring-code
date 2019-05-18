@@ -71,20 +71,18 @@ public class AuthorizationServer {
 			}
 
 			/**
-			 * TODO-11: Configure access credentials.
-			 *
-			 * The two clients you need to setup have been started for you.
+			 * TODO-11: Register Resource server and Client.
 			 *
 			 * Setup the following configuration:
 			 *
-			 * To access as the Resource Server you must:
+			 * To validate a token as the Resource server, you must:
 			 * - submit account-server:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant
+			 * - have CLIENT_CREDENTIALS as grant type
 			 * - have authority ROLE_TRUSTED_CLIENT
 			 *
-			 * To get an authorization token you must
+			 * To get an authorization token as a client, you must
 			 * - submit account-tester:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant
+			 * - have CLIENT_CREDENTIALS as grant type
 			 * - have scopes ACCOUNT_READ and ACCOUNT_WRITE
 			 *
 			 */
