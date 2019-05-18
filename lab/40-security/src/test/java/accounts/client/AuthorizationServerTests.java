@@ -37,7 +37,7 @@ public class AuthorizationServerTests {
 
 	/**
 	 * TODO-12b. Remove @Disabled and run this test. It should work.
-	 * <p>
+	 *
 	 * If you can't work out why the Authorization Server is not working, in
 	 * auth-server.properties uncomment the logging.level properties to enable DEBUG
 	 * logging for Spring Security and Boot. Rerun the test and see if the log
@@ -52,7 +52,7 @@ public class AuthorizationServerTests {
 
 	/**
 	 * TODO-13b. Remove @Disabled and run this test. It should work.
-	 * <p>
+	 *
 	 * TODO-14: Return to dashboard at http://localhost:1111 and click the "Recent
 	 * requests" link. Can you see the OAuth URLs being used to get and check a
 	 * token?  If you had to login, rerun the tests then refresh the "Recent
@@ -124,8 +124,7 @@ public class AuthorizationServerTests {
 	 * TODO-13a: Review this code. It runs a check to validate a token, still
 	 * running as the "account-tester" (our Client process).
 	 * 
-	 * @param token
-	 *            Token previously received from Authorization Server.
+	 * @param token Token previously received from Authorization Server.
 	 */
 	private void checkToken(String token) {
 		// Performs the equivalent of this curl command:
@@ -157,12 +156,11 @@ public class AuthorizationServerTests {
 
 	/**
 	 * Using the access token, fetch data from the account-service.
-	 * <p>
+	 *
 	 * TODO-18a: Review the code. Makes an HTTP request using the access token for
 	 * Authentication.
 	 * 
-	 * @param token
-	 *            Token from the Authorization Server.
+	 * @param token Token from the Authorization Server.
 	 */
 	private void getAccountUsingToken(String token) {
 		// Performs the equivalent of this curl command:
@@ -193,9 +191,7 @@ public class AuthorizationServerTests {
 	/**
 	 * Quick and dirty JSON parsing ...
 	 * 
-	 * @param body
-	 *            Body of HTTP Response. Should be a JSON string containing an
-	 *            access_Token.
+	 * @param body Body of HTTP Response. Should be a JSON string containing an access_Token.
 	 * @return The token.
 	 */
 	private String extractTokenFromJSON(String body) {
@@ -217,8 +213,7 @@ public class AuthorizationServerTests {
 	/**
 	 * Convert a String to a URI.
 	 * 
-	 * @param url
-	 *            URL string
+	 * @param url URL string
 	 * @return Equivalent URI.
 	 */
 	protected URI toURI(String url) {

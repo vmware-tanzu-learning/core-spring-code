@@ -36,32 +36,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * TODO-19: Review the Client properties in client-oauth2.properties.
- * Note the <code>@TestPropertySource</code> below.
+ * Note the @TestPropertySource below.
  *
  * TODO-20: Run these tests. They should succeed.
- * (If you are using Gradle, remote test exclude statement
+ * (If you are using Gradle, remove test exclude statement
  *  from the build.gradle before running these test.)
- * <ul>
- * <li>In this scenario, AccountClientTests IS the OAuth2 client.
- * <li>Read the rest of this Javadoc for more information.
- * </ul>
+ *
+ * - In this scenario, AccountClientTests IS the OAuth2 client.
+ * - Read the rest of this Javadoc for more information.
+ *
  * Congratulations, the lab is finished.
- * <p>
- * <h3>Details</h3>
- * This is basically the same test-client as the REST lab used. But it uses
- * OAuth2 validation because its {@link RestTemplate} is actually a
- * {@link OAuth2RestTemplate}.
- * <p>
- * <b>Note 1:</b> This client does not need to be secure so security
+ *
+ * This is basically the same test-client as the REST lab used.
+ * But it uses OAuth2 validation because its RestTemplate is actually a
+ * OAuth2RestTemplate.
+ *
+ * Note 1: This client does not need to be secure so security
  * auto-configuration is disabled.
- * <p>
- * <b>Note 2:</b> This is not a Web application and we do not want to pick up
+ *
+ * Note 2: This is not a Web application and we do not want to pick up
  * any additional configuration so we specify our own configuration class to
  * initialize from. This sets this application up as an OAuth2 client and
- * creates the {@link OAuth2RestTemplate} we need.
- * <p>
- * <b>Note 3:</b> This test has its own Spring Boot properties defined in
- * "<code>client-oauth2.properties<code>".
+ * creates the OAuth2RestTemplate we need.
+ *
+ * Note 3: This test has its own Spring Boot properties defined in
+ * "client-oauth2.properties".
  */
 @ExtendWith(SpringExtension.class)
 @RunWith(JUnitPlatform.class) // For JUnit 4 backwards compatibility only
