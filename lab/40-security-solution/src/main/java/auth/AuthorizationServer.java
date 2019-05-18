@@ -48,7 +48,7 @@ public class AuthorizationServer {
 			 */
 			@Override
 			public void configure(AuthorizationServerSecurityConfigurer security) {
-				security.checkTokenAccess("hasAuthority('" + ROLE_TRUSTED_CLIENT + "')");
+				security.checkTokenAccess("hasAuthority('ROLE_TRUSTED_CLIENT')");
 			}
 
 			/**
