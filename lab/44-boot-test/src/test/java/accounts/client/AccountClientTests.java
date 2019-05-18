@@ -1,6 +1,5 @@
 package accounts.client;
 
-import accounts.BootTestApplication;
 import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
@@ -16,12 +15,19 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Test the Account Server by running this test as a REST client. Run
- * {@link BootTestApplication} first or these tests will fail.
- */
+// TODO-01: Make this class a Spring Boot test class
+// - Add @ExtendWith(SpringExtension.class) annotation
+// - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
 @RunWith(JUnitPlatform.class)
 public class AccountClientTests {
+
+	// TODO-02: Autowire TestRestTemplate bean
+
+	// TODO-03: Update code below to use TestRestTemplate (as opposed to RestTmplate)
+	// - Remove RestTemplate from this code
+	// - Remove BASE_URL from this code
+	// - Run the test and observe that the tests pass except
+	//   `addAndDeleteBeneficiary` test
 
 	/**
 	 * server URL ending with the servlet mapping on which the application can be
@@ -72,6 +78,9 @@ public class AccountClientTests {
 		assertNotNull(retrievedAccount.getEntityId());
 	}
 
+	// TODO-04: Handle an exception
+	// - Modify the code below as described in the lab document
+	// - Run all tests - they should all pass
 	@Test
 	public void addAndDeleteBeneficiary() {
 		// perform both add and delete to avoid issues with side effects
@@ -88,4 +97,7 @@ public class AccountClientTests {
 		});
 		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
 	}
+
+	// TODO-05: Observe that Tomcat server gets started as part of testing
+	// in the console.
 }
