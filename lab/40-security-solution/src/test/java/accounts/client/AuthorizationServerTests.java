@@ -1,13 +1,12 @@
 package accounts.client;
-import java.net.URI;
-import java.net.URISyntaxException;
-
+import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import org.junit.Assert;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 public class AuthorizationServerTests {
 
@@ -21,7 +20,7 @@ public class AuthorizationServerTests {
 	public static final String APPLICATION_JSON_MINE_TYPES = "application/json, application/*+json";
 
 	public static final String CLIENT_AUTH = // account-tester:secret
-			"Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0";
+			"Basic YWNjb3VudC10ZXN0ZXI6c2VjcmV0";
 
 	public static final String ACCOUNT_SERVER_AUTH = // account-server:secret
 			"Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0";
@@ -62,7 +61,7 @@ public class AuthorizationServerTests {
 		// -d 'grant_type=client_credentials&response_type=token&scope=account.read'
 		//
 		// Accept: application/json, application/*+json
-		// Authorization: Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0
+		// Authorization: Basic YWNjb3VudC10ZXN0ZXI6c2VjcmV0
 		// Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 
 		RequestEntity<String> request = //
@@ -95,7 +94,7 @@ public class AuthorizationServerTests {
 	private void checkToken(String token) {
 		// Performs the equivalent of this curl command:
 		//
-		// curl -X POST -u account-tester:secret localhost:1111/oauth/check_token
+		// curl -X POST -u account-server:secret localhost:1111/oauth/check_token
 		// -d token={{token}}
 		//
 		// Accept: application/json, application/*+json

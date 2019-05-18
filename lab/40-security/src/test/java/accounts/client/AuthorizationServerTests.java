@@ -97,7 +97,7 @@ public class AuthorizationServerTests {
 		//
 		// HTTP Request Headers are
 		// - Accept: application/json, application/*+json
-		// - Authorization: Basic YWNjb3VudC1zZXJ2ZXI6c2VjcmV0
+		// - Authorization: Basic YWNjb3VudC10ZXN0ZXI6c2VjcmV0
 		// - Content-Type: application/x-www-form-urlencoded;charset=UTF-8
 
 		RequestEntity<String> request = //

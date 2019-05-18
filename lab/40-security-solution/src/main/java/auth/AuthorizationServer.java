@@ -74,7 +74,7 @@ public class AuthorizationServer {
 						.authorities(ROLE_TRUSTED_CLIENT) //
 					.and() //
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client
-					    . secret(passwordEncoder.encode("secret")) //
+					    .secret(passwordEncoder.encode("secret")) //
 						.authorizedGrantTypes(CLIENT_CREDENTIALS) //
 						.scopes(ACCOUNT_READ, ACCOUNT_WRITE);
 			}
