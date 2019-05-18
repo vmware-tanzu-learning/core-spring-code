@@ -35,7 +35,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * TODO-20: Review the Client properties in client-oauth2.properties.
+ * TODO-20: Review Client OAuth2 configuration in "client-oauth2.properties" file.
  * Note the @TestPropertySource below.
  *
  * TODO-21: Run these tests. They should succeed.

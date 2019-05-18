@@ -31,8 +31,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * TODO-03: What happens if you access the Superuser Only page? We need to fix
  * that! Open the AuthServerConsoleSecurityConfiguration class.
  *
- * TODO-08: Now to convert this process into an OAuth2 Server. Add the necessary
- * annotation to this class
+ * TODO-08: Convert this application into an OAuth2 Server by adding a necessary
+ * annotation to this class.
  */
 @SpringBootApplication(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
@@ -53,10 +53,8 @@ public class AuthorizationServer {
 
 	/**
 	 * Authorization Server configuration
-	 * 
-	 * @return
 	 */
-	// TODO-09: Make this bean active - uncomment @Bean
+	// TODO-09: Configure Authorization server by uncommenting @Bean
 	// @Bean
 	AuthorizationServerConfigurer authServerConfig() {
 		return new AuthorizationServerConfigurerAdapter() {

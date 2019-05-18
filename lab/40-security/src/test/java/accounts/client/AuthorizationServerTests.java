@@ -81,8 +81,8 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-12a: Review this code. It runs a request for a token running as the
-	 * "account-tester" (our Client process)
+	 * TODO-12a: Review this code.  Running as the "account-tester" (our Client application)
+	 * it sends a request to the Authorization server asking for a token.
 	 * 
 	 * @return The token returned from the Authorization Server.
 	 */
@@ -121,10 +121,9 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-13a: Review this code. It runs a check to validate a token, still
-	 * running as the "account-tester" (our Client process).
-	 * 
-	 * @param token Token previously received from Authorization Server.
+	 * TODO-13a: Review this code.
+	 * Running as the "account-server" (our Resource server application),
+	 * it sends the received token to the authorization server for validation.
 	 */
 	private void checkToken(String token) {
 		// Performs the equivalent of this curl command:
@@ -157,8 +156,8 @@ public class AuthorizationServerTests {
 	/**
 	 * Using the access token, fetch data from the account-service.
 	 *
-	 * TODO-18a: Review the code. Makes an HTTP request using the access token for
-	 * Authentication.
+	 * TODO-18a: Review the code. It sends a request to the Resource server (account server)
+	 * using the previously acquired access token.
 	 * 
 	 * @param token Token from the Authorization Server.
 	 */
