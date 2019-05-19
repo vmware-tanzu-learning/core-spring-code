@@ -28,7 +28,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * actuator pages. Note that management.endpoints.web.base-path is set to
  * /admin in the auth-server.properties file.
  *
- * TODO-03: What happens if you access the Superuser Only page? We need to fix
+ * TODO-03: What happens if you access the Superuser Only page? We will address
  * that! Open the AuthServerConsoleSecurityConfiguration class.
  *
  * TODO-08: Convert this application into an OAuth2 Server by adding a necessary

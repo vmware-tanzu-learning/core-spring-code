@@ -29,7 +29,7 @@ public class AuthServerWebConfiguration implements WebMvcConfigurer {
 		registry.addViewController("/login");
 		registry.addViewController("/denied");
 		registry.addViewController("/done");
-		registry.addViewController("/illegal");
+		registry.addViewController("/superuser-only");
 	}
 
 }

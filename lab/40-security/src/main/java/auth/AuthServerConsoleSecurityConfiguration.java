@@ -3,6 +3,8 @@ package auth;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * Configure browser-based access. Restrict access to the admin pages to the
@@ -21,19 +23,26 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	public static final String ADMIN_PASSWORD = "admin";
 	public static final String ADMIN_ROLE = "ADMIN";
 
+	public static final String SUPERUSER_USER = "superuser";
+	public static final String SUPERUSER_PASSWORD = "superuser";
+	public static final String SUPERUSER_ROLE = "SUPERUSER";
+
 	/**
-	 * Define a master user. This has nothing to do with the OAuth2 configuration.
+	 * Add users. (By the way, this has nothing to do with the OAuth2 configuration.)
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		// TODO-05: Add an in-memory user-details service configurer and
-		// setup a single user using the ADMIN_??? constants above.
-        // For password encoding, use DelegatingPasswordEncoder,
-		// which can be created from PasswordEncoderFactories
+
+		PasswordEncoder passwordEncoder
+				= PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
+		// TODO-05: Add two users - ADMIN_USER and SUPERUSER_USER
+		// - add ADMIN_USER/ADMIN_PASSWORD with ADMIN_ROLE
+        // - add SUPERUSER_USER/SUPERUSER_PASSWORD with ADMIN_ROLE and SUPERUSER_ROLE
 	}
 
 	/**
-	 * Restrict the home page to the master user. In a real system you might provide
+	 * Configure access control. In a real system you might provide
 	 * an administration dashboard like this to control/configure the server.
 	 */
 	@Override
@@ -48,18 +57,22 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 			.and().authorizeRequests() //
 			     // Allow open-access to resources (images, CSS, JavaScript)
 				.mvcMatchers("/resources/**").permitAll() //
-				// Hide this page from all except super-users 
-				.mvcMatchers("/illegal").hasRole("SUPERUSER") //
-				// TODO-06: Require all remaining URLs to need ADMIN role to access them
+				// TODO-06a: Allow "superuser*" pages accessible only by SUPERUSER_ROLE
+
+				// TODO-06b: Allow all remaining pages accessible by ADMIN_ROLE
+
 			.and() //
 				// Enable logout and redirect to /done afterwards
 				.logout().permitAll().logoutSuccessUrl("/done");
 		
 		// TODO-07: Let's see if it works ...
 		// - Save your changes and wait for the application to restart.
-		// - Go to http://localhost:1111 again. You should be forced to login
-		//   as the "admin" user to see the console page.
-		// - What happens if you try and access the Superuser Only page now?
+		//   (If you are using IntelliJ, you will have to trigger recompilation of this class.)
+		// - Go to http://localhost:1111 again.
+		// - Log in with "admin"/"admin".  You should be able to access pages
+		//   except Superuser only page. Log out.
+		// - Log in with "superuser"/"superuser": You should be able to access all pages
+		//   including Superuser only page
 		
 	}
 }

@@ -24,18 +24,23 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	public static final String ADMIN_PASSWORD = "admin";
 	public static final String ADMIN_ROLE = "ADMIN";
 
+	public static final String SUPERUSER_USER = "superuser";
+	public static final String SUPERUSER_PASSWORD = "superuser";
+	public static final String SUPERUSER_ROLE = "SUPERUSER";
+
 	/**
-	 * Define a master user. This has nothing to do with the OAuth2 configuration.
+	 * Add users. (By the way, this has nothing to do with the OAuth2 configuration.)
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 		auth.inMemoryAuthentication()
-			.withUser(ADMIN_USER).password(passwordEncoder.encode(ADMIN_PASSWORD)).roles(ADMIN_ROLE);
+			.withUser(ADMIN_USER).password(passwordEncoder.encode(ADMIN_PASSWORD)).roles(ADMIN_ROLE).and()
+			.withUser(SUPERUSER_USER).password(passwordEncoder.encode(SUPERUSER_PASSWORD)).roles(ADMIN_ROLE, SUPERUSER_ROLE);
 	}
 
 	/**
-	 * Restrict the home page to the master user. In a real system you might provide
+	 * Configure access control. In a real system you might provide
 	 * an administration dashboard like this to control/configure the server.
 	 */
 	@Override
@@ -46,8 +51,8 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 				.exceptionHandling().accessDeniedPage("/denied") // Access-denied page (unused)
 			.and().authorizeRequests() //
 				.mvcMatchers("/resources/**", "/oauth/**").permitAll() //
-				.mvcMatchers("/illegal").hasRole("SUPERUSER")
-				.mvcMatchers("/**").hasRole("ADMIN") //
+				.mvcMatchers("/superuser*").hasRole(SUPERUSER_ROLE)
+				.mvcMatchers("/**").hasRole(ADMIN_ROLE) //
 			.and() //
 				.logout().permitAll().logoutSuccessUrl("/done");
 	}

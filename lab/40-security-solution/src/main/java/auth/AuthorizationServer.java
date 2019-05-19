@@ -37,8 +37,6 @@ public class AuthorizationServer {
 
 	/**
 	 * Authorization Server configuration
-	 * 
-	 * @return
 	 */
 	@Bean
 	AuthorizationServerConfigurer authServerConfig() {
