@@ -7,9 +7,6 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
- * Configure browser-based access. Restrict access to the admin pages to the
- * admin user and provide for login and logout.
- *
  * NOTE: This has nothing to do with the ability to use this process as
  * an OAuth2 Authorization server. That configuration is in the
  * AuthorizationServer.
