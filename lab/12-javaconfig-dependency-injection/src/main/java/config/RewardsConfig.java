@@ -10,7 +10,7 @@ import javax.sql.DataSource;
  * TODO-02: Define four empty @Bean methods, one for the reward-network and
  * three for the repositories.
  *  - The RewardNetworkImpl should the bean name 'rewardNetwork'.
- *  - We have provided three JDDC repository implementations for
+ *  - We have provided three JDBC repository implementations for
  *    Accounts, Restaurants and Rewards. Their bean names should be
  *    `accountRepository`, `restaurantRepository` and `rewardRepository`.
  *
@@ -25,8 +25,10 @@ import javax.sql.DataSource;
  * use a constructor or call a setter to set dependencies? If you aren't sure,
  * refer to the diagram in the lab-instructions for more details.
  *
- * Each bean method should return an interface not an implementation type.
+ * Note that return type of each bean method should be an interface not
+ * an implementation type.
  */
+
 public class RewardsConfig {
 
 	// TODO-03: Set this by adding a constructor.
