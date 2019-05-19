@@ -33,9 +33,14 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 		PasswordEncoder passwordEncoder
 				= PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-		// TODO-05: Add two users - ADMIN_USER and SUPERUSER_USER
-		// - add ADMIN_USER/ADMIN_PASSWORD with ADMIN_ROLE
-        // - add SUPERUSER_USER/SUPERUSER_PASSWORD with ADMIN_ROLE and SUPERUSER_ROLE
+		// TODO-05: Add two users - ADMIN_USER and SUPERUSER_USER with encoded passwords
+		auth.inMemoryAuthentication()
+		// Add ADMIN_USER/ADMIN_PASSWORD with ADMIN_ROLE
+
+		.and()
+		// Add SUPERUSER_USER/SUPERUSER_PASSWORD with ADMIN_ROLE and SUPERUSER_ROLE
+
+		;
 	}
 
 	/**
