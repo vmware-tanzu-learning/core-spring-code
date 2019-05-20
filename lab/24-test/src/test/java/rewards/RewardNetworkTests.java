@@ -16,52 +16,60 @@ import static org.junit.jupiter.api.Assertions.*;
  * application for use in a test environment.
  */
 
-/* TODO 01: Remove setUp() and tearDown() methods and use annotations instead
- *            such as @SpringJUnitConfig(classes=TestInfrastructureConfig.class),
- *            which is a composite annotation of @ExtendWith(SpringExtension.class)
- *            and @ContextConfiguration
- *          - Use @RunWith(JUnitPlatform.class) to run JUnit 5 test using JUnit 4 runner
- *            (Only if you are using an old IDE that does not support JUnit 5.)
- * 			- Remove the attribute 'context' which is not needed anymore.
- * 			- Use @Autowired to populate the rewardNetwork instance.
- *			- Re-run the current test, it should pass.
+/* TODO-01: Use Spring TestContext framework
+ * - Remove setUp() and tearDown() methods and use annotations instead
+ *   such as @SpringJUnitConfig(classes=TestInfrastructureConfig.class),
+ *   which is a composite annotation of @ExtendWith(SpringExtension.class)
+ *   and @ContextConfiguration
+ * - Use @RunWith(JUnitPlatform.class) to run JUnit 5 test using JUnit 4 runner
+ *   (Only if you are using an old IDE that does not support JUnit 5.)
+ * - Remove the attribute 'context' which is not needed anymore.
+ * - Use @Autowired to populate the rewardNetwork bean.
+ * - Re-run the current test, it should pass.
  */
 
-/* TODO 02: In the package rewards/internal, annotate all 'Stub*Repository' classes
- *            with the @Repository annotation (WITHOUT specifying any profile yet).
- * 			- Rerun the current test, it should fail.  Why?
+/* TODO-02: Annotate all 'Stub*Repository' classes with @Repository
+ * - In the package rewards/internal, annotate all 'Stub*Repository' classes
+ *    with the @Repository annotation (WITHOUT specifying any profile yet).
+ *   (Make sure you are changing code in the '24-test' project.)
+ * - Rerun the current test, it should fail.  Why?
  */
 
-/* TODO 03: Using the @Profile annotation, assign the 'jdbc' profile to all Jdbc*Repository classes 
- * 			  (such as JdbcAccountRepository).  (Be sure to annotate the actual repository classes in
- * 			  src/main/java, not the test classes in src/main/test!)
- * 			- In the same way, assign the 'stub' profile to all Stub*Repository classes 
- * 			  (such as StubAccountRepository)
- * 			- Add @ActiveProfiles to this test class (below) and specify the "stub" profile.
- * 			- Run the current test, it should pass. 
- * 			  Examine the logs, they should indicate "stub" repositories were used.
+/* TODO-03: Assign the 'jdbc' profile to all Jdbc*Repository classes
+ * - Using the @Profile annotation, assign the 'jdbc' profile to all Jdbc*Repository classes
+ *   (such as JdbcAccountRepository).  (Be sure to annotate the actual repository classes in
+ *   src/main/java, not the test classes in src/main/test!)
+ * - In the same way, assign the 'stub' profile to all Stub*Repository classes
+ *   (such as StubAccountRepository)
+ * - Add @ActiveProfiles to this test class (below) and specify the "stub" profile.
+ * - Run the current test, it should pass.
+ * 	 Examine the logs, they should indicate "stub" repositories were used.
  */
 
-/* TODO 04: Change active-profile to "jdbc". Rerun the test, it should pass.  
- * 			Which repository implementations are being used now?
+/* TODO-04: Change active-profile to "jdbc".
+ * - Rerun the test, it should pass.
+ *   Which repository implementations are being used now?
  */
 
-/* TODO 05: Go to corresponding step in TestInfrastructureLocalConfig.
+/* TODO-05: Assign beans to the "local" profile
+ * - Go to corresponding step in TestInfrastructureLocalConfig class.
  */
 
-/* TODO 06: Now that the bean 'dataSource' is specific to the local profile, should we expect 
- * 			this test to be successful?
- * 			Make the appropriate changes so the current test uses 2 profiles ('jdbc' and 'local').
- * 			Rerun the test, it should pass.
+/* TODO-06: Use "jdbc" and "local" as active profiles
+ * - Now that the bean 'dataSource' is specific to the local profile, should we expect
+ * 	 this test to be successful?
+ * - Make the appropriate changes so the current test uses 2 profiles ('jdbc' and 'local').
+ * - Rerun the test, it should pass.
  */
 
-/* TODO 07: Open TestInfrastructureJndiConfig and note the different datasource that will be
- * 			used if the profile = 'jndi'.
- * 			Now update the current test so it uses profiles 'jdbc' and 'jndi'. 
- * 			Rerun the test, it should pass.
+/* TODO-07: Use "jdbc" and "jndi" as active profiles
+ * - Open TestInfrastructureJndiConfig and note the different datasource that will be
+ * 	 used if the profile = 'jndi'.
+ * - Now update the current test so it uses profiles 'jdbc' and 'jndi'.
+ * - Rerun the test, it should pass.
  */
 
-/* TODO 08: Bonus question: see the 'Optional Step' inside the Detailed Instructions.
+/* TODO-08: Bonus question: see the 'Optional Step' inside the Detailed Instructions.
  */
 
 public class RewardNetworkTests {
