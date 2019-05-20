@@ -17,20 +17,17 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 /* TODO-01: Use Spring TestContext framework
- * - Remove setUp() and tearDown() methods and use annotations instead
- *   such as @SpringJUnitConfig(classes=TestInfrastructureConfig.class),
- *   which is a composite annotation of @ExtendWith(SpringExtension.class)
- *   and @ContextConfiguration
- * - Use @RunWith(JUnitPlatform.class) to run JUnit 5 test using JUnit 4 runner
- *   (Only if you are using an old IDE that does not support JUnit 5.)
+ * - Remove setUp() and tearDown() methods
+ * - Annotate the class with @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
  * - Remove the attribute 'context' which is not needed anymore.
+ * - Run the current test. Observe a test failure.
  * - Use @Autowired to populate the rewardNetwork bean.
  * - Re-run the current test, it should pass.
  */
 
 /* TODO-02: Annotate all 'Stub*Repository' classes with @Repository
  * - In the package rewards/internal, annotate all 'Stub*Repository' classes
- *    with the @Repository annotation (WITHOUT specifying any profile yet).
+ *   with the @Repository annotation (WITHOUT specifying any profile yet).
  *   (Make sure you are changing code in the '24-test' project.)
  * - Rerun the current test, it should fail.  Why?
  */
