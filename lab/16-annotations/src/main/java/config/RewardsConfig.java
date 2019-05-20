@@ -57,7 +57,8 @@ public class RewardsConfig {
 		return repository;
 	}
 	
-	//	TODO-02: Remove all of the @Bean methods above.  Remove the @Autowired field.
+	//	TODO-02: Remove all of the @Bean methods above.
+	//  Remove the code that autowires DataSource.
     //	Try executing the RewardNetworkTests test class. It should fail. Why?
 	
 }

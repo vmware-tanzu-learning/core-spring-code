@@ -51,9 +51,6 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	 * The constructor sets the data source this repository will use to load
 	 * restaurants. When the instance of JdbcRestaurantRepository is created, a
 	 * Restaurant cache is populated for read only access
-	 *
-	 * @param dataSource
-	 *            the data source
 	 */
 
 	public JdbcRestaurantRepository(DataSource dataSource) {
@@ -73,9 +70,9 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	}
 
 	/**
-	 * Helper method that populates the {@link #restaurantCache restaurant object
-	 * cache} from rows in the T_RESTAURANT table. Cached restaurants are indexed by
-	 * their merchant numbers. This method should be called on initialization.
+	 * Helper method that populates the restaurantCache restaurant object
+	 * caches from the rows in the T_RESTAURANT table. Cached restaurants are indexed
+	 * by their merchant numbers. This method should be called on initialization.
 	 */
 
 	/*
@@ -148,13 +145,14 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	}
 
 	/**
-	 * Helper method that clears the cache of restaurants. This method should be
-	 * called on destruction.
-	 * <p>
-	 * TODO-10: To see if this method is being invoked either 1) add a breakpoint
-	 * and use the debugger or 2) use <code>System.out.println</code> to write a
-	 * message to the console.
-	 * <p>
+	 * Helper method that clears the cache of restaurants.
+	 * This method should be called when a bean is destroyed.
+	 *
+	 * TODO-10: To see if this method is being invoked either
+	 * (1) add a breakpoint and use the debugger or
+	 * (2) use System.out.println
+	 * to write a message to the console.
+	 *
 	 * TODO-11: Re-run RewardNetworkTests. You should see that this method is never
 	 * called. Use an annotation to register this method for a destruction lifecycle
 	 * callback. Re-run the test and you should be able to see that this method is
