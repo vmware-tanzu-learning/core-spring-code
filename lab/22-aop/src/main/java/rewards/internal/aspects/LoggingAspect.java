@@ -10,11 +10,12 @@ import rewards.internal.monitor.Monitor;
 import rewards.internal.monitor.MonitorFactory;
 
 // 	TODO-02: REQUIREMENT #1: Use AOP to log a message before
-//           any repository find find...() method is invoked.
-//  Indicate this class is an aspect.
-//	Also mark it as a component.  
-//	Optionally place an @Autowired annotation on the constructor.
-//  (It is optional since there is only a single constructor in the class.)
+//           any repository find...() method is invoked.
+//  - Indicate this class is an aspect.
+//	- Also mark it as a component.
+//	- Optionally place @Autowired annotation on the constructor
+//    where `MonitorFactory` dependency is being injected.
+//    (It is optional since there is only a single constructor in the class.)
 
 public class LoggingAspect {
     public final static String BEFORE = "'Before'";
@@ -29,14 +30,14 @@ public class LoggingAspect {
 		this.monitorFactory = monitorFactory;
 	}
 
-	
-	//	TODO-03: Pointcut Expression
- 	//  Write a pointcut expression that selects only find* methods on
-    //  our Repository classes.
-    //	Decide which advice type is most appropriate to the requirement.
+
+	//	TODO-03: Write Pointcut Expression
+	//  - Write a pointcut expression that selects only find* methods on
+	//    our Repository classes.
+	//	- Decide which advice type is most appropriate to the requirement.
     //
-	//  HINT: The pointcut expression can be very hard to work out. If
-	//  you get stuck refer to the examples in the slides and read the
+	//  Note: The pointcut expression can be very hard to work out. If
+	//  you get stuck, refer to the examples in the slides or read the
     //  detailed instructions in the lab-notes.
 
 	public void implLogging(JoinPoint joinPoint) {

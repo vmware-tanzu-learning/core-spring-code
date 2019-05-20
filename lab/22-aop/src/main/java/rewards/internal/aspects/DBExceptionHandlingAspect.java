@@ -16,7 +16,7 @@ public class DBExceptionHandlingAspect {
 
 
 	//	TODO-10 OPTIONAL REQUIREMENT #3: Use AOP to log an exception.
-	//  (Steps 10, 11 and 12 are optional, ignore if short of time)
+	//  (Steps 10, 11 and 12 are optional, ignore if short on time)
 	//
 	//  (Optional): Configure this advice method to enable
 	//	logging of exceptions thrown by Repository class methods.
