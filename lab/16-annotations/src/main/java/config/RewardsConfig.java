@@ -1,11 +1,8 @@
 package config;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import rewards.RewardNetwork;
 import rewards.internal.RewardNetworkImpl;
 import rewards.internal.account.AccountRepository;
@@ -15,6 +12,8 @@ import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
+import javax.sql.DataSource;
+
 /**
  * TODO-07: Add the annotation to cause component scanning.
  * Set the base package to pick up all of the classes we have annotated so far.
@@ -23,8 +22,12 @@ import rewards.internal.reward.RewardRepository;
 @Configuration
 public class RewardsConfig {
 
-	@Autowired
 	DataSource dataSource;
+
+	@Autowired
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 		
 	@Bean
 	public RewardNetwork rewardNetwork(){

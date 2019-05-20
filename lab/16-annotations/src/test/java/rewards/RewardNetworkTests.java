@@ -25,13 +25,11 @@ public class RewardNetworkTests {
 
 	@BeforeEach
 	public void setUp() {
-		// Create the test configuration for the application from two classes:
+		// Create application context from TestInfrastructureConfig, which also imports RewardsConfig
 		ApplicationContext context = SpringApplication.run(TestInfrastructureConfig.class);
-
 		
-		// Get the bean to use to invoke the application
+		// Get rewardNetwork bean from the application context
 		rewardNetwork = context.getBean(RewardNetwork.class);
-
 	}
 
 	@Test
