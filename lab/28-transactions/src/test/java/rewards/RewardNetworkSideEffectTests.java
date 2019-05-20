@@ -19,19 +19,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 /**
  * A system test that demonstrates how the effects of a given test can affect
  * all tests that follow.
- * <p>
+ *
  * JUnit makes no guarantee about the order that tests run in, so we force tests
- * to run in method name order.
- * <p>
+ * to run in method name order using @FixMethodOrder(MethodSorters.NAME_ASCENDING)
+ * in this particular testing scenario. (In general, you should not do this.)
+ *
  * TODO-08: MAKE SURE to revert the propagation attribute back to
- * Propagation.REQUIRED in RewardNetworkImpl.
- * <p>
+ * REQUIRED in RewardNetworkImpl.
+ *
  * TODO-09: Examine the @Test logic below. Note that committed results from the
  * first test will invalidate the assertions in the second test. Run this test,
  * it should fail. Do you know why?
- * (If you are using Gradle, remove the exclude statement of
- * this test from the build.gradle file before running the test.)
- * <p>
+ *
  * TODO-10: Add @Transactional on the class and re-run the test. It should pass.
  * Do you know why?
  */
