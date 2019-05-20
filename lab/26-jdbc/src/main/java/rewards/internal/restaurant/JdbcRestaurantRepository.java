@@ -1,32 +1,32 @@
 package rewards.internal.restaurant;
 
+import common.money.Percentage;
+import org.springframework.dao.EmptyResultDataAccessException;
+import rewards.Dining;
+import rewards.internal.account.Account;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import rewards.Dining;
-import rewards.internal.account.Account;
-
-import common.money.Percentage;
-
 /**
  * Loads restaurants from a data source using the JDBC API.
  */
-//	TODO-04: Replace the JDBC code in JdbcRestaurantRepository with JdbcTemplate.
-//   1. Add a field of type JdbcTemplate.
-//   2. Refactor the constructor to instantiate it.
-//	 3. Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
-//      called RestaurantRowMapper.
-//	    NOTE: The mapRestaurant() method contains logic which the RowMapper
-//      may wish to use.
-//      OPTIONAL: Use a lambda instead of the RestaurantRowMapper class
-//	 4. When complete, save all changes and run JdbcRestaurantRepositoryTests.
-//      It should pass.
+// TODO-04: Refactor the cumbersome JDBC in JdbcRestaurantRepository with JdbcTemplate.
+// - Add a field of type JdbcTemplate.
+// - Refactor the constructor to instantiate it.
+// - Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
+//   called RestaurantRowMapper.
+//
+//   Note #1: Create RestaurantRowMapper as an inner class
+//	 Note #2: The mapRestaurant() method in this class contains logic which
+//	       the RowMapper may wish to use
+//   Optional: Use a Lambda expression instead of the RestaurantRowMapper class
+//
+// -When complete, save all changes and run JdbcRestaurantRepositoryTests.
+//  It should pass.
 
 public class JdbcRestaurantRepository implements RestaurantRepository {
 

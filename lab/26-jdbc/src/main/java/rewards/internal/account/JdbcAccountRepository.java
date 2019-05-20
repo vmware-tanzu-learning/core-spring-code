@@ -1,16 +1,14 @@
 package rewards.internal.account;
 
+import common.money.MonetaryAmount;
+import common.money.Percentage;
+import org.springframework.dao.EmptyResultDataAccessException;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import common.money.MonetaryAmount;
-import common.money.Percentage;
 
 /**
  * Loads accounts from a data source using the JDBC API.
@@ -18,8 +16,8 @@ import common.money.Percentage;
 
 
 // TODO-05: OPTIONAL STEP. Refactor this repository to use Spring's JdbcTemplate.
-// 1. Run the JdbcAccountRepositoryTests class. It should pass.
-// 2. Modify the constructor to initialize a new JdbcTemplate data member
+// - Modify the constructor to initialize a new JdbcTemplate data member
+// - Run the JdbcAccountRepositoryTests class. It should pass.
 public class JdbcAccountRepository implements AccountRepository {
 
 	private DataSource dataSource;
@@ -29,12 +27,12 @@ public class JdbcAccountRepository implements AccountRepository {
 	}
 
 	// TODO-07: OPTIONAL STEP. Refactor this method using a ResultSetExtractor.
-    //          (Note: If you prefer, use a lambda instead of the AccountExtractor)
-	// 1. Implement a ResultSetExtractor called AccountExtractor
-	// 2. Make this a private inner class and let extractData() call mapAccount() to do all the work.
-	// 3. Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
-	// 4. When complete, save all changes and rerun the JdbcAccountRepositoryTests class. It should pass.
-    // 5. Congratulations - you have finished the lab
+	//          (Note: If you prefer, use a lambda instead of the AccountExtractor)
+	// - Implement a ResultSetExtractor called AccountExtractor
+	// - Make this a private inner class and let extractData() call mapAccount() to do all the work.
+	// - Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
+	// - When complete, save all changes and rerun the JdbcAccountRepositoryTests class. It should pass.
+	// - Congratulations - you have finished the lab
 	public Account findByCreditCard(String creditCardNumber) {
 		String sql = "select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, " +
 			"	b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE, b.SAVINGS as BENEFICIARY_SAVINGS " +
@@ -82,8 +80,8 @@ public class JdbcAccountRepository implements AccountRepository {
 	}
 
 	// TODO-06: OPTIONAL STEP. Refactor this method to use Spring's JdbcTemplate.
-	// 1. Use your JdbcTemplate to replace the UPDATE below
-	// 2. Rerun the JdbcAccountRepositoryTests. When they pass, you are done.
+	// - Use your JdbcTemplate to replace the UPDATE below
+	// - Rerun the JdbcAccountRepositoryTests. When they pass, you are done.
 	public void updateBeneficiaries(Account account) {
 		String sql = "update T_ACCOUNT_BENEFICIARY SET SAVINGS = ? where ACCOUNT_ID = ? and NAME = ?";
 		Connection conn = null;

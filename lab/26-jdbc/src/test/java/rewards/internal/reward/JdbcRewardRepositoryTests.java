@@ -1,26 +1,24 @@
 package rewards.internal.reward;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.math.BigDecimal;
-import java.sql.SQLException;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 import rewards.internal.account.Account;
-import common.datetime.SimpleDate;
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+
+import javax.sql.DataSource;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Tests the JDBC reward repository with a test data source to verify data access and relational-to-object mapping
@@ -60,10 +58,12 @@ public class JdbcRewardRepositoryTests {
 
 	private void verifyRewardInserted(RewardConfirmation confirmation, Dining dining) throws SQLException {
 		assertEquals(1, getRewardCount());
-		
+
 		//	TODO-02: Use the JdbcTemplate to query for a map of all values in the T_REWARD table based on the
 		// 	confirmationNumber. After making the changes, execute the test class to verify its 
-		//	successful execution.
+		//	successful execution.  (If you are using Gradle, comment out the test exclude in
+		//  the build.gradle file.)
+		//
 		//   SQL: SELECT * FROM T_REWARD WHERE CONFIRMATION_NUMBER = ?
 		
 		Map<String, Object> values = null;
