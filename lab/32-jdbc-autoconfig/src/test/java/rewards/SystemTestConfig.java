@@ -24,11 +24,10 @@ public class SystemTestConfig {
 	// TODO-09 : Switch back to explicit `DataSource` configuration
     //           - Uncomment @Bean method below (which was commented out in
 	//             the previous step) and move it to the RewardsConfig class.
+	//           - Remove the existing DataSource in the RewardsConfig class.
+    //           - Address compile errors in the RewardsConfig class.
 	//           - The scripts have moved to the root of the classpath,
 	//             so you need to change the addScript() calls.
-    //           - You will also need to address compile errors in the
-    //             RewardsConfig class once the bean method is moved.
-	//           - Also note the debug logging in the bean method.
 
 	/**
 	 * Creates an in-memory "rewards" database populated 
