@@ -1,24 +1,21 @@
 package accounts.web;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-
 import accounts.AccountManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import rewards.internal.account.Account;
-import rewards.internal.account.AccountRepository;
-import rewards.internal.account.Beneficiary;
+
+import java.util.List;
 
 /**
  * A Spring MVC REST Controller handling requests to view Account information.
- * <p>
+ *
  * Note that some of the Account related classes are imported from the
- * <tt>rewards-db</tt> project:
- * <ul>
- * <li>Domain objects: {@link Account} and {@link Beneficiary}</li>
- * <li>Service layer: {@link AccountManager} interface</li>
- * <li>Repository layer: {@link AccountRepository} interface</li>
- * </ul>
+ * rewards-db project:
+ *
+ * -Domain objects: Account and  Beneficiary
+ * -Service layer: AccountManager interface
+ * -Repository layer: AccountRepository interface
+ *
  */
 // TODO-03: Add the annotation for Spring MVC to recognize this class
 // as a REST controller.
@@ -35,12 +32,7 @@ public class AccountController {
 	}
 
 	/**
-	 * <p>
 	 * Provide a model with a list of all accounts for the account List page.
-	 * </p>
-	 * 
-	 * @param model
-	 *            the "implicit" model created by Spring MVC
 	 */
 	// TODO-04: Add the mapping for /accounts
 	public List<Account> accountList() {
@@ -52,8 +44,9 @@ public class AccountController {
 
 		return null; // REPLACE THIS LINE to return a list accounts
 		
-		// TODO-06: We are about to make lots of changes, so stop the application
-		//          otherwise Devtools will keep restarting it. 
+		// TODO-06: (If you are using STS) We are about to make lots of
+		//          changes, so stop the application otherwise Devtools
+		//          will keep restarting it.
 	}
 
 	// TODO-09: Implement the /accounts/{entityId} request handling method.
