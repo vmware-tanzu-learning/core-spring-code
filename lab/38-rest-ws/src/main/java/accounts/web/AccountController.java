@@ -37,7 +37,7 @@ public class AccountController {
 	/**
 	 * Provide a list of all accounts.
 	 */
-	// TODO 02: Review the code that performs the following
+	// TODO-02: Review the code that performs the following
 	//   a. Respond to GET /accounts
     //   b. Return a List<Account> to be converted to the response body
 	// Access http://localhost:8080/accounts using a browser or curl
@@ -50,7 +50,7 @@ public class AccountController {
 	/**
 	 * Provide the details of an account with the given id.
 	 */
-	// TODO 04: Review the code that performs the following
+	// TODO-04: Review the code that performs the following
 	//   a. Respond to GET /accounts/{accountId}
     //   b. Return an Account to be converted to the response body
 	// Access http://localhost:8080/accounts/0 using a browser or curl
@@ -64,7 +64,7 @@ public class AccountController {
 	 * Creates a new Account, setting its URL as the Location header on the
 	 * response.
 	 */
-	// TODO 06: Complete this method. Add annotations to:
+	// TODO-06: Complete this method. Add annotations to:
 	//  a. Respond to POST /accounts requests
     //  b. Automatically get an unmarshaled Account from the request
 	public ResponseEntity<Void> createAccount(Account newAccount) {
@@ -79,19 +79,15 @@ public class AccountController {
 	/**
 	 * Return a response with the location of the new resource. It's URL is
 	 * assumed to be a child of the URL just received.
-	 * <p>
+	 *
 	 * Suppose we have just received an incoming URL of, say,
 	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code>
 	 * is "1111". Then the URL of the new resource will be
 	 * <code>http://localhost:8080/accounts/1111</code>.
-	 * 
-	 * @param resourceId
-	 *            Is of the new resource.
-	 * @return
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
 
-		// TODO 07: Set the Location header on a Response to the location of
+		// TODO-07: Set the Location header on a Response to the location of
 		//          the resource and return it.
 		//  a. Read the Javadoc for this method (above) to see what the URL should be
 		//  b. You will need to use ServletUriComponentsBuilder and
@@ -116,13 +112,13 @@ public class AccountController {
 	 * Adds a Beneficiary with the given name to the Account with the given id,
 	 * setting its URL as the Location header on the response.
 	 */
-	// TODO 11: Complete this method. Add annotations to:
+	// TODO-11: Complete this method. Add annotations to:
 	//   a. Respond to a POST /accounts/{accountId}/beneficiaries
 	//   b. Extract a beneficiary name from the incoming request
 	//   c. Indicate a "201 Created" status
 	public ResponseEntity<Void> addBeneficiary(long accountId, String beneficiaryName) {
 		
-		// TODO 12: Create a ResponseEntity containing the location of the newly
+		// TODO-12: Create a ResponseEntity containing the location of the newly
 		// created beneficiary.
 		//  a. Use accountManager to add a beneficiary to an account
 		//  b. Use the entityWithLocation method - like we did for createAccount().
@@ -134,7 +130,7 @@ public class AccountController {
 	 * Removes the Beneficiary with the given name from the Account with the
 	 * given id.
 	 */
-	// TODO 13: Complete this method by adding the appropriate annotations to:
+	// TODO-13: Complete this method by adding the appropriate annotations to:
 	//  a. Respond to a DELETE to /accounts/{accountId}/beneficiaries/{beneficiaryName}
 	//  b. Indicate a "204 No Content" status
 	public void removeBeneficiary(long accountId, String beneficiaryName) {
@@ -166,7 +162,7 @@ public class AccountController {
 		// just return empty 404
 	}
 
-	// TODO 18 (BONUS): Add a new exception-handling method that maps
+	// TODO-18 (BONUS): Add a new exception-handling method that maps
 	// DataIntegrityViolationExceptions to a 409 Conflict status code.
 	// Use the handleNotFound method above for guidance and/or look at
 	// the Advanced materials in the slides.
