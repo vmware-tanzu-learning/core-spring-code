@@ -1,27 +1,24 @@
 package rewards.internal.restaurant;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 import rewards.Dining;
 import rewards.internal.account.Account;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+import javax.persistence.Transient;
 
 /**
- * A restaurant establishment in the network. Like AppleBee's.
- * 
  * Restaurants calculate how much benefit may be awarded to an account for
  * dining based on a availability policy and a benefit percentage.
  */
-// TODO-05: Map this class using JPA Annotations.  See schema.sql file
-// for guidance on table and column names.
+// TODO-05: Map this class using JPA Annotations.
+// Use the following SQL statement in the schema.sql as a guidance.
+//
+// create table T_RESTAURANT (ID integer identity primary key,
+//                            MERCHANT_NUMBER varchar(10) not null,
+//                            NAME varchar(80) not null,
+//                            BENEFIT_PERCENTAGE decimal(5,2) not null,
+//                            BENEFIT_AVAILABILITY_POLICY varchar(1) not null, unique(MERCHANT_NUMBER));
 public class Restaurant {
 
 	private Long entityId;
