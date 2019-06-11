@@ -1,16 +1,9 @@
 package auth;
 
-import config.Constants;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurer;
-import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
-import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 
 /**
  * OAuth2 Authorization server for authenticating access to the Account server.
@@ -29,9 +22,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * TODO-03: What happens if you access the Superuser Only page?
  * You can access this page as a regular user.  This page is not protected.
  * We will address that. Open the AuthServerConsoleSecurityConfiguration class.
- *
- * TODO-08: Convert this application into an OAuth2 Server by adding a necessary
- * annotation to this class.
  */
 @SpringBootApplication(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
 public class AuthorizationServer {
@@ -50,59 +40,4 @@ public class AuthorizationServer {
 		SpringApplication.run(AuthorizationServer.class, args);
 	}
 
-	/**
-	 * Authorization Server configuration
-	 */
-	// TODO-09: Configure Authorization server by uncommenting @Bean
-	// @Bean
-	AuthorizationServerConfigurer authServerConfig() {
-		return new AuthorizationServerConfigurerAdapter() {
-			/**
-			 * Valid clients must be a "trusted client".
-			 */
-			@Override
-			public void configure(AuthorizationServerSecurityConfigurer security) {
-				// TODO-10: Check token access - must have trusted client authority
-				// You can use ROLE_TRUSTED_CLIENT above.
-				security.checkTokenAccess("TODO-10 - replace this string");
-			}
-
-			/**
-			 * TODO-11: Register Resource server and Client.
-			 *
-			 * Setup the following configuration:
-			 *
-			 * To validate a token as the Resource server, you must:
-			 * - submit account-server:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant type
-			 * - have authority ROLE_TRUSTED_CLIENT
-			 *
-			 * To get an authorization token as a client, you must
-			 * - submit account-tester:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant type
-			 * - have scopes ACCOUNT_READ and ACCOUNT_WRITE
-			 *
-			 */
-			@Override
-			public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-
-				PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
-				clients.inMemory() //
-						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
-						.secret(passwordEncoder.encode("???"))  // Set encoded password
-						.authorizedGrantTypes("???") // = CLIENT_CREDENTIALS
-						.authorities("...")          // Has ROLE_TRUSTED_CLIENT
-						// Add configuration here
-					.and() //
-						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client username
-						// Add configuration here
-						;
-				
-				// TODO-16b: If you configured this properly, the ACCOUNT_TESTER_CLIENT
-				//           should have scopes ACCOUNT_READ and ACCOUNT_WRITE.
-			}
-
-		};
-	}
 }

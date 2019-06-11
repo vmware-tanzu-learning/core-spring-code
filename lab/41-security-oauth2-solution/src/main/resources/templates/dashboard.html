@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet"
+	href="/resources/styles/bootstrap/3.3.5/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="/resources/styles/bootstrap/3.3.5/css/bootstrap-theme.min.css" />
+<link rel="stylesheet" href="/resources/styles/pivotal.css" />
+<title>security-solution: Secure RESTful web services</title>
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="row">
+			<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a title="Spring IO" href="http://www.spring.io"> <img
+						src="/resources/images/spring-trans-dark.png" height="50" />
+					</a>
+				</div>
+				<div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="http://www.pivotal.io"> <img alt="Pivotal"
+								title="Pivotal" height="20"
+								src="/resources/images/pivotal-logo-600.png" />
+						</a></li>
+					</ul>
+				</div>
+			</div>
+
+{{#_csrf}}
+			<div class="nav navbar-nav navbar-right">
+				<form action="/logout" method="post" class="form-horizontal">
+					<fieldset>
+					    <label>Do</label>
+					    <input style="padding-left: 0em; padding-right: 2em;" type="submit"
+						value="Logout" class="btn btn-link" /></fieldSet>
+					<input type="hidden" name="_csrf" value="{{_csrf.token}}" />
+				</form>
+			</div>
+{{/_csrf}}			
+			</nav>
+		</div>
+
+		<div class="row">
+
+			<h1>security-solution: Authorization Server</h1>
+
+			<h3>Administrator's Console</h3>
+
+			<p>This application is running and is intended for programmatic
+				clients, not browsers.</p>
+
+			<p>It supports OAuth2 authorization requests.</p>
+
+			<p>In a real application our console would show information
+				about this server.  For example, here are some actuators:</p>
+				
+			<ul>
+				<li><a href="/admin/httptrace">Recent requests</a> (most recent first)</li>
+				<li><a href="/admin/health">Health</a></li>
+			</ul>
+		</div>
+
+		<div class="row">
+			<li>Superuser only - <a href="/superuser-only">this page</a> should be accessible only by superuser</li>
+		</div>
+
+	</div>
+</body>
+
+</html>

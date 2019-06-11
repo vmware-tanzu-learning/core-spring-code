@@ -265,6 +265,8 @@
         <module>38-rest-ws-solution</module>
         <module>40-security</module>
         <module>40-security-solution</module>
+        <module>41-security-oauth2</module>
+        <module>41-security-oauth2-solution</module>
         <module>42-actuator</module>
         <module>42-actuator-solution</module>
         <module>44-boot-test</module>
