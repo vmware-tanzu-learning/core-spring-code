@@ -19,17 +19,6 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * project as the Account Server, Spring Boot will pick up its JPA
  * configuration, so all JPA auto-configuration is disabled (we don't need it).
  *
- * TODO-01: Run this application and open http://localhost:1111 in your browser.
- * You should see a login page.
- * The username is "user" and the password is in your console output.
- * (If the browser keeps displaying the login page, use Chrome Incognito browser.)
- *
- * TODO-02: Access "Recent requests" and "health" pages.
- *
- * TODO-03: What happens if you access the Superuser Only page?
- * You can access this page as a regular user.  This page is not protected.
- * We will address that. Open the AuthServerConsoleSecurityConfiguration class.
- *
  * TODO-08: Convert this application into an OAuth2 Server by adding a necessary
  * annotation to this class.
  */
