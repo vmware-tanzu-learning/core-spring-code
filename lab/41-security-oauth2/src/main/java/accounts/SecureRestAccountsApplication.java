@@ -14,9 +14,9 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
  * The Account Server is now also a Resource Server so access to Account
  * information is restricted by OAuth2.
  *
- * TODO-15: Annotate this class to make it an OAuth2 resource-server
+ * TODO-08: Annotate this class to make it an OAuth2 resource-server
  *
- * TODO-17: Run this application
+ * TODO-10: Run this application
  * - Try to access http://localhost:8080/accounts. You should get `unauthorized`
  * 	 error response.
  */
@@ -37,7 +37,7 @@ public class SecureRestAccountsApplication {
 	 * Configure Resource Server.
 	 */
 
-	// TODO-16c: Configure Resource server by uncommenting @Bean.
+	// TODO-09c: Configure Resource server by uncommenting @Bean.
 	// @Bean
 	ResourceServerConfigurer resourceServerConfigurer() {
 		return new ResourceServerConfigurer() {
@@ -54,7 +54,7 @@ public class SecureRestAccountsApplication {
 			 */
 			@Override
 			public void configure(HttpSecurity http) throws Exception {
-				// TODO-16a: Review the access restrictions.
+				// TODO-09a: Review the access restrictions.
 				// - GET access requires account.read scope and
 				// - POST access requires account.write scope.
 				// - Scopes are a form of Authority (an alternative to a Role).

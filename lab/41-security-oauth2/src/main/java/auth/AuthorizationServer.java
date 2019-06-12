@@ -19,7 +19,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * project as the Account Server, Spring Boot will pick up its JPA
  * configuration, so all JPA auto-configuration is disabled (we don't need it).
  *
- * TODO-08: Convert this application into an OAuth2 Server by adding a necessary
+ * TODO-01: Convert this application into an OAuth2 Server by adding a necessary
  * annotation to this class.
  */
 @SpringBootApplication(exclude = { JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class })
@@ -42,7 +42,7 @@ public class AuthorizationServer {
 	/**
 	 * Authorization Server configuration
 	 */
-	// TODO-09: Configure Authorization server by uncommenting @Bean
+	// TODO-02: Configure Authorization server by uncommenting @Bean
 	// @Bean
 	AuthorizationServerConfigurer authServerConfig() {
 		return new AuthorizationServerConfigurerAdapter() {
@@ -51,13 +51,13 @@ public class AuthorizationServer {
 			 */
 			@Override
 			public void configure(AuthorizationServerSecurityConfigurer security) {
-				// TODO-10: Check token access - must have trusted client authority
+				// TODO-03: Check token access - must have trusted client authority
 				// You can use ROLE_TRUSTED_CLIENT above.
 				security.checkTokenAccess("TODO-10 - replace this string");
 			}
 
 			/**
-			 * TODO-11: Register Resource server and Client.
+			 * TODO-04: Register Resource server and Client.
 			 *
 			 * Setup the following configuration:
 			 *
@@ -88,7 +88,7 @@ public class AuthorizationServer {
 						// Add configuration here
 						;
 				
-				// TODO-16b: If you configured this properly, the ACCOUNT_TESTER_CLIENT
+				// TODO-09b: If you configured this properly, the ACCOUNT_TESTER_CLIENT
 				//           should have scopes ACCOUNT_READ and ACCOUNT_WRITE.
 			}
 

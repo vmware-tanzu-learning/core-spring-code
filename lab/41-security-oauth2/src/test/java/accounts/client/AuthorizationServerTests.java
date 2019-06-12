@@ -36,7 +36,7 @@ public class AuthorizationServerTests {
 	private RestTemplate template = new RestTemplate();
 
 	/**
-	 * TODO-12b. Remove @Disabled and run this test. It should work.
+	 * TODO-05b. Remove @Disabled and run this test. It should work.
 	 *
 	 * If you can't work out why the Authorization Server is not working, in
 	 * auth-server.properties uncomment the logging.level properties to enable DEBUG
@@ -51,9 +51,9 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-13b. Remove @Disabled and run this test. It should work.
+	 * TODO-06b. Remove @Disabled and run this test. It should work.
 	 *
-	 * TODO-14: Return to dashboard at http://localhost:1111 and click the "Recent
+	 * TODO-07: Return to dashboard at http://localhost:1111 and click the "Recent
 	 * requests" link. Can you see the OAuth URLs being used to get and check a
 	 * token?  If you had to login, rerun the tests then refresh the "Recent
 	 * requests" page.  The top two URLs should be the token POSTs.
@@ -68,7 +68,7 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-18b: Remove @Disabled and run this test. It should succeed and fetch
+	 * TODO-11b: Remove @Disabled and run this test. It should succeed and fetch
 	 * data from the account-server.
 	 */
 	@Test
@@ -81,7 +81,7 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-12a: Review this code.  Running as the "account-tester" (our Client application)
+	 * TODO-05a: Review this code.  Running as the "account-tester" (our Client application)
 	 * it sends a request to the Authorization server asking for a token.
 	 * 
 	 * @return The token returned from the Authorization Server.
@@ -121,7 +121,7 @@ public class AuthorizationServerTests {
 	}
 
 	/**
-	 * TODO-13a: Review this code.
+	 * TODO-06a: Review this code.
 	 * Running as the "account-server" (our Resource server application),
 	 * it sends the received token to the authorization server for validation.
 	 */
@@ -156,7 +156,7 @@ public class AuthorizationServerTests {
 	/**
 	 * Using the access token, fetch data from the account-service.
 	 *
-	 * TODO-18a: Review the code. It sends a request to the Resource server (account server)
+	 * TODO-11a: Review the code. It sends a request to the Resource server (account server)
 	 * using the previously acquired access token.
 	 * 
 	 * @param token Token from the Authorization Server.
