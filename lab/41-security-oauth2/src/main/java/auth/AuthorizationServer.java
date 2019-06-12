@@ -59,7 +59,8 @@ public class AuthorizationServer {
 			/**
 			 * TODO-04: Register Resource server and Client.
 			 *
-			 * Setup the following configuration:
+			 * Setup the following configuration and then
+			 * start this server application.
 			 *
 			 * To validate a token as the Resource server, you must:
 			 * - submit account-server:secret as clientId/password
@@ -78,11 +79,11 @@ public class AuthorizationServer {
 				PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
 				clients.inMemory() //
+						// Update configuration here
 						.withClient(Constants.ACCOUNT_SERVER) // Resource Server username
 						.secret(passwordEncoder.encode("???"))  // Set encoded password
 						.authorizedGrantTypes("???") // = CLIENT_CREDENTIALS
 						.authorities("...")          // Has ROLE_TRUSTED_CLIENT
-						// Add configuration here
 					.and() //
 						.withClient(Constants.ACCOUNT_TESTER_CLIENT) // Client username
 						// Add configuration here

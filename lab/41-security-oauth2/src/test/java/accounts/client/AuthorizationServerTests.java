@@ -41,7 +41,10 @@ public class AuthorizationServerTests {
 	 * If you can't work out why the Authorization Server is not working, in
 	 * auth-server.properties uncomment the logging.level properties to enable DEBUG
 	 * logging for Spring Security and Boot. Rerun the test and see if the log
-	 * output helps you fix the server
+	 * output helps you fix the server.
+	 *
+	 * If you experience "connection refused" error condition, try it
+	 * again a couple of times.
 	 */
 	@Test
 	@Disabled
@@ -53,11 +56,10 @@ public class AuthorizationServerTests {
 	/**
 	 * TODO-06b. Remove @Disabled and run this test. It should work.
 	 *
-	 * TODO-07: Return to dashboard at http://localhost:1111 and click the "Recent
-	 * requests" link. Can you see the OAuth URLs being used to get and check a
-	 * token?  If you had to login, rerun the tests then refresh the "Recent
-	 * requests" page.  The top two URLs should be the token POSTs.
-	 * Or search for "oauth" string.
+	 * TODO-07: Access http://localhost:1111/admin/httptrace
+	 * Search for "/oauth" string.
+	 * Can you see the OAuth URLs being used to get and check a
+	 * token?
 	 */
 	@Test
 	@Disabled
@@ -70,6 +72,9 @@ public class AuthorizationServerTests {
 	/**
 	 * TODO-11b: Remove @Disabled and run this test. It should succeed and fetch
 	 * data from the account-server.
+	 * 
+	 * If you experience "connection refused" error condition, try it
+	 * again a couple of times.
 	 */
 	@Test
 	@Disabled
