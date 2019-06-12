@@ -59,7 +59,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 			.and().authorizeRequests() //
 			     // Allow open-access to resources (images, CSS, JavaScript)
 				.mvcMatchers("/resources/**").permitAll() //
-				// TODO-06a: Allow "superuser*" pages accessible only by SUPERUSER_ROLE
+				// TODO-06a: Allow "/superuser*" pages accessible only by SUPERUSER_ROLE
 
 				// TODO-06b: Allow all remaining pages accessible by ADMIN_ROLE
 
