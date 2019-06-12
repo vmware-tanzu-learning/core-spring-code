@@ -6,12 +6,6 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 /**
- * OAuth2 Authorization server for authenticating access to the Account server.
- *
- * Normally this would be in a separate project. Because this is in he same
- * project as the Account Server, Spring Boot will pick up its JPA
- * configuration, so all JPA auto-configuration is disabled (we don't need it).
- *
  * TODO-01: Run this application and open http://localhost:1111 in your browser.
  * You should see a login page.
  * The username is "user" and the password is in your console output.
