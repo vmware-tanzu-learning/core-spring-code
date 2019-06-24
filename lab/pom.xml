@@ -265,18 +265,18 @@
         <module>38-rest-ws-solution</module>
         <module>40-security</module>
         <module>40-security-solution</module>
-        <module>41-security-oauth2</module>
-        <module>41-security-oauth2-solution</module>
         <module>42-actuator</module>
         <module>42-actuator-solution</module>
         <module>44-boot-test</module>
         <module>44-boot-test-solution</module>
 
         <!-- Extra material -->
-        <module>60-reactive-spring</module>
-        <module>60-reactive-spring-solution</module>
-        <module>62-jms-spring</module>
-        <module>62-jms-spring-solution</module>
+        <module>61-security-oauth2</module>
+        <module>61-security-oauth2-solution</module>
+        <module>62-reactive-spring</module>
+        <module>62-reactive-spring-solution</module>
+        <module>63-jms-spring</module>
+        <module>63-jms-spring-solution</module>
         <module>80-security-views</module>
         <module>80-security-views-solution</module>
     </modules>
