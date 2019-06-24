@@ -14,7 +14,7 @@ public class AuthServerWebConfiguration implements WebMvcConfigurer {
 	/**
 	 * View controllers allow static pages to be rendered using templates for a
 	 * consistent look and feel. No @Controller classes are required.
-	 * <p>
+	 *
 	 * This setup defines a home page so we can display an "admin" console (and know
 	 * the application is running). Also defines some additional pages to support
 	 * login and logout from a browser.

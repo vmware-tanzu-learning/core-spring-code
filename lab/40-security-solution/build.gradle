@@ -12,8 +12,3 @@ dependencies {
 bootJar {
     mainClassName = 'accounts.SecureRestAccountsApplication'
 }
-
-test {
-    exclude '**/AccountClientTests.class'
-    exclude '**/AuthorizationServerTests.class'
-}

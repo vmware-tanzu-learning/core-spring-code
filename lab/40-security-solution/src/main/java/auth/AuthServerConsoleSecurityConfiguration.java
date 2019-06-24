@@ -47,7 +47,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 			.and() //
 				.exceptionHandling().accessDeniedPage("/denied") // Access-denied page (unused)
 			.and().authorizeRequests() //
-				.mvcMatchers("/resources/**", "/oauth/**").permitAll() //
+				.mvcMatchers("/resources/**").permitAll() //
 				.mvcMatchers("/superuser*").hasRole(SUPERUSER_ROLE)
 				.mvcMatchers("/**").hasRole(ADMIN_ROLE) //
 			.and() //

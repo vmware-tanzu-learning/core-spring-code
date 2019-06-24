@@ -10,10 +10,6 @@ dependencies {
     compile "org.springframework.cloud:spring-cloud-starter-oauth2:$springCloudStarterOauth2"
 }
 
-test {
-    exclude '**/AccountClientTests.class'
-}
-
 bootJar {
     mainClassName = 'accounts.SecureRestAccountsApplication'
 }
