@@ -120,7 +120,7 @@ public class AccountController {
 		
 		// TODO-12: Create a ResponseEntity containing the location of the newly
 		// created beneficiary.
-		//  a. Use accountManager to add a beneficiary to an account
+		//  a. Use accountManager's addBeneficiary method to add a beneficiary to an account
 		//  b. Use the entityWithLocation method - like we did for createAccount().
 		
 		return null;  // Modify this to return something
