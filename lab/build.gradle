@@ -3,9 +3,7 @@ buildscript {
         springBootVersion = "2.1.3.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
-        junit5JupiterEngineVersion= "5.1.1"
-        junit5PlatformRunnerVersion= "1.2.0"
-        junit5VintageEngineVersion= "5.1.1"
+        junit5JupiterVersion= "5.4.2"
         springCloudStarterOauth2="2.1.2.RELEASE"
     }
 
@@ -51,9 +49,7 @@ subprojects {
         compile "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
 
         testCompile "org.springframework.boot:spring-boot-starter-test"
-        testCompile "org.junit.jupiter:junit-jupiter-engine:$junit5JupiterEngineVersion"
-        testCompile "org.junit.platform:junit-platform-runner:$junit5PlatformRunnerVersion"
-        testRuntimeOnly "org.junit.vintage:junit-vintage-engine:$junit5VintageEngineVersion"
+        testCompile "org.junit.jupiter:junit-jupiter:$junit5JupiterVersion"
     }
 
     // Uncomment the Java version you want, comment the other
