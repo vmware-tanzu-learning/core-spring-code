@@ -1,14 +1,22 @@
+# Build directories
 build
 target
-.DS_Store
-*.iml
-pal.properties
-course.properties
-Thumbs.db
-
-.idea
 .gradle
+
+# IntelliJ
+*.iml
+.idea
+
+# VSC
 .vscode
+
+# eclipse 
 .project
-.settings
-.classpath
+.metadata
+**/bin
+**/.classpath
+.settings/
+.loadpath
+
+# mac
+.DS_Store
