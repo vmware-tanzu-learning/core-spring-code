@@ -1,13 +1,7 @@
 package rewards;
 
-import static org.junit.Assert.assertEquals;
-
-import javax.sql.DataSource;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
@@ -16,10 +10,13 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
+import javax.sql.DataSource;
+
+import static org.junit.Assert.assertEquals;
+
 /**
  * A system test that demonstrates how propagation settings affect transactional execution.
  */
-@RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes={SystemTestRequiresNewConfig.class})
 public class RewardNetworkPropagationTests {

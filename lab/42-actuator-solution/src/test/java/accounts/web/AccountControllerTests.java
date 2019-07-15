@@ -5,8 +5,6 @@ import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.http.HttpEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -25,7 +23,6 @@ import static org.mockito.Mockito.*;
 /**
  * A JUnit test case testing the AccountController.
  */
-@RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
 
 	private AccountController controller;

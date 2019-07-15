@@ -1,18 +1,13 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A system test that verifies the components of the RewardNetwork application
@@ -20,7 +15,6 @@ import common.money.MonetaryAmount;
  * application for use in a test environment using the development in-memory
  * database and JDBC implementations of the repositories.
  */
-@RunWith(JUnitPlatform.class)
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
 @ActiveProfiles({ "local", "jdbc" })
 public class DevRewardNetworkTests {

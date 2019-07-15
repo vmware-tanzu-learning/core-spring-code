@@ -4,8 +4,6 @@ import ch.qos.logback.classic.Level;
 import common.util.ThreadUtils;
 import org.junit.Assert;
 import org.junit.jupiter.api.*;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestTemplate;
@@ -29,7 +27,6 @@ import static org.junit.Assert.assertEquals;
 // * Run this project as a Spring Boot App
 // * http://localhost:8080/accounts should give you a list of accounts in JSON
 
-@RunWith(JUnitPlatform.class)
 public class ReactiveWebClientTests {
 
 	public static final String SERVER_URL = "http://localhost:8080";

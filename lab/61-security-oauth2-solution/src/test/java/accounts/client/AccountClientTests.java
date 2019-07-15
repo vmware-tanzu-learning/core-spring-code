@@ -1,21 +1,12 @@
 package accounts.client;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
-
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.Random;
-
+import accounts.client.AccountClientTests.TestClientConfig;
+import common.money.Percentage;
+import config.Constants;
 import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -32,12 +23,14 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
-
-import accounts.client.AccountClientTests.TestClientConfig;
-import common.money.Percentage;
-import config.Constants;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
+
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.Random;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * In this scenario, the test is the OAuth2 client.
@@ -58,7 +51,6 @@ import rewards.internal.account.Beneficiary;
  * "<code>client-oauth2.properties<code>".
  */
 @ExtendWith(SpringExtension.class)
-@RunWith(JUnitPlatform.class) // For JUnit 4 backwards compatibility only
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = TestClientConfig.class)
 @TestPropertySource("classpath:client-oauth2.properties")

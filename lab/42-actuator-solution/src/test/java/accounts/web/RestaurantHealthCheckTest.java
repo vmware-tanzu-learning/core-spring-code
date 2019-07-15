@@ -2,18 +2,13 @@ package accounts.web;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.Status;
 import rewards.internal.restaurant.JpaRestaurantRepository;
 import rewards.internal.restaurant.RestaurantRepository;
 
-import static org.mockito.Mockito.doReturn;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.*;
 
-@RunWith(JUnitPlatform.class)
 public class RestaurantHealthCheckTest {
     private RestaurantHealthCheck restaurantHealthCheck;
     private RestaurantRepository restaurantRepository;

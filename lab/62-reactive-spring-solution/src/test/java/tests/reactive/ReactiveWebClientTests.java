@@ -1,32 +1,27 @@
 package tests.reactive;
 
-import static org.junit.Assert.assertEquals;
+import ch.qos.logback.classic.Level;
+import common.util.ThreadUtils;
+import org.junit.Assert;
+import org.junit.jupiter.api.Assumptions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.slf4j.LoggerFactory;
+import org.springframework.http.MediaType;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
+import rewards.internal.account.Account;
 
 import java.net.Socket;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.Assumptions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.MediaType;
-import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
+import static org.junit.Assert.assertEquals;
 
-import ch.qos.logback.classic.Level;
-import common.util.ThreadUtils;
-import reactor.core.publisher.Flux;
-import reactor.core.publisher.Mono;
-import rewards.internal.account.Account;
-
-@RunWith(JUnitPlatform.class)
 public class ReactiveWebClientTests {
 
 	public static final String SERVER_URL = "http://localhost:8080";

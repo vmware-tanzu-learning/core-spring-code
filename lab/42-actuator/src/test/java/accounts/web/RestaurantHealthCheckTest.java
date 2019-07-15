@@ -3,8 +3,6 @@ package accounts.web;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.boot.actuate.health.Health;
 import org.springframework.boot.actuate.health.Status;
 import rewards.internal.restaurant.JpaRestaurantRepository;
@@ -20,7 +18,6 @@ import static org.mockito.Mockito.*;
  *          so a health() method will exist - use it in the tests.
  *          Code will not compile until the next step.
  */
-@RunWith(JUnitPlatform.class)
 public class RestaurantHealthCheckTest {
 	private RestaurantHealthCheck restaurantHealthCheck;
 	private RestaurantRepository restaurantRepository;

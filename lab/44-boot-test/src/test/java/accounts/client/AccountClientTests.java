@@ -2,8 +2,6 @@ package accounts.client;
 
 import common.money.Percentage;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
@@ -18,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 // TODO-01: Make this class a Spring Boot test class
 // - Add @ExtendWith(SpringExtension.class) annotation
 // - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
-@RunWith(JUnitPlatform.class)
 public class AccountClientTests {
 
 	// TODO-02: Autowire TestRestTemplate bean

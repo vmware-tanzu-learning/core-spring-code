@@ -1,8 +1,6 @@
 package tests.reactive;
 
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import reactor.core.publisher.Flux;
@@ -17,7 +15,6 @@ import java.util.Arrays;
  * These examples taken From Dave Syer's Spring Blog article:
  * https://spring.io/blog/2016/06/13/notes-on-reactive-programming-part-ii-writing-some-code
  */
-@RunWith(JUnitPlatform.class)
 public class SimpleReactiveTests {
 
 	private static final Logger logger = LoggerFactory.getLogger(SimpleReactiveTests.class);

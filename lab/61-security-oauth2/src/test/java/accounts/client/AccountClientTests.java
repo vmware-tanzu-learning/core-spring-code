@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -63,7 +61,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * "client-oauth2.properties".
  */
 @ExtendWith(SpringExtension.class)
-@RunWith(JUnitPlatform.class) // For JUnit 4 backwards compatibility only
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = TestClientConfig.class)
 @TestPropertySource("classpath:client-oauth2.properties")

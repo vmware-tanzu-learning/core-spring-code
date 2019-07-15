@@ -1,23 +1,19 @@
 package accounts.web;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.util.List;
-
+import accounts.internal.StubAccountManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
-
-import accounts.internal.StubAccountManager;
 import rewards.internal.account.Account;
+
+import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A JUnit test case testing the AccountController.
  */
-@RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
 
 	private static final long expectedAccountId = StubAccountManager.TEST_ACCOUNT_ID;

@@ -3,8 +3,6 @@ package accounts.web;
 import accounts.internal.StubAccountManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import rewards.internal.account.Account;
 
 import java.util.List;
@@ -15,7 +13,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 /**
  * A JUnit test case testing the AccountController. 
  */
-@RunWith(JUnitPlatform.class)
 public class AccountControllerTests {
 
 	private AccountController controller;
