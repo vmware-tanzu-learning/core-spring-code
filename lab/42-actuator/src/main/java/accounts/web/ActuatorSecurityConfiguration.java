@@ -2,6 +2,8 @@ package accounts.web;
 
 import org.springframework.context.annotation.Configuration;
 
+// TODO-21: Add Spring boot security starter to pom.xml or build.gradle
+
 // TODO-22: Add security configuration
 // - Make this class a configuration class
 //   1. Add @EnableWebSecurity annotation to the class
@@ -13,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 //   1. Anybody can access "health" and "info" endpoints without logging in
 //   2. Only "admin" role can access "conditions" endpoint
 //   3. Only 'admin" or "actuator" role can access all the other endpoints
-//
+
 // TODO-23: Access the endpoints with security
 // - Make sure application is restarted
 // - Open a new Chrome Incognito browser
