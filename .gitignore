@@ -13,6 +13,8 @@ target
 # eclipse 
 .project
 .metadata
+bin
+.classpath
 **/bin
 **/.classpath
 .settings/
