@@ -13,12 +13,10 @@ target
 # eclipse 
 .project
 .metadata
-bin
 .classpath
-**/bin
-**/.classpath
-.settings/
 .loadpath
+bin/
+.settings/
 
 # mac
 .DS_Store
