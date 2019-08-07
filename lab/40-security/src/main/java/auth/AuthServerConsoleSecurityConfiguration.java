@@ -6,11 +6,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-/**
- * NOTE: This has nothing to do with the ability to use this process as
- * an OAuth2 Authorization server. That configuration is in the
- * AuthorizationServer.
- */
 // TODO-04: Enable this configuration by removing both the // comment characters
 //@Configuration
 //@EnableWebSecurity
