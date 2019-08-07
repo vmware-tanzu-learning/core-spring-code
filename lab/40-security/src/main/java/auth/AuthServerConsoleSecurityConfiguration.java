@@ -20,7 +20,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	public static final String SUPERUSER_ROLE = "SUPERUSER";
 
 	/**
-	 * Add users. (By the way, this has nothing to do with the OAuth2 configuration.)
+	 * Add users. 
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
