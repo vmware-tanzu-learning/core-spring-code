@@ -38,7 +38,8 @@ public class AccountController {
 	public List<Account> accountList() {
 
 		// TODO-05: Implement the logic to find and return all accounts
-		// - Save the changes, wait for the application to restart
+		// - Use accountManger to get all accounts
+		// - Recompile this class, and wait for the application to restart (via devtools)
 		// - From the home page, click the link - this should now work
 		// - If you prefer, access http://localhost:8080/accounts using curl or Postman
 
