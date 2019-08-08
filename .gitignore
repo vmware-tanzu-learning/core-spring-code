@@ -1,22 +1,37 @@
-# Build directories
-build
-target
-.gradle
+# Operating System Files
 
-# IntelliJ
-*.iml
-.idea
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
 
-# VSC
-.vscode
+# Build Artifacts
 
-# eclipse 
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
+# Eclipse Project Files
+
+.classpath
 .project
 .metadata
-.classpath
 .loadpath
 bin/
 .settings/
 
-# mac
-.DS_Store
+# IntelliJ IDEA Files
+
+*.iml
+*.ipr
+*.iws
+*.idea
+
+.vscode/
+README.html
+
