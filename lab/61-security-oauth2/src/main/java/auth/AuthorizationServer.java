@@ -53,7 +53,7 @@ public class AuthorizationServer {
 			public void configure(AuthorizationServerSecurityConfigurer security) {
 				// TODO-03: Check token access - must have trusted client authority
 				// You can use ROLE_TRUSTED_CLIENT above.
-				security.checkTokenAccess("TODO-10 - replace this string");
+				security.checkTokenAccess("replace this string");
 			}
 
 			/**
