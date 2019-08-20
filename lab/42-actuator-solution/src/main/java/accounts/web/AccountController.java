@@ -46,8 +46,7 @@ public class AccountController {
 	 * Provide a list of all accounts.
 	 */
 	@GetMapping(value = "/accounts")
-	@IncrementCounter
-	@Timed(value="account.timer", extraTags = {"source", "accountSummary"})
+    @Timed(value="account.timer", extraTags = {"source", "accountSummary"})
 	public @ResponseBody List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
