@@ -33,7 +33,7 @@
           -->
         <junit-jupiter.version>5.4.2</junit-jupiter.version>
 
-        <!-- Used by the maven surfire test plugin to support Jupiter (JUnit 5) tests -->
+        <!-- Used by the maven surefire test plugin to support Jupiter (JUnit 5) tests -->
         <junit.jupiter.version>5.4.2</junit.jupiter.version>
         <junit.platform.version>1.3.2</junit.platform.version>
         

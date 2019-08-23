@@ -19,7 +19,7 @@ include(':26-jdbc')
 include(':26-jdbc-solution')
 include(':28-transactions')
 include(':28-transactions-solution')
-//include(':30-jdbc-boot-solution') -> Standalone build
+include(':30-jdbc-boot-solution') 
 include(':32-jdbc-autoconfig')
 include(':32-jdbc-autoconfig-solution')
 include(':34-spring-data-jpa')
