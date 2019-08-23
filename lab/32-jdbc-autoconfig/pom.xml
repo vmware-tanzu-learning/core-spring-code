@@ -15,13 +15,6 @@
         <version>5.0.c.RELEASE</version>
     </parent>
 
-    <properties>
-        <!-- JUnit 5 related properties -->
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
-        <junit.vintage.version>5.2.0</junit.vintage.version>
-        <junit.platform.version>1.2.0</junit.platform.version>
-    </properties>
-    
     <build>
          <plugins>
 		    <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
@@ -59,27 +52,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-        </dependency>
-
-
-        <!-- JUnit 5 related dependencies - DO NOT MODIFY -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- To run tests on older IDEs that support JUnit 4 - DO NOT MODIFY -->
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
         </dependency>
         
         <!-- Database - DO NOT MODIFY -->
