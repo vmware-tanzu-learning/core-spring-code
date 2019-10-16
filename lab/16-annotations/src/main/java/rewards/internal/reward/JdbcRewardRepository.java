@@ -22,7 +22,7 @@ import common.datetime.SimpleDate;
 /* TODO-04: Annotate the class with an appropriate stereotype annotation 
  * to cause component-scan to detect and load this bean.
  * Configure Dependency Injection for dataSource.  
- * Decide if you should use field level or setter injection. 
+ * Why should you use setter injection?
  */
 
 public class JdbcRewardRepository implements RewardRepository {
