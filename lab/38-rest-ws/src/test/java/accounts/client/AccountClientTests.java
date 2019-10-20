@@ -71,7 +71,7 @@ public class AccountClientTests {
 		URI newAccountLocation = null; // Modify this line to use the restTemplate
 
 		//	TODO-09: Retrieve the Account you just created from the location that was returned.
-		//	Run this test.  Whether it passes or not, proceed with the next step.
+		//	Run this test. 
 		Account retrievedAccount = null; // Modify this line to use the restTemplate
 		
 		assertEquals(account.getNumber(), retrievedAccount.getNumber());
@@ -88,40 +88,29 @@ public class AccountClientTests {
 	public void addAndDeleteBeneficiary() {
 		// perform both add and delete to avoid issues with side effects
 		
-		// TODO-14: Remove the @Disabled on this test method.
+		// TODO-13: Remove the @Disabled on this test method.
 		// - Create a new Beneficiary called "David" for the account with id 1
 		//	 (POST the String "David" to the "/accounts/{accountId}/beneficiaries" URL).
 		// - Store the returned location URI in a variable.
 		
-		// TODO-15: Retrieve the Beneficiary you just created from the location that was returned
+		// TODO-14: Retrieve the Beneficiary you just created from the location that was returned
 		Beneficiary newBeneficiary = null; // Modify this line to use the restTemplate
 		
 		assertNotNull(newBeneficiary);
 		assertEquals("David", newBeneficiary.getName());
 		
-		// TODO-16: Delete the new Beneficiary
+		// TODO-15: Delete the new Beneficiary
 
 
 		HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 
-			//	TODO-17: Try to retrieve the new Beneficiary again.
+			//	TODO-16: Try to retrieve the new Beneficiary again.
 			//     Run this test, it should pass because we expect a 404 Not Found
 			//	   If not, it is likely your delete was not successful.
 
 		});
 		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
 	}
-
-	//	TODO-10: (OPTIONAL - unless your createAccount is NOT working) Monitor test execution using the TCP/IP monitor.
-	//	- Use TCP/IP monitoring tool of your IDE.
-	//    (See "IDE Configuration/Monitoring HTTP Traffic" under "Appendix" section
-	//     of the lab document.)
-	//  - Set local monitoring port = 8081.
-	//	- Change BASE_URL's port number above to 8081 so all requests pass through the monitor.
-	//	- Re-run these tests and examine the results in the TCP/IP Monitor View.
-	//
-	//	If your createAccount test method didn't work yet, then use the monitor to debug it.
-	
 	
 }
