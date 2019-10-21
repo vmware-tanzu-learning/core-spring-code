@@ -10,30 +10,33 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+// TODO-01: Review dependency as described in the TO-DO-01 
+//          in the pom.xml or build.gradle 
+//
+// TODO-07: Configure JPA as specified in the TO-DO-07 in the
+//          application.properties
+
 @SpringBootApplication
 @ComponentScan("config")
 public class RewardsApplication {
-    private final Logger logger
-            = LoggerFactory.getLogger(RewardsApplication.class);
-    
-    private static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
+	private final Logger logger = LoggerFactory.getLogger(RewardsApplication.class);
 
-    public static void main(String[] args) {
-        SpringApplication.run(RewardsApplication.class,args);
-    }
+	private static final String SQL = "SELECT count(*) FROM T_ACCOUNT";
 
-    @Component
-    public final class QueryAccountCountRunner
-            implements CommandLineRunner {
+	public static void main(String[] args) {
+		SpringApplication.run(RewardsApplication.class, args);
+	}
 
-        @Autowired
-        private JdbcTemplate jdbcTemplate;
+	@Component
+	public final class QueryAccountCountRunner implements CommandLineRunner {
 
-        @Override
-        public void run(String... args) throws Exception {
-            long accountCount
-                    = this.jdbcTemplate.queryForObject(SQL, Long.class);
-            logger.info("Number of accounts:{}", accountCount);
-        }
-    }
+		@Autowired
+		private JdbcTemplate jdbcTemplate;
+
+		@Override
+		public void run(String... args) throws Exception {
+			long accountCount = this.jdbcTemplate.queryForObject(SQL, Long.class);
+			logger.info("Number of accounts:{}", accountCount);
+		}
+	}
 }

@@ -4,7 +4,7 @@ dependencies {
     compile project(':00-rewards-common')
     compile 'org.springframework.boot:spring-boot-devtools'
     compile 'org.springframework.boot:spring-boot-starter-jdbc'
-    // TODO-01 : Review the dependency for the Spring Boot JPA Starter. What does this do?
+    // TO-DO-01 : Review the dependency for the Spring Boot JPA Starter. What does this do?
     compile 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
