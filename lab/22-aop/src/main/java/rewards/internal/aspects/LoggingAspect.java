@@ -32,9 +32,9 @@ public class LoggingAspect {
 
 
 	//	TODO-03: Write Pointcut Expression
+	//	- Decide which advice type is most appropriate to the requirement.
 	//  - Write a pointcut expression that selects only find* methods on
 	//    our Repository classes.
-	//	- Decide which advice type is most appropriate to the requirement.
     //
 	//  Note: The pointcut expression can be very hard to work out. If
 	//  you get stuck, refer to the examples in the slides or read the
