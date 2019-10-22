@@ -4,6 +4,7 @@ buildscript {
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
         junit5JupiterVersion= "5.4.2"
+        junit5PlatformVersion= "1.3.2"
         springCloudStarterOauth2="2.1.2.RELEASE"
     }
 
@@ -50,6 +51,7 @@ subprojects {
 
         testCompile "org.springframework.boot:spring-boot-starter-test"
         testCompile "org.junit.jupiter:junit-jupiter:$junit5JupiterVersion"
+        testRuntime "org.junit.platform:junit-platform-launcher:$junit5PlatformVersion"
     }
 
     // Uncomment the Java version you want, comment the other
