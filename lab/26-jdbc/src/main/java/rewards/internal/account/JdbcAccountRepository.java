@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 
 
-// TODO-05: OPTIONAL STEP. Refactor this repository to use Spring's JdbcTemplate.
+// TODO-05: (Optional) Refactor this repository to use JdbcTemplate.
 // - Modify the constructor to initialize a new JdbcTemplate data member
 // - Run the JdbcAccountRepositoryTests class. It should pass.
 public class JdbcAccountRepository implements AccountRepository {
@@ -26,12 +26,15 @@ public class JdbcAccountRepository implements AccountRepository {
 		this.dataSource = dataSource;
 	}
 
-	// TODO-07: OPTIONAL STEP. Refactor this method using a ResultSetExtractor.
-	//          (Note: If you prefer, use a lambda instead of the AccountExtractor)
-	// - Implement a ResultSetExtractor called AccountExtractor
-	// - Make this a private inner class and let extractData() call mapAccount() to do all the work.
+	// TODO-07: (Optional) Refactor this method using a ResultSetExtractor.
+	// - Create a private inner class called AccountExtractor which
+	//   implements ResultSetExtractor
+	// - Let the extractData() method of the AccountExtractor to call
+	//   mapAccount() method, which is provided in this class, to do all the work.
 	// - Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
-	// - When complete, save all changes and rerun the JdbcAccountRepositoryTests class. It should pass.
+	// - (If you prefer, use a Lambda expression instead of AccountExtractor)
+	// - When complete, save all changes and rerun the JdbcAccountRepositoryTests
+	//   class. It should pass.
 	// - Congratulations - you have finished the lab
 	public Account findByCreditCard(String creditCardNumber) {
 		String sql = "select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, " +
@@ -79,7 +82,7 @@ public class JdbcAccountRepository implements AccountRepository {
 		return account;
 	}
 
-	// TODO-06: OPTIONAL STEP. Refactor this method to use Spring's JdbcTemplate.
+	// TODO-06: (Optional) Refactor this method to use Spring's JdbcTemplate.
 	// - Use your JdbcTemplate to replace the UPDATE below
 	// - Rerun the JdbcAccountRepositoryTests. When they pass, you are done.
 	public void updateBeneficiaries(Account account) {
