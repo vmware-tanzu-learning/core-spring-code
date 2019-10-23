@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 //          in the pom.xml or build.gradle 
 //
 // TODO-07: Configure JPA as specified in the TO-DO-07 in the
-//          application.properties
+//          src/test/resources/application.properties
 
 @SpringBootApplication
 @ComponentScan("config")
