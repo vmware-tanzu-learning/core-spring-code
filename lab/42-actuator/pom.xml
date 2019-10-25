@@ -39,7 +39,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-	    <!-- TODO-01: Note that the Actuator starter is already here for you. -->
+	    <!-- TO-DO-01: Note that the Actuator starter is already here for you. -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
@@ -51,7 +51,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- TODO-21: Add Spring Boot security starter -->
+        <!-- TO-DO-21: Add Spring Boot security starter -->
 
 		<!-- Automatic application restart -->
 		<dependency>
@@ -64,8 +64,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- TODO-07: Add build-info goal -->
-                <!-- TODO-08: Add additional properties of name, javaVersion, operatingSystem -->
+                <!-- TO-DO-07: Add build-info goal -->
+                <!-- TO-DO-08: Add additional properties of name, javaVersion, operatingSystem -->
             </plugin>
             <plugin>
                 <!-- Skip these tests. They won't pass without running RestWsApplication 

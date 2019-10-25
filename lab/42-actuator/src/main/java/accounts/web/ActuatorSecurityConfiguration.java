@@ -3,6 +3,7 @@ package accounts.web;
 import org.springframework.context.annotation.Configuration;
 
 // TODO-21: Add Spring boot security starter to pom.xml or build.gradle
+//          (Look for TO-DO-21 in the pom.xml or build.gradle)
 
 // TODO-22: Add security configuration
 // - Make this class a configuration class
