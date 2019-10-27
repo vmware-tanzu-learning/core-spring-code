@@ -7,7 +7,6 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-starter-security'
     compile 'org.springframework.boot:spring-boot-starter-mustache'
     compile 'org.springframework.boot:spring-boot-devtools'
-    compile "org.springframework.cloud:spring-cloud-starter-oauth2:$springCloudStarterOauth2"
 }
 
 bootJar {
