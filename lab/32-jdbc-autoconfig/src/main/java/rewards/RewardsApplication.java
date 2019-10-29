@@ -8,23 +8,23 @@ import org.springframework.boot.SpringApplication;
 
 // TODO-02 : In pom.xml or build.gradle, look for TO-DO-02
 
-// TODO-03 : Turn the RewardsApplication into a Spring Boot application
+// TODO-03 : Turn the 'RewardsApplication' into a Spring Boot application
 //           by adding an annotation.
 
-// TODO-10 : Disable the `DataSource` auto-configuration using the
-//           @SpringBootApplication exclude attribute - this was
-//           the positive match we asked you to remember earlier.
-//           Import RewardsConfig class. (Think about why.)
+// TODO-10 : Disable the 'DataSource' auto-configuration
+//           - Use 'exclude' attribute of '@SpringBootApplication'
+//             excluding 'DataSourceAutoConfiguration' class
+//           - Import 'RewardsConfig' class. (Think about why.)
 
 // TODO-11 : Look in application.properties for the next step.
 
-// TODO-12 : Remove the `DataSource` auto-configuration exclusion.
-//           Rerun the application again.
-//           Spring Boot auto-configuration should be creating the DataSource again.
+// TODO-12 : Remove the 'DataSource' auto-configuration exclusion.
+//           - Rerun the 'RewardNetworkTests' test.
+//           - Spring Boot auto-configuration should be creating the DataSource again.
 
 // TODO-13 : Look in application.properties for the next step.
 
-// TODO-14   Follow the instructions in the detailed instructions.
+// TODO-14   Follow the instruction in the lab document.
 //           The section titled "Build and Run using Command Line tools".
 
 public class RewardsApplication {
