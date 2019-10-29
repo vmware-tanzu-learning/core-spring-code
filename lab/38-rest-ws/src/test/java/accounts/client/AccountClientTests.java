@@ -65,13 +65,14 @@ public class AccountClientTests {
 		//	TODO-08: Remove the @Disabled on this test method.
 		//	- Create a new Account by POSTing to the right URL and
 		//    store its location in a variable
-		//  - Note that `RestTemplate` has two methods for this.
+		//  - Note that 'RestTemplate' has two methods for this.
 		//  - Use the one that returns the location of the newly created
 		//    resource and assign that to a variable.
 		URI newAccountLocation = null; // Modify this line to use the restTemplate
 
-		//	TODO-09: Retrieve the Account you just created from the location that was returned.
-		//	Run this test. 
+		//	TODO-09: Retrieve the Account you just created from
+		//	         the location that was returned.
+		//	- Run this test.
 		Account retrievedAccount = null; // Modify this line to use the restTemplate
 		
 		assertEquals(account.getNumber(), retrievedAccount.getNumber());
@@ -106,8 +107,9 @@ public class AccountClientTests {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 
 			//	TODO-16: Try to retrieve the new Beneficiary again.
-			//     Run this test, it should pass because we expect a 404 Not Found
-			//	   If not, it is likely your delete was not successful.
+			//  - Run this test, it should pass because we expect a 404 Not Found
+			//	  If not, it is likely your delete in the previous step
+			//	  was not successful.
 
 		});
 		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
