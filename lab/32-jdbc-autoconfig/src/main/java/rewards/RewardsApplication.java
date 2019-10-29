@@ -11,7 +11,7 @@ import org.springframework.boot.SpringApplication;
 // TODO-03 : Turn the 'RewardsApplication' into a Spring Boot application
 //           by adding an annotation.
 
-// TODO-10 : Disable the 'DataSource' auto-configuration
+// TODO-10 : Disable 'DataSource' auto-configuration
 //           - Use 'exclude' attribute of '@SpringBootApplication'
 //             excluding 'DataSourceAutoConfiguration' class
 //           - Import 'RewardsConfig' class. (Think about why.)
