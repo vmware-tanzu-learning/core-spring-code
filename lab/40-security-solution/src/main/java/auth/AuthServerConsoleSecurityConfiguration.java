@@ -10,8 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 /**
  * NOTE: This has nothing to do with the ability to use this process as
- * an OAuth2 Authorization server. That configuration is in the
- * AuthorizationServer.
+ * an OAuth2 Authorization server.
  */
 @Configuration
 @EnableWebSecurity
@@ -26,7 +25,7 @@ public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigure
 	public static final String SUPERUSER_ROLE = "SUPERUSER";
 
 	/**
-	 * Add users. (By the way, this has nothing to do with the OAuth2 configuration.)
+	 * Add users.
 	 */
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
