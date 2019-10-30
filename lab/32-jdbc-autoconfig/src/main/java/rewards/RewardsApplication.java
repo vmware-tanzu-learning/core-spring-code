@@ -18,13 +18,7 @@ import org.springframework.boot.SpringApplication;
 
 // TODO-11 : Look in application.properties for the next step.
 
-// TODO-12 : Remove the 'DataSource' auto-configuration exclusion.
-//           - Rerun the 'RewardNetworkTests' test.
-//           - Spring Boot auto-configuration should be creating the DataSource again.
-
-// TODO-13 : Look in application.properties for the next step.
-
-// TODO-14   Follow the instruction in the lab document.
+// TODO-12 : Follow the instruction in the lab document.
 //           The section titled "Build and Run using Command Line tools".
 
 public class RewardsApplication {
