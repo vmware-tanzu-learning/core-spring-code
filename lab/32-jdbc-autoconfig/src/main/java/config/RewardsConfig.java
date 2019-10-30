@@ -28,6 +28,23 @@ public class RewardsConfig {
 		this.dataSource = dataSource;
 	}
 
+    // TODO-09 : Switch back to explicit `DataSource` configuration
+    //           - Uncomment @Bean method below
+    //           - Remove the code above that performs DataSource injection
+    //           - Fix compile errors
+    /*
+    @Bean
+    public DataSource dataSource() {
+        logger.debug("Creating the datasource bean explicitly");
+
+        return
+                (new EmbeddedDatabaseBuilder())
+                        .addScript("classpath:schema.sql")
+                        .addScript("classpath:data.sql")
+                        .build();
+    }
+    */
+
     @Bean
     public RewardNetwork rewardNetwork() {
         return new RewardNetworkImpl(

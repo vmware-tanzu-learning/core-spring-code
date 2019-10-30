@@ -21,14 +21,6 @@ public class SystemTestConfig {
 	// TODO-04 : Spring Boot will create the DataSource for us
 	//           - Comment out @Bean so this method is no longer called
 
-	// TODO-09 : Switch back to explicit `DataSource` configuration
-    //           - Uncomment @Bean method below (which was commented out in
-	//             the previous step) and move it to the RewardsConfig class.
-	//           - Remove the existing DataSource in the RewardsConfig class.
-    //           - Address compile errors in the RewardsConfig class.
-	//           - The scripts have moved to the root of the classpath,
-	//             so you need to change the addScript() calls.
-
 	/**
 	 * Creates an in-memory "rewards" database populated 
 	 * with test data for fast testing
