@@ -1,28 +1,27 @@
 package rewards.jms.client;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.junit.Ignore;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import config.ClientConfig;
+import config.JmsInfrastructureConfig;
+import config.RootConfig;
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import rewards.Dining;
-import config.ClientConfig;
-import config.JmsInfrastructureConfig;
-import config.RootConfig;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Tests the Dining batch processor
  */
 @ActiveProfiles("jpa")
-@RunWith(SpringJUnit4ClassRunner.class)
+@ExtendWith(SpringExtension.class)
 @ContextConfiguration	//	See the inner class below
 public class DiningBatchProcessorTests {
 

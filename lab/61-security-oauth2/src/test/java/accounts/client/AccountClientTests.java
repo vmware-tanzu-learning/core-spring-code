@@ -3,7 +3,6 @@ package accounts.client;
 import accounts.client.AccountClientTests.TestClientConfig;
 import common.money.Percentage;
 import config.Constants;
-import org.junit.Assert;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -109,7 +108,7 @@ public class AccountClientTests {
 	public void setup(@Autowired Environment env) {
 		// Sanity check - did this test pick up client-oauth2.properties?
 		String appName = env.getProperty(SPRING_APPLICATION_NAME_PROPERTY);
-		Assert.assertEquals(CLIENT_NAME, appName);
+		assertEquals(CLIENT_NAME, appName);
 	}
 
 	@Test

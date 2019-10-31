@@ -1,14 +1,13 @@
 package rewards.internal.account;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
+import common.money.MonetaryAmount;
+import common.money.Percentage;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Unit tests for an account repository implementation.
@@ -34,25 +33,25 @@ public abstract class AbstractAccountRepositoryTests {
 
 		// assert the returned account contains what you expect given the state
 		// of the database
-		assertNotNull("account should never be null", account);
-		assertEquals("wrong entity id", Long.valueOf(0), account.getEntityId());
-		assertEquals("wrong account number", "123456789", account.getNumber());
-		assertEquals("wrong name", "Keith and Keri Donald", account.getName());
-		assertEquals("wrong beneficiary collection size", 2, account
-				.getBeneficiaries().size());
+		assertNotNull(account, "account should never be null");
+		assertEquals(Long.valueOf(0), account.getEntityId(), "wrong entity id");
+		assertEquals("123456789", account.getNumber(), "wrong account number");
+		assertEquals("Keith and Keri Donald", account.getName(), "wrong name");
+		assertEquals(2, account
+				.getBeneficiaries().size(), "wrong beneficiary collection size");
 
 		Beneficiary b1 = account.getBeneficiary("Annabelle");
-		assertNotNull("Annabelle should be a beneficiary", b1);
-		assertEquals("wrong savings", MonetaryAmount.valueOf("0.00"),
-				b1.getSavings());
-		assertEquals("wrong allocation percentage", Percentage.valueOf("50%"),
-				b1.getAllocationPercentage());
+		assertNotNull(b1, "Annabelle should be a beneficiary");
+		assertEquals(MonetaryAmount.valueOf("0.00"),
+				b1.getSavings(), "wrong savings");
+		assertEquals(Percentage.valueOf("50%"),
+				b1.getAllocationPercentage(), "wrong allocation percentage");
 
 		Beneficiary b2 = account.getBeneficiary("Corgan");
-		assertNotNull("Corgan should be a beneficiary", b2);
-		assertEquals("wrong savings", MonetaryAmount.valueOf("0.00"),
-				b2.getSavings());
-		assertEquals("wrong allocation percentage", Percentage.valueOf("50%"),
-				b2.getAllocationPercentage());
+		assertNotNull(b2, "Corgan should be a beneficiary");
+		assertEquals(MonetaryAmount.valueOf("0.00"),
+				b2.getSavings(), "wrong savings");
+		assertEquals(Percentage.valueOf("50%"),
+				b2.getAllocationPercentage(), "wrong allocation percentage");
 	}
 }

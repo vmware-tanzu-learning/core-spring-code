@@ -1,5 +1,4 @@
 package accounts.client;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
@@ -7,6 +6,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthorizationServerTests {
 
@@ -36,20 +37,20 @@ public class AuthorizationServerTests {
 	@Test
 	public void canGetToken() {
 		String token = getToken();
-		Assert.assertNotNull(token);
+		assertNotNull(token);
 	}
 
 	@Test
 	public void canUseToken() {
 		String token = getToken();
-		Assert.assertNotNull(token);
+		assertNotNull(token);
 		checkToken(token);
 	}
 
 	@Test
 	public void canGetAccountUsingToken() {
 		String token = getToken();
-		Assert.assertNotNull(token);
+		assertNotNull(token);
 		checkToken(token);
 		getAccountUsingToken(token);
 	}
@@ -72,7 +73,7 @@ public class AuthorizationServerTests {
 						.body(GET_TOKEN_BODY);
 
 		ResponseEntity<String> response = template.exchange(request, String.class);
-		Assert.assertEquals(200, response.getStatusCodeValue());
+		assertEquals(200, response.getStatusCodeValue());
 
 		System.out.println(response.getBody());
 		String[] bits = response.getBody().split("\"");
@@ -110,7 +111,7 @@ public class AuthorizationServerTests {
 		ResponseEntity<String> response = template.exchange(request, String.class);
 		
 		System.out.println(response.getStatusCodeValue());
-		Assert.assertEquals(200, response.getStatusCodeValue());
+		assertEquals(200, response.getStatusCodeValue());
 		System.out.println(response.getBody());
 	}
 
@@ -132,16 +133,16 @@ public class AuthorizationServerTests {
 		ResponseEntity<String> response = template.exchange(request, String.class);
 
 		System.out.println(response.getStatusCodeValue());
-		Assert.assertEquals(200, response.getStatusCodeValue());
+		assertEquals(200, response.getStatusCodeValue());
 		System.out.println(response.getBody());
-		Assert.assertTrue(response.getBody().contains("Keith and Keri Donald"));
+		assertTrue(response.getBody().contains("Keith and Keri Donald"));
 	}
 
 	protected URI toURI(String url) {
 		try {
 			return new URI(url);
 		} catch (URISyntaxException e) {
-			Assert.fail("Unable to create URI from " + url);
+			fail("Unable to create URI from " + url);
 			return null; // Never gets this far
 		}
 	}

@@ -1,11 +1,11 @@
 package accounts.internal;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import utils.DataManagementSetup;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Manually configured integration test (not using Spring) for the JPA-based
@@ -23,18 +23,18 @@ public class JpaAccountManagerManualIntegrationTests extends AbstractDatabaseAcc
 	@Test
 	@Override
 	public void testProfile() {
-		Assert.assertTrue("JPA expected", accountManager instanceof JpaAccountManager);
+		assertTrue(accountManager instanceof JpaAccountManager, "JPA expected");
 		logger.info("JPA with Hibernate");
 	}
 
-	@Before
+	@BeforeEach
 	@Override
 	public void setUp() throws Exception {
 		super.setUp();
 		transactionUtils.beginTransaction();
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		transactionUtils.rollbackTransaction();
 	}

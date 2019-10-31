@@ -1,11 +1,8 @@
 package rewards.internal;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Before;
-import org.junit.Test;
-
+import common.money.MonetaryAmount;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
@@ -16,7 +13,8 @@ import rewards.internal.restaurant.StubRestaurantRepository;
 import rewards.internal.reward.RewardRepository;
 import rewards.internal.reward.StubRewardRepository;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Unit tests for the RewardNetworkImpl application logic. Configures the implementation with stub repositories
@@ -32,7 +30,7 @@ public class RewardNetworkImplTests {
 	 */
 	private RewardNetworkImpl rewardNetwork;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		// create stubs to facilitate fast in-memory testing with dummy data and no external dependencies
 		AccountRepository accountRepo = new StubAccountRepository();

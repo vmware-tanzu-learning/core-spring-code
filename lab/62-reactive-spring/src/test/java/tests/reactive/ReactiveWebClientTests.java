@@ -2,7 +2,6 @@ package tests.reactive;
 
 import ch.qos.logback.classic.Level;
 import common.util.ThreadUtils;
-import org.junit.Assert;
 import org.junit.jupiter.api.*;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.MediaType;
@@ -17,7 +16,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 /**
  * Reactive tests comparing RestTemplate with WebClient.
@@ -95,9 +95,9 @@ public class ReactiveWebClientTests {
 		// thread
 
 		logger.info("Account: " + account);
-		Assert.assertEquals((Long) id, account.getEntityId());
-		Assert.assertEquals("Keith and Keri Donald", account.getName());
-		Assert.assertEquals(2, account.getBeneficiaries().size());
+		assertEquals((Long) id, account.getEntityId());
+		assertEquals("Keith and Keri Donald", account.getName());
+		assertEquals(2, account.getBeneficiaries().size());
 	}
 
 	/**
@@ -126,9 +126,9 @@ public class ReactiveWebClientTests {
 		// DIFFERENT thread
 
 		logger.info("Account: " + account);
-		Assert.assertEquals((Long) id, account.getEntityId());
-		Assert.assertEquals("Keith and Keri Donald", account.getName());
-		Assert.assertEquals(2, account.getBeneficiaries().size());
+		assertEquals((Long) id, account.getEntityId());
+		assertEquals("Keith and Keri Donald", account.getName());
+		assertEquals(2, account.getBeneficiaries().size());
 	}
 
 	/**

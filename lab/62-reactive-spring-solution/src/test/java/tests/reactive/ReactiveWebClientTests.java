@@ -2,7 +2,6 @@ package tests.reactive;
 
 import ch.qos.logback.classic.Level;
 import common.util.ThreadUtils;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assumptions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,7 +19,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.logging.Logger;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ReactiveWebClientTests {
 
@@ -84,9 +83,9 @@ public class ReactiveWebClientTests {
 		Account account = template.getForObject(SERVER_URL + "/accounts/{id}", Account.class, id);
 
 		logger.info("Account: " + account);
-		Assert.assertEquals((Long) id, account.getEntityId());
-		Assert.assertEquals("Keith and Keri Donald", account.getName());
-		Assert.assertEquals(2, account.getBeneficiaries().size());
+		assertEquals((Long) id, account.getEntityId());
+		assertEquals("Keith and Keri Donald", account.getName());
+		assertEquals(2, account.getBeneficiaries().size());
 	}
 
 	/**
@@ -111,9 +110,9 @@ public class ReactiveWebClientTests {
 		// Wait for account to be returned
 		Account account = result.block();
 		logger.info("Account: " + account);
-		Assert.assertEquals((Long) id, account.getEntityId());
-		Assert.assertEquals("Keith and Keri Donald", account.getName());
-		Assert.assertEquals(2, account.getBeneficiaries().size());
+		assertEquals((Long) id, account.getEntityId());
+		assertEquals("Keith and Keri Donald", account.getName());
+		assertEquals(2, account.getBeneficiaries().size());
 
 		// Same again, but this time, process asynchronously using subscribe
 		Mono<Account> result2 = client.get() //

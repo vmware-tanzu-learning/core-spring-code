@@ -51,7 +51,7 @@ public class MockMvcTests {
 				.perform(get("/accounts") //
 						.accept(MediaType.parseMediaType("application/json"))) //
 				.andExpect(status().isOk()) //
-				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(content().contentType("application/json"))
 				.andExpect(jsonPath("$.length()").value(expectedNumberOfAccounts));
 	}
 
@@ -77,7 +77,7 @@ public class MockMvcTests {
 		this.mockMvc.perform(get("/accounts/0") //
 				.accept(MediaType.parseMediaType("application/json"))) //
 				.andExpect(status().isOk()) //
-				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(content().contentType("application/json"))
 				.andExpect(jsonPath("$.number").value(expectedAccountNumber))
 				.andExpect(jsonPath("$.name").value(expectedAccountName));
 	}

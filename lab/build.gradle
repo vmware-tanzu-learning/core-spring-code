@@ -1,10 +1,8 @@
 buildscript {
     ext {
-        springBootVersion = "2.1.3.RELEASE"
+        springBootVersion = "2.2.0.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
-        junit5JupiterVersion= "5.4.2"
-        junit5PlatformVersion= "1.3.2"
         springCloudStarterOauth2="2.1.2.RELEASE"
     }
 
@@ -49,8 +47,9 @@ subprojects {
         compile "org.hsqldb:hsqldb"
         compile "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
 
-        testCompile "org.springframework.boot:spring-boot-starter-test"
-        testCompile "org.junit.jupiter:junit-jupiter:$junit5JupiterVersion"
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
         // Uncomment the following if you are using old STS (3.9.x or earlier) with Gradle.
         // After uncommenting it, you will have to reimport the whole projects again
         // testRuntime "org.junit.platform:junit-platform-launcher:$junit5PlatformVersion"
@@ -65,8 +64,6 @@ subprojects {
     }
 
     test {
-        // Enable JUnit 5 testing
-        useJUnitPlatform()
 
         // Test result on console
         testLogging {

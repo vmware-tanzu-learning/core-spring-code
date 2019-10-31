@@ -1,19 +1,8 @@
 package accounts.web;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.verify;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
-import java.util.Arrays;
-import java.util.List;
-
+import accounts.AccountManager;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +12,16 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import accounts.AccountManager;
-import common.money.Percentage;
 import rewards.internal.account.Account;
+
+import java.util.Arrays;
+import java.util.List;
+
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.BDDMockito.*;
+import static org.mockito.Mockito.verify;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * These tests run the AccountController using the MockMVC framework.
@@ -53,7 +46,7 @@ public class AccountControllerBootTests {
 
 		// act and assert
 		mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
 
 		// verify
@@ -80,7 +73,7 @@ public class AccountControllerBootTests {
 		given(accountManager.getAllAccounts()).willReturn(testAccounts);
 
 		mockMvc.perform(get("/accounts")).andExpect(status().isOk())
-				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$..number").value("123456789")).andExpect(jsonPath("$..name").value("John Doe"));
 
 		verify(accountManager).getAllAccounts();
@@ -94,7 +87,7 @@ public class AccountControllerBootTests {
 		testAccount.setEntityId(21L);
 		given(accountManager.save(any(Account.class))).willReturn(testAccount);
 
-		mockMvc.perform(post("/accounts").contentType(MediaType.APPLICATION_JSON_UTF8)
+		mockMvc.perform(post("/accounts").contentType(MediaType.APPLICATION_JSON)
 				.content(asJsonString(testAccount)).accept(MediaType.APPLICATION_JSON)).andExpect(status().isCreated())
 				.andExpect(header().string("Location", "http://localhost/accounts/21"));
 
@@ -110,7 +103,7 @@ public class AccountControllerBootTests {
 		given(accountManager.getAccount(0L)).willReturn(account);
 
 		mockMvc.perform(get("/accounts/{accountId}/beneficiaries/{beneficiaryName}", 0L, "Corgan"))
-				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+				.andExpect(status().isOk()).andExpect(content().contentType(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("name").value("Corgan")).andExpect(jsonPath("allocationPercentage").value("0.1"));
 
 		verify(accountManager).getAccount(0L);

@@ -1,14 +1,14 @@
 package rewards.internal.account;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
-
 import utils.DataManagementSetup;
+
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Manually configured integration test for the JPA based account repository
@@ -21,7 +21,7 @@ public class JpaAccountRepositoryTests extends AbstractAccountRepositoryTests {
 
 	private TransactionStatus transactionStatus;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		DataManagementSetup dataManagementSetup = new DataManagementSetup();
 
@@ -37,10 +37,10 @@ public class JpaAccountRepositoryTests extends AbstractAccountRepositoryTests {
 	@Test
 	@Override
 	public void testProfile() {
-		Assert.assertTrue("JPA expected", accountRepository instanceof JpaAccountRepository);
+		assertTrue(accountRepository instanceof JpaAccountRepository, "JPA expected");
 	}
 
-	@After
+	@AfterEach
 	public void tearDown() throws Exception {
 		// rollback the transaction to avoid corrupting other tests
 		if (transactionManager != null)

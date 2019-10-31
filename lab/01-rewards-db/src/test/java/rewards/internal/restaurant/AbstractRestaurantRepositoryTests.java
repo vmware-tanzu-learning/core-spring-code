@@ -1,13 +1,12 @@
 package rewards.internal.restaurant;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.Test;
+import common.money.Percentage;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import common.money.Percentage;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Unit tests for a restaurant repository implementation.
@@ -30,15 +29,15 @@ public abstract class AbstractRestaurantRepositoryTests {
 	public final void findRestaurantByMerchantNumber() {
 		Restaurant restaurant = restaurantRepository
 				.findByMerchantNumber("1234567890");
-		assertNotNull("the restaurant should never be null", restaurant);
-		assertEquals("the merchant number is wrong", "1234567890",
-				restaurant.getNumber());
-		assertEquals("the name is wrong", "AppleBees", restaurant.getName());
-		assertEquals("the benefitPercentage is wrong",
-				Percentage.valueOf("8%"), restaurant.getBenefitPercentage());
-		assertEquals("the benefit availability policy is wrong",
+		assertNotNull(restaurant, "the restaurant should never be null");
+		assertEquals("1234567890",
+				restaurant.getNumber(), "the merchant number is wrong");
+		assertEquals("AppleBees", restaurant.getName(), "the name is wrong");
+		assertEquals(
+				Percentage.valueOf("8%"), restaurant.getBenefitPercentage(), "the benefitPercentage is wrong");
+		assertEquals(
 				AlwaysAvailable.INSTANCE,
-				restaurant.getBenefitAvailabilityPolicy());
+				restaurant.getBenefitAvailabilityPolicy(), "the benefit availability policy is wrong");
 	}
 
 }
