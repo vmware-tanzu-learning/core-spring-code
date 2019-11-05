@@ -48,9 +48,9 @@ public class AccountControllerTests {
 	@Test
 	@Disabled
 	public void testHandleDetailsRequest() {
-		// TODO-08a: Call the controller to find the account with entityId 0
-		//  - A new method is required - call it accountDetails().
-		//  - It takes one parameter - a long entityId
+		// TODO-08a: Implement test code which calls the accountDetails() method on the controller.
+		//  - The accountDetails() method does not exist yet.  We will implement it in the next step.
+		//  - It will take one parameter - a long entityId
 		//  - It will return an Account.
 		//  - This class won't compile until you modify the AccountController in TO DO 09
 
