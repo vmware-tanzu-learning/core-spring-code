@@ -24,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * Test the Account Server by running this test as a REST client. Run
  * {@link BootTestSolutionApplication} first or these tests will fail.
  */
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class AccountClientTests {
 

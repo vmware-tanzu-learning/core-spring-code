@@ -14,7 +14,6 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO-01: Make this class a Spring Boot test class
-// - Add @ExtendWith(SpringExtension.class) annotation
 // - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
 public class AccountClientTests {
 

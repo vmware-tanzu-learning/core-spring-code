@@ -2,12 +2,10 @@ package accounts.web;
 
 import accounts.internal.JpaAccountManager;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
@@ -19,7 +17,6 @@ import javax.sql.DataSource;
  */
 @Transactional
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = TestConfig.class)  // not needed since @SpringBootTest finds it
 public class AccountControllerIntegrationTests extends
 		AbstractAccountControllerTests {

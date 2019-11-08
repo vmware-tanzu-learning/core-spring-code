@@ -59,7 +59,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * Note 3: This test has its own Spring Boot properties defined in
  * "client-oauth2.properties".
  */
-@ExtendWith(SpringExtension.class)
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = TestClientConfig.class)
 @TestPropertySource("classpath:client-oauth2.properties")

@@ -5,7 +5,6 @@ import common.money.Percentage;
 import config.Constants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -19,7 +18,6 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import rewards.internal.account.Account;
@@ -49,7 +47,6 @@ import static org.junit.jupiter.api.Assertions.*;
  * <b>Note 3:</b> This test has its own Spring Boot properties defined in
  * "<code>client-oauth2.properties<code>".
  */
-@ExtendWith(SpringExtension.class)
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = TestClientConfig.class)
 @TestPropertySource("classpath:client-oauth2.properties")
