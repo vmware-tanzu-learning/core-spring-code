@@ -13,6 +13,7 @@ import java.math.BigDecimal;
  * A value object. Immutable.
  */
 @Embeddable
+@SuppressWarnings("deprecation")
 public class Percentage implements Serializable {
 
 	private static final long serialVersionUID = 8077279865855620752L;
