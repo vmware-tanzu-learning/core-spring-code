@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * A percentage. Represented as a decimal value with scale 2 between 0.00 and 1.00.
@@ -13,7 +14,6 @@ import java.math.BigDecimal;
  * A value object. Immutable.
  */
 @Embeddable
-@SuppressWarnings("deprecation")
 public class Percentage implements Serializable {
 
 	private static final long serialVersionUID = 8077279865855620752L;
@@ -48,7 +48,7 @@ public class Percentage implements Serializable {
 	}
 
 	private void initValue(BigDecimal value) {
-		value = value.setScale(2, BigDecimal.ROUND_HALF_UP);
+		value = value.setScale(2, RoundingMode.HALF_UP);
 		if (value.compareTo(BigDecimal.ZERO) == -1 || value.compareTo(BigDecimal.ONE) == 1) {
 			throw new IllegalArgumentException("Percentage value must be between 0 and 1; your value was " + value);
 		}
