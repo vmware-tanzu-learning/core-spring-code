@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = "2.2.0.RELEASE"
+        springBootVersion = "2.2.2.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
         springCloudStarterOauth2="2.1.2.RELEASE"
@@ -14,7 +14,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.2.0.RELEASE'
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
 }
 
 allprojects {
@@ -42,10 +42,10 @@ subprojects {
     }
 
     dependencies {
-        compile "org.springframework.boot:spring-boot-starter"
-        compile "org.springframework.boot:spring-boot-starter-jdbc"
-        compile "org.hsqldb:hsqldb"
-        compile "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
+        implementation "org.springframework.boot:spring-boot-starter"
+        implementation "org.springframework.boot:spring-boot-starter-jdbc"
+        implementation "org.hsqldb:hsqldb"
+        implementation "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
 
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
