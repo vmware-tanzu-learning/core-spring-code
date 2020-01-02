@@ -11,6 +11,7 @@ import rewards.internal.account.Beneficiary;
 import java.net.URI;
 import java.util.Random;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 // TODO-01: Make this class a Spring Boot test class
@@ -40,19 +41,19 @@ public class AccountClientTests {
 		// we have to use Account[] instead of List<Account>, or Jackson won't know what
 		// type to unmarshal to
 		Account[] accounts = restTemplate.getForObject(url, Account[].class);
-		assertTrue(accounts.length >= 21);
-		assertEquals("Keith and Keri Donald", accounts[0].getName());
-		assertEquals(2, accounts[0].getBeneficiaries().size());
-		assertEquals(Percentage.valueOf("50%"), accounts[0].getBeneficiary("Annabelle").getAllocationPercentage());
+		assertThat(accounts.length >= 21).isTrue();
+		assertThat(accounts[0].getName()).isEqualTo("Keith and Keri Donald");
+		assertThat(accounts[0].getBeneficiaries().size()).isEqualTo(2);
+		assertThat(accounts[0].getBeneficiary("Annabelle").getAllocationPercentage()).isEqualTo(Percentage.valueOf("50%"));
 	}
 
 	@Test
 	public void getAccount() {
 		String url = BASE_URL + "/accounts/{accountId}";
 		Account account = restTemplate.getForObject(url, Account.class, 0);
-		assertEquals("Keith and Keri Donald", account.getName());
-		assertEquals(2, account.getBeneficiaries().size());
-		assertEquals(Percentage.valueOf("50%"), account.getBeneficiary("Annabelle").getAllocationPercentage());
+		assertThat(account.getName()).isEqualTo("Keith and Keri Donald");
+		assertThat(account.getBeneficiaries().size()).isEqualTo(2);
+		assertThat(account.getBeneficiary("Annabelle").getAllocationPercentage()).isEqualTo(Percentage.valueOf("50%"));
 	}
 
 	@Test
@@ -65,13 +66,13 @@ public class AccountClientTests {
 		URI newAccountLocation = restTemplate.postForLocation(url, account);
 
 		Account retrievedAccount = restTemplate.getForObject(newAccountLocation, Account.class);
-		assertEquals(account.getNumber(), retrievedAccount.getNumber());
+		assertThat(retrievedAccount.getNumber()).isEqualTo(account.getNumber());
 
 		Beneficiary accountBeneficiary = account.getBeneficiaries().iterator().next();
 		Beneficiary retrievedAccountBeneficiary = retrievedAccount.getBeneficiaries().iterator().next();
 
-		assertEquals(accountBeneficiary.getName(), retrievedAccountBeneficiary.getName());
-		assertNotNull(retrievedAccount.getEntityId());
+		assertThat(retrievedAccountBeneficiary.getName()).isEqualTo(accountBeneficiary.getName());
+		assertThat(retrievedAccount.getEntityId()).isNotNull();
 	}
 
 	// TODO-04: Handle an exception
@@ -83,7 +84,7 @@ public class AccountClientTests {
 		String addUrl = BASE_URL + "/accounts/{accountId}/beneficiaries";
 		URI newBeneficiaryLocation = restTemplate.postForLocation(addUrl, "David", 1);
 		Beneficiary newBeneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
-		assertEquals("David", newBeneficiary.getName());
+		assertThat(newBeneficiary.getName()).isEqualTo("David");
 
 		restTemplate.delete(newBeneficiaryLocation);
 
@@ -91,7 +92,7 @@ public class AccountClientTests {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 			restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
 		});
-		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
+		assertThat(httpClientErrorException.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
 	// TODO-05: Observe that Tomcat server gets started as part of testing

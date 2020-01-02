@@ -12,6 +12,7 @@ import rewards.internal.account.Beneficiary;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -29,16 +30,16 @@ public class AccountControllerTests {
 	@Test
 	public void accountDetails() {
 		Account account = controller.accountDetails(0);
-		assertNotNull(account);
-		assertEquals(Long.valueOf(0), account.getEntityId());
+		assertThat(account).isNotNull();
+		assertThat(account.getEntityId()).isEqualTo(Long.valueOf(0));
 	}
 
 	@Test
 	public void accountSummary() {
 		List<Account> accounts = controller.accountSummary();
-		assertNotNull(accounts);
-		assertEquals(1, accounts.size());
-		assertEquals(Long.valueOf(0), accounts.get(0).getEntityId());
+		assertThat(accounts).isNotNull();
+		assertThat(accounts.size()).isEqualTo(1);
+		assertThat(accounts.get(0).getEntityId()).isEqualTo(Long.valueOf(0));
 	}
 
 	@Test
@@ -51,17 +52,17 @@ public class AccountControllerTests {
 		setupFakeRequest("http://localhost/accounts");
 
 		HttpEntity<?> result = controller.createAccount(newAccount);
-		assertNotNull(result);
+		assertThat(result).isNotNull();
 
 		// See StubAccountManager.nextEntityId - initialized to 3
-		assertEquals("http://localhost/accounts/3", result.getHeaders().getLocation().toString());
+		assertThat(result.getHeaders().getLocation().toString()).isEqualTo("http://localhost/accounts/3");
 	}
 
 	@Test
 	public void getBeneficiary() {
 		Beneficiary beneficiary = controller.getBeneficiary(0, "Corgan");
-		assertNotNull(beneficiary);
-		assertEquals(Long.valueOf(1), beneficiary.getEntityId());
+		assertThat(beneficiary).isNotNull();
+		assertThat(beneficiary.getEntityId()).isEqualTo(Long.valueOf(1));
 	}
 
 	@Test
@@ -73,8 +74,8 @@ public class AccountControllerTests {
 		setupFakeRequest("http://localhost/accounts/0/beneficiaries");
 
 		HttpEntity<?> result = controller.addBeneficiary(0L, "Test2");
-		assertNotNull(result);
-		assertEquals("http://localhost/accounts/0/beneficiaries/Test2", result.getHeaders().getLocation().toString());
+		assertThat(result).isNotNull();
+		assertThat(result.getHeaders().getLocation().toString()).isEqualTo("http://localhost/accounts/0/beneficiaries/Test2");
 	}
 
 	@Test
@@ -84,12 +85,10 @@ public class AccountControllerTests {
 
 	@Test
 	public void removeBeneficiaryFail() {
-		try {
+
+		assertThrows(IllegalArgumentException.class, () -> {
 			controller.removeBeneficiary(0L, "Fred");
-			fail("No such beneficiary 'Fred', " + "IllegalArgumentException expected");
-		} catch (IllegalArgumentException e) {
-			// Expected result
-		}
+		}, "No such beneficiary 'Fred', " + "IllegalArgumentException expected");
 	}
 
 	/**
