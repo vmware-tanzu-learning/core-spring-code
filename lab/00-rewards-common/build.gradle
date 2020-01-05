@@ -1,4 +1,4 @@
 dependencies {
-    compile "org.hibernate:hibernate-entitymanager"
-    compile "com.fasterxml.jackson.core:jackson-annotations"
+    implementation "org.hibernate:hibernate-entitymanager"
+    implementation "com.fasterxml.jackson.core:jackson-annotations"
 }

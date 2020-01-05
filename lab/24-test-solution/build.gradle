@@ -1,4 +1,4 @@
 dependencies {
-    compile project(':00-rewards-common')
-    testCompile "simple-jndi:simple-jndi:$simpleJndiVersion"
+    implementation project(':00-rewards-common')
+    testImplementation "simple-jndi:simple-jndi:$simpleJndiVersion"
 }
