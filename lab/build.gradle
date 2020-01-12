@@ -3,7 +3,7 @@ buildscript {
         springBootVersion = "2.2.2.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
-        springCloudStarterOauth2="2.1.2.RELEASE"
+        springCloudStarterOauth2="2.2.0.RELEASE"
     }
 
     repositories {

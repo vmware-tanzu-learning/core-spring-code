@@ -15,7 +15,7 @@
     </parent>
     <properties>
         <!-- Override some defaults from Spring Boot. -->
-        <spring.cloud.build>Greenwich.SR1</spring.cloud.build>
+        <spring.cloud.build>Hoxton.RELEASE</spring.cloud.build>
 
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>3.1</easymock.version>
