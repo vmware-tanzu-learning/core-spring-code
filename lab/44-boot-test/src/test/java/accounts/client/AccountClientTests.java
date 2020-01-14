@@ -75,7 +75,8 @@ public class AccountClientTests {
 		assertThat(retrievedAccount.getEntityId()).isNotNull();
 	}
 
-	// TODO-04: Handle an exception
+	// TODO-04: Handle an error status from the server (instead of
+	// handling it as an exception as in the case of RestTemplate)
 	// - Modify the code below as described in the lab document
 	// - Run all tests - they should all pass
 	@Test
