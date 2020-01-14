@@ -1,11 +1,11 @@
 apply plugin: "org.springframework.boot"
 
 dependencies {
-    compile project(':00-rewards-common')
-    compile 'org.springframework.boot:spring-boot-devtools'
-    compile 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation project(':00-rewards-common')
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     // TO-DO-01 : Review the dependency for the Spring Boot JPA Starter. What does this do?
-    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 test {

@@ -1,5 +1,5 @@
 dependencies {
-    compile project(':00-rewards-common')
+    implementation project(':00-rewards-common')
 }
 
 test {

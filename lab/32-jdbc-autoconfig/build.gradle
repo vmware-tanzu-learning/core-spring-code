@@ -2,11 +2,11 @@
 
 
 dependencies {
-    compile project(':00-rewards-common')
+    implementation project(':00-rewards-common')
 
     // TO-DO-02 : Refactor from discrete Spring Framework
     // dependency to JDBC Boot Starter
-    compile 'org.springframework:spring-jdbc'
+    implementation 'org.springframework:spring-jdbc'
     
 }
 

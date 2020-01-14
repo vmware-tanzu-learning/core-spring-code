@@ -1,6 +1,6 @@
 dependencies {
-    compile project(':00-rewards-common')
-    compile "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
-    compile "org.easymock:easymock:3.1"
-    compile "com.jamonapi:jamon:2.81"
+    implementation project(':00-rewards-common')
+    implementation "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
+    implementation "org.easymock:easymock:3.1"
+    implementation "com.jamonapi:jamon:2.81"
 }
