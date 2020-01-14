@@ -13,5 +13,5 @@ dependencies {
 // Create original jar file with "gradlew assemble"
 jar {
     enabled = true
-    classifier = 'original'
+    archiveClassifier = 'original'
 }
