@@ -1,6 +1,5 @@
 package auth;
 
-import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -12,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  * NOTE: This has nothing to do with the ability to use this process as
  * an OAuth2 Authorization server.
  */
-@Configuration
 @EnableWebSecurity
 public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
