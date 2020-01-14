@@ -6,8 +6,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-// TODO-04: Enable this configuration by removing both the // comment characters
-//@Configuration
+// TODO-04: Enable this configuration by removing // comment characters
 //@EnableWebSecurity
 public class AuthServerConsoleSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
