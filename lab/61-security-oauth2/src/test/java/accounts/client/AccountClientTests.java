@@ -5,7 +5,6 @@ import common.money.Percentage;
 import config.Constants;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
@@ -19,7 +18,6 @@ import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.resource.OAuth2ProtectedResourceDetails;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.test.context.TestPropertySource;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import rewards.internal.account.Account;
@@ -42,13 +40,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * - In this scenario, AccountClientTests IS the OAuth2 client.
  * - Read the rest of this Javadoc for more information.
  *
- * Congratulations, the lab is finished.
- *
  * This is basically the same test-client as the REST lab used.
  * But it uses OAuth2 validation because its RestTemplate is actually a
  * OAuth2RestTemplate.
  *
- * Note 1: This client does not need to be secure so security
+ * Note 1: This client uses its own OAuth2 security so security
  * auto-configuration is disabled.
  *
  * Note 2: This is not a Web application and we do not want to pick up

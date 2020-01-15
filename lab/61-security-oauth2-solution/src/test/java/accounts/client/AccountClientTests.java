@@ -29,24 +29,6 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * In this scenario, the test is the OAuth2 client.
- * <p>
- * This is basically the same test-client as the REST lab used. But it uses
- * OAuth2 validation because the {@link RestTemplate} it uses is a
- * {@link OAuth2RestTemplate}.
- * <p>
- * <b>Note 1:</b> This client does not need to be secure so security
- * auto-configuration is disabled.
- * <p>
- * <b>Note 2:</b> This is not a Web application and we do not want to pick up
- * any additional configuration so we specify our own configuration class to
- * initialize from. This sets this application up as an OAuth2 client and
- * creates the {@link OAuth2RestTemplate} we need.
- * <p>
- * <b>Note 3:</b> This test has its own Spring Boot properties defined in
- * "<code>client-oauth2.properties<code>".
- */
 @EnableAutoConfiguration(exclude = SecurityAutoConfiguration.class)
 @SpringBootTest(webEnvironment = WebEnvironment.NONE, classes = TestClientConfig.class)
 @TestPropertySource("classpath:client-oauth2.properties")
