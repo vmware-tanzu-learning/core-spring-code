@@ -12,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * A system test that verifies the components of the RewardNetwork application work together to reward for dining
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
-
 @SpringBootTest
 public class RewardNetworkTests {
 

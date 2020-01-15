@@ -42,11 +42,12 @@ public class RewardsApplication {
     //           Use the JdbcTemplate bean that Spring Boot creates for you
     //           automatically.
     //
-    // TODO-07   Enable full debugging - follow TO-DO-07 in application.properties
-    //           then come back here.
-    //
-    //           Run the application - do you see the accounts log message?
-    //           In the console output, find "CONDITIONS EVALUATION REPORT"
-    //           What is the first positive match? REMEMBER its name.
+    // TODO-07   Enable full debugging in order to observe how Spring Boot
+	//           performs its auto-configuration logic
+	//           - Follow TO-DO-07 in application.properties
+    //             then come back here.
+    //           - Run the application
+    //           - In the console output, find "CONDITIONS EVALUATION REPORT"
+    //             What is the first positive match? REMEMBER its name.
 
 }
