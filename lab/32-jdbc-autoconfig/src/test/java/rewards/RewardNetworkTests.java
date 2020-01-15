@@ -2,8 +2,10 @@ package rewards;
 
 import common.money.MonetaryAmount;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -18,7 +20,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 //            because @SpringBootTest will find and use the configuration
 //            of RewardApplication automatically.
 //          - Run the test, it should pass.
-@ContextConfiguration(classes={SystemTestConfig.class}) // REPLACE ME
+@ExtendWith(SpringExtension.class)                      // Remove me
+@ContextConfiguration(classes={SystemTestConfig.class}) // Replace me
 public class RewardNetworkTests {
 
 	/**
