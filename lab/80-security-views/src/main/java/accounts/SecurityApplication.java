@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Import;
 // - Save all work and let the server restart.
 // - You should be able to access the home page, but should see a 404
 //   when clicking on "View account list" (we have no login page, yet).
-@Import({MvcConfig.class,RootConfig.class})
+@Import({MvcConfig.class, RootConfig.class})
 public class SecurityApplication {
 
 	public static void main(String[] args) {
