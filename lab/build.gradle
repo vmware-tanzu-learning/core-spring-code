@@ -18,7 +18,7 @@ plugins {
 }
 
 allprojects {
-    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
 
     group = 'io.pivotal.education.core-spring'
     version = '5.0.c.RELEASE'
@@ -31,7 +31,7 @@ subprojects {
 
     repositories {
         maven {
-            url = 'http://repo.maven.apache.org/maven2'
+            url = 'https://repo.maven.apache.org/maven2'
         }
     }
 
