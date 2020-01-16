@@ -3,16 +3,15 @@ package config;
 import javax.sql.DataSource;
 
 /**
- * TODO-01: This class will be used to define our application beans. Annotate to
- * mark it as a special class for providing Spring with bean configuration
- * instructions.
+ * TODO-01: Make this class a Spring configuration class
+ * - Use an appropriate annotation.
  *
  * TODO-02: Define four empty @Bean methods, one for the reward-network and
  * three for the repositories.
- *  - The RewardNetworkImpl should the bean name 'rewardNetwork'.
- *  - We have provided three JDBC repository implementations for
- *    Accounts, Restaurants and Rewards. Their bean names should be
- *    `accountRepository`, `restaurantRepository` and `rewardRepository`.
+ * - The RewardNetworkImpl should have the bean name rewardNetwork.
+ * - We have provided three JDBC repository implementations for
+ *   Accounts, Restaurants and Rewards. Their bean names should be
+ *   accountRepository, restaurantRepository and rewardRepository.
  *
  * TODO-03: Each repository has a DataSource property to set, but the DataSource
  * is defined elsewhere (TestInfrastructureConfig.java), so you will need to
