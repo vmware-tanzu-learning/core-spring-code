@@ -1,18 +1,12 @@
 package rewards.internal.reward;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 
-import common.datetime.SimpleDate;
+import javax.sql.DataSource;
+import java.sql.*;
 
 /**
  * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
@@ -55,7 +49,7 @@ public class JdbcRewardRepository implements RewardRepository {
 			ps.execute();
 			return new RewardConfirmation(confirmationNumber, contribution);
 		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception occured inserting reward record", e);
+			throw new RuntimeException("SQL exception occurred inserting reward record", e);
 		} finally {
 			if (ps != null) {
 				try {
