@@ -14,7 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * application work together to reward for dining successfully.
  * Uses Spring to bootstrap the application for use in a test environment.
  * 
- * TODO-01: Run this test before making any changes.  It should pass.
+ * TODO-01: Run this test before making any changes.
+ * - It should pass.
+ *   Note that this test passes only when all the required
+ *   beans are correctly configured.
  */
 public class RewardNetworkTests {
 
@@ -25,7 +28,8 @@ public class RewardNetworkTests {
 
 	@BeforeEach
 	public void setUp() {
-		// Create application context from TestInfrastructureConfig, which also imports RewardsConfig
+		// Create application context from TestInfrastructureConfig,
+		// which also imports RewardsConfig
 		ApplicationContext context = SpringApplication.run(TestInfrastructureConfig.class);
 		
 		// Get rewardNetwork bean from the application context

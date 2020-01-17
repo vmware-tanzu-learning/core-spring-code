@@ -1,25 +1,24 @@
 package rewards.internal.account;
 
+import common.money.MonetaryAmount;
+import common.money.Percentage;
+import org.springframework.dao.EmptyResultDataAccessException;
+
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.sql.DataSource;
-
-import org.springframework.dao.EmptyResultDataAccessException;
-
-import common.money.MonetaryAmount;
-import common.money.Percentage;
-
 /**
  * Loads accounts from a data source using the JDBC API.
  */
 
-/* TODO-05: Annotate the class with an appropriate stereotype annotation 
- * to cause component-scan to detect and load this bean.
- * Configure Dependency Injection for dataSource.  
- * Annotate the setDataSource() method with @Autowired.
+/* TODO-05: Let this class to be found in component-scanning
+ * - Annotate the class with an appropriate stereotype annotation
+ *   to cause component-scan to detect and load this bean.
+ * - Inject dataSource by annotating setDataSource() method
+ *   with @Autowired.
  */
 
 public class JdbcAccountRepository implements AccountRepository {

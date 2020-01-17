@@ -21,10 +21,12 @@ import common.money.MonetaryAmount;
  * Said in other words, this class implements the "reward account for dining" use case.
  */
 
-/* TODO-03: Annotate the class with an appropriate stereotype annotation 
- * to cause component-scan to detect and load this bean.
- * Configure Dependency Injection for all 3 dependencies.  
- * Decide if you should use field level or constructor injection. */
+/* TODO-03: Let this class to be found in component-scanning
+ * - Annotate the class with an appropriate stereotype annotation
+ *   to cause component-scan to detect and load this bean.
+ * - Inject all 3 dependencies.  Decide if you should use field
+ *   injection or constructor injection.
+ */
 
 public class RewardNetworkImpl implements RewardNetwork {
 

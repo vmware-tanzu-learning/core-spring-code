@@ -15,9 +15,10 @@ import rewards.internal.reward.RewardRepository;
 import javax.sql.DataSource;
 
 /**
- * TODO-07: Add the annotation to cause component scanning.
- * Set the base package to pick up all of the classes we have annotated so far.
- * Save all changes, Re-run the RewardNetworkTests.  It should now pass.
+ * TODO-07: Perform component-scanning
+ * - Add an appropriate annotation to this class to cause component scanning.
+ * - Set the base package to pick up all the classes we have annotated so far.
+ * - Save all changes, Re-run the RewardNetworkTests.  It should now pass.
  */
 @Configuration
 public class RewardsConfig {
@@ -57,8 +58,8 @@ public class RewardsConfig {
 		return repository;
 	}
 	
-	//	TODO-02: Remove all of the @Bean methods above.
-	//  Remove the code that autowires DataSource.
-    //	Try executing the RewardNetworkTests test class. It should fail. Why?
+	// TODO-02: Remove all of the @Bean methods above.
+	// - Remove the code that autowires DataSource.
+    // - Run the RewardNetworkTests test. It should fail. Why?
 	
 }

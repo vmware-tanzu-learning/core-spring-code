@@ -9,14 +9,15 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 /**
- * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
- * confirmation record.
+ * JDBC implementation of a reward repository that
+ * records the result of a reward transaction by
+ * inserting a reward confirmation record.
  */
 
-/* TODO-04: Annotate the class with an appropriate stereotype annotation 
- * to cause component-scan to detect and load this bean.
- * Configure Dependency Injection for dataSource.  
- * Why should you use setter injection?
+/* TODO-04: Let this class to be found in component-scanning
+ * - Annotate the class with an appropriate stereotype annotation
+ *   to cause component-scan to detect and load this bean.
+ * - Inject dataSource. Why should you use setter injection?
  */
 
 public class JdbcRewardRepository implements RewardRepository {
