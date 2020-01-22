@@ -17,9 +17,10 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 /* TODO-01: Use Spring TestContext framework
+ * - Add annotation(s) to this class so that it can
+ *   use Spring test context framework
  * - Remove setUp() and tearDown() methods
- * - Annotate the class with @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
- * - Remove the attribute 'context' which is not needed anymore.
+ * - Remove the attribute "context" which is not needed anymore.
  * - Run the current test. Observe a test failure.
  * - Use @Autowired to populate the rewardNetwork bean.
  * - Re-run the current test, it should pass.
