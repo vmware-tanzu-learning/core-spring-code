@@ -37,8 +37,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	}
 
 	/**
-	 * Spring automatically calls this method (because it is autowired) to setup
-	 * global security definitions. Note that SHA-256 encryption is enabled.
 	 *
 	 * To understand why this is an Autowired method, refer to the Security slides
 	 * in the Student Handout PDF. Look for "Advanced Security - Global

@@ -20,8 +20,10 @@ import org.springframework.context.annotation.Import;
 // TODO-02: Enable Spring Boot security auto configuration
 // - Remove exclude = {SecurityAutoConfiguration.class} below
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
-// TODO-03: Import the SecurityConfig class - add it to the @Import below.
-// - Save all work and let the server restart.
+
+// TODO-03: Import the SecurityConfig class
+// - Add it to the @Import below
+// - Compile this class and let the server restart via "devtools".
 // - You should be able to access the home page, but should see a 404
 //   when clicking on "View account list" (we have no login page, yet).
 @Import({MvcConfig.class, RootConfig.class})
