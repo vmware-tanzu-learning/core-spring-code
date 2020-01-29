@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import rewards.internal.account.Account;
@@ -28,7 +27,7 @@ import java.util.List;
  *    at  http://localhost:8080/actuator/metrics/account.fetch
  *  - Restart the application. What happens to the counter?
  */
-@Controller
+@RestController
 public class AccountController {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -63,7 +62,7 @@ public class AccountController {
 	 * TODO-25 (Extra credit): Use annotation and AOP for counter (Read lab document)
 	 */
 	@GetMapping(value = "/accounts")
-	public @ResponseBody List<Account> accountSummary() {
+	public List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
 
@@ -77,7 +76,7 @@ public class AccountController {
      * -Set a extra tag with "source"/"accountDetails" key/value pair
 	 */
 	@GetMapping(value = "/accounts/{id}")
-	public @ResponseBody Account accountDetails(@PathVariable int id) {
+	public Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
 	}
 
@@ -98,7 +97,7 @@ public class AccountController {
 	 * id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
-	public @ResponseBody Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
+	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
 			@PathVariable("beneficiaryName") String beneficiaryName) {
 		return retrieveAccount(accountId).getBeneficiary(beneficiaryName);
 	}
@@ -195,11 +194,11 @@ public class AccountController {
 	/**
 	 * Return a response with the location of the new resource. It's URL is assumed
 	 * to be a child of the URL just received.
-	 * <p>
+	 *
 	 * Suppose we have just received an incoming URL of, say,
-	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code> is
+	 * http://localhost:8080/accounts and resourceId is
 	 * "12345". Then the URL of the new resource will be
-	 * <code>http://localhost:8080/accounts/12345</code>.
+	 * http://localhost:8080/accounts/12345.
 	 * 
 	 * @param resourceId
 	 *            Is of the new resource.

@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
@@ -19,7 +18,7 @@ import java.util.List;
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  */
-@Controller
+@RestController
 public class AccountController {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -43,7 +42,7 @@ public class AccountController {
 	// Access http://localhost:8080/accounts using a browser or curl
 	// and verify that you see the list of accounts in JSON format.
 	@GetMapping(value = "/accounts")
-	public @ResponseBody List<Account> accountSummary() {
+	public List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
 
@@ -56,7 +55,7 @@ public class AccountController {
 	// Access http://localhost:8080/accounts/0 using a browser or curl
 	// and verify that you see the account detail in JSON format
 	@GetMapping(value = "/accounts/{id}")
-	public @ResponseBody Account accountDetails(@PathVariable int id) {
+	public Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
 	}
 
@@ -102,7 +101,7 @@ public class AccountController {
 	 * given id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
-	public @ResponseBody Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
+	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
 			@PathVariable("beneficiaryName") String beneficiaryName) {
 		return retrieveAccount(accountId).getBeneficiary(beneficiaryName);
 	}
