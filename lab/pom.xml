@@ -212,7 +212,7 @@
         <module>28-transactions-solution</module>
 
         <!-- Section: Spring Boot -->
-        <!-- Day 1 -->
+        
         <module>30-jdbc-boot-solution</module>
         <module>32-jdbc-autoconfig</module>
         <module>32-jdbc-autoconfig-solution</module>
@@ -220,12 +220,12 @@
         <module>34-spring-data-jpa-solution</module>
         <module>36-mvc</module>
         <module>36-mvc-solution</module>
-
-        <!-- Day 2 -->
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
         <module>40-security</module>
         <module>40-security-solution</module>
+        <module>40-security-rest</module>
+        <module>40-security-rest-solution</module>
         <module>42-actuator</module>
         <module>42-actuator-solution</module>
         <module>44-boot-test</module>
