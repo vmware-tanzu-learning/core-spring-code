@@ -222,8 +222,7 @@
         <module>36-mvc-solution</module>
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
-        <module>40-security</module>
-        <module>40-security-solution</module>
+        
         <module>40-security-rest</module>
         <module>40-security-rest-solution</module>
         <module>42-actuator</module>
