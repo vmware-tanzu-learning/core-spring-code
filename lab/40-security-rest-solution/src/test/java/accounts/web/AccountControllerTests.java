@@ -2,6 +2,7 @@ package accounts.web;
 
 import accounts.AccountManager;
 import accounts.RestWsApplication;
+import accounts.services.AccountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common.money.Percentage;
 import config.SecurityConfig;
@@ -35,6 +36,9 @@ public class AccountControllerTests {
 
     @MockBean
     private AccountManager accountManager;
+
+    @MockBean
+    private AccountService accountService;
 
     @Test
     @WithMockUser(roles = {"INVALID"})

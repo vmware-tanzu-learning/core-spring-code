@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // TODO-02: Observe the default behaviour of the Spring Boot application
 // - Run this application
 // - Try to access "http://localhost:8080/accounts" and observe that
-//   browser generated login popup gets displayed
+//   browser generated login popup prompts you to enter username and password
 // - Enter "user" in the username field and Spring Boot generated password
 //   into the password field.
 //   (If the browser keeps displaying the login page, try to

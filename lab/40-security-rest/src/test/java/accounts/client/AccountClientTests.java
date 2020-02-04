@@ -126,7 +126,8 @@ public class AccountClientTests {
                               .getForObject(newBeneficiaryLocation, Beneficiary.class);
         assertThat(newBeneficiary.getName()).isEqualTo("David");
 
-        restTemplate.withBasicAuth("superadmin", "superadmin").delete(newBeneficiaryLocation);
+        restTemplate.withBasicAuth("superadmin", "superadmin")
+                    .delete(newBeneficiaryLocation);
 
         // use exchange method to receive a 404 response
         ResponseEntity<Account> response =

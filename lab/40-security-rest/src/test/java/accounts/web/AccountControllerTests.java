@@ -2,6 +2,7 @@ package accounts.web;
 
 import accounts.AccountManager;
 import accounts.RestWsApplication;
+import accounts.services.AccountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common.money.Percentage;
 import config.SecurityConfig;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-07: Perform security testings against MVC layer
+// TODO-07: Perform security testing against MVC layer
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
@@ -41,6 +42,9 @@ public class AccountControllerTests {
 
     @MockBean
     private AccountManager accountManager;
+
+    @MockBean
+    private AccountService accountService;
 
     @Test
     @Disabled

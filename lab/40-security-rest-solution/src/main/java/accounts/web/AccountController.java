@@ -1,6 +1,7 @@
 package accounts.web;
 
 import accounts.AccountManager;
+import accounts.services.AccountService;
 import common.money.Percentage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,16 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,26 +24,23 @@ public class AccountController {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	private AccountManager accountManager;
+	private AccountService accountService;
 
 	/**
 	 * Creates a new AccountController with a given account manager.
 	 */
 	@Autowired
-	public AccountController(AccountManager accountManager) {
+	public AccountController(AccountManager accountManager,
+							 AccountService accountService) {
 		this.accountManager = accountManager;
+		this.accountService = accountService;
 	}
 
 	@GetMapping("/authorities")
-	public List<String> getAuthorities() {
+	public List<String> getAuthoritiesForUser(@RequestParam String username) {
 
-		Collection<? extends GrantedAuthority> grantedAuthorities
-				= SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+		return accountService.getAuthoritiesForUser(username);
 
-		List<String> authorities = new ArrayList<>();
-		grantedAuthorities.stream().forEach(grantedAuthority -> {
-			authorities.add(grantedAuthority.getAuthority());
-		});
-		return authorities;
 	}
 
 	/**

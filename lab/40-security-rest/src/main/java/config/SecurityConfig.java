@@ -10,6 +10,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 // - Add an appropriate annotation to this class
 // - Note that this class extends WebSecurityConfigurerAdapter class
 
+// TODO-11: Enable method level security
+
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -39,7 +41,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // TODO-06: Add three users with corresponding roles:
         // - "user"/"user" with "USER" role
-        // - "admin"/admin" with "USER" and "ADMIN" roles
+        // - "admin"/"admin" with "USER" and "ADMIN" roles
         // - "superadmin"/"superadmin" with "USER", "ADMIN", and "SUPERADMIN" roles
         auth.inMemoryAuthentication()
 
