@@ -10,19 +10,19 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    // TODO-10: Add method-level security
-    // - Add a proper annotation so that this method gets
-    //   invoked if the logged-in user belongs to "ADMIN"
-    //   role and the "username" request parameter value matches
-    //   the value of the logged-in user's username
+    // TODO-10: Add method-level security to a method
+    // - Add a proper annotation to this method so that it gets
+    //   invoked only if the logged-in user belongs to "ADMIN"
+    //   role AND the value of the "username" request parameter
+    //   matches the value of the principal's username
 
     public List<String> getAuthoritiesForUser(String username) {
 
         // TODO-09: Retrieve authorities for the logged-in user
         // - Replace null with proper code
         // - Restart the application
-        // - Access http://localhost:8080/authorities?username=<username>
-        //   using a browser or curl
+        // - Using Chrome Incognito browser or "curl", access
+        //   http://localhost:8080/authorities?username=<username>
         // - Verify that roles that a logged-in user belongs to get displayed
         Collection<? extends GrantedAuthority> grantedAuthorities
                 = null; // Modify this line
