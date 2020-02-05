@@ -1,11 +1,16 @@
 package config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -35,15 +40,58 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable();
     }
 
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//
+//        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+//
+//        auth.inMemoryAuthentication()
+//            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
+//            .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
+//            .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
+//
+//    }
 
-        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-
-        auth.inMemoryAuthentication()
-            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
-            .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
-            .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
-
+    @Bean
+    public DaoAuthenticationProvider daoAuthenticationProvider() {
+        DaoAuthenticationProvider daoAuthenticationProvider
+                = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setPasswordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder());
+        daoAuthenticationProvider.setUserDetailsService(new CustomUserDetailsService());
+        return daoAuthenticationProvider;
     }
+}
+
+class CustomUserDetailsService implements UserDetailsService {
+
+    PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User.UserBuilder builder = User.builder();
+        builder.username(username);
+        builder.password(passwordEncoder.encode(username));
+        switch (username) {
+            case "user":
+                builder.roles("USER");
+                break;
+            case "admin":
+                builder.roles("USER", "ADMIN");
+                break;
+            case "superadmin":
+                builder.roles("USER", "ADMIN", "SUPERADMIN");
+                break;
+            case "joe":
+                builder.roles("USER", "ADMIN");
+                break;
+            default:
+                throw new UsernameNotFoundException("User not found.");
+        }
+
+        return builder.build();
+    }
+}
+
+class UserNameNotFoundExeption extends RuntimeException {
+
 }
