@@ -14,7 +14,8 @@ public class AccountService {
     // - Add a proper annotation to this method so that it gets
     //   invoked only if the logged-in user belongs to "ADMIN"
     //   role AND the value of the "username" request parameter
-    //   matches the value of the principal's username
+    //   of the request URL matches the value of the principal's
+    //   username
 
     public List<String> getAuthoritiesForUser(String username) {
 
@@ -23,7 +24,7 @@ public class AccountService {
         // - Restart the application
         // - Using Chrome Incognito browser or "curl", access
         //   http://localhost:8080/authorities?username=<username>
-        // - Verify that roles that a logged-in user belongs to get displayed
+        // - Verify that roles of the logged-in user get displayed
         Collection<? extends GrantedAuthority> grantedAuthorities
                 = null; // Modify this line
 

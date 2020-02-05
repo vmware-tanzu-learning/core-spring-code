@@ -7,6 +7,8 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 // TODO-04: Enable web security
+// - Note that you are going to configure Spring security
+//   (authentication and authorization) through this class
 // - Add an appropriate annotation to this class
 // - Note that this class extends WebSecurityConfigurerAdapter class
 
@@ -29,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             // - Allow all roles - "USER", "ADMIN", "SUPERADMIN" - can
             //   perform "get" operation against account and beneficiary
 
-            // For all other methods and URL's, make sure the caller is authenticated
+            // For all other URL's, make sure the caller is authenticated
             .mvcMatchers("/**").authenticated()
             .and()
             .httpBasic()

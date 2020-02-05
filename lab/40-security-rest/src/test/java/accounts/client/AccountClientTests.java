@@ -18,7 +18,7 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.*;
 
-// TODO-08: Perform end-to-end security testing with a running server
+// TODO-08a: Perform end-to-end security testing with a running server
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
@@ -86,20 +86,6 @@ public class AccountClientTests {
 
     @Test
     @Disabled
-    public void createAccount_using_user_should_return_403() {
-        String url = "/accounts";
-        // use a unique number to avoid conflicts
-        String number = String.format("12345%4d", random.nextInt(10000));
-        Account account = new Account(number, "John Doe");
-        account.addBeneficiary("Jane Doe");
-        ResponseEntity<Void> responseEntity
-                = restTemplate.withBasicAuth("user", "user")
-                              .postForEntity(url, account, Void.class);
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
-    }
-
-    @Test
-    @Disabled
     public void createAccount_using_admin_should_return_201() {
         String url = "/accounts";
         // use a unique number to avoid conflicts
@@ -110,6 +96,15 @@ public class AccountClientTests {
                 = restTemplate.withBasicAuth("admin", "admin")
                               .postForEntity(url, account, Void.class);
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
+    }
+
+    // TODO-08b: Write a test that verifies that "user"/"user"
+    //          is not permitted to create a new Account
+    @Test
+    public void createAccount_using_user_should_return_403() throws Exception {
+
+
+
     }
 
     @Test

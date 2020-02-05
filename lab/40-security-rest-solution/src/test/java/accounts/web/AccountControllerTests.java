@@ -162,6 +162,19 @@ public class AccountControllerTests {
     }
 
     @Test
+    @WithMockUser(roles = {"USER"})
+    public void createAccount_with_USER_role_should_return_403() throws Exception {
+
+        Account testAccount = new Account("1234512345", "Mary Jones");
+        testAccount.setEntityId(21L);
+
+        mockMvc.perform(post("/accounts").contentType(MediaType.APPLICATION_JSON)
+                                         .content(asJsonString(testAccount)).accept(MediaType.APPLICATION_JSON))
+               .andExpect(status().isForbidden());
+
+    }
+
+    @Test
     @WithMockUser(roles = {"USER", "ADMIN", "SUPERADMIN"})
     public void getBeneficiary_with_USER_or_ADMIN_or_SUPERADMIN_role_should_return_200() throws Exception {
 
