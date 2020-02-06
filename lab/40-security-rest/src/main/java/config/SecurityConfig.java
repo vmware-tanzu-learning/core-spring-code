@@ -1,8 +1,13 @@
 package config;
 
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -52,6 +57,57 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         ;
 
+        // TODO-16: Add a custom authentication provider
+        // - Note that this custom authentication provider is used
+        //   in addition to the authentication provider that is
+        //   already configured
+        // - Uncomment the line below and finish up the code
+        //auth.
 
+    }
+
+    // TODO-15: Add a method that returns a DaoAuthenticationProvider
+    // - Uncomment the code below
+    public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
+        DaoAuthenticationProvider daoAuthenticationProvider
+                = new DaoAuthenticationProvider();
+        //daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+        //daoAuthenticationProvider.setUserDetailsService(new CustomUserDetailsService(passwordEncoder));
+        return daoAuthenticationProvider;
+    }
+}
+
+// TODO-14: Create custom UserDetailsService
+// - Note that it needs to implement loadUserByUsername method
+//   of the UserDetailsService interface
+// - Uncomment the code fragment below so that this custom
+//   UserDetailsService maintains UserDetails of two users:
+//   "mary"/"mary" with "USER" role and
+//   "joe"/"joe" with "USER" and "ADMIN" role
+class CustomUserDetailsService implements UserDetailsService {
+
+    private PasswordEncoder passwordEncoder;
+
+    public CustomUserDetailsService(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User.UserBuilder builder = User.builder();
+//        builder.username(username);
+//        builder.password(passwordEncoder.encode(username));
+//        switch (username) {
+//            case "mary":
+//                builder.roles("USER");
+//                break;
+//            case "joe":
+//                builder.roles("USER", "ADMIN");
+//                break;
+//            default:
+//                throw new UsernameNotFoundException("User not found.");
+//        }
+
+        return builder.build();
     }
 }

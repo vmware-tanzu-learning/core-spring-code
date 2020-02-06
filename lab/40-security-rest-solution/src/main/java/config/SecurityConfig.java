@@ -1,8 +1,8 @@
 package config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -40,24 +40,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .csrf().disable();
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//
-//        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//
-//        auth.inMemoryAuthentication()
-//            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
-//            .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
-//            .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
-//
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+
+        auth.inMemoryAuthentication()
+            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
+            .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
+            .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
+
+        // Add custom authentication provider
+        auth.authenticationProvider(daoAuthenticationProvider(passwordEncoder));
+
     }
 
-    @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
         DaoAuthenticationProvider daoAuthenticationProvider
                 = new DaoAuthenticationProvider();
@@ -81,14 +78,8 @@ class CustomUserDetailsService implements UserDetailsService {
         builder.username(username);
         builder.password(passwordEncoder.encode(username));
         switch (username) {
-            case "user":
+            case "mary":
                 builder.roles("USER");
-                break;
-            case "admin":
-                builder.roles("USER", "ADMIN");
-                break;
-            case "superadmin":
-                builder.roles("USER", "ADMIN", "SUPERADMIN");
                 break;
             case "joe":
                 builder.roles("USER", "ADMIN");
@@ -101,6 +92,3 @@ class CustomUserDetailsService implements UserDetailsService {
     }
 }
 
-class UserNameNotFoundExeption extends RuntimeException {
-
-}
