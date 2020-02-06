@@ -20,7 +20,7 @@ public class AccountService {
     public List<String> getAuthoritiesForUser(String username) {
 
         // TODO-09: Retrieve authorities for the logged-in user
-        // - Replace null with proper code
+        // - Replace null below with proper code
         // - Restart the application
         // - Using Chrome Incognito browser or "curl", access
         //   http://localhost:8080/authorities?username=<username>
