@@ -23,21 +23,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // @formatter:off
         http.authorizeRequests()
-            .mvcMatchers(HttpMethod.GET, "/accounts/*").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.GET, "/accounts").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.GET, "/accounts/*/beneficiaries").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.GET, "/accounts/*/beneficiaries/*").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.PUT, "/accounts/*").hasAnyRole("ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.PUT, "/accounts/*/beneficiaries/*").hasAnyRole("ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.POST, "/accounts").hasAnyRole("ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.POST, "/accounts/*/beneficiaries").hasAnyRole("ADMIN", "SUPERADMIN")
-            .mvcMatchers(HttpMethod.DELETE, "/accounts/**").hasAnyRole("SUPERADMIN")
-            .mvcMatchers("/**").authenticated()
-            .and()
+                .mvcMatchers(HttpMethod.GET, "/accounts/*").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.GET, "/accounts").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.GET, "/accounts/*/beneficiaries").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.GET, "/accounts/*/beneficiaries/*").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/accounts/*").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.PUT, "/accounts/*/beneficiaries/*").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.POST, "/accounts").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.POST, "/accounts/*/beneficiaries").hasAnyRole("ADMIN", "SUPERADMIN")
+                .mvcMatchers(HttpMethod.DELETE, "/accounts/**").hasAnyRole("SUPERADMIN")
+                .mvcMatchers("/**").authenticated()
+                .and()
             .httpBasic()
-            .and()
+                .and()
             .csrf().disable();
+        // @formatter:on
     }
 
     @Override
