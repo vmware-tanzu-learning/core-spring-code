@@ -13,7 +13,7 @@ import java.util.List;
 public class AccountService {
 
     @PreAuthorize("hasRole('ADMIN')   && " +
-            "#username == authentication.principal.username")
+            "#username == authentication.name")
     public List<String> getAuthoritiesForUser(String username) {
 
         Collection<? extends GrantedAuthority> grantedAuthorities

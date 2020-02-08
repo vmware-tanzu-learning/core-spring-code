@@ -19,7 +19,7 @@ public class AccountService {
     //   (b) the value of the "username" argument matches
     //       the value of the logged-in principal's
     //       username, which can be accessed as
-    //       authentication.principal.username.
+    //       authentication.name.
 
     public List<String> getAuthoritiesForUser(String username) {
 
