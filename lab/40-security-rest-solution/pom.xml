@@ -44,12 +44,6 @@
             <groupId>io.pivotal.education.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
         </dependency>
-        <!--
-  		  // Defines: Account, Beneficiary, AccountManager.
-  		  //
-  		  // NOTE: Dependencies for JPA and Spring are also provided
-  		  //       by this project - see rewards-db/pom.xml.
-  		  -->
         <dependency>
             <groupId>io.pivotal.education.core-spring</groupId>
             <artifactId>01-rewards-db</artifactId>
@@ -60,17 +54,6 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <!-- Skip these tests. They won't pass without running RestWsApplication 
-					 first -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/AccountClientTests.java</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>
