@@ -17,7 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 // - Add an appropriate annotation to this class
 // - Note that this class extends WebSecurityConfigurerAdapter class
 
-// TODO-11: Enable global method level security
+// TODO-11: Enable global method security
 // - Add an appropriate annotation to this class
 // - Make sure "prePostEnabled" and "jsr250Enabled"
 //   attributes are set to true

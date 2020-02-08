@@ -11,11 +11,15 @@ import java.util.List;
 public class AccountService {
 
     // TODO-10: Add method-level security to a method
-    // - Add a proper annotation to this method so that it gets
-    //   invoked only if the logged-in user belongs to "ADMIN"
-    //   role AND the value of the "username" request parameter
-    //   of the request URL matches the value of the principal's
-    //   username
+    // - Add a proper annotation to this method so that it is
+    //   permitted to be invoked only when both of following
+    //   two run-time conditions are met:
+    //
+    //   (a) the logged-in user belongs to "ADMIN" role
+    //   (b) the value of the "username" argument matches
+    //       the value of the logged-in principal's
+    //       username, which can be accessed as
+    //       authentication.principal.username.
 
     public List<String> getAuthoritiesForUser(String username) {
 

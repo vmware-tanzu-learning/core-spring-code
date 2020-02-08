@@ -26,7 +26,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
 //   and observe the successful response
 
-// TODO-12: Test the method level security using browser or curl
+// TODO-12: Test the method security using browser or curl
 // - Re-run this application
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/authorities?username=user

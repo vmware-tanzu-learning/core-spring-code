@@ -12,7 +12,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.*;
 
-// TODO-13a: Perform method level security testing with a running server
+// TODO-13a: Perform method security testing with a running server
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
