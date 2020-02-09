@@ -1,5 +1,6 @@
 package config;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -21,6 +22,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 // - Add an appropriate annotation to this class
 // - Make sure "prePostEnabled" and "jsr250Enabled"
 //   attributes are set to true
+
+@Configuration
 
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
