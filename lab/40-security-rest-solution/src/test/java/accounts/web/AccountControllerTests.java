@@ -130,8 +130,8 @@ public class AccountControllerTests {
     }
 
     @Test
-    @WithMockUser(roles = {"USER", "ADMIN", "SUPERADMIN"})
-    public void accountSummary_with_USER_or_ADMIN_or_SUPERADMIN_role_should_return_200() throws Exception {
+    @WithMockUser(roles = {"ADMIN"})
+    public void accountSummary_with_ADMIN_role_should_return_200() throws Exception {
 
         List<Account> testAccounts = Arrays.asList(new Account("123456789", "John Doe"));
         given(accountManager.getAllAccounts()).willReturn(testAccounts);
@@ -175,8 +175,8 @@ public class AccountControllerTests {
     }
 
     @Test
-    @WithMockUser(roles = {"USER", "ADMIN", "SUPERADMIN"})
-    public void getBeneficiary_with_USER_or_ADMIN_or_SUPERADMIN_role_should_return_200() throws Exception {
+    @WithMockUser(roles = {"SUPERADMIN"})
+    public void getBeneficiary_with_SUPERADMIN_role_should_return_200() throws Exception {
 
         Account account = new Account("1234567890", "John Doe");
         account.addBeneficiary("Corgan", new Percentage(0.1));
