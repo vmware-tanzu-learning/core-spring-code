@@ -213,6 +213,7 @@
 
         <!-- Section: Spring Boot -->
         
+        <!-- Day 3 -->
         <module>30-jdbc-boot-solution</module>
         <module>32-jdbc-autoconfig</module>
         <module>32-jdbc-autoconfig-solution</module>
@@ -222,13 +223,14 @@
         <module>36-mvc-solution</module>
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
-        
-        <module>40-security-rest</module>
-        <module>40-security-rest-solution</module>
-        <module>42-actuator</module>
-        <module>42-actuator-solution</module>
-        <module>44-boot-test</module>
-        <module>44-boot-test-solution</module>
+ 
+        <!-- Day 4 -->
+        <module>40-boot-test</module>
+        <module>40-boot-test-solution</module>       
+        <module>42-security-rest</module>
+        <module>42-security-rest-solution</module>
+        <module>44-actuator</module>
+        <module>44-actuator-solution</module>
 
         <!-- Extra material -->
         <module>61-security-oauth2</module>
