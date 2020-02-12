@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    // TODO-10: Add method-level security to a method
+    // TODO-10: Add method security annotation to a method
     // - Add a proper annotation to this method so that it is
     //   permitted to be invoked only when both of following
     //   two run-time conditions are met:
@@ -19,7 +19,7 @@ public class AccountService {
     //   (b) the value of the "username" argument matches
     //       the value of the logged-in principal's
     //       username, which can be accessed as
-    //       principal.username.
+    //       principal.username or authentication.name.
 
     public List<String> getAuthoritiesForUser(String username) {
 
