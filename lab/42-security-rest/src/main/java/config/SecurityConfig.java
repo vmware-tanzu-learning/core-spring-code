@@ -69,23 +69,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     // TODO-15: Add a method that returns a DaoAuthenticationProvider
-    // - Uncomment the code below
+    // - Uncomment the code below and return valid DaoAuthenticationProvider
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider
-                = new DaoAuthenticationProvider();
+        //DaoAuthenticationProvider daoAuthenticationProvider
+        //        = new DaoAuthenticationProvider();
         //daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
         //daoAuthenticationProvider.setUserDetailsService(new CustomUserDetailsService(passwordEncoder));
-        return daoAuthenticationProvider;
+        //return daoAuthenticationProvider;
+        return null;
     }
 }
 
 // TODO-14: Create custom UserDetailsService
 // - Note that it needs to implement loadUserByUsername method
 //   of the UserDetailsService interface
-// - Uncomment the code fragment below so that this custom
+// - Uncomment the commented code fragment below so that this custom
 //   UserDetailsService maintains UserDetails of two users:
-//   "mary"/"mary" with "USER" role and
-//   "joe"/"joe" with "USER" and "ADMIN" role
+//   - "mary"/"mary" with "USER" role and
+//   - "joe"/"joe" with "USER" and "ADMIN" roles
 class CustomUserDetailsService implements UserDetailsService {
 
     private PasswordEncoder passwordEncoder;
