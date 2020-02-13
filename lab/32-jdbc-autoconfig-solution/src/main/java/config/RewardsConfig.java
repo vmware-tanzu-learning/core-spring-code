@@ -2,14 +2,9 @@ package config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import rewards.RewardNetwork;
 import rewards.internal.RewardNetworkImpl;
 import rewards.internal.account.AccountRepository;
@@ -35,14 +30,13 @@ public class RewardsConfig {
 
 	@Bean
 	public DataSource dataSource() {
-		logger.debug("Building embedded datasource");
-		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
-		EmbeddedDatabase db = builder
-				.setType(EmbeddedDatabaseType.HSQL)
-				.addScript("classpath:/schema.sql")
-				.addScript("classpath:/data.sql")
-				.build();
-		return db;
+		logger.debug("Creating the datasource bean explicitly");
+
+		return
+				(new EmbeddedDatabaseBuilder())
+						.addScript("classpath:/schema.sql")
+						.addScript("classpath:/data.sql")
+						.build();
 	}
 
 	@Bean

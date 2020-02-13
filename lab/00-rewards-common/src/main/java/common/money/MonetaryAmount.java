@@ -1,10 +1,12 @@
 package common.money;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import javax.persistence.Embeddable;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
-import javax.persistence.Embeddable;
 
 /**
  * A representation of money.
@@ -22,6 +24,7 @@ public class MonetaryAmount implements Serializable {
 	 * Create a new monetary amount from the specified value.
 	 * @param value the value of the amount; for example, in $USD "10.00" would be ten dollars, ".29" would be 29 cents
 	 */
+	@JsonCreator
 	public MonetaryAmount(BigDecimal value) {
 		initValue(value);
 	}
@@ -141,6 +144,7 @@ public class MonetaryAmount implements Serializable {
 	 * Get this amount as a big decimal. Useful for when a BigDecimal type is needed by an external API or system.
 	 * @return this amount as a big decimal
 	 */
+	@JsonValue
 	public BigDecimal asBigDecimal() {
 		return value;
 	}

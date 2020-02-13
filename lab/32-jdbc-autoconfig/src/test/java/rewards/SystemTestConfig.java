@@ -1,7 +1,6 @@
 package rewards;
 
 import config.RewardsConfig;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
@@ -20,13 +19,7 @@ public class SystemTestConfig {
 	private final Logger logger = LoggerFactory.getLogger(SystemTestConfig.class);
 
 	// TODO-04 : Spring Boot will create the DataSource for us
-	//           Comment out @Bean so this method is no longer called
-
-	// TODO-10 : Switch back to explicit `DataSource` configuration
-    //           Restore the @Bean method
-	//           The scripts have moved to the root of the classpath,
-	//           so you need to change the addScript() calls.
-	//           NOTE the debug logging
+	//           - Comment out @Bean so this method is no longer called
 
 	/**
 	 * Creates an in-memory "rewards" database populated 
@@ -41,6 +34,6 @@ public class SystemTestConfig {
 			.addScript("classpath:rewards/testdb/schema.sql")
 			.addScript("classpath:rewards/testdb/data.sql")
 			.build();
-	}	
+	}
 	
 }

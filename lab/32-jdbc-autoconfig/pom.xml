@@ -10,18 +10,11 @@
     </organization>
     <packaging>jar</packaging>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.3.RELEASE</version>
+        <groupId>io.pivotal.education.core-spring</groupId>
+        <artifactId>parentProject</artifactId>
+        <version>5.0.c.RELEASE</version>
     </parent>
 
-    <properties>
-        <!-- JUnit 5 related properties -->
-        <junit.jupiter.version>5.2.0</junit.jupiter.version>
-        <junit.vintage.version>5.2.0</junit.vintage.version>
-        <junit.platform.version>1.2.0</junit.platform.version>
-    </properties>
-    
     <build>
          <plugins>
 		    <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
@@ -46,8 +39,8 @@
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
  
-        <!-- TO-DO-02 : Refactor from discrete Spring Framework and 3rd
-             Party dependencies to JDBC and HSQLDB Spring Boot Starters -->
+        <!-- TO-DO-02 : Refactor from discrete Spring Framework
+             dependencies to JDBC and Test Spring Boot Starters -->
  
         <!-- Needed for the Spring JdbcTemplate -->
         <dependency>
@@ -59,27 +52,6 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-        </dependency>
-
-
-        <!-- JUnit 5 related dependencies - DO NOT MODIFY -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-        </dependency>
-
-        <!-- To run tests on older IDEs that support JUnit 4 - DO NOT MODIFY -->
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-runner</artifactId>
-            <version>${junit.platform.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.vintage</groupId>
-            <artifactId>junit-vintage-engine</artifactId>
-            <scope>test</scope>
         </dependency>
         
         <!-- Database - DO NOT MODIFY -->

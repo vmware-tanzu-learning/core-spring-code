@@ -1,18 +1,12 @@
 package rewards.internal.reward;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 
-import common.datetime.SimpleDate;
+import javax.sql.DataSource;
+import java.sql.*;
 
 /**
  * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
@@ -20,14 +14,15 @@ import common.datetime.SimpleDate;
  */
 
 
-//	TODO-03: Replace the JDBC code in JdbcRewardRepository with JdbcTemplate.
-//  1. Add a field of type JdbcTemplate.  Refactor the constructor to instantiate it.
-//	2. Refactor the nextConfirmationNumber() and confirmReward(...) methods to use the template.
+// TODO-03: Refactor the cumbersome JDBC code in JdbcRewardRepository with JdbcTemplate.
+// - Add a field of type JdbcTemplate.  Refactor the constructor to instantiate it.
+// - Refactor the confirmReward(...) and nextConfirmationNumber() methods to use
+//   the template.
 //
-//     DO NOT delete the old JDBC code, just comment out the try/catch block.
-//     You will need to refer to the old JDBC code to write the new JdbcTemplate code.
+//   DO NOT delete the old JDBC code, just comment out the try/catch block.
+//   You will need to refer to the old JDBC code to write the new JdbcTemplate code.
 //
-//	4. Save all work, run the JdbcRewardRepositoryTests.  It should pass.
+// - Save all work, run the JdbcRewardRepositoryTests.  It should pass.
 
 public class JdbcRewardRepository implements RewardRepository {
 
@@ -54,7 +49,7 @@ public class JdbcRewardRepository implements RewardRepository {
 			ps.setBigDecimal(7, dining.getAmount().asBigDecimal());
 			ps.execute();
 		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception occured inserting reward record", e);
+			throw new RuntimeException("SQL exception occurred inserting reward record", e);
 		}
 		
 		return new RewardConfirmation(confirmationNumber, contribution);

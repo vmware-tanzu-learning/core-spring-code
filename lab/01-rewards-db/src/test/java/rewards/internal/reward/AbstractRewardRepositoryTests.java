@@ -1,27 +1,24 @@
 package rewards.internal.reward;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-import javax.sql.DataSource;
-
-import org.junit.Test;
+import common.money.MonetaryAmount;
+import common.money.Percentage;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceUtils;
 import org.springframework.transaction.annotation.Transactional;
-
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 import rewards.internal.account.Account;
 
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import static org.junit.jupiter.api.Assertions.*;
+
 
 /**
  * Tests the JDBC reward repository with a test data source to verify data
@@ -53,11 +50,11 @@ public abstract class AbstractRewardRepositoryTests {
 				.makeContribution(MonetaryAmount.valueOf("8.00"));
 		RewardConfirmation confirmation = rewardRepository.confirmReward(
 				contribution, dining);
-		assertNotNull("confirmation should not be null", confirmation);
+		assertNotNull(confirmation, "confirmation should not be null");
 		assertNotNull("confirmation number should not be null",
 				confirmation.getConfirmationNumber());
-		assertEquals("wrong contribution object", contribution,
-				confirmation.getAccountContribution());
+		assertEquals(contribution,
+				confirmation.getAccountContribution(), "wrong contribution object");
 		verifyRewardInserted(confirmation, dining);
 	}
 

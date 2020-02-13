@@ -1,15 +1,11 @@
 package rewards.internal.account;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
-import rewards.AccountContribution;
-
 import common.money.MonetaryAmount;
 import common.money.Percentage;
+import org.junit.jupiter.api.Test;
+import rewards.AccountContribution;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Unit tests for the Account class that verify Account behavior works in isolation.

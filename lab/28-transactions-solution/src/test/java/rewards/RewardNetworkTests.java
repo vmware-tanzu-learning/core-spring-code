@@ -1,31 +1,27 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import javax.sql.DataSource;
-
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.Logger;
-import common.money.MonetaryAmount;
+import javax.sql.DataSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A system test that verifies the components of the RewardNetwork application
  * work together to reward for dining successfully. Uses Spring to bootstrap the
  * application for use in a test environment.
  */
-@RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { SystemTestConfig.class })
 public class RewardNetworkTests {

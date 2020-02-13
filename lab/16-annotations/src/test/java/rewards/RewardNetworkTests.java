@@ -1,20 +1,23 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringApplication;
 import org.springframework.context.ApplicationContext;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * A system test that verifies the components of the RewardNetwork application work together to reward for dining
- * successfully. Uses Spring to bootstrap the application for use in a test environment.
+ * A system test that verifies the components of the RewardNetwork
+ * application work together to reward for dining successfully.
+ * Uses Spring to bootstrap the application for use in a test environment.
  * 
- * TODO-01: Run this test before making any changes.  It should pass.
+ * TODO-01: Run this test before making any changes.
+ * - It should pass.
+ *   Note that this test passes only when all the required
+ *   beans are correctly configured.
  */
 public class RewardNetworkTests {
 
@@ -25,13 +28,12 @@ public class RewardNetworkTests {
 
 	@BeforeEach
 	public void setUp() {
-		// Create the test configuration for the application from two classes:
+		// Create application context from TestInfrastructureConfig,
+		// which also imports RewardsConfig
 		ApplicationContext context = SpringApplication.run(TestInfrastructureConfig.class);
-
 		
-		// Get the bean to use to invoke the application
+		// Get rewardNetwork bean from the application context
 		rewardNetwork = context.getBean(RewardNetwork.class);
-
 	}
 
 	@Test

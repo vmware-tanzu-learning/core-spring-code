@@ -1,8 +1,8 @@
 package rewards.internal.restaurant;
 
 import common.money.Percentage;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 
@@ -18,7 +18,7 @@ public class JdbcRestaurantRepositoryTests {
 
 	private JdbcRestaurantRepository repository;
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		repository = new JdbcRestaurantRepository();
 		repository.setDataSource(createTestDataSource());

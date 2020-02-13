@@ -1,9 +1,12 @@
 package common.money;
 
-import java.io.Serializable;
-import java.math.BigDecimal;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 import javax.persistence.Embeddable;
+import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * A percentage. Represented as a decimal value with scale 2 between 0.00 and 1.00.
@@ -24,6 +27,7 @@ public class Percentage implements Serializable {
 	 * @param the percentage value
 	 * @throws IllegalArgumentException if the value is not between 0 and 1
 	 */
+	@JsonCreator
 	public Percentage(BigDecimal value) {
 		initValue(value);
 	}
@@ -44,7 +48,7 @@ public class Percentage implements Serializable {
 	}
 
 	private void initValue(BigDecimal value) {
-		value = value.setScale(2, BigDecimal.ROUND_HALF_UP);
+		value = value.setScale(2, RoundingMode.HALF_UP);
 		if (value.compareTo(BigDecimal.ZERO) == -1 || value.compareTo(BigDecimal.ONE) == 1) {
 			throw new IllegalArgumentException("Percentage value must be between 0 and 1; your value was " + value);
 		}
@@ -109,6 +113,7 @@ public class Percentage implements Serializable {
 	 * system.
 	 * @return this percentage as a big decimal
 	 */
+	@JsonValue
 	public BigDecimal asBigDecimal() {
 		return value;
 	}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>62-reactive-spring-solution</artifactId>
+	<organization>
+		<name>Pivotal Education</name>
+		<url>http://pivotal.io/training</url>
+	</organization>
+	<packaging>jar</packaging>
+	<parent>
+		<groupId>io.pivotal.education.core-spring</groupId>
+		<artifactId>parentProject</artifactId>
+		<version>5.0.c.RELEASE</version>
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<start-class>accounts.AccountsApplication</start-class>
+	</properties>
+	<dependencies>
+		<!-- These dependencies bring in the classroom files -->
+		<!-- Common classes: Percentage, MonetaryAmount -->
+		<dependency>
+			<groupId>io.pivotal.education.core-spring</groupId>
+			<artifactId>00-rewards-common</artifactId>
+		</dependency>
+
+		<!--
+		  // The Rewards application Defines: Account, Beneficiary, AccountManager. 
+		  // NOTE: Dependencies for JPA, Hibernate and Spring are also provided by 
+		  // this project - see rewards-db/pom.xml.
+		  -->
+		<dependency>
+			<groupId>io.pivotal.education.core-spring</groupId>
+			<artifactId>01-rewards-db</artifactId>
+		</dependency>
+		
+		<!-- Web and Spring MVC setup -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mustache</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- Automatic application restart -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+
+		<!-- Enable Spring Data JPA -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		
+		<!--  Spring reactive support -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+
+	</dependencies>
+	<build>
+		<plugins>
+			<!-- WAR Support -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

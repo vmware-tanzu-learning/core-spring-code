@@ -1,32 +1,25 @@
 package rewards;
 
-import org.junit.Assert;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
+
+import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 public class JdbcBootApplicationTests {
-	public static final String QUERY = "SELECT count(*) FROM T_ACCOUNT";
+    public static final String QUERY = "SELECT count(*) FROM T_ACCOUNT";
 
-	@Autowired JdbcTemplate jdbcTemplate;
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
-	@BeforeEach
-	public void setUp() {
-		System.out.println("setting up in junit 5");
-	}
+    @Test
+    public void testNumberOfAccount() throws Exception {
 
-	@Test
-	public void testNumberAccount() throws Exception {
+        long count = jdbcTemplate.queryForObject(QUERY, Long.class);
 
-		long count = jdbcTemplate.queryForObject(QUERY, Long.class);
-
-		Assert.assertEquals(21L, count);
-	}
+        assertThat(count).isEqualTo(21L);
+    }
 
 }

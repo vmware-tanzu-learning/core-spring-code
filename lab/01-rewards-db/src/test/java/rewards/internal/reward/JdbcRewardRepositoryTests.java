@@ -1,12 +1,12 @@
 package rewards.internal.reward;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+
 import javax.sql.DataSource;
 
-import org.junit.Assert;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Tests the JDBC reward repository with a test data source to test repository
@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
  */
 public class JdbcRewardRepositoryTests extends AbstractRewardRepositoryTests {
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		dataSource = createTestDataSource();
 		rewardRepository = new JdbcRewardRepository(dataSource);
@@ -23,8 +23,8 @@ public class JdbcRewardRepositoryTests extends AbstractRewardRepositoryTests {
 	@Test
 	@Override
 	public void testProfile() {
-		Assert.assertTrue("JDBC expected",
-				rewardRepository instanceof JdbcRewardRepository);
+		assertTrue(
+				rewardRepository instanceof JdbcRewardRepository, "JDBC expected");
 	}
 
 	private DataSource createTestDataSource() {

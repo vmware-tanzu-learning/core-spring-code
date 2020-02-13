@@ -1,13 +1,12 @@
 package accounts.internal;
 
-import javax.sql.DataSource;
-
-import org.junit.Before;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.transaction.PlatformTransactionManager;
-
 import utils.TransactionUtils;
+
+import javax.sql.DataSource;
 
 /**
  * Supports transactional testing of AccountManager implementation in both a
@@ -37,7 +36,7 @@ public abstract class AbstractDatabaseAccountManagerTests extends AbstractAccoun
 		logger.info("TRANSACTION IS : " + transactionUtils.getCurrentTransaction());
 	}
 
-	@Before
+	@BeforeEach
 	public void setUp() throws Exception {
 		// The number of test accounts in the database - a static variable so we only do
 		// this once.

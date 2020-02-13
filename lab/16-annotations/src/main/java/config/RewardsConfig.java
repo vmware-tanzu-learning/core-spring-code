@@ -1,11 +1,8 @@
 package config;
 
-import javax.sql.DataSource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import rewards.RewardNetwork;
 import rewards.internal.RewardNetworkImpl;
 import rewards.internal.account.AccountRepository;
@@ -15,16 +12,23 @@ import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.JdbcRewardRepository;
 import rewards.internal.reward.RewardRepository;
 
+import javax.sql.DataSource;
+
 /**
- * TODO-07: Add the annotation to cause component scanning.
- * Set the base package to pick up all of the classes we have annotated so far.
- * Save all changes, Re-run the RewardNetworkTests.  It should now pass.
+ * TODO-07: Perform component-scanning
+ * - Add an appropriate annotation to this class to cause component scanning.
+ * - Set the base package to pick up all the classes we have annotated so far.
+ * - Save all changes, Re-run the RewardNetworkTests.  It should now pass.
  */
 @Configuration
 public class RewardsConfig {
 
-	@Autowired
 	DataSource dataSource;
+
+	@Autowired
+	public RewardsConfig(DataSource dataSource) {
+		this.dataSource = dataSource;
+	}
 		
 	@Bean
 	public RewardNetwork rewardNetwork(){
@@ -54,7 +58,8 @@ public class RewardsConfig {
 		return repository;
 	}
 	
-	//	TODO-02: Remove all of the @Bean methods above.  Remove the @Autowired field.
-    //	Try executing the RewardNetworkTests test class. It should fail. Why?
+	// TODO-02: Remove all of the @Bean methods above.
+	// - Remove the code that autowires DataSource.
+    // - Run the RewardNetworkTests test. It should fail. Why?
 	
 }

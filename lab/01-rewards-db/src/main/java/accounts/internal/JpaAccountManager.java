@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import common.money.Percentage;
@@ -16,6 +17,7 @@ import rewards.internal.account.Account;
 /**
  * An account manager that uses JPA to find accounts.
  */
+@Repository
 public class JpaAccountManager extends AbstractAccountManager {
 
 	private EntityManager entityManager;

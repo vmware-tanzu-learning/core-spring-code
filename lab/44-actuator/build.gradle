@@ -1,0 +1,15 @@
+apply plugin: "org.springframework.boot"
+
+dependencies {
+    implementation project(':00-rewards-common')
+    implementation project(':01-rewards-db')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // TO-DO-01: Note that the Actuator starter is already here for you.
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    // TO-DO-21: Add Spring Boot security starter
+}
+
+// TO-DO-07: Add BuildInfo task to the Spring Boot Gradle plugin
+
+// TO-DO-08: Add additional properties of name, javaVersion, operatingSystem

@@ -15,11 +15,11 @@ public class DBExceptionHandlingAspect {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 
-	//	TODO-10 OPTIONAL REQUIREMENT #3: Use AOP to log an exception.
-	//  (Steps 10, 11 and 12 are optional, ignore if short of time)
+	//	TODO-10 (Optional): Use AOP to log an exception.
+	//  (Steps 10, 11 and 12 are optional, skip them if you are short on time)
 	//
-	//  (Optional): Configure this advice method to enable
-	//	logging of exceptions thrown by Repository class methods.
+	//  Configure this advice method to enable logging of
+	//	exceptions thrown by Repository class methods.
 	//	Select the advice type that seems most appropriate.
 	
 	public void implExceptionHandling(RewardDataAccessException e) {

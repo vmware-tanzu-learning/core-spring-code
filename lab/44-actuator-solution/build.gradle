@@ -1,0 +1,24 @@
+apply plugin: "org.springframework.boot"
+
+dependencies {
+    implementation project(':00-rewards-common')
+    implementation project(':01-rewards-db')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.springframework.boot:spring-boot-starter-aop'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+}
+
+springBoot  {
+    buildInfo {
+        properties {
+            name = "actuator app"
+            additional = [
+                javaVersion:     System.properties['java.version'],
+                operatingSystem: "${System.properties['os.name']} (${System.properties['os.version']})"
+            ]
+        }
+    }
+}
+

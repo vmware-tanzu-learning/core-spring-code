@@ -1,0 +1,9 @@
+dependencies {
+    implementation project(':00-rewards-common')
+    implementation project(':01-rewards-db')
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
+    implementation 'org.springframework:spring-orm'
+    implementation 'org.springframework.boot:spring-boot-devtools'
+}

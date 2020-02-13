@@ -1,19 +1,14 @@
 package accounts.web;
 
-import javax.sql.DataSource;
-
+import accounts.internal.JpaAccountManager;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import accounts.internal.JpaAccountManager;
+import javax.sql.DataSource;
 
 /**
  * A JUnit test case testing the AccountController. Inherits and runs all the
@@ -21,9 +16,7 @@ import accounts.internal.JpaAccountManager;
  * test-database and a {@link JpaAccountManager}.
  */
 @Transactional
-@RunWith(JUnitPlatform.class)
 @SpringBootTest
-@ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = TestConfig.class)  // not needed since @SpringBootTest finds it
 public class AccountControllerIntegrationTests extends
 		AbstractAccountControllerTests {

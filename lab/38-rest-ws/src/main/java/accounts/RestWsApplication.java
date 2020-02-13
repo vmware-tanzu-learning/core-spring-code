@@ -16,7 +16,7 @@ public class RestWsApplication {
         SpringApplication.run(RestWsApplication.class, args);
     }
     
-	// TODO 01: Run this Spring Boot application
+	// TODO-01: Run this Spring Boot application
 	// IMPORTANT: Make sure that you are not still running an application
 	// from a previous lab.
 	// Verify you can reach http://localhost:8080 from a browser.

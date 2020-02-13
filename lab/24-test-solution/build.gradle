@@ -1,0 +1,4 @@
+dependencies {
+    implementation project(':00-rewards-common')
+    testImplementation "simple-jndi:simple-jndi:$simpleJndiVersion"
+}

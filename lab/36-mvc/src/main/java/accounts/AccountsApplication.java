@@ -8,15 +8,15 @@ import config.AccountsConfig;
 
 /**
  * Spring Boot application.
- * <p>
- * TODO-01: Open the pom.xml for this project and check the dependencies. In
- * particular we are using the Spring Boot starters for web, jdbc and devtools.
- * <p>
+ *
+ * TODO-01: Open the pom.xml or build.gradle for this project and check the dependencies.
+ * In particular we are using the Spring Boot starters for web, jdbc and devtools.
+ *
  * TODO-02: Run the application as a Spring Boot or Java application in your
  * IDE.  You should be able to see the home page: http://localhost:8080
  * The "List account as JSON" link in the homepage won't work - you need to
  * implement it.
- * <p>
+ *
  * TODO-12: Make this server listen on port 8088.
  *  - Go to application.properties and set the appropriate property
  *  - Once the application restarts, try accessing http://localhost:8088

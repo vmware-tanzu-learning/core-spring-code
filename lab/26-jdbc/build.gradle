@@ -1,0 +1,7 @@
+dependencies {
+    implementation project(':00-rewards-common')
+}
+
+test {
+    exclude '**/JdbcRewardRepositoryTests.class'
+}

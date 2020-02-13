@@ -1,12 +1,9 @@
 package rewards.internal;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Disabled;
-
+import org.junit.jupiter.api.Test;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
@@ -14,7 +11,8 @@ import rewards.internal.account.AccountRepository;
 import rewards.internal.restaurant.RestaurantRepository;
 import rewards.internal.reward.RewardRepository;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Unit tests for the RewardNetworkImpl application logic. Configures the implementation with stub repositories
@@ -41,7 +39,9 @@ public class RewardNetworkImplTests {
 		rewardNetwork = new RewardNetworkImpl(accountRepo, restaurantRepo, rewardRepo);
 	}
 
-	// TODO-03: Remove the @Disabled annotation below. Run this JUnit test, It should pass.
+	// TODO-03: Test RewardNetworkImpl class
+	// - Remove the @Disabled annotation below.
+	// - Run this JUnit test. Verify it passes.
 	@Test
 	@Disabled
 	public void testRewardForDining() {

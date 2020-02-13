@@ -1,25 +1,19 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * A system test that verifies the components of the RewardNetwork application
  * work together to reward for dining successfully. Uses Spring to bootstrap the
  * application for use in a test environment.
  */
-@RunWith(JUnitPlatform.class)
 @SpringJUnitConfig(classes=TestInfrastructureConfig.class)
 
 // Uncomment the profile you wish to use

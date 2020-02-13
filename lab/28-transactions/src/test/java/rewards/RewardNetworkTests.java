@@ -1,35 +1,33 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import javax.sql.DataSource;
-
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import ch.qos.logback.classic.Level;
-import ch.qos.logback.classic.Logger;
-import common.money.MonetaryAmount;
+import javax.sql.DataSource;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A system test that verifies the components of the RewardNetwork application
  * work together to reward for dining successfully. Uses Spring to bootstrap the
  * application for use in a test environment.
- * 
+ *
  * TODO-04: Save all work, run RewardNetworkTests.  It should pass.
- *          Notice that we have enabled DEBUG logging in setup() below.
- *          Check the logging output. Is only ONE connection being used?
+ *  (If you are using Gradle, remove all exclude statements
+ *  from the build.gradle file before running the test.)
+ * - Notice that we have enabled DEBUG logging in setup() below.
+ * - Check the logging output. Is only ONE connection being used?
  */
-@RunWith(JUnitPlatform.class)
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { SystemTestConfig.class })
 public class RewardNetworkTests {

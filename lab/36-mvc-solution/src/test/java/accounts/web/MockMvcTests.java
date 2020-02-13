@@ -1,14 +1,6 @@
 package accounts.web;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,16 +8,16 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * Tests using Spring's MockMVC framework. This drives an MVC application in a
  * test, as if it was running in a container, so far more checks are possible
  * than with the simple {@link AccountControllerTests}.
  */
-@RunWith(JUnitPlatform.class)
-@ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = WebEnvironment.MOCK)
 @AutoConfigureMockMvc
 @ActiveProfiles("jpa")
@@ -56,7 +48,7 @@ public class MockMvcTests {
 				.perform(get("/accounts") //
 						.accept(MediaType.parseMediaType("application/json"))) //
 				.andExpect(status().isOk()) //
-				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(content().contentType("application/json"))
 				.andExpect(jsonPath("$.length()").value(expectedNumberOfAccounts));
 	}
 
@@ -82,7 +74,7 @@ public class MockMvcTests {
 		this.mockMvc.perform(get("/accounts/0") //
 				.accept(MediaType.parseMediaType("application/json"))) //
 				.andExpect(status().isOk()) //
-				.andExpect(content().contentType("application/json;charset=UTF-8"))
+				.andExpect(content().contentType("application/json"))
 				.andExpect(jsonPath("$.number").value(expectedAccountNumber))
 				.andExpect(jsonPath("$.name").value(expectedAccountName));
 	}

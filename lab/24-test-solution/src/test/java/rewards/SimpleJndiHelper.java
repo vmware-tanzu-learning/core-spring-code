@@ -1,16 +1,16 @@
 package rewards;
 
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 
 /**
  * This class sets up Simple JNDI, creates an embedded dataSource and registers
@@ -30,7 +30,7 @@ public class SimpleJndiHelper implements BeanFactoryPostProcessor {
 	public void doJndiSetup() {
 		System.setProperty(Context.INITIAL_CONTEXT_FACTORY, //
 				"org.osjava.sj.SimpleContextFactory");
-		System.setProperty("org.osjava.sj.root", "target/test-classes/jndi");
+		System.setProperty("org.osjava.sj.root", "jndi");
 		System.setProperty("org.osjava.jndi.delimiter", "/");
 		System.setProperty("org.osjava.sj.jndi.shared", "true");
 

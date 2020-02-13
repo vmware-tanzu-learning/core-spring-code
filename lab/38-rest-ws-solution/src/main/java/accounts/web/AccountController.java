@@ -1,36 +1,23 @@
 package accounts.web;
 
-import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-
+import accounts.AccountManager;
+import common.money.Percentage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import accounts.AccountManager;
-import common.money.Percentage;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
 
-/**
- * A controller handling requests for CRUD operations on Accounts and their
- * Beneficiaries.
- */
-@Controller
+import java.net.URI;
+import java.util.HashMap;
+import java.util.List;
+
+@RestController
 public class AccountController {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -49,7 +36,7 @@ public class AccountController {
 	 * Provide a list of all accounts.
 	 */
 	@GetMapping(value = "/accounts")
-	public @ResponseBody List<Account> accountSummary() {
+	public List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
 
@@ -57,7 +44,7 @@ public class AccountController {
 	 * Provide the details of an account with the given id.
 	 */
 	@GetMapping(value = "/accounts/{id}")
-	public @ResponseBody Account accountDetails(@PathVariable int id) {
+	public Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
 	}
 
@@ -77,7 +64,7 @@ public class AccountController {
 	 * given id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
-	public @ResponseBody Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
+	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
 			@PathVariable("beneficiaryName") String beneficiaryName) {
 		return retrieveAccount(accountId).getBeneficiary(beneficiaryName);
 	}
@@ -175,11 +162,11 @@ public class AccountController {
 	/**
 	 * Return a response with the location of the new resource. It's URL is
 	 * assumed to be a child of the URL just received.
-	 * <p>
+	 *
 	 * Suppose we have just received an incoming URL of, say,
-	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code>
+	 * http://localhost:8080/accounts and resourceId
 	 * is "12345". Then the URL of the new resource will be
-	 * <code>http://localhost:8080/accounts/12345</code>.
+	 * http://localhost:8080/accounts/12345.
 	 * 
 	 * @param resourceId
 	 *            Is of the new resource.

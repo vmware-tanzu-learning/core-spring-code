@@ -1,14 +1,37 @@
-build
-target
-.DS_Store
-*.iml
-pal.properties
-course.properties
-Thumbs.db
+# Operating System Files
 
-.idea
-.gradle
-.vscode
-.project
-.settings
+*.DS_Store
+Thumbs.db
+*.sw?
+.#*
+*#
+*~
+*.sublime-*
+
+# Build Artifacts
+
+.gradle/
+build/
+target/
+bin/
+dependency-reduced-pom.xml
+
+# Eclipse Project Files
+
 .classpath
+.project
+.metadata
+.loadpath
+bin/
+.settings/
+
+# IntelliJ IDEA Files
+
+*.iml
+*.ipr
+*.iws
+*.idea
+
+.vscode/
+README.html
+

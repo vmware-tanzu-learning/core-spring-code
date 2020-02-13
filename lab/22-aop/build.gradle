@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':00-rewards-common')
+    implementation "org.springframework.boot:spring-boot-starter-aop:$springBootVersion"
+    implementation "org.easymock:easymock:3.1"
+    implementation "com.jamonapi:jamon:2.81"
+}

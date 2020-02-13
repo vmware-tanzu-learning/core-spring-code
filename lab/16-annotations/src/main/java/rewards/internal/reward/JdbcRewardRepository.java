@@ -1,28 +1,23 @@
 package rewards.internal.reward;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 
-import common.datetime.SimpleDate;
+import javax.sql.DataSource;
+import java.sql.*;
 
 /**
- * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
- * confirmation record.
+ * JDBC implementation of a reward repository that
+ * records the result of a reward transaction by
+ * inserting a reward confirmation record.
  */
 
-/* TODO-04: Annotate the class with an appropriate stereotype annotation 
- * to cause component-scan to detect and load this bean.
- * Configure Dependency Injection for dataSource.  
- * Decide if you should use field level or setter injection. 
+/* TODO-04: Let this class to be found in component-scanning
+ * - Annotate the class with an appropriate stereotype annotation
+ *   to cause component-scan to detect and load this bean.
+ * - Inject dataSource. Why should you use setter injection?
  */
 
 public class JdbcRewardRepository implements RewardRepository {
@@ -55,7 +50,7 @@ public class JdbcRewardRepository implements RewardRepository {
 			ps.execute();
 			return new RewardConfirmation(confirmationNumber, contribution);
 		} catch (SQLException e) {
-			throw new RuntimeException("SQL exception occured inserting reward record", e);
+			throw new RuntimeException("SQL exception occurred inserting reward record", e);
 		} finally {
 			if (ps != null) {
 				try {

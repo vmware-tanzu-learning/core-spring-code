@@ -1,0 +1,78 @@
+buildscript {
+    ext {
+        springBootVersion = "2.2.2.RELEASE"
+        jaxbAPIVersion = "2.3.0"
+        simpleJndiVersion = "0.11.4.1"
+        springCloudStarterOauth2="2.2.0.RELEASE"
+    }
+
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+}
+
+plugins {
+    id 'org.springframework.boot' version '2.2.2.RELEASE'
+}
+
+allprojects {
+    apply plugin: 'maven-publish'
+
+    group = 'io.pivotal.education.core-spring'
+    version = '5.0.c.RELEASE'
+}
+
+subprojects {
+
+    apply plugin: 'java'
+    apply plugin: "io.spring.dependency-management"
+
+    repositories {
+        maven {
+            url = 'https://repo.maven.apache.org/maven2'
+        }
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+        }
+    }
+
+    dependencies {
+        implementation "org.springframework.boot:spring-boot-starter"
+        implementation "org.springframework.boot:spring-boot-starter-jdbc"
+        implementation "org.hsqldb:hsqldb"
+        implementation "javax.xml.bind:jaxb-api:$jaxbAPIVersion"
+
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {
+            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        }
+        // Uncomment the following if you are using old STS (3.9.x or earlier) with Gradle.
+        // After uncommenting it, you will have to reimport the whole projects again
+        // testRuntime "org.junit.platform:junit-platform-launcher:$junit5PlatformVersion"
+    }
+
+    // Uncomment the Java version you want, comment the other
+    sourceCompatibility = '1.8'
+//    sourceCompatibility = '11'
+
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+    apply plugin: 'idea'
+
+    idea {
+        module {
+            downloadJavadoc = true
+            downloadSources = true
+        }
+    }
+}

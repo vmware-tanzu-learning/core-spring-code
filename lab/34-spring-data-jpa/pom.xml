@@ -34,12 +34,11 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 
-		<!-- TODO-01 : Review the dependency for the Spring Boot JPA Starter. What does this do? -->
+		<!-- TO-DO-01 : Review the dependency for the Spring Boot JPA Starter. What does this do? -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
 
 		<dependency>
 			<groupId>org.hsqldb</groupId>

@@ -1,7 +1,6 @@
 package accounts.web;
 
-import java.security.Principal;
-
+import accounts.AccountManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ObjectRetrievalFailureException;
 import org.springframework.stereotype.Controller;
@@ -15,23 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-
-import accounts.AccountManager;
 import rewards.internal.account.Account;
-import rewards.internal.account.Beneficiary;
+
+import java.security.Principal;
 
 /**
  * A Spring MVC @Controller controller handling requests to view and modify
  * Account information.
- * <p>
+ *
  * Note that all the Account application classes are imported from the
- * <tt>rewards-db</tt> project:
- * <ul>
- * <li>Domain objects: {@link Account} and {@link Beneficiary}</li>
- * <li>Service layer: {@link AccountManager} interface and its
- * implementations</li>
- * <li>No repository layer is being used - the account-manager does
- * everything</li>
+ * rewards-db project:
+ *
+ * No repository layer is being used - the account-manager does
+ * everything
  */
 @Controller
 @RequestMapping("/accounts")

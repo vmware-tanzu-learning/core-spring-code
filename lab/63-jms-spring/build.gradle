@@ -1,0 +1,6 @@
+dependencies {
+    implementation project(':00-rewards-common')
+    implementation project(':01-rewards-db')
+    implementation "org.springframework:spring-jms"
+    implementation "org.apache.activemq:activemq-broker"
+}

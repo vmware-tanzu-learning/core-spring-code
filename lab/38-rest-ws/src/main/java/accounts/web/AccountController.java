@@ -7,7 +7,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import rewards.internal.account.Account;
 import rewards.internal.account.Beneficiary;
@@ -19,7 +18,7 @@ import java.util.List;
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  */
-@Controller
+@RestController
 public class AccountController {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
@@ -37,26 +36,26 @@ public class AccountController {
 	/**
 	 * Provide a list of all accounts.
 	 */
-	// TODO 02: Review the code that performs the following
+	// TODO-02: Review the code that performs the following
 	//   a. Respond to GET /accounts
     //   b. Return a List<Account> to be converted to the response body
 	// Access http://localhost:8080/accounts using a browser or curl
 	// and verify that you see the list of accounts in JSON format.
 	@GetMapping(value = "/accounts")
-	public @ResponseBody List<Account> accountSummary() {
+	public List<Account> accountSummary() {
 		return accountManager.getAllAccounts();
 	}
 
 	/**
 	 * Provide the details of an account with the given id.
 	 */
-	// TODO 04: Review the code that performs the following
+	// TODO-04: Review the code that performs the following
 	//   a. Respond to GET /accounts/{accountId}
     //   b. Return an Account to be converted to the response body
 	// Access http://localhost:8080/accounts/0 using a browser or curl
 	// and verify that you see the account detail in JSON format
 	@GetMapping(value = "/accounts/{id}")
-	public @ResponseBody Account accountDetails(@PathVariable int id) {
+	public Account accountDetails(@PathVariable int id) {
 		return retrieveAccount(id);
 	}
 
@@ -64,9 +63,9 @@ public class AccountController {
 	 * Creates a new Account, setting its URL as the Location header on the
 	 * response.
 	 */
-	// TODO 06: Complete this method. Add annotations to:
+	// TODO-06: Complete this method. Add annotations to:
 	//  a. Respond to POST /accounts requests
-    //  b. Automatically get an unmarshaled Account from the request
+    //  b. Create Account object from the request
 	public ResponseEntity<Void> createAccount(Account newAccount) {
 		// Saving the account also sets its entity Id
 		Account account = accountManager.save(newAccount);
@@ -79,25 +78,20 @@ public class AccountController {
 	/**
 	 * Return a response with the location of the new resource. It's URL is
 	 * assumed to be a child of the URL just received.
-	 * <p>
+	 *
 	 * Suppose we have just received an incoming URL of, say,
 	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code>
 	 * is "1111". Then the URL of the new resource will be
 	 * <code>http://localhost:8080/accounts/1111</code>.
-	 * 
-	 * @param resourceId
-	 *            Is of the new resource.
-	 * @return
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
 
-		// TODO 07: Set the Location header on a Response to the location of
-		//          the resource and return it.
-		//  a. Read the Javadoc for this method (above) to see what the URL should be
-		//  b. You will need to use ServletUriComponentsBuilder and
-		//     ResponseEntity to implement this.
-		//  c. Use ResponseEntity.created()
-		//  d. Refer to the POST example in the slides for more information
+		// TODO-07: Set the 'location' header on a Response to URI of
+		//          the newly created resource and return it.
+		//  a. Read the Javadoc for this method (above) to see what the URI should be
+		//  b. You will need to use 'ServletUriComponentsBuilder' and
+		//     'ResponseEntity' to implement this - Use ResponseEntity.created(..)
+		//  c. Refer to the POST example in the slides for more information
 
 		return null; // Return something other than null
 	}
@@ -107,7 +101,7 @@ public class AccountController {
 	 * given id.
 	 */
 	@GetMapping(value = "/accounts/{accountId}/beneficiaries/{beneficiaryName}")
-	public @ResponseBody Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
+	public Beneficiary getBeneficiary(@PathVariable("accountId") int accountId,
 			@PathVariable("beneficiaryName") String beneficiaryName) {
 		return retrieveAccount(accountId).getBeneficiary(beneficiaryName);
 	}
@@ -116,27 +110,25 @@ public class AccountController {
 	 * Adds a Beneficiary with the given name to the Account with the given id,
 	 * setting its URL as the Location header on the response.
 	 */
-	// TODO 11: Complete this method. Add annotations to:
+	// TODO-10: Complete this method. Add annotations to:
 	//   a. Respond to a POST /accounts/{accountId}/beneficiaries
 	//   b. Extract a beneficiary name from the incoming request
 	//   c. Indicate a "201 Created" status
 	public ResponseEntity<Void> addBeneficiary(long accountId, String beneficiaryName) {
-		accountManager.addBeneficiary(accountId, beneficiaryName);
-
-		// TODO 12: Create a ResponseEntity containing the location of the newly
+		
+		// TODO-11: Create a ResponseEntity containing the location of the newly
 		// created beneficiary.
-		//  a. Look at the mapping for getBeneficiary() above to see what the URL
-		//     should be.  What are we using to identify the Beneficiary?
+		//  a. Use accountManager's addBeneficiary method to add a beneficiary to an account
 		//  b. Use the entityWithLocation method - like we did for createAccount().
 		
-		return null;  // TODO 12: Modify this to return something 
+		return null;  // Modify this to return something
 	}
 
 	/**
 	 * Removes the Beneficiary with the given name from the Account with the
 	 * given id.
 	 */
-	// TODO 13: Complete this method by adding the appropriate annotations to:
+	// TODO-12: Complete this method by adding the appropriate annotations to:
 	//  a. Respond to a DELETE to /accounts/{accountId}/beneficiaries/{beneficiaryName}
 	//  b. Indicate a "204 No Content" status
 	public void removeBeneficiary(long accountId, String beneficiaryName) {
@@ -168,10 +160,12 @@ public class AccountController {
 		// just return empty 404
 	}
 
-	// TODO 18 (BONUS): Add a new exception-handling method that maps
+	// TODO-17 (BONUS): Add a new exception-handling method that maps
 	// DataIntegrityViolationExceptions to a 409 Conflict status code.
 	// Use the handleNotFound method above for guidance and/or look at
 	// the Advanced materials in the slides.
+	//
+	// Read the lab document for writing client side test.
 	
 	/**
 	 * Finds the Account with the given id, throwing an IllegalArgumentException

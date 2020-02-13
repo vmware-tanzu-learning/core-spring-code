@@ -1,31 +1,27 @@
 package rewards;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import common.money.MonetaryAmount;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import common.money.MonetaryAmount;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * A system test that verifies the components of the RewardNetwork application work together to reward for dining
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
 
-// TODO-09: Refactor to a Spring Boot Integration test
-//          There is no need to specify any configuration classes, it will
-//          find and use the configuration of RewardApplication automatically.
-//          Run the test, it should pass.
-
-@RunWith(JUnitPlatform.class) // DO NOT MODIFY
-@ExtendWith(SpringExtension.class) // DO NOT MODIFY
-@ContextConfiguration(classes={SystemTestConfig.class}) // REPLACE ME
+// TODO-08: Refactor the code to make it a Spring Boot Integration test
+//          - There is no need to specify any configuration classes,
+//            because @SpringBootTest will find and use the configuration
+//            of RewardApplication automatically.
+//          - Run the test, it should pass.
+@ExtendWith(SpringExtension.class)                      // Remove me
+@ContextConfiguration(classes={SystemTestConfig.class}) // Replace me
 public class RewardNetworkTests {
 
 	/**
