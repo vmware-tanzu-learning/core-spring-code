@@ -70,7 +70,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 //   curl -i -u spring:spring http://localhost:8080/accounts
 
 @SpringBootApplication
-// TODO-03: Import security configuration
+// TODO-03: Import security configuration class
 // - Uncomment the line below and go to SecurityConfig class
 //@Import(SecurityConfig.class)
 @EntityScan("rewards.internal")
