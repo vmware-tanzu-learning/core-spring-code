@@ -46,20 +46,28 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - If you want to use "curl", use
 //   curl -i -u superadmin:superadmin http://localhost:8080/authorities?username=superadmin
 
-// TODO-17: Verify that the newly added authentication provider works
+// TODO-16: Verify that the newly added custom UserDetailsService works
 // - Re-run this application
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/accounts
-// - Enter "mary"/"mary" and verify accounts data
+// - Enter "mary"/"mary" and verify accounts data gets displayed
 // - If you want to use "curl", use
 //   curl -i -u mary:mary http://localhost:8080/accounts
 //
 // - Close the Chrome Incognito browser and start a new one
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/accounts
-// - Enter "joe"/"joe" and verify accounts data
+// - Enter "joe"/"joe" and verify accounts data gets displayed
 // - If you want to use "curl", use
 //   curl -i -u joe:joe http://localhost:8080/accounts
+
+// TODO-20: Verify that the newly added custom AuthenticationProvider works
+// - Re-run this application
+// - Using Chrome Incognito browser, access
+//   http://localhost:8080/accounts
+// - Enter "spring"/"spring" and verify accounts data
+// - If you want to use "curl", use
+//   curl -i -u spring:spring http://localhost:8080/accounts
 
 @SpringBootApplication
 // TODO-03: Import security configuration
