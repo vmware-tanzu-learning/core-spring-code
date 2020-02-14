@@ -4,7 +4,6 @@ import accounts.AccountManager;
 import accounts.RestWsApplication;
 import accounts.services.AccountService;
 import config.SecurityConfig;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
@@ -21,16 +20,10 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-18: Perform security testing for the two users added
-//          through custom UserDetailsService
-// - Take some time to understand what each test is for
-// - Remove @Disabled annotation from each test and run it
-// - Make sure all tests pass
-
 @AutoConfigureDataJpa
 @WebMvcTest(AccountController.class)
 @ContextConfiguration(classes = {RestWsApplication.class, SecurityConfig.class})
-public class AccountControllerWithNewUsersTests {
+public class AccountControllerCustomUserDetailsServiceTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -42,7 +35,6 @@ public class AccountControllerWithNewUsersTests {
     private AccountService accountService;
 
     @Test
-    @Disabled
     @WithMockUser(username = "joe", password = "joe")
     public void accountDetails_with_joe_credentials_should_return_200() throws Exception {
 
@@ -60,7 +52,6 @@ public class AccountControllerWithNewUsersTests {
     }
 
     @Test
-    @Disabled
     @WithMockUser(username = "mary", password = "mary")
     public void accountDetails_with_mary_credentials_should_return_200() throws Exception {
 

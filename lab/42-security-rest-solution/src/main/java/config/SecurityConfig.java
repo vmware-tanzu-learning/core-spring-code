@@ -2,18 +2,25 @@ package config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
@@ -52,18 +59,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .withUser("admin").password(passwordEncoder.encode("admin")).roles("USER", "ADMIN").and()
             .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER", "ADMIN", "SUPERADMIN");
 
-        // Add custom authentication provider
-        auth.authenticationProvider(daoAuthenticationProvider(passwordEncoder));
+        // Add authentication based upon the custom UserDetailsService
+        auth.userDetailsService(new CustomUserDetailsService(passwordEncoder));
+
+        // Add authentication based upon the custom AuthenticationProvider
+        auth.authenticationProvider(new CustomAuthenticationProvider());
 
     }
 
-    public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider daoAuthenticationProvider
-                = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        daoAuthenticationProvider.setUserDetailsService(new CustomUserDetailsService(passwordEncoder));
-        return daoAuthenticationProvider;
-    }
 }
 
 class CustomUserDetailsService implements UserDetailsService {
@@ -94,3 +97,37 @@ class CustomUserDetailsService implements UserDetailsService {
     }
 }
 
+class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException {
+
+        String username = authentication.getName();
+        String password = authentication.getCredentials().toString();
+
+        if (checkCustomAuthenticationSystem(username, password)) {
+
+            return new UsernamePasswordAuthenticationToken(
+                    username, password, new ArrayList<>(Arrays.asList(new GrantedAuthority() {
+                @Override
+                public String getAuthority() {
+                    return "ROLE_ADMIN";
+                }
+            })));
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+
+    // Use custom authentication system for the verification of the
+    // passed username and password.  (Here we are just faking it.)
+    private boolean checkCustomAuthenticationSystem(String username, String password) {
+        return username.equals("spring") && password.equals("spring");
+    }
+}

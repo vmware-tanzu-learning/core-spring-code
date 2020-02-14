@@ -1,10 +1,13 @@
 package config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -59,25 +62,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         ;
 
-        // TODO-16: Add a custom authentication provider
-        // - Note that this custom authentication provider is used
-        //   in addition to the authentication provider that is
-        //   already configured
+        // TODO-15: Add authentication based upon the custom UserDetailsService
         // - Uncomment the line below and finish up the code
         //auth.
 
+        // TODO-19: Add authentication based upon the custom AuthenticationProvider
+        // - Uncomment the line below and finish up the code
+        //auth.
     }
 
-    // TODO-15: Add a method that returns a DaoAuthenticationProvider
-    // - Uncomment the code below and return valid DaoAuthenticationProvider
-    public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder) {
-        //DaoAuthenticationProvider daoAuthenticationProvider
-        //        = new DaoAuthenticationProvider();
-        //daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
-        //daoAuthenticationProvider.setUserDetailsService(new CustomUserDetailsService(passwordEncoder));
-        //return daoAuthenticationProvider;
-        return null;
-    }
 }
 
 // TODO-14: Create custom UserDetailsService
@@ -112,5 +105,45 @@ class CustomUserDetailsService implements UserDetailsService {
 //        }
 
         return builder.build();
+    }
+}
+// TODO-18: Create custom AuthenticationProvider
+// - Note that it needs to implement AuthenticationProvider interface
+// - Uncomment the commented code fragment below so that this custom
+//   AuthenticationProvider handles a user with the following credentials
+//   - "spring"/"spring" with "ROLE_ADMIN" role
+class CustomAuthenticationProvider implements AuthenticationProvider {
+
+    @Override
+    public Authentication authenticate(Authentication authentication)
+            throws AuthenticationException {
+
+//        String username = authentication.getName();
+//        String password = authentication.getCredentials().toString();
+//
+//        if (checkCustomAuthenticationSystem(username, password)) {
+//
+//            return new UsernamePasswordAuthenticationToken(
+//                    username, password, new ArrayList<>(Arrays.asList(new GrantedAuthority() {
+//                @Override
+//                public String getAuthority() {
+//                    return "ROLE_ADMIN";
+//                }
+//            })));
+//        } else {
+//            return null;
+//        }
+        return null;   // remove this line
+    }
+
+    @Override
+    public boolean supports(Class<?> authentication) {
+        return authentication.equals(UsernamePasswordAuthenticationToken.class);
+    }
+
+    // Use custom authentication system for the verification of the
+    // passed username and password.  (Here we are just faking it.)
+    private boolean checkCustomAuthenticationSystem(String username, String password) {
+        return username.equals("spring") && password.equals("spring");
     }
 }
