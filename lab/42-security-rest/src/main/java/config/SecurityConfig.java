@@ -58,6 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // - "user"/"user" with "USER" role
         // - "admin"/"admin" with "USER" and "ADMIN" roles
         // - "superadmin"/"superadmin" with "USER", "ADMIN", and "SUPERADMIN" roles
+        // (Make sure to store the password in encoded form.)
         auth.inMemoryAuthentication()
 
         ;
