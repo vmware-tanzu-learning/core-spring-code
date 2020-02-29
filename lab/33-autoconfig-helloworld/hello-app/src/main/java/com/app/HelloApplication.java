@@ -6,19 +6,12 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
-// TODO-10: Go to TO-DO-10 and TO-DO-11 in the setting.gradle file
-//          (Gradle) or in the root pom.xml (Maven)
+// TODO-10: Go to TO-DO-10 in the setting.gradle file (Gradle)
+//          or in the root pom.xml (Maven)
+// TODO-11: Go to TO-DO-11 in the same file
 
 // TODO-13: Go to TO-DO-13 in the build.gradle (Gradle) or
 //          pom.xml (Maven) of the "hello-app" project
-
-// TODO-15: Run the application and you will experience a
-//          failure of "'HelloService' that could not be found"
-// TODO-16: Fix the problem (add @Bean definition of "HelloService"
-//          with Bean id "helloService") and run it again,
-//          verify it works.
-//
-//          Once this step is done, go to TO-DO-20 below
 
 // TODO-20: Now we are ready to leverage "hello-starter" project.
 //          First, we want to configure "TypicalHelloService" bean
@@ -62,13 +55,18 @@ import org.springframework.context.annotation.Bean;
 //            @Import({HelloAutoConfig.class, HelloAppConfig.class})
 //          - Run the application. This time, you will always see
 //            "MyOwnHelloService" bean always wins.
+//
+//          This is an example of "bean overloading". From Spring Boot 2.1
+//          "bean overloading" is disabled by default and needs to be
+//          explicitly enabled.
+//          (See "application.properties" of "hello-app") 
 
 //          - Once this step is done, go to TO-DO-30 below
 
 // TODO-30: Now we would like to change the behavior through
 //          auto-configuration so that the
 //          "TypicalHelloService" gets configured only when the
-//          application did not provide its "MyOwnHelloService" bean.
+//          application did not provide its "HelloService" bean.
 //
 // TODO-31: Remove "HelloAutoConfig.class" from @Import statement
 //          So now the import statement should look like
@@ -95,18 +93,26 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class HelloApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(HelloApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(HelloApplication.class, args);
+    }
 
-	// TODO-14: Review CommandLineRunner code below
-	// in which you are going to say greeting via
-	// injected HelloService
-	@Bean
-	public CommandLineRunner commandLineRunner( HelloService helloService) {
+    // TODO-14: Review CommandLineRunner code below
+    // in which you are going to say greeting via
+    // injected HelloService
 
-		return args -> helloService.greet();
+    // TODO-15: Run this application and you will experience a
+    //          failure of "'HelloService' that could not be found"
+    // TODO-16: Fix the problem (add @Bean definition of "HelloService"
+    //          with Bean id "helloService") and run it again,
+    //          verify it works.
+    //
+    //          Once this step is done, go to TO-DO-20
+    @Bean
+    public CommandLineRunner commandLineRunner(HelloService helloService) {
 
-	}
+        return args -> helloService.greet();
+
+    }
 
 }
