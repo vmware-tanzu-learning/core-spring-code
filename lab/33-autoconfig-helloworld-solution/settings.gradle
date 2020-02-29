@@ -1,0 +1,10 @@
+// Part #1: "hello-app" uses "TypicalHelloService" bean from "hello-lib" project directly (tasks #11-16)
+//          By the way, assume "hello-lib" is 3rd-party library, which means you cannot change the source code
+// Part #2: "hello-app" uses "TypicalHelloService" bean via "hello-starter" project and also
+//          creates and configures its own "MyOwnHelloService" bean (tasks #20-26)
+// Part #3: Make "hello-starter" a Spring Boot starter with auto-configuration (tasks #30-38)
+rootProject.name = 'parentHelloServiceProject'
+include 'hello-app'
+include 'hello-starter'
+include 'hello-lib'
+

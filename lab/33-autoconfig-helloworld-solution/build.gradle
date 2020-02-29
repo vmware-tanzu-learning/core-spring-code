@@ -1,0 +1,35 @@
+buildscript {
+  ext {
+    springBootVersion = "2.2.2.RELEASE"
+  }
+
+}
+
+plugins {
+  id 'org.springframework.boot' version '2.2.2.RELEASE'
+}
+
+subprojects {
+  apply plugin: 'java'
+  apply plugin: 'io.spring.dependency-management'
+
+  group = 'com.example'
+  version = '0.0.1-SNAPSHOT'
+  sourceCompatibility = 1.8
+
+  repositories {
+    mavenCentral()
+  }
+
+  dependencyManagement {
+    imports {
+      mavenBom("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
+    }
+  }
+
+  dependencies {
+    implementation "org.springframework.boot:spring-boot-starter"
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+  }
+}
+

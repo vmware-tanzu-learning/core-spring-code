@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>io.pivotal.education.core-spring</groupId>
+    <artifactId>parentHelloServiceProject</artifactId>
+    <version>1.0</version>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.2.RELEASE</version>
+        <relativePath></relativePath>
+    </parent>
+    <properties>
+
+        <!-- Uncomment the Java version you want, comment the other -->
+        <java.version>1.8</java.version>
+        <!--<java.version>11</java.version>-->
+
+        <!-- Without this, Eclipse will flag an error on pom.xml -->
+        <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.pivotal.education.core-spring</groupId>
+                <artifactId>hello-lib</artifactId>
+                <version>1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>io.pivotal.education.core-spring</groupId>
+                <artifactId>hello-starter</artifactId>
+                <version>1.0</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <!-- Set Java version -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!--
+    // TO-DO-10: This lab is made of 3 parts
+    // Part #1: "hello-app" uses "TypicalHelloService" bean from "hello-lib" project directly (tasks #11-16)
+    // By the way, assume "hello-lib" is 3rd-party library, which means you cannot change the source code
+    // Part #2: "hello-app" uses "TypicalHelloService" bean via "hello-starter" project and also
+    // creates and configures its own "MyOwnHelloService" bean (tasks #20-26)
+    // Part #3: Make "hello-starter" a Spring Boot starter with auto-configuration (tasks #30-38) -->
+    <modules>
+        <module>hello-app</module>
+        <module>hello-starter</module>
+        <module>hello-lib</module>
+    </modules>
+</project>

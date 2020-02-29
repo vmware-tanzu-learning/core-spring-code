@@ -1,0 +1,17 @@
+apply plugin: 'org.springframework.boot'
+
+dependencies {
+    // TO-DO-13: Study "hello-app" project.
+    //          Note that it has dependency on "hello-lib" project
+    implementation project(':hello-lib')
+    // TO-DO-22: Replace implementation project(':hello-lib') above 
+    //           with implementation project(':hello-starter')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+
+

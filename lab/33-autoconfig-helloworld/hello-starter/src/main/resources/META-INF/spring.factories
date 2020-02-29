@@ -1,0 +1,7 @@
+# TO-DO-32: Note that "hello-starter" project has "spring.factories"
+#          file under src/main/resources/META-INF directory.
+#          Add "com.starter.HelloAutoConfig" (without quotes)
+#          to the right of the equal(=) sign
+#          Now Spring Boot will use "com.starter.HelloAutoConfig"
+#          as part of its auto-configuration.
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=
