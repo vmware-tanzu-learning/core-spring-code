@@ -20,7 +20,7 @@ public class AccountControllerBootTests {
 	// - Change `@MockBean` to `@Mock` for the `AccountManager dependency
 	// - Run the test and observe a test failure
 
-	// TODO-10: Write positive unit test for GET request for an accont
+	// TODO-10: Write positive unit test for GET request for an account
 	@Test
 	public void accountDetails() throws Exception {
 

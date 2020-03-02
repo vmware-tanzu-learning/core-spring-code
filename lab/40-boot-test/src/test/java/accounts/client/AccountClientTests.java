@@ -18,13 +18,14 @@ import static org.junit.jupiter.api.Assertions.*;
 // - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
 public class AccountClientTests {
 
-	// TODO-02: Autowire TestRestTemplate bean
+	// TODO-02: Autowire TestRestTemplate bean to a field
+	// - Name the field as restTemplate
 
-	// TODO-03: Update code below to use TestRestTemplate (as opposed to RestTmplate)
+	// TODO-03: Update code below to use TestRestTemplate (as opposed to RestTemplate)
 	// - Remove RestTemplate from this code
-	// - Remove BASE_URL from this code
-	// - Run the test and observe that the tests pass except
-	//   `addAndDeleteBeneficiary` test
+	// - Remove BASE_URL from this code or change it to ""
+	// - Run the tests and observe that the they pass except
+	//   "addAndDeleteBeneficiary" test
 
 	/**
 	 * server URL ending with the servlet mapping on which the application can be
@@ -59,7 +60,7 @@ public class AccountClientTests {
 	@Test
 	public void createAccount() {
 		String url = BASE_URL + "/accounts";
-		// use a unique number to avoid conflicts
+		// use a random account number to avoid conflict
 		String number = String.format("12345%4d", random.nextInt(10000));
 		Account account = new Account(number, "John Doe");
 		account.addBeneficiary("Jane Doe");
@@ -96,6 +97,6 @@ public class AccountClientTests {
 		assertThat(httpClientErrorException.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
-	// TODO-05: Observe that Tomcat server gets started as part of testing
-	// in the console.
+	// TODO-05: Observe a log message in the console indicating Tomcat started as part of testing
+
 }
