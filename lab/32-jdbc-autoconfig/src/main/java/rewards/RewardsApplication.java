@@ -48,6 +48,7 @@ public class RewardsApplication {
     //             then come back here.
     //           - Run the application
     //           - In the console output, find "CONDITIONS EVALUATION REPORT"
-    //             What is the first positive match? REMEMBER its name.
+    //             Note that "DataSourceAutoConfiguration" is mentioned under
+	//             positive match.
 
 }

@@ -7,6 +7,16 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 // TODO-06: Get yourself familiarized with various testing utility classes
 // as described in the lab document
+// - BDDMockito: given(..), willReturn(..), willThrow(..)
+//   https://www.javadoc.io/doc/org.mockito/mockito-core/2.21.0/org/mockito/BDDMockito.html
+// - MockMvc: perform(..)
+//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/MockMvc.html
+// - ResultActions: andExpect(..)
+//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/ResultActions.html
+// - MockMvcRequestBuilders: get(..), post(..), put(..), delete(..)
+//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.html
+// - MockMvcResultMatchers: status(), content(), jsonPath(..), header()
+//   https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/web/servlet/result/MockMvcResultMatchers.html
 
 // TODO-07: Use `@WebMvcTest` and `@AutoConfigureDataJpa` annotations
 @ExtendWith(SpringExtension.class)

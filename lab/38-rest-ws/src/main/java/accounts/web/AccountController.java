@@ -80,18 +80,17 @@ public class AccountController {
 	 * assumed to be a child of the URL just received.
 	 *
 	 * Suppose we have just received an incoming URL of, say,
-	 * <code>http://localhost:8080/accounts</code> and <code>resourceId</code>
-	 * is "1111". Then the URL of the new resource will be
-	 * <code>http://localhost:8080/accounts/1111</code>.
+	 *   http://localhost:8080/accounts and resourceId is "1111".
+	 * Then the URL of the new resource will be
+	 *   http://localhost:8080/accounts/1111.
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
 
 		// TODO-07: Set the 'location' header on a Response to URI of
 		//          the newly created resource and return it.
-		//  a. Read the Javadoc for this method (above) to see what the URI should be
-		//  b. You will need to use 'ServletUriComponentsBuilder' and
+		//  a. You will need to use 'ServletUriComponentsBuilder' and
 		//     'ResponseEntity' to implement this - Use ResponseEntity.created(..)
-		//  c. Refer to the POST example in the slides for more information
+		//  b. Refer to the POST example in the slides for more information
 
 		return null; // Return something other than null
 	}
@@ -161,7 +160,7 @@ public class AccountController {
 	}
 
 	// TODO-17 (BONUS): Add a new exception-handling method that maps
-	// DataIntegrityViolationExceptions to a 409 Conflict status code.
+	// DataIntegrityViolationException to a 409 Conflict status code.
 	// Use the handleNotFound method above for guidance and/or look at
 	// the Advanced materials in the slides.
 	//

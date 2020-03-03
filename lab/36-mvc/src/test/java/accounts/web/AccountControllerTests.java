@@ -50,14 +50,14 @@ public class AccountControllerTests {
 	public void testHandleDetailsRequest() {
 		// TODO-08a: Implement test code which calls the accountDetails() method on the controller.
 		//  - The accountDetails() method does not exist yet.  We will implement it in the next step.
-		//  - It will take one parameter - a long entityId
+		//  - It will take one parameter - use expectedAccountId defined above
 		//  - It will return an Account.
 		//  - This class won't compile until you modify the AccountController in TO DO 09
 
 		// TODO-08b: Define the following assertions:
 		// The account is not null
-		// The account id matches expectedAccountId (see above)
-		// The account number matches expectedAccountNumber  (see above)
+		// The account id matches expectedAccountId
+		// The account number matches expectedAccountNumber
 	}
 
 }
