@@ -69,6 +69,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 }
 
+// Optional exercise - Do the remaining steps only if you have extra time
 // TODO-13: Create custom UserDetailsService
 // - Note that it needs to implement loadUserByUsername method
 //   of the UserDetailsService interface
