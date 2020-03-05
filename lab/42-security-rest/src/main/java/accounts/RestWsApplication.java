@@ -26,7 +26,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
 //   and observe the successful response
 
-// TODO-12: Test the method security using browser or curl
+// TODO-11: Test the method security using browser or curl
 // - Re-run this application
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/authorities?username=user
@@ -46,7 +46,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - If you want to use "curl", use
 //   curl -i -u superadmin:superadmin http://localhost:8080/authorities?username=superadmin
 
-// TODO-16: Verify that the newly added custom UserDetailsService works
+// TODO-15: Verify that the newly added custom UserDetailsService works
 // - Re-run this application
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/accounts
@@ -61,7 +61,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - If you want to use "curl", use
 //   curl -i -u joe:joe http://localhost:8080/accounts
 
-// TODO-20: Verify that the newly added custom AuthenticationProvider works
+// TODO-19: Verify that the newly added custom AuthenticationProvider works
 // - Re-run this application
 // - Using Chrome Incognito browser, access
 //   http://localhost:8080/accounts

@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class AccountService {
 
-    // TODO-10: Add method security annotation to a method
+    // TODO-09: Add method security annotation to a method
     // - Add a proper annotation to this method so that it is
     //   permitted to be invoked only when both of following
     //   two run-time conditions are met:
@@ -23,7 +23,7 @@ public class AccountService {
 
     public List<String> getAuthoritiesForUser(String username) {
 
-        // TODO-09: Retrieve authorities (roles) for the logged-in user
+        // TODO-08: Retrieve authorities (roles) for the logged-in user
         // - Replace null below with proper code
         // - Restart the application
         // - Using Chrome Incognito browser or "curl", access

@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-21: Perform security testing for the user added
+// TODO-20: Perform security testing for the user added
 //          through custom AuthenticationProvider
 // - Remove @Disabled annotation from the test and run it
 // - Make sure the test passes

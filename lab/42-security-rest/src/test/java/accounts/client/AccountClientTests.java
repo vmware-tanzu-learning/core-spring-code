@@ -18,7 +18,7 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.*;
 
-// TODO-08a: Perform end-to-end security testing against a running server
+// TODO-07a: Perform end-to-end security testing against a running server
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
@@ -98,7 +98,7 @@ public class AccountClientTests {
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.CREATED);
     }
 
-    // TODO-08b: Write a test that verifies that "user"/"user"
+    // TODO-07b: Write a test that verifies that "user"/"user"
     //          is not permitted to create a new Account
     @Test
     public void createAccount_using_user_should_return_403() throws Exception {

@@ -27,7 +27,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-07a: Perform security testing against MVC layer
+// TODO-06a: Perform security testing against MVC layer
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
@@ -175,7 +175,7 @@ public class AccountControllerTests {
 
     }
 
-    // TODO-07b: Write a test that verifies that a user with "USER" role
+    // TODO-06b: Write a test that verifies that a user with "USER" role
     //          is not permitted to perform POST operation
     @Test
     public void createAccount_with_USER_role_should_return_403() throws Exception {

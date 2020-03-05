@@ -5,6 +5,7 @@ import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -15,25 +16,19 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-// TODO-04: Enable web security
-// - Note that you are going to configure Spring security
-//   (authentication and authorization) through this class
-// - Add an appropriate annotation to this class
-// - Note that this class extends WebSecurityConfigurerAdapter class
-
-// TODO-11: Enable global method security
+// TODO-10: Enable global method security
 // - Add an appropriate annotation to this class
 // - Make sure "prePostEnabled" attribute is set to true
 
 @Configuration
-
+@EnableWebSecurity      // Redundant in Spring Boot app
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-            // TODO-05: Configure authorization
+            // TODO-04: Configure authorization
             // - Allow only "SUPERADMIN" role can perform "delete" operation
             //   against account and beneficiary
             // - Allow only "ADMIN" or "SUPERADMIN" role can perform "post"
@@ -54,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
-        // TODO-06: Add three users with corresponding roles:
+        // TODO-05: Add three users with corresponding roles:
         // - "user"/"user" with "USER" role
         // - "admin"/"admin" with "USER" and "ADMIN" roles
         // - "superadmin"/"superadmin" with "USER", "ADMIN", and "SUPERADMIN" roles
@@ -63,18 +58,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         ;
 
-        // TODO-15: Add authentication based upon the custom UserDetailsService
+        // TODO-14: Add authentication based upon the custom UserDetailsService
         // - Uncomment the line below and finish up the code
         //auth.
 
-        // TODO-19: Add authentication based upon the custom AuthenticationProvider
+        // TODO-18: Add authentication based upon the custom AuthenticationProvider
         // - Uncomment the line below and finish up the code
         //auth.
     }
 
 }
 
-// TODO-14: Create custom UserDetailsService
+// TODO-13: Create custom UserDetailsService
 // - Note that it needs to implement loadUserByUsername method
 //   of the UserDetailsService interface
 // - Uncomment the commented code fragment below so that this custom
@@ -108,7 +103,7 @@ class CustomUserDetailsService implements UserDetailsService {
         return builder.build();
     }
 }
-// TODO-18: Create custom AuthenticationProvider
+// TODO-17: Create custom AuthenticationProvider
 // - Note that it needs to implement AuthenticationProvider interface
 // - Uncomment the commented code fragment below so that this custom
 //   AuthenticationProvider handles a user with the following credentials

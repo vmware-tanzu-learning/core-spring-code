@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity  // Redundant in Spring Boot app
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
