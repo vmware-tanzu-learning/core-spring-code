@@ -13,24 +13,24 @@ import javax.sql.DataSource;
  *   Accounts, Restaurants and Rewards. Their bean names should be
  *   accountRepository, restaurantRepository and rewardRepository.
  *
- * TODO-03: Each repository has a DataSource property to set, but the DataSource
- * is defined elsewhere (TestInfrastructureConfig.java), so you will need to
- * define a constructor for this class that accepts a dataSource parameter.
- * As it is the only constructor, Spring will automatically call it, so
- * @Autowired is optional.
+ * TODO-03: Inject DataSource through constructor injection
+ * - Each repository has a DataSource property to set, but the DataSource
+ *   is defined elsewhere (TestInfrastructureConfig.java), so you will need to
+ *   define a constructor for this class that accepts a DataSource parameter.
+ * - As it is the only constructor, @Autowired is optional.
  *
  * TODO-04: Implement each @Bean method to contain the code needed to
- * instantiate its object and set its dependencies. Be careful - do you need to
- * use a constructor or call a setter to set dependencies? If you aren't sure,
- * refer to the diagram in the lab-instructions for more details.
- *
- * Note that return type of each bean method should be an interface not
- * an implementation type.
+ * instantiate its object and set its dependencies.
+ * - Be careful: do you need to use a constructor or
+ *   call a setter to set dependencies? If you aren't sure,
+ *   refer to the diagram in the lab-instructions for more details.
+ * - Note that return type of each bean method should be an interface
+ *   not an implementation.
  */
 
 public class RewardsConfig {
 
-	// TODO-03: Set this by adding a constructor.
+	// Set this by adding a constructor.
 	private DataSource dataSource;
 
 }
