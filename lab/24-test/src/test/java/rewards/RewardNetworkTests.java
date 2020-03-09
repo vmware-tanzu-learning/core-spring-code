@@ -41,12 +41,12 @@ import static org.junit.jupiter.api.Assertions.*;
  *   (such as StubAccountRepository)
  * - Add @ActiveProfiles to this test class (below) and specify the "stub" profile.
  * - Run the current test, it should pass.
- * 	 Examine the logs, they should indicate "stub" repositories were used.
+ * - Examine the logs, they should indicate "stub" repositories were used.
  */
 
 /* TODO-04: Change active-profile to "jdbc".
  * - Rerun the test, it should pass.
- *   Which repository implementations are being used now?
+ * - Check which repository implementations are being used now.
  */
 
 /* TODO-05: Assign beans to the "local" profile
