@@ -9,7 +9,7 @@ import rewards.internal.monitor.jamon.JamonMonitorFactory;
 // TODO-04: Update Aspect related configuration
 // - Add a class-level annotation to scan for components
 //	 located in the rewards.internal.aspects package.
-// - Add @EnableAutoConfiguration to this class to instruct Spring
+// - Add @EnableAspectJAutoProxy to this class to instruct Spring
 //	 to process beans that have the @Aspect annotation.
 //   (Note that this annotation is redundant for Spring Boot
 //    application since it will be automatically added through
