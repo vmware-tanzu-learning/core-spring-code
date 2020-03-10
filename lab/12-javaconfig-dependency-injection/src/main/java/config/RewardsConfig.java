@@ -6,24 +6,30 @@ import javax.sql.DataSource;
  * TODO-01: Make this class a Spring configuration class
  * - Use an appropriate annotation.
  *
- * TODO-02: Define four empty @Bean methods, one for the reward-network and
- * three for the repositories.
- * - The RewardNetworkImpl should have the bean name rewardNetwork.
- * - We have provided three JDBC repository implementations for
- *   Accounts, Restaurants and Rewards. Their bean names should be
- *   accountRepository, restaurantRepository and rewardRepository.
+ * TODO-02: Define four empty @Bean methods, one for the
+ *          reward-network and three for the repositories.
+ * - The names of the beans should be:
+ *   - rewardNetwork
+ *   - accountRepository
+ *   - restaurantRepository
+ *   - rewardRepository
  *
  * TODO-03: Inject DataSource through constructor injection
- * - Each repository has a DataSource property to set, but the DataSource
- *   is defined elsewhere (TestInfrastructureConfig.java), so you will need to
- *   define a constructor for this class that accepts a DataSource parameter.
+ * - Each repository implementation has a DataSource
+ *   property to be set, but the DataSource is defined
+ *   elsewhere (TestInfrastructureConfig.java), so you
+ *   will need to define a constructor for this class
+ *   that accepts a DataSource parameter.
  * - As it is the only constructor, @Autowired is optional.
  *
- * TODO-04: Implement each @Bean method to contain the code needed to
- * instantiate its object and set its dependencies.
- * - Be careful: do you need to use a constructor or
- *   call a setter to set dependencies? If you aren't sure,
- *   refer to the diagram in the lab-instructions for more details.
+ * TODO-04: Implement each @Bean method to contain the code
+ *          needed to instantiate its object and set its
+ *          dependencies
+ * - You can create beans from the following implementation classes
+ *   - rewardNetwork bean from rewardNetworkImpl class
+ *   - accountRepository bean from JdbcAccountRepository class
+ *   - restaurantRepository bean from JdbcRestaurantRepository class
+ *   - rewardRepository bean from JdbcRewardRepository class
  * - Note that return type of each bean method should be an interface
  *   not an implementation.
  */
