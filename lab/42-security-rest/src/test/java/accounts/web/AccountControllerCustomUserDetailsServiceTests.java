@@ -21,7 +21,7 @@ import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-16: Perform security testing for the two users added
+// TODO-16 (Optional): Perform security testing for the two users added
 //          through custom UserDetailsService
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it

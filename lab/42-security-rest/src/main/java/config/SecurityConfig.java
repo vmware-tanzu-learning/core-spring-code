@@ -58,11 +58,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         ;
 
-        // TODO-14: Add authentication based upon the custom UserDetailsService
+        // TODO-14 (Optional): Add authentication based upon the custom UserDetailsService
         // - Uncomment the line below and finish up the code
         //auth.
 
-        // TODO-18: Add authentication based upon the custom AuthenticationProvider
+        // TODO-18 (Optional): Add authentication based upon the custom AuthenticationProvider
         // - Uncomment the line below and finish up the code
         //auth.
     }
@@ -70,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 }
 
 // Optional exercise - Do the remaining steps only if you have extra time
-// TODO-13: Create custom UserDetailsService
+// TODO-13 (Optional): Create custom UserDetailsService
 // - Note that it needs to implement loadUserByUsername method
 //   of the UserDetailsService interface
 // - Uncomment the commented code fragment below so that this custom
@@ -104,7 +104,7 @@ class CustomUserDetailsService implements UserDetailsService {
         return builder.build();
     }
 }
-// TODO-17: Create custom AuthenticationProvider
+// TODO-17 (Optional): Create custom AuthenticationProvider
 // - Note that it needs to implement AuthenticationProvider interface
 // - Uncomment the commented code fragment below so that this custom
 //   AuthenticationProvider handles a user with the following credentials
