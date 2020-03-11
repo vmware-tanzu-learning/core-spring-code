@@ -64,8 +64,8 @@ public class AccountController {
 	 * response.
 	 */
 	// TODO-06: Complete this method. Add annotations to:
-	//  a. Respond to POST /accounts requests
-    //  b. Create Account object from the request
+	// a. Respond to POST /accounts requests
+    // b. Create Account object from the request
 	public ResponseEntity<Void> createAccount(Account newAccount) {
 		// Saving the account also sets its entity Id
 		Account account = accountManager.save(newAccount);
@@ -88,9 +88,9 @@ public class AccountController {
 
 		// TODO-07: Set the 'location' header on a Response to URI of
 		//          the newly created resource and return it.
-		//  a. You will need to use 'ServletUriComponentsBuilder' and
+		// a. You will need to use 'ServletUriComponentsBuilder' and
 		//     'ResponseEntity' to implement this - Use ResponseEntity.created(..)
-		//  b. Refer to the POST example in the slides for more information
+		// b. Refer to the POST example in the slides for more information
 
 		return null; // Return something other than null
 	}
@@ -110,9 +110,9 @@ public class AccountController {
 	 * setting its URL as the Location header on the response.
 	 */
 	// TODO-10: Complete this method. Add annotations to:
-	//   a. Respond to a POST /accounts/{accountId}/beneficiaries
-	//   b. Extract a beneficiary name from the incoming request
-	//   c. Indicate a "201 Created" status
+	// a. Respond to a POST /accounts/{accountId}/beneficiaries
+	// b. Extract a beneficiary name from the incoming request
+	// c. Indicate a "201 Created" status
 	public ResponseEntity<Void> addBeneficiary(long accountId, String beneficiaryName) {
 		
 		// TODO-11: Create a ResponseEntity containing the location of the newly
@@ -128,8 +128,8 @@ public class AccountController {
 	 * given id.
 	 */
 	// TODO-12: Complete this method by adding the appropriate annotations to:
-	//  a. Respond to a DELETE to /accounts/{accountId}/beneficiaries/{beneficiaryName}
-	//  b. Indicate a "204 No Content" status
+	// a. Respond to a DELETE to /accounts/{accountId}/beneficiaries/{beneficiaryName}
+	// b. Indicate a "204 No Content" status
 	public void removeBeneficiary(long accountId, String beneficiaryName) {
 		Account account = accountManager.getAccount(accountId);
 		if (account == null) {
@@ -159,12 +159,9 @@ public class AccountController {
 		// just return empty 404
 	}
 
-	// TODO-17 (BONUS): Add a new exception-handling method that maps
-	// DataIntegrityViolationException to a 409 Conflict status code.
-	// Use the handleNotFound method above for guidance and/or look at
-	// the Advanced materials in the slides.
-	//
-	// Read the lab document for writing client side test.
+	// TODO-17 (Optional): Add a new exception-handling method
+	// - It should map DataIntegrityViolationException to a 409 Conflict status code.
+	// - Use the handleNotFound method above for guidance.
 	
 	/**
 	 * Finds the Account with the given id, throwing an IllegalArgumentException
