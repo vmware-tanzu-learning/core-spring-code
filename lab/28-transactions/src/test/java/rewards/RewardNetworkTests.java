@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * work together to reward for dining successfully. Uses Spring to bootstrap the
  * application for use in a test environment.
  *
- * TODO-04: Save all work, run RewardNetworkTests.  It should pass.
+ * TODO-04: Save all work, run this RewardNetworkTests below.  It should pass.
  *  (If you are using Gradle, remove all exclude statements
  *  from the build.gradle file before running the test.)
  * - Notice that we have enabled DEBUG logging in setup() below.
