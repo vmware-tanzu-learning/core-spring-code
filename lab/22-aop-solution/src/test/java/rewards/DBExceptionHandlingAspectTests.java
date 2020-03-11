@@ -3,6 +3,7 @@ package rewards;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import rewards.CaptureSystemOutput.OutputCapture;
@@ -17,6 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { DbExceptionTestConfig.class })
+@EnableAutoConfiguration
 public class DBExceptionHandlingAspectTests {
 
 	@Autowired
