@@ -1,13 +1,10 @@
 package accounts;
 
 import config.AppConfig;
-import org.hsqldb.util.DatabaseManagerSwing;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.annotation.Import;
-
-import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 @Import(AppConfig.class)
@@ -24,9 +21,9 @@ public class RestWsApplication {
     }
 
     // Start HSQLDB client swing app
-    @PostConstruct
-    public void getDbManager(){
-        DatabaseManagerSwing.main(
-                new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
-    }
+//    @PostConstruct
+//    public void getDbManager(){
+//        DatabaseManagerSwing.main(
+//                new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
+//    }
 }
