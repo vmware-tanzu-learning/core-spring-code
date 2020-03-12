@@ -25,9 +25,7 @@ import org.springframework.context.annotation.Bean;
 //          pom.xml (Maven) of the "hello-app" project
 //
 // TODO-25: Import the configuration class of "hello-starter"
-//          - Add the following statement
-//            @Import({HelloAutoConfig.class})
-//            just below @SpringBootApplication statement
+//          - Add @Import({HelloAutoConfig.class})
 //          - Run the application
 //          - Note that The "HelloService" bean ("TypicalHelloService") is
 //            now contributed by the "hello-starter".
@@ -38,7 +36,8 @@ import org.springframework.context.annotation.Bean;
 //          - Create "MyOwnHelloService" Bean under "com.app" directory
 //          - Create new configuration class called
 //            "MyOwnConfig" under "com.config" package
-//          - Configure "MyOwnHelloService" bean using @Bean method.
+//          - Configure "MyOwnHelloService" bean using @Bean method
+//            using "helloService" as name of the bean
 //          - Import "MyOwnConfig" configuration class by replacing
 //            existing @Import statement with
 //            @Import({MyOwnConfig.class, HelloAutoConfig.class})
