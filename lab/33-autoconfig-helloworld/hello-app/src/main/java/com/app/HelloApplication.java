@@ -37,11 +37,11 @@ import org.springframework.context.annotation.Bean;
 // TODO-26: Now we are going to define application provided HelloService bean
 //          - Create "MyOwnHelloService" Bean under "com.app" directory
 //          - Create new configuration class called
-//            "HelloAppConfig" under "com.config" package
+//            "MyOwnConfig" under "com.config" package
 //          - Configure "MyOwnHelloService" bean using @Bean method.
-//          - Import "HelloAppConfig" configuration class by replacing
+//          - Import "MyOwnConfig" configuration class by replacing
 //            existing @Import statement with
-//            @Import({HelloAppConfig.class, HelloAutoConfig.class})
+//            @Import({MyOwnConfig.class, HelloAutoConfig.class})
 //          - Run the application and observe that "TypicalHelloService"
 //            always wins.
 //
@@ -52,7 +52,7 @@ import org.springframework.context.annotation.Bean;
 //
 //          - Change the order of bean loading by switching the
 //            two configuration classes like
-//            @Import({HelloAutoConfig.class, HelloAppConfig.class})
+//            @Import({HelloAutoConfig.class, MyOwnConfig.class})
 //          - Run the application. This time, you will always see
 //            "MyOwnHelloService" bean always wins.
 //
@@ -70,7 +70,7 @@ import org.springframework.context.annotation.Bean;
 //
 // TODO-31: Remove "HelloAutoConfig.class" from @Import statement
 //          So now the import statement should look like
-//          @Import({HelloAppConfig.class})
+//          @Import({MyOwnConfig.class})
 //
 // TODO-32: Go to TO-DO-32 in the
 //          src/main/resources/META-INF/spring.factories file
