@@ -106,10 +106,10 @@ public class AccountClientTests {
 		HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 
-			//	TODO-16: Try to retrieve the new Beneficiary again.
-			//  - Run this test, it should pass because we expect a 404 Not Found
-			//	  If not, it is likely your delete in the previous step
-			//	  was not successful.
+			// TODO-16: Try to retrieve the new Beneficiary again.
+			// - Run this test, it should pass because we expect a 404 Not Found
+			//   If not, it is likely your delete in the previous step
+			//   was not successful.
 
 		});
 		assertEquals(HttpStatus.NOT_FOUND, httpClientErrorException.getStatusCode());
