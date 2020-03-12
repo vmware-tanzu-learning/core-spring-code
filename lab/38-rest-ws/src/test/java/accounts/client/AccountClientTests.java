@@ -27,10 +27,10 @@ public class AccountClientTests {
 	@Test
 	@Disabled
 	public void listAccounts() {
-		//	TODO-03: Remove the @Disabled on this test method.
-		//  - Use the restTemplate to retrieve an array containing all Account instances.
-		//  - Use BASE_URL to help define the URL you need: BASE_URL + "/..."
-		//	- Run the test and ensure that it passes.
+		// TODO-03: Remove the @Disabled on this test method.
+		// - Use the restTemplate to retrieve an array containing all Account instances.
+		// - Use BASE_URL to help define the URL you need: BASE_URL + "/..."
+		// - Run the test and ensure that it passes.
 		Account[] accounts = null; // Modify this line to use the restTemplate
 		
 		assertNotNull(accounts);
@@ -43,9 +43,9 @@ public class AccountClientTests {
 	@Test
 	@Disabled
 	public void getAccount() {
-		//  TODO-05: Remove the @Disabled on this test method.
-		//  - Use the restTemplate to retrieve the Account with id 0 using a URI template
-		//  - Run the test and ensure that it passes.
+		// TODO-05: Remove the @Disabled on this test method.
+		// - Use the restTemplate to retrieve the Account with id 0 using a URI template
+		// - Run the test and ensure that it passes.
 		Account account = null; // Modify this line to use the restTemplate
 		
 		assertNotNull(account);
