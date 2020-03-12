@@ -71,7 +71,7 @@ public class ReactiveWebClientTests {
 	/**
 	 * Fetch an Account using RestTemplate - note that the thread running this test
 	 * is the same as the thread used by the Account constructor.
-	 * <p>
+	 *
 	 * RestTemplate runs in the SAME thread SYNCHRONOUSLY.
 	 */
 	@Test
@@ -92,7 +92,7 @@ public class ReactiveWebClientTests {
 	 * Fetch an Account using Spring's Reactive WebClient - note that the thread
 	 * running this test is NOT the same as the thread used by the Account
 	 * constructor.
-	 * <p>
+	 *
 	 * WebClient processes the HTTP response in a DIFFERENT thread ASYNCHRONOUSLY.
 	 */
 	@Test
@@ -109,6 +109,7 @@ public class ReactiveWebClientTests {
 
 		// Wait for account to be returned
 		Account account = result.block();
+
 		logger.info("Account: " + account);
 		assertEquals((Long) id, account.getEntityId());
 		assertEquals("Keith and Keri Donald", account.getName());
@@ -130,7 +131,7 @@ public class ReactiveWebClientTests {
 	 * Fetch an Account using Spring's Reactive WebClient - note that the thread
 	 * running this test is NOT the same as the thread used by the Account
 	 * constructor.
-	 * <p>
+	 *
 	 * WebClient processes the HTTP response in a DIFFERENT thread ASYNCHRONOUSLY.
 	 */
 	@Test

@@ -24,7 +24,7 @@ public class SimpleReactiveTests {
 
 	/**
 	 * This test shows the basic use of Java Streams and Reactor Flux.
-	 * <p>
+	 *
 	 * TODO-01: Reactive introduction: Run the test and note the logging output.
 	 * Each log line starts with [thread-name] such as [main] for the main thread.
 	 */

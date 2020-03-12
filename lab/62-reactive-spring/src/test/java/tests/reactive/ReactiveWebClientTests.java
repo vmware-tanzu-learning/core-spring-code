@@ -23,9 +23,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * Reactive tests comparing RestTemplate with WebClient.
  */
 // TODO-02: To work, we need a REST server to talk to.
-// * This project contains the Accounts REST server.
-// * Run this project as a Spring Boot App
-// * http://localhost:8080/accounts should give you a list of accounts in JSON
+// - Run this project as a Spring Boot App
+// - Access http://localhost:8080/accounts and verify
+//   you can see list of accounts JSON format
 
 public class ReactiveWebClientTests {
 
@@ -88,11 +88,11 @@ public class ReactiveWebClientTests {
 		Account account = null;
 
 		// TODO-03: Create a RestTemplate and use it to fetch an account.
-		// * The URL you need is SERVER_URL + "/accounts/{id}" and id is defined above.
-		// * Remove @Disabled from the method
-		// Run the test, make sure it passes
-		// Again check the log output - note the Account creation is logged by the same
-		// thread
+		// - Note that the URL you need is SERVER_URL + "/accounts/{id}" and id is defined above.
+		// - Remove @Disabled from the method
+		// - Run the test, and make sure it passes
+		// - Check the log output - note the Account creation is logged
+		//   by the same thread
 
 		logger.info("Account: " + account);
 		assertEquals((Long) id, account.getEntityId());
@@ -104,7 +104,7 @@ public class ReactiveWebClientTests {
 	 * Fetch an Account using Spring's Reactive WebClient - note that the thread
 	 * running this test is NOT the same as the thread used by the Account
 	 * constructor.
-	 * <p>
+	 *
 	 * WebClient processes the HTTP response in a DIFFERENT thread ASYNCHRONOUSLY.
 	 */
 	@Test
@@ -120,10 +120,10 @@ public class ReactiveWebClientTests {
 		// * Retrieve the data and convert the body of the response to a Mono<Account>
 		// * Refer to your Student Handout PDF for help
 		// Then block until the account is available
-		// Remove @Disabled from the method
-		// Run the test, make sure it passes
-		// Again check the log output - note the Account creation is logged by a
-		// DIFFERENT thread
+		// - Remove @Disabled from the method
+		// - Run the test, and make sure it passes
+		// - Again check the log output - note the Account creation is
+		//   logged by a DIFFERENT thread
 
 		logger.info("Account: " + account);
 		assertEquals((Long) id, account.getEntityId());
@@ -135,7 +135,7 @@ public class ReactiveWebClientTests {
 	 * Fetch all Accounts using Spring's Reactive WebClient - note that the thread
 	 * running this test is NOT the same as the thread used by the Account
 	 * constructor.
-	 * <p>
+	 *
 	 * WebClient processes the HTTP responses in DIFFERENT threads ASYNCHRONOUSLY.
 	 */
 	@Test
@@ -169,17 +169,17 @@ public class ReactiveWebClientTests {
 
 	/**
 	 * Compare RestTemplate and WebClient
-	 * <p>
+	 *
 	 * TODO-09: Remove the @Disabled annotation below and run the test. The
 	 * RestTemplate is bigger - no multi-threading overhead.
-	 * <p>
+	 *
 	 * TODO-10: Go to AccountController - look for TO DO 10
-	 * <p>
+	 *
 	 * TODO-11: Run this test again. Now the WebClient should be about 10x faster.
 	 * When the system you are making requests for is slow, the WebClient is faster
 	 * because it runs multiple requests in parallel. The RestTemplate has to wait
 	 * for each to finish because it is running sequentially,
-	 * <p>
+	 *
 	 * Congratulations, you have finished the lab.
 	 */
 	@Test
