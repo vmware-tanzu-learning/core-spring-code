@@ -26,6 +26,20 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
 //   and observe the successful response
 
+@SpringBootApplication
+// TODO-03: Import security configuration class
+// - Uncomment the line below and go to SecurityConfig class
+//@Import(SecurityConfig.class)
+@EntityScan("rewards.internal")
+public class RestWsApplication {
+
+    public static void main(String[] args) {
+
+        SpringApplication.run(RestWsApplication.class, args);
+    }
+
+}
+
 // TODO-11: Test the method security using browser or curl
 // - Re-run this application
 // - Using Chrome Incognito browser, access
@@ -68,17 +82,3 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Enter "spring"/"spring" and verify accounts data
 // - If you want to use "curl", use
 //   curl -i -u spring:spring http://localhost:8080/accounts
-
-@SpringBootApplication
-// TODO-03: Import security configuration class
-// - Uncomment the line below and go to SecurityConfig class
-//@Import(SecurityConfig.class)
-@EntityScan("rewards.internal")
-public class RestWsApplication {
-
-    public static void main(String[] args) {
-
-        SpringApplication.run(RestWsApplication.class, args);
-    }
-
-}
