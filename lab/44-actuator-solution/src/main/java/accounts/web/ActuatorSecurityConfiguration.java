@@ -25,7 +25,7 @@ public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter{
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                 .requestMatchers(EndpointRequest.to("health", "info")).permitAll()
+                 .requestMatchers(EndpointRequest.to("health", "info", "prometheus")).permitAll()
                  .requestMatchers(EndpointRequest.to("conditions")).hasRole("ADMIN")
                  .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
                  .anyRequest().authenticated()
