@@ -57,7 +57,6 @@ public class AccountController {
 	 * response.
 	 */
 	@PostMapping(value = "/accounts")
-	@ResponseStatus(HttpStatus.CREATED) // 201
 	public ResponseEntity<Void> createAccount(@RequestBody Account newAccount) {
 		Account account = accountManager.save(newAccount);
 		return entityWithLocation(account.getEntityId());
@@ -78,7 +77,6 @@ public class AccountController {
 	 * setting its URL as the Location header on the response.
 	 */
 	@PostMapping(value = "/accounts/{accountId}/beneficiaries")
-	@ResponseStatus(HttpStatus.CREATED) // 201
 	public ResponseEntity<Void> addBeneficiary(@PathVariable long accountId, @RequestBody String beneficiaryName) {
 		accountManager.addBeneficiary(accountId, beneficiaryName);
 		return entityWithLocation(beneficiaryName);
