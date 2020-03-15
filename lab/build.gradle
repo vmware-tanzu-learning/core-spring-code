@@ -55,6 +55,13 @@ subprojects {
         // testRuntime "org.junit.platform:junit-platform-launcher:$junit5PlatformVersion"
     }
 
+    configurations {
+        developmentOnly
+        runtimeClasspath {
+            extendsFrom developmentOnly
+        }
+    }
+
     // Uncomment the Java version you want, comment the other
     sourceCompatibility = '1.8'
 //    sourceCompatibility = '11'
