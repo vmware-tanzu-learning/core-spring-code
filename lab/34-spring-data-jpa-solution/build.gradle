@@ -2,6 +2,5 @@ apply plugin: "org.springframework.boot"
 
 dependencies {
     implementation project(':00-rewards-common')
-    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
