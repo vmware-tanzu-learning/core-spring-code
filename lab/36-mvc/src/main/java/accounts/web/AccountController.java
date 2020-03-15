@@ -17,8 +17,7 @@ import java.util.List;
  * -Repository layer: AccountRepository interface
  *
  */
-// TODO-03: Add the annotation for Spring MVC to recognize this class
-// as a REST controller.
+// TODO-03: Add an appropriate annotation to make this class a REST controller
 public class AccountController {
 
 	private final AccountManager accountManager;
@@ -34,12 +33,12 @@ public class AccountController {
 	/**
 	 * Provide a model with a list of all accounts for the account List page.
 	 */
-	// TODO-04: Add the mapping for /accounts
+	// TODO-04: Add an appropriate annotation to make this method handle "/accounts"
 	public List<Account> accountList() {
 
 		// TODO-05: Implement the logic to find and return all accounts
 		// - Use accountManger to get all accounts
-		// - Recompile this class, and wait for the application to restart (via devtools)
+		// - Recompile this class if necessary, and wait for the application to restart (via devtools)
 		// - From the home page, click the link - this should now work
 		// - If you prefer, access http://localhost:8080/accounts using curl or Postman
 
@@ -51,20 +50,20 @@ public class AccountController {
 	}
 
 	// TODO-09: Implement the /accounts/{entityId} request handling method.
-	// 1. Call the method accountDetails().
-	// 2. Annotate to define URL mapping /accounts/{entityId} this method will
+	// - Call the method accountDetails().
+	// - Annotate to define URL mapping /accounts/{entityId} this method will
 	// respond to.
-	// 3. Use a method parameter to obtain the URI template parameter needed to
+	// - Use a method parameter to obtain the URI template parameter needed to
 	// retrieve an account.
-	// 4. Use the accountManager to obtain an account. This is the value to return
-	// 5. Save all work
+	// - Use the accountManager to obtain an account. This is the value to return
+	// - Save all work
 
 	// TODO-10: Run the test in AccountControllerTests, it should pass.
-	//          Fix any errors before moving on
+	// - Fix any errors before moving on
 
-	// TODO-11: Run the application as a Spring Boot or Java application in your IDE.
-	// You should now be able to invoke http://localhost:8080/accounts/N
-	// where N is 0-20 and get a response. You can use curl, Postman or your browser
-	// to do this.
+	// TODO-11: Run the application
+	// - You should now be able to invoke http://localhost:8080/accounts/N
+	//   where N is 0-20 and get a response. You can use curl, Postman or
+	//   your browser to do this.
 
 }
