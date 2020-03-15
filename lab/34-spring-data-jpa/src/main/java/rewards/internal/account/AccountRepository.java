@@ -9,8 +9,8 @@ package rewards.internal.account;
  * and ready to use.
  */
 //  TODO-03: Alter this interface to extend a proper Spring Data interface.
-//          The finder method on this class must be changed to obey Spring Data
-//           conventions - use refactoring
+//  - The finder method on this class must be changed to obey Spring Data
+//    conventions - use refactoring feature of the IDE
 public interface AccountRepository {
 
 	/**

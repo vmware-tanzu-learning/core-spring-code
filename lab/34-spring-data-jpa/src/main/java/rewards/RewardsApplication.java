@@ -12,9 +12,6 @@ import org.springframework.stereotype.Component;
 
 // TODO-01: Review dependency as described in the TO-DO-01 
 //          in the pom.xml or build.gradle 
-//
-// TODO-07: Configure JPA as specified in the TO-DO-07 in the
-//          src/test/resources/application.properties
 
 @SpringBootApplication
 @ComponentScan("config")
@@ -40,3 +37,6 @@ public class RewardsApplication {
 		}
 	}
 }
+
+// TODO-07: Configure JPA as specified in the TO-DO-07 in the
+//          src/test/resources/application.properties

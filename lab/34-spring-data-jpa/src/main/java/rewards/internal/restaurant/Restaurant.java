@@ -12,7 +12,7 @@ import javax.persistence.Transient;
  * dining based on a availability policy and a benefit percentage.
  */
 // TODO-05: Map this class using JPA Annotations.
-// Use the following SQL statement in the schema.sql as a guidance.
+// - Use the following SQL statement in the schema.sql as a guidance.
 //
 // create table T_RESTAURANT (ID integer identity primary key,
 //                            MERCHANT_NUMBER varchar(10) not null,
