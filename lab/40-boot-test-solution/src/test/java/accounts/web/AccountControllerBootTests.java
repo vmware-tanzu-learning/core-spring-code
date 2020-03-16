@@ -60,7 +60,7 @@ public class AccountControllerBootTests {
         given(accountManager.getAccount(any(Long.class)))
                 .willThrow(new IllegalArgumentException("No such account with id " + 0L));
 
-        mockMvc.perform(get("/accounts/0"))
+        mockMvc.perform(get("/accounts/9999"))
                .andExpect(status().isNotFound());
 
         verify(accountManager).getAccount(any(Long.class));

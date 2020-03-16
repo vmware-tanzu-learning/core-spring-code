@@ -6,58 +6,85 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 // TODO-06: Get yourself familiarized with various testing utility classes
-// as described in the lab document
-// - BDDMockito: given(..), willReturn(..), willThrow(..)
-//   https://www.javadoc.io/doc/org.mockito/mockito-core/2.21.0/org/mockito/BDDMockito.html
-// - MockMvc: perform(..)
-//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/MockMvc.html
-// - ResultActions: andExpect(..)
-//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/ResultActions.html
-// - MockMvcRequestBuilders: get(..), post(..), put(..), delete(..)
-//   https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/test/web/servlet/request/MockMvcRequestBuilders.html
-// - MockMvcResultMatchers: status(), content(), jsonPath(..), header()
-//   https://docs.spring.io/spring/docs/current/javadoc-api/org/springframework/test/web/servlet/result/MockMvcResultMatchers.html
+// - Uncomment these classes
+//import static org.mockito.ArgumentMatchers.any;
+//import static org.mockito.BDDMockito.*;
+//import static org.mockito.Mockito.verify;
+//import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+//import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-07: Use `@WebMvcTest` and `@AutoConfigureDataJpa` annotations
+// TODO-07: Replace @ExtendWith(SpringExtension.class) with the following two annotations
+// - @WebMvcTest(AccountController.class) // includes @ExtendWith(SpringExtension.class)
+// - @AutoConfigureDataJpa
 @ExtendWith(SpringExtension.class)
 public class AccountControllerBootTests {
 
 	// TODO-08: Autowire MockMvc bean
 
-	// TODO-09: Create `AccountManager` mock bean
+	// TODO-09: Create AccountManager mock bean using @MockBean annotation
 
-	// TODO-12: Experiment with @MockBean vs @Mock
-	// - Change `@MockBean` to `@Mock` for the `AccountManager dependency
-	// - Run the test and observe a test failure
-
-	// TODO-10: Write positive unit test for GET request for an account
+	// TODO-10: Write positive test for GET request for an account
+	// - Uncomment the code and run the test and verify it succeeds
 	@Test
 	public void accountDetails() throws Exception {
 
-		// arrange
+		//given(accountManager.getAccount(0L))
+		//		.willReturn(new Account("1234567890", "John Doe"));
 
-		// act and assert
+		//mockMvc.perform(get("/accounts/0"))
+		//	   .andExpect(status().isOk())
+		//	   .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+		//	   .andExpect(jsonPath("name").value("John Doe"))
+		//	   .andExpect(jsonPath("number").value("1234567890"));
 
-		// verify
+		//verify(accountManager).getAccount(0L);
 
 	}
 
-	// TODO-11: Write negative unit test for GET request for an account
+	// TODO-11: Write negative test for GET request for a non-existent account
+	// - Uncomment the "given" and "verify" statements
+	// - Write code between the "given" and "verify" statements
+	// - Run the test and verify it succeeds
 	@Test
 	public void accountDetailsFail() throws Exception {
 
+		//given(accountManager.getAccount(any(Long.class)))
+		//		.willThrow(new IllegalArgumentException("No such account with id " + 0L));
 
+		// (Write code here)
+		// - Use mockMvc to perform HTTP Get operation to "accounts/9999"
+		// - Test the HTTP response status is 404
+
+		//verify(accountManager).getAccount(any(Long.class));
 
 	}
 
-    // TODO-13: Write unit test for `POST` request for an account
+    // TODO-12: Write test for `POST` request for an account
+	// - Uncomment the "given" and "verify" statements
+	// - Write code between the "given" and "verify" statements
+	// - Run the test and verify it succeeds
 	@Test
 	public void createAccount() throws Exception {
 
+		//Account testAccount = new Account("1234512345", "Mary Jones");
+		//testAccount.setEntityId(21L);
 
+		//given(accountManager.save(any(Account.class)))
+		//		.willReturn(testAccount);
+
+		// (Write code here)
+		// Use mockMvc to perform HTTP Post operation to "/accounts"
+		// - Set the request content type to APPLICATION_JSON
+		// - Set the request content with Json string of the "testAccount"
+		//   (Use "asJsonString" method below to convert the "testAccount"
+		//   object into Json string)
+		// - Set the accept request header to APPLICATION_JSON
+		// - Test the response status is 201
+		// - Test the the response "Location" header contains "http://localhost/accounts/21"
+
+		//verify(accountManager).save(any(Account.class));
 
 	}
-
 
     // Utility class for converting an object into JSON string
 	protected static String asJsonString(final Object obj) {
@@ -69,5 +96,10 @@ public class AccountControllerBootTests {
 			throw new RuntimeException(e);
 		}
 	}
+
+	// TODO-13 (Optional): Experiment with @MockBean vs @Mock
+	// - Change `@MockBean` to `@Mock` for the `AccountManager dependency above
+	// - Run the test and observe a test failure
+	// - Change it back to `@MockBean`
 
 }
