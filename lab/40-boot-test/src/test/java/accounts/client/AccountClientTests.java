@@ -76,9 +76,9 @@ public class AccountClientTests {
 		assertThat(retrievedAccount.getEntityId()).isNotNull();
 	}
 
-	// TODO-04: Handle an error status from the server (instead of
+	// TODO-04: Handle 404 HTTP response status from the server (instead of
 	// handling it as an exception as in the case of RestTemplate)
-	// - Modify the code below as described in the lab document
+	// - Modify the code so that you can test the HTTP response status
 	// - Run all tests - they should all pass
 	@Test
 	public void addAndDeleteBeneficiary() {

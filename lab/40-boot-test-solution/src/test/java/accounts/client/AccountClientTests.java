@@ -70,7 +70,7 @@ public class AccountClientTests {
 
 	@Test
 	public void addAndDeleteBeneficiary() {
-		// perform both add and delete to avoid issues with side effects
+
 		String addUrl = "/accounts/{accountId}/beneficiaries";
 		URI newBeneficiaryLocation = restTemplate.postForLocation(addUrl, "David", 1);
 		Beneficiary newBeneficiary = restTemplate.getForObject(newBeneficiaryLocation, Beneficiary.class);
@@ -78,7 +78,6 @@ public class AccountClientTests {
 
 		restTemplate.delete(newBeneficiaryLocation);
 
-		// use exchange method to receive a 404 response
 		ResponseEntity<Account> response =
 				restTemplate.getForEntity(newBeneficiaryLocation, Account.class);
 
