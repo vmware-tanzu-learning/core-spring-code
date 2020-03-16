@@ -24,8 +24,12 @@ public class AccountService {
     public List<String> getAuthoritiesForUser(String username) {
 
         // TODO-08: Retrieve authorities (roles) for the logged-in user
-        // - Replace null below with proper code
-        // - Restart the application
+        // (This is probably not a typical business logic you will
+        //  have in a service layer. This is mainly to show
+        //  how SecurityContext object is maintained in the local
+        //  thread, which can be accessed via SecurityContextHolder)
+        // - Replace null below with proper code - use SecurityContextHolder
+        // - Restart the application (or let Spring Boot Devtools to restart the app)
         // - Using Chrome Incognito browser or "curl", access
         //   http://localhost:8080/authorities?username=<username>
         // - Verify that roles of the logged-in user get displayed

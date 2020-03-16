@@ -95,8 +95,7 @@ public class AccountControllerBootTests {
 
         mockMvc.perform(post("/accounts")
                             .contentType(MediaType.APPLICATION_JSON)
-                            .content(asJsonString(testAccount))
-							.accept(MediaType.APPLICATION_JSON))
+                            .content(asJsonString(testAccount)))
                .andExpect(status().isCreated())
                .andExpect(header().string("Location", "http://localhost/accounts/21"));
 

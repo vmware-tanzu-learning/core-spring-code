@@ -10,18 +10,18 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // TODO-02a: Observe the default security behaviour of the Spring
 //           Boot application using a browser
 // - Run this application
-// - Using Chrome Incognito browser, access "http://localhost:8080/accounts"
+// - Using a browser, access "http://localhost:8080/accounts"
 //   and observe that a login page gets displayed
 // - Enter "user" in the Username field and Spring Boot generated
 //   password into the Password field and verify that the accounts
 //   get displayed
-//   (If the browser keeps displaying the login page, make sure
-//    to use Chrome Incognito browser.)
+//   (If the browser keeps displaying the login page, use Chrome
+//   Incognito browser.)
 // - Access "http://localhost:8080/logout" and click "Log out" button
 
 // TODO-02b: Observe the default security behaviour of the Spring
-//           Boot application using "curl" command
-// - Open a terminal window
+//           Boot application using "curl" or "Postman"
+// - Open a terminal window (if you are using "curl")
 // - Run "curl -i localhost:8080/accounts" and observe 401 response
 // - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
 //   and observe the successful response

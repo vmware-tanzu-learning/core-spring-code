@@ -6,7 +6,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 // TODO-06: Get yourself familiarized with various testing utility classes
-// - Uncomment these classes
+// - Uncomment the import statements below
 //import static org.mockito.ArgumentMatchers.any;
 //import static org.mockito.BDDMockito.*;
 //import static org.mockito.Mockito.verify;
@@ -53,7 +53,7 @@ public class AccountControllerBootTests {
 
 		// (Write code here)
 		// - Use mockMvc to perform HTTP Get operation to "accounts/9999"
-		// - Test the HTTP response status is 404
+		// - Verify that the HTTP response status is 404
 
 		//verify(accountManager).getAccount(any(Long.class));
 
@@ -78,9 +78,8 @@ public class AccountControllerBootTests {
 		// - Set the request content with Json string of the "testAccount"
 		//   (Use "asJsonString" method below to convert the "testAccount"
 		//   object into Json string)
-		// - Set the accept request header to APPLICATION_JSON
-		// - Test the response status is 201
-		// - Test the the response "Location" header contains "http://localhost/accounts/21"
+		// - Verify that the response status is 201
+		// - Verify that the response "Location" header contains "http://localhost/accounts/21"
 
 		//verify(accountManager).save(any(Account.class));
 

@@ -75,7 +75,8 @@ public class AccountControllerTests {
         // act and assert
         mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-               .andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
+               .andExpect(jsonPath("name").value("John Doe"))
+               .andExpect(jsonPath("number").value("1234567890"));
 
         // verify
         verify(accountManager).getAccount(0L);

@@ -64,7 +64,8 @@ public class AccountControllerTests {
         given(accountManager.getAccount(0L)).willReturn(new Account("1234567890", "John Doe"));
 
         // act and assert
-        mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
+        mockMvc.perform(get("/accounts/0"))
+               .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                .andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
 
@@ -82,7 +83,8 @@ public class AccountControllerTests {
         given(accountManager.getAccount(0L)).willReturn(new Account("1234567890", "John Doe"));
 
         // act and assert
-        mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
+        mockMvc.perform(get("/accounts/0"))
+               .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                .andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
 
@@ -100,7 +102,8 @@ public class AccountControllerTests {
         given(accountManager.getAccount(0L)).willReturn(new Account("1234567890", "John Doe"));
 
         // act and assert
-        mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
+        mockMvc.perform(get("/accounts/0"))
+               .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                .andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
 
@@ -118,9 +121,11 @@ public class AccountControllerTests {
         given(accountManager.getAccount(0L)).willReturn(new Account("1234567890", "John Doe"));
 
         // act and assert
-        mockMvc.perform(get("/accounts/0")).andExpect(status().isOk())
+        mockMvc.perform(get("/accounts/0"))
+               .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-               .andExpect(jsonPath("name").value("John Doe")).andExpect(jsonPath("number").value("1234567890"));
+               .andExpect(jsonPath("name").value("John Doe"))
+               .andExpect(jsonPath("number").value("1234567890"));
 
         // verify
         verify(accountManager).getAccount(0L);
@@ -135,7 +140,8 @@ public class AccountControllerTests {
         given(accountManager.getAccount(any(Long.class)))
                 .willThrow(new IllegalArgumentException("No such account with id " + 0L));
 
-        mockMvc.perform(get("/accounts/0")).andExpect(status().isNotFound());
+        mockMvc.perform(get("/accounts/0"))
+               .andExpect(status().isNotFound());
 
         verify(accountManager).getAccount(any(Long.class));
 
@@ -149,9 +155,11 @@ public class AccountControllerTests {
         List<Account> testAccounts = Arrays.asList(new Account("123456789", "John Doe"));
         given(accountManager.getAllAccounts()).willReturn(testAccounts);
 
-        mockMvc.perform(get("/accounts")).andExpect(status().isOk())
+        mockMvc.perform(get("/accounts"))
+               .andExpect(status().isOk())
                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-               .andExpect(jsonPath("$..number").value("123456789")).andExpect(jsonPath("$..name").value("John Doe"));
+               .andExpect(jsonPath("$..number").value("123456789"))
+               .andExpect(jsonPath("$..name").value("John Doe"));
 
         verify(accountManager).getAllAccounts();
 
@@ -166,8 +174,9 @@ public class AccountControllerTests {
         testAccount.setEntityId(21L);
         given(accountManager.save(any(Account.class))).willReturn(testAccount);
 
-        mockMvc.perform(post("/accounts").contentType(MediaType.APPLICATION_JSON)
-                                         .content(asJsonString(testAccount)).accept(MediaType.APPLICATION_JSON))
+        mockMvc.perform(post("/accounts")
+                            .contentType(MediaType.APPLICATION_JSON)
+                            .content(asJsonString(testAccount)))
                .andExpect(status().isCreated())
                .andExpect(header().string("Location", "http://localhost/accounts/21"));
 
@@ -177,6 +186,7 @@ public class AccountControllerTests {
 
     // TODO-06b: Write a test that verifies that a user with "USER" role
     //          is not permitted to perform POST operation
+    // - Use the code above (in the previous test) as a guidance
     @Test
     public void createAccount_with_USER_role_should_return_403() throws Exception {
 

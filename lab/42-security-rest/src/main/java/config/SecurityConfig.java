@@ -28,19 +28,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-            // TODO-04: Configure authorization
-            // - Allow only "SUPERADMIN" role can perform "delete" operation
-            //   against account and beneficiary
-            // - Allow only "ADMIN" or "SUPERADMIN" role can perform "post"
-            //   or "put" operations against account and beneficiary
-            // - Allow all roles - "USER", "ADMIN", "SUPERADMIN" - can
-            //   perform "get" operation against account and beneficiary
+                // TODO-04: Configure authorization using mvcMatchers method
+                // - Allow DELETE on the /accounts resource (or any sub-resource)
+                //   for "SUPERADMIN" role only
+                // - Allow POST or PUT on the /accounts resource (or any sub-resource)
+                //   for "ADMIN" or "SUPERADMIN" role only
+                // - Allow GET on the /accounts resource (or any sub-resource)
+                //   for all roles - "USER", "ADMIN", "SUPERADMIN"
 
-            // For all other URL's, make sure the caller is authenticated
-            .mvcMatchers("/**").authenticated()
-            .and()
+                // For all other URL's, make sure the caller is authenticated
+                .mvcMatchers("/**").authenticated()
+                .and()
             .httpBasic()
-            .and()
+                .and()
             .csrf().disable();
     }
 
@@ -50,11 +50,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
         // TODO-05: Add three users with corresponding roles:
-        // - "user"/"user" with "USER" role
+        // - "user"/"user" with "USER" role (example code is provided below)
         // - "admin"/"admin" with "USER" and "ADMIN" roles
         // - "superadmin"/"superadmin" with "USER", "ADMIN", and "SUPERADMIN" roles
         // (Make sure to store the password in encoded form.)
         auth.inMemoryAuthentication()
+            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
 
         ;
 

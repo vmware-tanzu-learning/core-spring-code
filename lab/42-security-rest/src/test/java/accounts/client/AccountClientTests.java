@@ -18,7 +18,7 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.*;
 
-// TODO-07a: Perform end-to-end security testing against a running server
+// TODO-07a: Perform security testing against a running server
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
@@ -50,6 +50,7 @@ public class AccountClientTests {
                 = restTemplate.withBasicAuth("user", "user")
                               .getForEntity("/accounts", Account[].class);
         Account[] accounts = responseEntity.getBody();
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(accounts.length >= 21).withFailMessage("Expected 21 accounts, but found " + accounts.length).isTrue();
         assertThat(accounts[0].getName()).isEqualTo("Keith and Keri Donald");
         assertThat(accounts[0].getBeneficiaries().size()).isEqualTo(2);
@@ -64,6 +65,7 @@ public class AccountClientTests {
         ResponseEntity<Account[]> responseEntity
                 = restTemplate.withBasicAuth("admin", "admin")
                               .getForEntity("/accounts", Account[].class);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         Account[] accounts = responseEntity.getBody();
         assertThat(accounts.length >= 21).withFailMessage("Expected 21 accounts, but found " + accounts.length).isTrue();
         assertThat(accounts[0].getName()).isEqualTo("Keith and Keri Donald");
@@ -78,6 +80,7 @@ public class AccountClientTests {
         ResponseEntity<Account> responseEntity
                 = restTemplate.withBasicAuth("user", "user")
                               .getForEntity(url, Account.class, 0);
+        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         Account account = responseEntity.getBody();
         assertThat(account.getName()).isEqualTo("Keith and Keri Donald");
         assertThat(account.getBeneficiaries().size()).isEqualTo(2);
