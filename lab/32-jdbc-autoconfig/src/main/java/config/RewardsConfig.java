@@ -29,9 +29,9 @@ public class RewardsConfig {
 	}
 
     // TODO-09 : Switch back to explicit `DataSource` configuration
-    //           - Uncomment @Bean method below
-    //           - Remove the code above that performs DataSource injection
-    //           - Fix compile errors
+    // - Uncomment @Bean method below
+    // - Remove the code above that performs DataSource injection
+    // - Fix compile errors
     /*
     @Bean
     public DataSource dataSource() {

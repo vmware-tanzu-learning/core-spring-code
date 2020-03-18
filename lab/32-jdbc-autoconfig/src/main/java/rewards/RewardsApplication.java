@@ -18,7 +18,7 @@ import org.springframework.boot.SpringApplication;
 
 // TODO-11 : Look in application.properties for the next step.
 
-// TODO-12 : Follow the instruction in the lab document.
+// TODO-12 (Optional) : Follow the instruction in the lab document.
 //           The section titled "Build and Run using Command Line tools".
 
 public class RewardsApplication {
@@ -31,22 +31,22 @@ public class RewardsApplication {
         SpringApplication.run(RewardsApplication.class, args);
     }
 
-    // TODO-05 : Move the SQL scripts from the
-    //             `src/test/resources/rewards/testdb` to the
-    //             `src/main/resources/`
-    // - Why are you doing this?  See detailed instructions if you do not know.
+    // TODO-05 : Let Spring Boot execute database scripts
+    // - Move the SQL scripts from the
+    //   `src/test/resources/rewards/testdb` to the
+    //   `src/main/resources/`
 
     // TODO-06 : Implement a command line runner that will query count from
     //           T_ACCOUNT table and log the count to the console
     // - Use the SQL query and logger provided above.
     // - Use the JdbcTemplate bean that Spring Boot creates for you automatically.
     //
-    // TODO-07   Enable full debugging in order to observe how Spring Boot
+    // TODO-07 : Enable full debugging in order to observe how Spring Boot
     //           performs its auto-configuration logic
     // - Follow TO-DO-07 in application.properties, then come back here.
     // - Run the application
     // - In the console output, find "CONDITIONS EVALUATION REPORT".
     // - Note that "DataSourceAutoConfiguration" is mentioned under
-    //   positive match.
+    //   positive match
 
 }

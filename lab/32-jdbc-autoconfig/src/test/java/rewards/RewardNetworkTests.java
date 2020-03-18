@@ -16,10 +16,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  */
 
 // TODO-08: Refactor the code to make it a Spring Boot Integration test
-//          - There is no need to specify any configuration classes,
-//            because @SpringBootTest will find and use the configuration
-//            of RewardApplication automatically.
-//          - Run the test, it should pass.
+// - There is no need to specify any configuration classes,
+//   because @SpringBootTest will find and use the configuration
+//   of RewardApplication automatically.
+// - Run the test, it should pass.
 @ExtendWith(SpringExtension.class)                      // Remove me
 @ContextConfiguration(classes={SystemTestConfig.class}) // Replace me
 public class RewardNetworkTests {
