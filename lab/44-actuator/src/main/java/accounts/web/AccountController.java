@@ -22,10 +22,10 @@ import java.util.List;
  * Beneficiaries.
  *
  * TODO-12: The application should have restarted by now.
- *  - Access the metrics endpoint, the new metric should be visible.
- *  - Fetch some accounts using the REST API, then view the counter value
- *    at  http://localhost:8080/actuator/metrics/account.fetch
- *  - Restart the application. What happens to the counter?
+ * - Access the metrics endpoint, the new metric should be visible.
+ * - Fetch some accounts using the REST API, then view the counter value
+ *   at  http://localhost:8080/actuator/metrics/account.fetch
+ * - Restart the application. What happens to the counter?
  */
 @RestController
 public class AccountController {
@@ -56,10 +56,16 @@ public class AccountController {
      * - Change logging level of accounts.web package as described in the lab document
 	 *
      * TODO-13: Add Timer metric using @Timed annotation
-     * -Set the metric name to "account.timer"
-     * -Set a extra tag with "source"/"accountSummary" key/value pair
+     * - Set the metric name to "account.timer"
+     * - Set a extra tag with "source"/"accountSummary" key/value pair
      *
-	 * TODO-25 (Extra credit): Use annotation and AOP for counter (Read lab document)
+	 * TODO-24 (Optional): Use AOP for counting
+	 * - Add spring-boot-starter-aop starter to the pom.xml or the build.gradle
+	 * - Create an aspect, through which account.fetch counter, which has
+	 *   a tag of type/fromAspect key/value pair, gets incremented everytime
+	 *   accountSummary method is invoked
+	 * - Access /accounts several times and verify the metrics
+	 *   of /actuator/metrics/account.fetch?tag=type:fromAspect
 	 */
 	@GetMapping(value = "/accounts")
 	public List<Account> accountSummary() {

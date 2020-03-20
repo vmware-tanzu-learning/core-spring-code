@@ -23,7 +23,8 @@ public class RestaurantHealthCheckTest {
 	public void setUp() {
 		restaurantRepository = mock(JpaRestaurantRepository.class);
 
-		// TODO-17b: Create an instance of RestaurantHealthCheck class
+		// TODO-17b: Test custom health indicator
+		// - Create an instance of RestaurantHealthCheck class
 		// - Remove the two @Disabled annotations below
 		// - Run the test, make sure it passes.
 		restaurantHealthCheck = null;

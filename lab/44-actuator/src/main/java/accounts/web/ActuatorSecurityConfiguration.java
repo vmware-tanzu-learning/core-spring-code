@@ -1,30 +1,39 @@
 package accounts.web;
 
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
-// TODO-21: Add Spring boot security starter to pom.xml or build.gradle
-//          (Look for TO-DO-21 in the pom.xml or build.gradle)
-
-// TODO-22: Add security configuration
-// - Make this class a configuration class
-//   1. Add @EnableWebSecurity annotation to the class
-//   2. Extend WebSecurityConfigurerAdapter
-// - Add two users to in-memory identity store using DelegatingPasswordEncoder
-//   1. actuator/actuator with ACTUATOR role
-//   2. admin/admin with ADMIN and ACTUATOR role
-// - Add access control configuration
-//   1. Anybody can access "health" and "info" endpoints without logging in
-//   2. Only "admin" role can access "conditions" endpoint
-//   3. Only 'admin" or "actuator" role can access all the other endpoints
-
-// TODO-23: Access the endpoints with security
-// - Make sure application is restarted
-// - Open a new Chrome Incognito browser
-// - Access "health" and "info" endpoints and observe successful response
-// - Access "conditions" endpoint as "actuator" user and observe 403 response
-// - Close the current Chrome Incognito browser and open a new one
-// - Access "conditions" endpoint as "admin" user and observe successful response
-// - Access other endpoints such as "mappings" and observe successful response
 @Configuration
-public class ActuatorSecurityConfiguration {
+@EnableWebSecurity
+public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        auth.inMemoryAuthentication()
+            .withUser("actuator").password(passwordEncoder.encode("actuator")).roles("ACTUATOR").and()
+            .withUser("admin").password(passwordEncoder.encode("admin")).roles("ADMIN", "ACTUATOR");
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        // TODO-21: Configure access control to actuator endpoints
+        // - Anybody can access "health" and "info" endpoints
+        // - ADMIN role can access "conditions" endpoint
+        // - ACTUATOR role can access all the other endpoints
+        http.authorizeRequests()
+            .requestMatchers(/* Add code here */).permitAll()
+            .requestMatchers(/* Add code here */).hasRole("ADMIN")
+            .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
+            .anyRequest().authenticated()
+            .and()
+            .httpBasic();
+    }
 }
