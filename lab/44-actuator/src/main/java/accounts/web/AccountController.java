@@ -50,10 +50,6 @@ public class AccountController {
 
 	/**
 	 * Provide a list of all accounts.
-     *
-     * TODO-06: Change log level via ./actuator/loggers endpoint
-     * - Add logger.debug("Logging message within accountSummary()");
-     * - Change logging level of accounts.web package as described in the lab document
 	 *
      * TODO-13: Add Timer metric using @Timed annotation
      * - Set the metric name to "account.timer"
