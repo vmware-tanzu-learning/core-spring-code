@@ -60,6 +60,8 @@ public class RestWsApplication {
 // - If you want to use "curl", use
 //   curl -i -u superadmin:superadmin http://localhost:8080/authorities?username=superadmin
 
+// ------------------------------------------------
+
 // TODO-15 (Optional): Verify that the newly added custom UserDetailsService works
 // - Re-run this application
 // - Using Chrome Incognito browser, access
@@ -74,6 +76,8 @@ public class RestWsApplication {
 // - Enter "joe"/"joe" and verify accounts data gets displayed
 // - If you want to use "curl", use
 //   curl -i -u joe:joe http://localhost:8080/accounts
+
+// ------------------------------------------------
 
 // TODO-19 (Optional): Verify that the newly added custom AuthenticationProvider works
 // - Re-run this application

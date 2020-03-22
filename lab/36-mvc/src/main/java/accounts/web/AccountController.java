@@ -12,7 +12,7 @@ import java.util.List;
  * Note that some of the Account related classes are imported from the
  * rewards-db project:
  *
- * -Domain objects: Account and  Beneficiary
+ * -Domain objects: Account and Beneficiary
  * -Service layer: AccountManager interface
  * -Repository layer: AccountRepository interface
  *

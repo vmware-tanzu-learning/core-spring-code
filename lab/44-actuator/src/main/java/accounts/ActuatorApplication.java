@@ -54,7 +54,11 @@ import config.AppConfig;
  * - Add "javaVersion" and "operatingSystem" properties
  * - Feel free to see the lab document for more detailed instruction
  *
+ * ------------------------------------------------
+ *
  * TODO-15: Look for TO-DO-15 in application.properties
+ *
+ * ------------------------------------------------
  *
  * TODO-18: Restart the application and check the health
  *          indicator - it should be DOWN as there are no restaurants.
