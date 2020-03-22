@@ -6,11 +6,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
+@EnableConfigurationProperties({RewardsRecipientProperties.class})
+//@ConfigurationPropertiesScan
 @Import(RewardsConfig.class)
 public class RewardsApplication {
     private final Logger logger
@@ -28,5 +31,10 @@ public class RewardsApplication {
         return args -> System.out.println("Hello, there are "
                 + jdbcTemplate.queryForObject(QUERY, Long.class)
                 + " accounts");
+    }
+
+    @Bean
+    CommandLineRunner commandLineRunner2(RewardsRecipientProperties rewardsRecipientProperties) {
+        return args -> System.out.println("Recipient: " + rewardsRecipientProperties.getName());
     }
 }

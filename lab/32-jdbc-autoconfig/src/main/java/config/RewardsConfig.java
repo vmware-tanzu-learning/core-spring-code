@@ -28,10 +28,12 @@ public class RewardsConfig {
 		this.dataSource = dataSource;
 	}
 
-    // TODO-09 : Switch back to explicit `DataSource` configuration
+    // TODO-10 : Switch back to explicit `DataSource` configuration
+    // (Instead of auto-configured DataSource, we are going to configure
+    //  our own DataSource bean.)
     // - Uncomment @Bean method below
     // - Remove the code above that performs DataSource injection
-    // - Fix compile errors
+    // - Fix compile errors in this code
     /*
     @Bean
     public DataSource dataSource() {

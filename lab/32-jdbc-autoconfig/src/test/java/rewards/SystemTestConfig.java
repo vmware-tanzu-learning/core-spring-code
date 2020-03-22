@@ -18,13 +18,9 @@ import javax.sql.DataSource;
 public class SystemTestConfig {
 	private final Logger logger = LoggerFactory.getLogger(SystemTestConfig.class);
 
-	// TODO-04 : Spring Boot will create the DataSource for us
-	// - Comment out @Bean so this method is no longer called
+	// TODO-04 : Use Spring Boot auto-configuration for DataSource
+	// - Comment out the @Bean method below so this method is no longer called
 
-	/**
-	 * Creates an in-memory "rewards" database populated 
-	 * with test data for fast testing
-	 */
 	@Bean
 	public DataSource dataSource() {
 		logger.debug("Creating the datasource bean explicitly");
