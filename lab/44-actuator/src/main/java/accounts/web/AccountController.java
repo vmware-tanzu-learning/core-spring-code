@@ -21,7 +21,7 @@ import java.util.List;
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  *
- * TODO-12: The application should have restarted by now.
+ * TODO-11: The application should have restarted by now.
  * - Access the metrics endpoint, the new metric should be visible.
  * - Fetch some accounts using the REST API, then view the counter value
  *   at  http://localhost:8080/actuator/metrics/account.fetch
@@ -34,7 +34,7 @@ public class AccountController {
 
 	private AccountManager accountManager;
 
-	// TODO-09: Add a Counter and initialize it via the constructor
+	// TODO-08: Add a Counter and initialize it via the constructor
 	// - You will need to inject a MeterRegistry
 	// - Call the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
 	//   (In the "Extra credit" exercise later on, you will create "account.fetch"
@@ -51,7 +51,7 @@ public class AccountController {
 	/**
 	 * Provide a list of all accounts.
 	 *
-     * TODO-13: Add Timer metric using @Timed annotation
+     * TODO-12: Add Timer metric using @Timed annotation
      * - Set the metric name to "account.timer"
      * - Set a extra tag with "source"/"accountSummary" key/value pair
      *
@@ -71,9 +71,9 @@ public class AccountController {
 	/**
 	 * Provide the details of an account with the given id.
 	 *
-	 * TODO-10: Increment the Counter each time this method is called.
+	 * TODO-09: Increment the Counter each time this method is called.
      *
-     * TODO-14: Add Timer metric using @Timed annotation
+     * TODO-13: Add Timer metric using @Timed annotation
      * -Set the metric name to "account.timer"
      * -Set a extra tag with "source"/"accountDetails" key/value pair
 	 */

@@ -1,7 +1,7 @@
 package accounts.web;
 
 /**
- * TODO-17a: Create custom health indicator
+ * TODO-16a: Create custom health indicator
  * - Make this class implement HealthIndicator
  * - Make this class a component
  * - Add a constructor to pass in the restaurant repository
@@ -9,7 +9,7 @@ package accounts.web;
  * - health() should return DOWN if the repository is empty
  *   (no restaurants) or UP otherwise.
  *
- * TODO-23 (Optional): Experiment with HealthIndicator
+ * TODO-22 (Optional): Experiment with HealthIndicator
  * - Include the restaurant count as extra detail in the health endpoint.
  *   Have a look at the Health class to see how this might work.
  * - Instead of returning DOWN when there are no restaurants,
