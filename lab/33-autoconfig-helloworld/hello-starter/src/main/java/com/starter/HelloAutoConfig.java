@@ -9,6 +9,8 @@ import org.springframework.context.annotation.Configuration;
 //          in which "TypicalHelloService" bean is configured.
 @Configuration
 
+// ---------------------------------------------
+
 // TODO-33: Add @ConditionalOnClass(HelloService.class) to the class
 // - This will make sure this auto-configuration class is used only
 //   when the "HelloService.class" is in the classpath

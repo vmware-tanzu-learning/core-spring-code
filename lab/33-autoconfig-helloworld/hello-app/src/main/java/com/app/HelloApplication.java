@@ -10,56 +10,64 @@ import org.springframework.context.annotation.Bean;
 //          or in the root pom.xml (Maven)
 // TODO-11: Go to TO-DO-11 in the same file
 
+// ------------------------------------------
+
 // TODO-13: Go to TO-DO-13 in the build.gradle (Gradle) or
 //          pom.xml (Maven) of the "hello-app" project
 
+// ------------------------------------------
+
 // TODO-20: Now we are ready to leverage "hello-starter" project.
-//          First, we want to configure "TypicalHelloService" bean
-//          via "hello-starter" project instead of directly from
-//          "hello-lib" project.
+// First, we want to configure "TypicalHelloService" bean
+// via "hello-starter" project instead of directly from
+// "hello-lib" project.
 //
 // TODO-21: Comment out the explicit @Bean configuration you just
 //          added in the previous step
 //
 // TODO-22: Go to TO-DO-22 in the build.gradle (Gradle) or
 //          pom.xml (Maven) of the "hello-app" project
+
+// ------------------------------------------
+
 //
 // TODO-25: Import the configuration class of "hello-starter"
-//          - Add @Import({HelloAutoConfig.class})
-//          - Run the application
-//          - Note that The "HelloService" bean ("TypicalHelloService") is
-//            now contributed by the "hello-starter".
-//            At this point, "hello-starter" is nothing more than
-//            a library. It does not perform any auto-configuration yet.
+// - Add @Import({HelloAutoConfig.class})
+// - Run the application
+// - Note that The "HelloService" bean ("TypicalHelloService") is
+//   now contributed by the "hello-starter".
+//   At this point, "hello-starter" is nothing more than
+//   a library. It does not perform any auto-configuration yet.
 //
 // TODO-26: Now we are going to define application provided HelloService bean
-//          - Create "MyOwnHelloService" Bean under "com.app" directory
-//          - Create new configuration class called
-//            "MyOwnConfig" under "com.config" package
-//          - Configure "MyOwnHelloService" bean using @Bean method
-//            using "helloService" as name of the bean
-//          - Import "MyOwnConfig" configuration class by replacing
-//            existing @Import statement with
-//            @Import({MyOwnConfig.class, HelloAutoConfig.class})
-//          - Run the application and observe that "TypicalHelloService"
+// - Create "MyOwnHelloService" Bean under "com.app" directory
+// - Create new configuration class called
+//   "MyOwnConfig" under "com.config" package
+// - Configure "MyOwnHelloService" bean using @Bean method
+//   using "helloService" as name of the bean
+// - Import "MyOwnConfig" configuration class by replacing
+//   existing @Import statement with
+//   @Import({MyOwnConfig.class, HelloAutoConfig.class})
+// - Run the application and observe that "TypicalHelloService"
 //            always wins.
 //
-//          At this point, Spring picks up a bean that is loaded
-//          last, in this case, "TypicalHelloService" bean from the
-//          "HelloAutoConfig" class always wins because beans defined
-//          in the "HelloAutoConfig" are loaded last.
+//   At this point, Spring picks up a bean that is loaded
+//   last, in this case, "TypicalHelloService" bean from the
+//   "HelloAutoConfig" class always wins because beans defined
+//   in the "HelloAutoConfig" are loaded last.
 //
-//          - Change the order of bean loading by switching the
-//            two configuration classes like
-//            @Import({HelloAutoConfig.class, MyOwnConfig.class})
-//          - Run the application. This time, you will always see
-//            "MyOwnHelloService" bean always wins.
+// - Change the order of bean loading by switching the
+//   two configuration classes like
+//   @Import({HelloAutoConfig.class, MyOwnConfig.class})
+// - Run the application. This time, you will always see
+//   "MyOwnHelloService" bean always wins.
 //
-//          This is an example of "bean overloading". From Spring Boot 2.1
-//          "bean overloading" is disabled by default and needs to be
-//          explicitly enabled.
-//          (See "application.properties" of "hello-app") 
+//   This is an example of "bean overloading". From Spring Boot 2.1
+//   "bean overloading" is disabled by default and needs to be
+//   explicitly enabled.
+//   (See "application.properties" of "hello-app")
 
+// ------------------------------------------
 //          - Once this step is done, go to TO-DO-30 below
 
 // TODO-30: Now we would like to change the behavior through
@@ -74,6 +82,8 @@ import org.springframework.context.annotation.Bean;
 // TODO-32: Go to TO-DO-32 in the
 //          src/main/resources/META-INF/spring.factories file
 //          of the "hello-starter" project
+
+// ------------------------------------------
 
 // TODO-35: Run the application again and see which one wins
 //          This time, "MyOwnHelloService" bean should win.
@@ -97,8 +107,8 @@ public class HelloApplication {
     }
 
     // TODO-14: Review CommandLineRunner code below
-    // in which you are going to say greeting via
-    // injected HelloService
+    //          in which you are going to say greeting via
+    //          injected HelloService
 
     // TODO-15: Run this application and you will experience a
     //          failure of "'HelloService' that could not be found"
@@ -106,7 +116,7 @@ public class HelloApplication {
     //          with Bean id "helloService") and run it again,
     //          verify it works.
     //
-    //          Once this step is done, go to TO-DO-20
+    // Once this step is done, go to TO-DO-20
     @Bean
     public CommandLineRunner commandLineRunner(HelloService helloService) {
 
