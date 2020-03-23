@@ -103,6 +103,7 @@ public class AccountClientTests {
 
     // TODO-07b: Write a test that verifies that "user"/"user"
     //          is not permitted to create a new Account
+    // - Use the code above as a guidance
     @Test
     public void createAccount_using_user_should_return_403() throws Exception {
 

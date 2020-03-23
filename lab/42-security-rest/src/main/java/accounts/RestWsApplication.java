@@ -20,11 +20,11 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Access "http://localhost:8080/logout" and click "Log out" button
 
 // TODO-02b: Observe the default security behaviour of the Spring
-//           Boot application using "curl" or "Postman"
+//           Boot application using "curl" (or "Postman")
 // - Open a terminal window (if you are using "curl")
 // - Run "curl -i localhost:8080/accounts" and observe 401 response
 // - Run "curl -i -u user:<Spring-Boot-Generated-Password> localhost:8080/accounts"
-//   and observe the successful response
+//   and observe a successful response
 
 @SpringBootApplication
 // TODO-03: Import security configuration class
