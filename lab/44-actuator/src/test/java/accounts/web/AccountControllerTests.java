@@ -34,14 +34,16 @@ public class AccountControllerTests {
 		counter = mock(Counter.class);
 		doReturn(counter).when(registry).counter(any(String.class), any(String.class), any(String.class));
 
-		// TODO-10: Fix this test - this constructor has a new parameter
-		// Run the test, it should pass
+		// TODO-10: Fix compiler error
+		// - This constructor needs to pass MeterRegistry object as well
+		// - Run the tests in this test class, they should pass
 		controller = new AccountController(new StubAccountManager());
 	}
 
 	@Test
-	// TODO-19: Remove @Disabled annotation
-	// - Run all the tests in this class. All should pass.
+	// TODO-19: Test the actuator endpoints
+	// - Remove @Disabled annotation below
+	// - Run this test - it should pass
 	@Disabled
 	public void testHandleDetailsRequest() {
 		Account account = controller.accountDetails(0);

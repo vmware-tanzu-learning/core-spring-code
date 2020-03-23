@@ -21,10 +21,11 @@ import java.util.List;
  * A controller handling requests for CRUD operations on Accounts and their
  * Beneficiaries.
  *
- * TODO-11: The application should have restarted by now.
- * - Access the metrics endpoint, the new metric should be visible.
- * - Fetch some accounts using the REST API, then view the counter value
- *   at  http://localhost:8080/actuator/metrics/account.fetch
+ * TODO-11: Access the new "/metrics/account.fetch" metric
+ * - Let the application get restarted via devtools
+ * - Access "/metrics" endpoint, and verify the presence of "account.fetch" metric
+ * - Access some accounts (i.e. http://localhost:8080/1)
+ * - View the counter value at http://localhost:8080/actuator/metrics/account.fetch
  * - Restart the application. What happens to the counter?
  */
 @RestController
@@ -34,11 +35,10 @@ public class AccountController {
 
 	private AccountManager accountManager;
 
-	// TODO-08: Add a Counter and initialize it via the constructor
-	// - You will need to inject a MeterRegistry
-	// - Call the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
-	//   (In the "Extra credit" exercise later on, you will create "account.fetch"
-	//   counter with a tag of "type"/"fromAspect" key/value pair.)
+	// TODO-08: Add a Micrometer Counter
+	// - Inject a MeterRegistry through constructor injection
+	// - Create the counter from the MeterRegistry
+	// - Name the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
 
 	/**
 	 * Creates a new AccountController with a given account manager.
@@ -51,10 +51,13 @@ public class AccountController {
 	/**
 	 * Provide a list of all accounts.
 	 *
-     * TODO-12: Add Timer metric using @Timed annotation
+     * TODO-12: Add Timer metric
+	 * - Add @Timed annotation to this method
      * - Set the metric name to "account.timer"
      * - Set a extra tag with "source"/"accountSummary" key/value pair
      *
+	 * ------------------------------------------
+	 *
 	 * TODO-24 (Optional): Use AOP for counting
 	 * - Add spring-boot-starter-aop starter to the pom.xml or the build.gradle
 	 * - Create an aspect, through which account.fetch counter, which has
@@ -69,16 +72,20 @@ public class AccountController {
 	}
 
 	/**
-	 * Provide the details of an account with the given id.
 	 *
-	 * TODO-09: Increment the Counter each time this method is called.
-     *
-     * TODO-13: Add Timer metric using @Timed annotation
-     * -Set the metric name to "account.timer"
-     * -Set a extra tag with "source"/"accountDetails" key/value pair
+	 *  TODO-09: Increment the Counter each time this method is called.
+     *  - Add code to increment the counter
+	 *
+	 * ----------------------------------------------------
+	 *
+     *  TODO-13: Add Timer metric
+	 *  - Add @Timed annotation to this method
+     *  - Set the metric name to "account.timer"
+     *  - Set a extra tag with "source"/"accountDetails" key/value pair
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public Account accountDetails(@PathVariable int id) {
+
 		return retrieveAccount(id);
 	}
 

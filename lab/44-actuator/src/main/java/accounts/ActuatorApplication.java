@@ -16,21 +16,22 @@ import config.AppConfig;
  * - http://localhost:8080/actuator/metrics - fails (404), why?
  *
  * TODO-03: Expose some endpoints
- *          (Look for TO-DO-04 in application.properties)
+ *          (Look for TO-DO-03 in application.properties)
  *
  * TODO-04: Expose all endpoints
- *          (Look for TO-DO-05 in application.properties)
+ *          (Look for TO-DO-04 in application.properties)
  *
  * TODO-05: Change log level via ./actuator/loggers endpoint
  * - Verify the current logging level of the accounts.web package is DEBUG
  * - Add logger.debug("Logging message within accountSummary()") inside
- *   accountSummary() method
+ *   accountSummary() method - this message will be used to verify if we can
+ *   change the logging level without restarting the application
  * - Restart the application and access "/accounts" URL and verify
  *   the log message gets displayed
  * - Change logging level of accounts.web package to INFO using curl
- *   command below (or use Postman)q
+ *   command below (or use Postman)
  *   curl -i -XPOST -H"Content-Type: application/json" localhost:8080/actuator/loggers/accounts.web -d'{"configuredLevel": "INFO"}'
- * - Access "/accounts" URL (without restarting the application) and verify
+ * - Access "/accounts" URL (WITHOUT restarting the application) and verify
  *   the logging message no longer gets displayed
  *
  * TODO-06: Publish build information
@@ -48,12 +49,15 @@ import config.AppConfig;
  *
  * ------------------------------------------------
  *
- * TODO-17: Restart the application and check the health
- *          indicator - it should be DOWN as there are no restaurants.
+ * TODO-17: Verify the behavior of custom health indicator
+ * - Let the application to restart (via devtools)
+ * - Access the health indicator - it should be DOWN as there are no restaurants.
  *
- * TODO-18: Modify the `spring.datasource.data` property to use
- *         `data-with-restaurants.sql`. Wait for the application to
- *          restart. Now the heath indicator should be UP.
+ * TODO-18: Verify the behavior of custom health indicator with change
+ * - Modify the `spring.datasource.data` property in the application.properties
+ *   to use `data-with-restaurants.sql`
+ * - Let the application to restart (via devtools)
+ * - Access the health indicator - it should be UP this time
  * 
  */
 @SpringBootApplication
@@ -73,7 +77,7 @@ public class ActuatorApplication {
  *   `build.gradle`
  * - Create an aspect, through which `account.fetch` counter, which
  *   has a tag of `type`/`fromAspect` key/value pair, gets incremented
- *   everytime `accountSummary` method is invoked
+ *   every time `accountSummary` method is invoked
  * - Access `/accounts` several times and verify the metrics of
  *   `/actuator/metrics/account.fetch?tag=type:fromAspect
  */
