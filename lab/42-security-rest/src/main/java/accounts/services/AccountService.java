@@ -3,9 +3,9 @@ package accounts.services;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class AccountService {
@@ -36,11 +36,9 @@ public class AccountService {
         Collection<? extends GrantedAuthority> grantedAuthorities
                 = null; // Modify this line
 
-        List<String> authorities = new ArrayList<>();
-        grantedAuthorities.stream().forEach(grantedAuthority -> {
-            authorities.add(grantedAuthority.getAuthority());
-        });
-        return authorities;
+        return grantedAuthorities.stream()
+                                 .map(grantedAuthority -> grantedAuthority.getAuthority())
+                                 .collect(Collectors.toList());
     }
 
 }
