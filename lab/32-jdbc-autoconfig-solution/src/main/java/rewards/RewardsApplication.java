@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 @SpringBootApplication
-@EnableConfigurationProperties({RewardsRecipientProperties.class})
+@EnableConfigurationProperties(RewardsRecipientProperties.class)
 //@ConfigurationPropertiesScan
 @Import(RewardsConfig.class)
 public class RewardsApplication {

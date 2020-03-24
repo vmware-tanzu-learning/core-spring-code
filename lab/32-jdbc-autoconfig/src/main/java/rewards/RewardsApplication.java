@@ -60,10 +60,10 @@ public class RewardsApplication {
     // - Create fields (along with needed getters/setters) that reflect the
     //   properties above in the RewardsRecipientProperties class
     // - Use one of the following 3 schemes to enable @ConfigurationProperties
-    //   (1) Annotate the RewardsRecipientProperties class with @Component or
-    //   (2) Add @EnableConfigurationProperties({RewardsRecipientProperties.class})
+    //   (1) Add @EnableConfigurationProperties(RewardsRecipientProperties.class)
     //       to this class or
-    //   (3) Add @ConfigurationPropertiesScan to this class
+    //   (2) Add @ConfigurationPropertiesScan to this class or
+    //   (3) Annotate the RewardsRecipientProperties class with @Component
     // - Implement a command line runner that displays the name of the rewards
     //   recipient
 
