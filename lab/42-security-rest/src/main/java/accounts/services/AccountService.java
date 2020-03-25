@@ -11,16 +11,18 @@ import java.util.stream.Collectors;
 public class AccountService {
 
     // TODO-09: Add method security annotation to a method
-    // - Add a proper annotation to this method so that it is
-    //   permitted to be invoked only when both of following
-    //   two run-time conditions are met:
+    // - Uncomment and complete PreAuthorize annotation below
+    //   so that the method is permitted to be invoked only
+    //   when both of following two run-time conditions are met:
+    //   (Use SpEL to specify these conditions.)
     //
     //   (a) the logged-in user belongs to "ADMIN" role
     //   (b) the value of the "username" argument matches
     //       the value of the logged-in principal's
     //       username, which can be accessed as
     //       principal.username or authentication.name.
-
+    //
+    //@PreAuthorize(/* Add code here */)
     public List<String> getAuthoritiesForUser(String username) {
 
         // TODO-08: Retrieve authorities (roles) for the logged-in user
