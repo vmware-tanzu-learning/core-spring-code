@@ -14,6 +14,14 @@ import java.sql.SQLException;
 /**
  * Loads restaurants from a data source using the JDBC API.
  */
+
+// TODO-09 (Optional) : Inject JdbcTemplate directly to this repository class
+// - Refactor the constructor to get the JdbcTemplate injected directly
+//   (instead of DataSource getting injected)
+// - Refactor RewardsConfig accordingly
+// - Refactor JdbcRestaurantRepositoryTests accordingly
+// - Run JdbcRestaurantRepositoryTests and verity it passes
+
 // TODO-04: Refactor the cumbersome JDBC in JdbcRestaurantRepository with JdbcTemplate.
 // - Add a field of type JdbcTemplate.
 // - Refactor the constructor to instantiate it.
@@ -23,10 +31,9 @@ import java.sql.SQLException;
 //   Note #1: Create RestaurantRowMapper as an inner class
 //	 Note #2: The mapRestaurant() method in this class contains logic which
 //	       the RowMapper may wish to use
-//   Optional: Use a Lambda expression instead of the RestaurantRowMapper class
+//   (If you prefer, use a Lambda expression instead of creating RestaurantRowMapper class.)
 //
-// -When complete, save all changes and run JdbcRestaurantRepositoryTests.
-//  It should pass.
+// - Run JdbcRestaurantRepositoryTests and verity it passes
 
 public class JdbcRestaurantRepository implements RestaurantRepository {
 

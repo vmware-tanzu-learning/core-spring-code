@@ -14,9 +14,16 @@ import java.sql.SQLException;
  * Loads accounts from a data source using the JDBC API.
  */
 
+// TODO-10 (Optional) : Inject JdbcTemplate directly to this repository class
+// - Refactor the constructor to get the JdbcTemplate injected directly
+//   (instead of DataSource getting injected)
+// - Refactor RewardsConfig accordingly
+// - Refactor JdbcAccountRepositoryTests accordingly
+// - Run JdbcAccountRepositoryTests and verity it passes
 
-// TODO-05: (Optional) Refactor this repository to use JdbcTemplate.
-// - Modify the constructor to initialize a new JdbcTemplate data member
+// TODO-05: Refactor this repository to use JdbcTemplate.
+// - Add a field of type JdbcTemplate.
+// - Refactor the constructor to instantiate it.
 // - Run the JdbcAccountRepositoryTests class. It should pass.
 public class JdbcAccountRepository implements AccountRepository {
 
@@ -26,16 +33,14 @@ public class JdbcAccountRepository implements AccountRepository {
 		this.dataSource = dataSource;
 	}
 
-	// TODO-07: (Optional) Refactor this method using a ResultSetExtractor.
+	// TODO-07: Refactor this method using a ResultSetExtractor.
 	// - Create a private inner class called AccountExtractor which
 	//   implements ResultSetExtractor
 	// - Let the extractData() method of the AccountExtractor to call
 	//   mapAccount() method, which is provided in this class, to do all the work.
 	// - Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
-	// - (If you prefer, use a Lambda expression instead of AccountExtractor)
-	// - When complete, save all changes and rerun the JdbcAccountRepositoryTests
-	//   class. It should pass.
-	// - Congratulations - you have finished the lab
+	//   (If you prefer, use a Lambda expression instead of creating AccountExtractor)
+    // - Run the JdbcAccountRepositoryTests class. It should pass.
 	public Account findByCreditCard(String creditCardNumber) {
 		String sql = "select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, " +
 			"	b.NAME as BENEFICIARY_NAME, b.ALLOCATION_PERCENTAGE as BENEFICIARY_ALLOCATION_PERCENTAGE, b.SAVINGS as BENEFICIARY_SAVINGS " +
@@ -82,9 +87,10 @@ public class JdbcAccountRepository implements AccountRepository {
 		return account;
 	}
 
-	// TODO-06: (Optional) Refactor this method to use Spring's JdbcTemplate.
+	// TODO-06: Refactor this method to use Spring's JdbcTemplate.
 	// - Use your JdbcTemplate to replace the UPDATE below
-	// - Rerun the JdbcAccountRepositoryTests. When they pass, you are done.
+	//   (Note that an account has multiple beneficiaries)
+	// - Rerun the JdbcAccountRepositoryTests. Verify it passes.
 	public void updateBeneficiaries(Account account) {
 		String sql = "update T_ACCOUNT_BENEFICIARY SET SAVINGS = ? where ACCOUNT_ID = ? and NAME = ?";
 		Connection conn = null;

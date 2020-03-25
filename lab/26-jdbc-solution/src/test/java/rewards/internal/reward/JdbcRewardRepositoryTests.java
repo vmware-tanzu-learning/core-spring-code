@@ -1,26 +1,24 @@
 package rewards.internal.reward;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-import java.math.BigDecimal;
-import java.sql.SQLException;
-import java.util.Map;
-
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
+import common.money.MonetaryAmount;
+import common.money.Percentage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
 import rewards.internal.account.Account;
-import common.datetime.SimpleDate;
-import common.money.MonetaryAmount;
-import common.money.Percentage;
+
+import javax.sql.DataSource;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.Map;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
  * Tests the JDBC reward repository with a test data source to verify data access and relational-to-object mapping
@@ -37,8 +35,9 @@ public class JdbcRewardRepositoryTests {
 	@BeforeEach
 	public void setUp() throws Exception {
 		dataSource = createTestDataSource();
-		repository = new JdbcRewardRepository(dataSource);
-		jdbcTemplate = new JdbcTemplate(dataSource);
+		jdbcTemplate = createTestJdbcTemplate();
+		repository = new JdbcRewardRepository(jdbcTemplate);
+
 	}
 
 	@Test
@@ -86,5 +85,9 @@ public class JdbcRewardRepositoryTests {
 			.addScript("/rewards/testdb/schema.sql")
 			.addScript("/rewards/testdb/data.sql")
 			.build();
+	}
+
+	private JdbcTemplate createTestJdbcTemplate() {
+		return new JdbcTemplate(createTestDataSource());
 	}
 }

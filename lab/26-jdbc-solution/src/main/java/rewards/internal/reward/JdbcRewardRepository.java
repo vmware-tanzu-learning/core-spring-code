@@ -1,14 +1,10 @@
 package rewards.internal.reward;
 
-import javax.sql.DataSource;
-
+import common.datetime.SimpleDate;
 import org.springframework.jdbc.core.JdbcTemplate;
-
 import rewards.AccountContribution;
 import rewards.Dining;
 import rewards.RewardConfirmation;
-
-import common.datetime.SimpleDate;
 
 /**
  * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
@@ -18,8 +14,9 @@ public class JdbcRewardRepository implements RewardRepository {
 	
 	private JdbcTemplate jdbcTemplate;
 
-	public JdbcRewardRepository(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public JdbcRewardRepository(JdbcTemplate jdbcTemplate) {
+
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	public RewardConfirmation confirmReward(AccountContribution contribution, Dining dining) {

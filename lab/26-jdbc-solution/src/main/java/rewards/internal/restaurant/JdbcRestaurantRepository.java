@@ -1,27 +1,30 @@
 package rewards.internal.restaurant;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
-import javax.sql.DataSource;
-
+import common.money.Percentage;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-
 import rewards.Dining;
 import rewards.internal.account.Account;
 
-import common.money.Percentage;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  * Loads restaurants from a data source using the JDBC API.
  */
+// TODO-10 (Optional) : Inject JdbcTemplate directly to this repository class
+// - Refactor the constructor to get the JdbcTemplate injected directly
+//   (instead of DataSource getting injected)
+// - Refactor RewardsConfig accordingly
+// - Refactor JdbcRestaurantRepositoryTests accordingly
+// - Run JdbcRestaurantRepositoryTests and verity it passes
 public class JdbcRestaurantRepository implements RestaurantRepository {
 	
 	private JdbcTemplate jdbcTemplate;
 
-	public JdbcRestaurantRepository(DataSource dataSource) {
-		this.jdbcTemplate = new JdbcTemplate(dataSource);
+	public JdbcRestaurantRepository(JdbcTemplate jdbcTemplate) {
+
+		this.jdbcTemplate = jdbcTemplate;
 	}
 
 	/**
