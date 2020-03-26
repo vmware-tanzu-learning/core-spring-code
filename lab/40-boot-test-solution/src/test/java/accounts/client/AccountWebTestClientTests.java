@@ -78,8 +78,8 @@ public class AccountClientTests {
 
 		restTemplate.delete(newBeneficiaryLocation);
 
-		ResponseEntity<Beneficiary> response =
-				restTemplate.getForEntity(newBeneficiaryLocation, Beneficiary.class);
+		ResponseEntity<Account> response =
+				restTemplate.getForEntity(newBeneficiaryLocation, Account.class);
 
 		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}

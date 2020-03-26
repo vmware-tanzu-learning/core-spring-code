@@ -119,9 +119,9 @@ public class AccountClientTests {
         restTemplate.withBasicAuth("superadmin", "superadmin").delete(newBeneficiaryLocation);
 
         // use exchange method to receive a 404 response
-        ResponseEntity<Account> response =
+        ResponseEntity<Beneficiary> response =
                 restTemplate.withBasicAuth("superadmin", "superadmin")
-                            .getForEntity(newBeneficiaryLocation, Account.class);
+                            .getForEntity(newBeneficiaryLocation, Beneficiary.class);
 
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
     }
