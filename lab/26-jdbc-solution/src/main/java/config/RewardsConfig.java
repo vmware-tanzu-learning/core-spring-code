@@ -20,7 +20,7 @@ public class RewardsConfig {
 
 	JdbcTemplate jdbcTemplate;
 
-	@Autowired  // Optional, Spring will call this constructor anyway
+	@Autowired  // Optional, Spring will autowire DataSource anyway
 	public RewardsConfig(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}

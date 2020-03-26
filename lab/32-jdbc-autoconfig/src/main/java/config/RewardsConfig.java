@@ -23,7 +23,7 @@ public class RewardsConfig {
 
 	DataSource dataSource;
 
-	@Autowired  // Optional, Spring will call this constructor anyway
+	@Autowired  // Optional, Spring will autowire DataSource anyway
 	public RewardsConfig(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
