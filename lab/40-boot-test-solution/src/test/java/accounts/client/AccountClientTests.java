@@ -1,6 +1,5 @@
 package accounts.client;
 
-import accounts.BootTestSolutionApplication;
 import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +16,6 @@ import java.util.Random;
 
 import static org.assertj.core.api.Assertions.*;
 
-/**
- * Test the Account Server by running this test as a REST client. Run
- * {@link BootTestSolutionApplication} first or these tests will fail.
- */
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class AccountClientTests {
 

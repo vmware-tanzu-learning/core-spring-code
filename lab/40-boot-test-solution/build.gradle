@@ -4,6 +4,7 @@ dependencies {
     implementation project(':00-rewards-common')
     implementation project(':01-rewards-db')
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
 }

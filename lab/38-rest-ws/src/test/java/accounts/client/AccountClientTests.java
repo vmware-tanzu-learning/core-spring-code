@@ -15,10 +15,7 @@ import java.util.Random;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AccountClientTests {
-	
-	/**
-	 * Server URL ending with the servlet mapping on which the application can be reached.
-	 */
+
 	private static final String BASE_URL = "http://localhost:8080";
 	
 	private RestTemplate restTemplate = new RestTemplate();
