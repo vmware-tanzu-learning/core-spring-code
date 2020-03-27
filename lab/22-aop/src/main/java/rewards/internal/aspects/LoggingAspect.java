@@ -9,10 +9,10 @@ import org.slf4j.LoggerFactory;
 import rewards.internal.monitor.Monitor;
 import rewards.internal.monitor.MonitorFactory;
 
-// 	TODO-02: REQUIREMENT #1: Use AOP to log a message before
-//           any repository find...() method is invoked.
-//  - Indicate this class is an aspect.
-//	- Also mark it as a component.
+// 	TODO-02: Use AOP to log a message before
+//           any repository's find...() method is invoked.
+//  - Add an appropriate annotation to this class to indicate this class is an aspect.
+//	- Also make it as a component.
 //	- Optionally place @Autowired annotation on the constructor
 //    where `MonitorFactory` dependency is being injected.
 //    (It is optional since there is only a single constructor in the class.)
@@ -32,13 +32,9 @@ public class LoggingAspect {
 
 
 	//	TODO-03: Write Pointcut Expression
-	//	- Decide which advice type is most appropriate to the requirement.
+	//	- Decide which advice type is most appropriate
 	//  - Write a pointcut expression that selects only find* methods on
-	//    our Repository classes.
-    //
-	//  Note: The pointcut expression can be very hard to work out. If
-	//  you get stuck, refer to the examples in the slides or read the
-    //  detailed instructions in the lab-notes.
+	//    our repository classes.
 
 	public void implLogging(JoinPoint joinPoint) {
 		// Do not modify this log message or the test will fail
@@ -48,16 +44,11 @@ public class LoggingAspect {
 	}
 	
 	
-    //	TODO-07: REQUIREMENT #2: Use AOP to time update...() methods.
+    //	TODO-07: Use AOP to time update...() methods.
     //
-    //  Mark this method as around advice.  Write a pointcut
-	//	expression to match on all update* methods on Repository classes.
-	//
-	//  HINT: Again, the pointcut expression can be hard to work out, so if
-	//  you get stuck, refer to the pointcut expression you wrote above for 
-	//  implLogging(), this one is similar.
-	// 
-	//  If you are really stuck, PLEASE ask a colleague or your instructor.
+    //  - Mark this method as around advice.
+	//  - Write a pointcut expression to match on all update* methods
+	//	  on Repository classes.
 
 	public Object monitor(ProceedingJoinPoint repositoryMethod) throws Throwable {
 		String name = createJoinPointTraceName(repositoryMethod);
@@ -66,8 +57,8 @@ public class LoggingAspect {
 			// Invoke repository method ...
 			
 			//  TODO-08: Add the logic to proceed with the target method invocation.
-			//  Be sure to return the target method's return value to the caller
-			//  and delete the line below.
+			//  - Be sure to return the target method's return value to the caller
+			//    and delete the line below.
 
 			return new String("Delete this line after completing TODO-08");
 
