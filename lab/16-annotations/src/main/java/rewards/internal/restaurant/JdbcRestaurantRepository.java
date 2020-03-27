@@ -20,7 +20,7 @@ import java.util.Map;
 
 /* TODO-06: Let this class to be found in component-scanning
  * - Annotate the class with an appropriate stereotype annotation
- *   to cause component-scan to detect and load this bean.
+ *   to cause component-scanning to detect and load this bean.
  * - Inject dataSource. Use constructor injection in this case.
  */
 
@@ -28,12 +28,14 @@ import java.util.Map;
  * TODO-08: Use Setter injection for DataSource
  * - Change the configuration to set the dataSource
  *   property using setDataSource().
+ *
  *   To do this, you must MOVE the @Autowired annotation
  *   you might have set in the previous step on the
  *   constructor injecting DataSource.
  *   So neither constructor should be annotated with
  *   @Autowired now, so Spring uses
  *   the default constructor by default.
+ *
  * - Re-run the test. It should fail.
  * - Examine the stack trace and see if you can
  *   understand why. (If not, refer to the detailed lab instructions).

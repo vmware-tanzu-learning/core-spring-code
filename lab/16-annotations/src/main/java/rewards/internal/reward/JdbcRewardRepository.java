@@ -16,8 +16,8 @@ import java.sql.*;
 
 /* TODO-04: Let this class to be found in component-scanning
  * - Annotate the class with an appropriate stereotype annotation
- *   to cause component-scan to detect and load this bean.
- * - Inject dataSource. Why should you use setter injection?
+ *   to cause component-scanning to detect and load this bean.
+ * - Inject DataSource. Why should you use setter injection?
  */
 
 public class JdbcRewardRepository implements RewardRepository {
