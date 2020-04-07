@@ -55,16 +55,6 @@ public class AccountController {
 	 * - Add @Timed annotation to this method
      * - Set the metric name to "account.timer"
      * - Set a extra tag with "source"/"accountSummary" key/value pair
-     *
-	 * ------------------------------------------
-	 *
-	 * TODO-24 (Optional): Use AOP for counting
-	 * - Add spring-boot-starter-aop starter to the pom.xml or the build.gradle
-	 * - Create an aspect, through which account.fetch counter, which has
-	 *   a tag of type/fromAspect key/value pair, gets incremented everytime
-	 *   accountSummary method is invoked
-	 * - Access /accounts several times and verify the metrics
-	 *   of /actuator/metrics/account.fetch?tag=type:fromAspect
 	 */
 	@GetMapping(value = "/accounts")
 	public List<Account> accountSummary() {
