@@ -24,7 +24,7 @@ import java.util.List;
  * TODO-11: Access the new "/metrics/account.fetch" metric
  * - Let the application get restarted via devtools
  * - Access "/metrics" endpoint, and verify the presence of "account.fetch" metric
- * - Access some accounts (i.e. http://localhost:8080/1)
+ * - Access some accounts (i.e. http://localhost:8080/accounts/1)
  * - View the counter value at http://localhost:8080/actuator/metrics/account.fetch
  * - Restart the application. What happens to the counter?
  */
