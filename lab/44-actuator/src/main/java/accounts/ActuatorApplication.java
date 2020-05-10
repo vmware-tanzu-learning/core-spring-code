@@ -72,17 +72,6 @@ public class ActuatorApplication {
 }
 
 /*
- * TODO-23 (Optional): Use AOP for counting logic
- * - Add `spring-boot-starter-aop` starter to the `pom.xml` or the
- *   `build.gradle`
- * - Create an aspect, through which `account.fetch` counter, which
- *   has a tag of `type`/`fromAspect` key/value pair, gets incremented
- *   every time `accountSummary` method is invoked
- * - Access `/accounts` several times and verify the metrics of
- *   `/actuator/metrics/account.fetch?tag=type:fromAspect
- */
-
-/*
  * TODO-24 (Optional): Run "jconsole" (from <JDK-directory>/bin)
  * (If you are short on time, skip this step.)
  * - Select "accounts.ActuatorApplication" under "Local Process"
