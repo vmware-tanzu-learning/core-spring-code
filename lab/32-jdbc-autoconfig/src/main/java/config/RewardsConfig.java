@@ -28,7 +28,7 @@ public class RewardsConfig {
 		this.dataSource = dataSource;
 	}
 
-    // TODO-10 : Switch back to explicit `DataSource` configuration
+    // TODO-10 (Optional) : Switch back to explicit `DataSource` configuration
     // (Instead of using auto-configured DataSource, we are going to configure
     //  our own DataSource bean. Normally we want to configure infra-structure
     //  bean such as DataSource bean in a separate configuration class but

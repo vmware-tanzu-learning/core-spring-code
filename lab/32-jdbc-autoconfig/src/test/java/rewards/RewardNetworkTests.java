@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * successfully. Uses Spring to bootstrap the application for use in a test environment.
  */
 
-// TODO-09: Refactor this test code to make it a Spring Boot Integration test
+// TODO-09: Refactor this test code
 // - Run this test without making any change, it will fail - think about why it fails
 // - Replace the @ExtendWith and @ContextConfiguration annotations below with @SpringBootTest
 //   (There is no need to specify any configuration classes,
