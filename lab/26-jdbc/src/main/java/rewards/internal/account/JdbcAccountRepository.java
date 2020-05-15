@@ -33,7 +33,7 @@ public class JdbcAccountRepository implements AccountRepository {
 		this.dataSource = dataSource;
 	}
 
-	// TODO-07: Refactor this method using a ResultSetExtractor.
+	// TODO-07 (Optional): Refactor this method using a ResultSetExtractor.
 	// - Create a private inner class called AccountExtractor which
 	//   implements ResultSetExtractor
 	// - Let the extractData() method of the AccountExtractor to call
