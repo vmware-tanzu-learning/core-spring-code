@@ -24,8 +24,10 @@ public class AccountClientTests {
 	// TODO-03: Update code below to use TestRestTemplate (as opposed to RestTemplate)
 	// - Remove RestTemplate from this code
 	// - Remove BASE_URL from this code or change it to ""
-	// - Run the tests and observe that the they pass except
+	// - Run the tests and observe that they pass except
 	//   "addAndDeleteBeneficiary" test
+	//   (If you are using Gradle, remove test exclude statement
+	//    from the build.gradle before running these tests)
 
 	/**
 	 * server URL ending with the servlet mapping on which the application can be
