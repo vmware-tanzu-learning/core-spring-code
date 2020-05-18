@@ -37,12 +37,9 @@ public class AccountController {
 
 	// TODO-08: Add a Micrometer Counter
 	// - Inject a MeterRegistry through constructor injection
+	//   (Modify the existing constructor below)
 	// - Create the counter from the MeterRegistry
 	// - Name the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
-
-	/**
-	 * Creates a new AccountController with a given account manager.
-	 */
 	@Autowired
 	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;
@@ -71,7 +68,7 @@ public class AccountController {
      *  TODO-13: Add Timer metric
 	 *  - Add @Timed annotation to this method
      *  - Set the metric name to "account.timer"
-     *  - Set a extra tag with "source"/"accountDetails" key/value pair
+     *  - Set extra tag with "source"/"accountDetails" key/value pair
 	 */
 	@GetMapping(value = "/accounts/{id}")
 	public Account accountDetails(@PathVariable int id) {

@@ -11,7 +11,8 @@ import config.AppConfig;
  * TODO-01: Note that the Actuator starter is already set up for you.
  *          (Look for TO-DO-01 in the pom.xml or build.gradle)
  *
- * TODO-02: Run this application. Try these URLs:
+ * TODO-02: Run this application. Enter "admin/admin" as username/password.
+ *          Try these URLs:
  * - http://localhost:8080/actuator - should work
  * - http://localhost:8080/actuator/metrics - fails (404), why?
  *
@@ -41,7 +42,8 @@ import config.AppConfig;
  * TODO-07: Add additional build properties to the plugin (for Maven)
  *          or BuildInfo task (for Gradle)
  * - Add "javaVersion" and "operatingSystem" properties
- * - Feel free to see the lab document for more detailed instruction
+ * - Feel free to see the lab document or solution project for
+ *   more detailed instruction
  *
  * ------------------------------------------------
  *

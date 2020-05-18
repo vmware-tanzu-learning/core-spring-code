@@ -8,10 +8,14 @@ package accounts.web;
  *   and use it to implement health().
  * - health() method should return DOWN if the repository is empty
  *   (no restaurants) or UP otherwise.
- *
- * ------------------------------------------
- *
- * TODO-22 (Optional): Experiment with HealthIndicator
+ */
+public class RestaurantHealthCheck {
+
+}
+
+
+/**
+ * TODO-22 (Optional): Experiment with HealthIndicator above
  * - Include the restaurant count as extra detail in the health endpoint.
  *   Have a look at the Health class to see how this might work.
  * - Instead of returning DOWN when there are no restaurants,
@@ -20,6 +24,3 @@ package accounts.web;
  *   is returned for the application? Fix this issue by adjusting
  *   the order of precedence for the health statuses.
  */
-public class RestaurantHealthCheck {
-
-}
