@@ -28,13 +28,13 @@ public class RewardsApplication {
 
         String QUERY = "SELECT count(*) FROM T_ACCOUNT";
 
-        return args -> System.out.println("Hello, there are "
-                + jdbcTemplate.queryForObject(QUERY, Long.class)
-                + " accounts");
+        Long numberOfAccounts = jdbcTemplate.queryForObject(QUERY, Long.class);
+
+        return args -> logger.info("Hello, there are {} accounts", numberOfAccounts);
     }
 
     @Bean
     CommandLineRunner commandLineRunner2(RewardsRecipientProperties rewardsRecipientProperties) {
-        return args -> System.out.println("Recipient: " + rewardsRecipientProperties.getName());
+        return args -> logger.info("Recipient: " + rewardsRecipientProperties.getName());
     }
 }
