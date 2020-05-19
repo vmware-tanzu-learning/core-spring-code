@@ -66,9 +66,10 @@ import org.springframework.context.annotation.Bean;
 //   "bean overloading" is disabled by default and needs to be
 //   explicitly enabled.
 //   (See "application.properties" of "hello-app")
+//
+// - Once this step is done, go to TO-DO-30 below
 
-// ------------------------------------------
-//          - Once this step is done, go to TO-DO-30 below
+// ------------------------------------------ 
 
 // TODO-30: Now we would like to change the behavior through
 //          auto-configuration so that the
