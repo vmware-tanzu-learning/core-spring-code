@@ -5,7 +5,7 @@ import accounts.RestWsApplication;
 import accounts.services.AccountService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common.money.Percentage;
-import config.SecurityConfig;
+import config.RestSecurityConfig;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @AutoConfigureDataJpa
 @WebMvcTest(AccountController.class)
-@ContextConfiguration(classes = {RestWsApplication.class, SecurityConfig.class})
+@ContextConfiguration(classes = {RestWsApplication.class, RestSecurityConfig.class})
 public class AccountControllerTests {
 
     @Autowired

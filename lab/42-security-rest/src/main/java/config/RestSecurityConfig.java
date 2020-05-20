@@ -22,7 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity      // Redundant in Spring Boot app
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {

@@ -28,8 +28,8 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication
 // TODO-03: Import security configuration class
-// - Uncomment the line below and go to SecurityConfig class
-//@Import(SecurityConfig.class)
+// - Uncomment the line below and go to RestSecurityConfig class
+//@Import(RestSecurityConfig.class)
 @EntityScan("rewards.internal")
 public class RestWsApplication {
 
