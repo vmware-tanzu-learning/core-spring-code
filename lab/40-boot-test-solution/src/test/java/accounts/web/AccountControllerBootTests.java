@@ -40,7 +40,7 @@ public class AccountControllerBootTests {
     public void accountDetails() throws Exception {
 
         // arrange
-        given(accountManager.getAccount(0L))
+        given(accountManager.getAccount(anyLong()))
 				.willReturn(new Account("1234567890", "John Doe"));
 
         // act and assert
@@ -52,7 +52,7 @@ public class AccountControllerBootTests {
                .andExpect(jsonPath("number").value("1234567890"));
 
         // verify
-        verify(accountManager).getAccount(0L);
+        verify(accountManager).getAccount(anyLong());
 
     }
 
@@ -111,7 +111,7 @@ public class AccountControllerBootTests {
         Account account = new Account("1234567890", "John Doe");
         account.addBeneficiary("Corgan", new Percentage(0.1));
 
-        given(accountManager.getAccount(0L))
+        given(accountManager.getAccount(anyLong()))
 				.willReturn(account);
 
         mockMvc.perform(get("/accounts/{accountId}/beneficiaries/{beneficiaryName}", 0L, "Corgan"))
@@ -119,7 +119,7 @@ public class AccountControllerBootTests {
                .andExpect(jsonPath("name").value("Corgan"))
                .andExpect(jsonPath("allocationPercentage").value("0.1"));
 
-        verify(accountManager).getAccount(0L);
+        verify(accountManager).getAccount(anyLong());
     }
 
     @Test
@@ -136,24 +136,24 @@ public class AccountControllerBootTests {
 
         Account account = new Account("1234567890", "John Doe");
         account.addBeneficiary("Corgan", new Percentage(0.1));
-        given(accountManager.getAccount(0L)).willReturn(account);
+        given(accountManager.getAccount(anyLong())).willReturn(account);
 
         mockMvc.perform(delete("/accounts/{entityId}/beneficiaries/{name}", 0L, "Corgan"))
                .andExpect(status().isNoContent());
 
-        verify(accountManager).getAccount(0L);
+        verify(accountManager).getAccount(anyLong());
 
     }
 
     @Test
     public void removeBeneficiaryFail() throws Exception {
         Account account = new Account("1234567890", "John Doe");
-        given(accountManager.getAccount(0L)).willReturn(account);
+        given(accountManager.getAccount(anyLong())).willReturn(account);
 
         mockMvc.perform(delete("/accounts/{entityId}/beneficiaries/{name}", 0L, "Noname"))
                .andExpect(status().isNotFound());
 
-        verify(accountManager).getAccount(0L);
+        verify(accountManager).getAccount(anyLong());
     }
 
     protected static String asJsonString(final Object obj) {
