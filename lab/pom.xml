@@ -20,7 +20,7 @@
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>3.1</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
-        <jamon.version>2.81</jamon.version>
+        <jamon.version>2.82</jamon.version>
 
 
         <!-- Uncomment the Java version you want, comment the other -->
