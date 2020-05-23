@@ -4,6 +4,7 @@ buildscript {
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
         springCloudStarterOauth2="2.2.0.RELEASE"
+        easyMockVersion = "4.1"
         jmonVersion = "2.82"
     }
 
