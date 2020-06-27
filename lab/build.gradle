@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        springBootVersion = "2.2.2.RELEASE"
+        springBootVersion = "2.3.1.RELEASE"
         jaxbAPIVersion = "2.3.0"
         simpleJndiVersion = "0.11.4.1"
         springCloudStarterOauth2="2.2.0.RELEASE"
@@ -16,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id 'org.springframework.boot' version '2.2.2.RELEASE'
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
 }
 
 allprojects {
@@ -52,21 +52,11 @@ subprojects {
         testImplementation('org.springframework.boot:spring-boot-starter-test') {
             exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
         }
-        // Uncomment the following if you are using old STS (3.9.x or earlier) with Gradle.
-        // After uncommenting it, you will have to reimport the whole projects again
-        // testRuntime "org.junit.platform:junit-platform-launcher:$junit5PlatformVersion"
-    }
-
-    configurations {
-        developmentOnly
-        runtimeClasspath {
-            extendsFrom developmentOnly
-        }
     }
 
     // Uncomment the Java version you want, comment the other
     sourceCompatibility = '1.8'
-//    sourceCompatibility = '11'
+    // sourceCompatibility = '11'
 
     tasks.withType(JavaCompile) {
         options.encoding = 'UTF-8'
