@@ -28,12 +28,17 @@ public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter 
         // - Anybody can access "health" and "info" endpoints
         // - ADMIN role can access "conditions" endpoint
         // - ACTUATOR role can access all the other endpoints
+        // @formatter:off
         http.authorizeRequests()
-            .requestMatchers(/* Add code here */).permitAll()
-            .requestMatchers(/* Add code here */).hasRole("ADMIN")
-            .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
-            .anyRequest().authenticated()
-            .and()
-            .httpBasic();
+                .requestMatchers(/* Add code here */).permitAll()
+                .requestMatchers(/* Add code here */).hasRole("ADMIN")
+                .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
+                .anyRequest().authenticated()
+                .and()
+            .httpBasic()
+                 .and()
+            .csrf().disable();
+        // @formatter:on
+
     }
 }

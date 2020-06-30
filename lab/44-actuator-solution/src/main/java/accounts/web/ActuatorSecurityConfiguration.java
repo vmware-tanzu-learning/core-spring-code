@@ -15,7 +15,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter{
+public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -28,12 +28,16 @@ public class ActuatorSecurityConfiguration extends WebSecurityConfigurerAdapter{
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
+        // @formatter:off
         http.authorizeRequests()
                 .requestMatchers(EndpointRequest.to(HealthEndpoint.class, InfoEndpoint.class, PrometheusScrapeEndpoint.class)).permitAll()
                 .requestMatchers(EndpointRequest.to(ConditionsReportEndpoint.class)).hasRole("ADMIN")
                 .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ACTUATOR")
                 .anyRequest().authenticated()
                 .and()
-            .httpBasic();
+            .httpBasic()
+                .and()
+            .csrf().disable();
+        // @formatter:on
     }
 }
