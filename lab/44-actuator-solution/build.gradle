@@ -9,6 +9,21 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-aop'
     implementation 'org.springframework.boot:spring-boot-starter-security'
     implementation 'io.micrometer:micrometer-registry-prometheus'
+    implementation 'com.wavefront:wavefront-spring-boot-starter'
+}
+
+// Needed for Wavefront dependency
+dependencyManagement {
+    imports {
+        mavenBom("com.wavefront:wavefront-spring-boot-bom:$wavefrontVersion")
+    }
+}
+
+// Needed for Wavefront dependency
+repositories {
+    maven {
+        url = 'https://repo.spring.io/snapshot'
+    }
 }
 
 springBoot  {
@@ -23,3 +38,8 @@ springBoot  {
     }
 }
 
+// Skip these tests. They won't pass without setting Wavefront API token
+// property in the application.properties file
+test {
+    exclude '**/AccountClientTests.class'
+}

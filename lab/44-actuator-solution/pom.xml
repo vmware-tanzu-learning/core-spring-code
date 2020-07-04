@@ -16,6 +16,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <start-class>accounts.ActuatorApplication</start-class>
+        <wavefront.version>2.0.0-SNAPSHOT</wavefront.version>
     </properties>
     <dependencies>
         <!-- Common classes: Percentage, MonetaryAmount -->
@@ -52,6 +53,11 @@
         </dependency>
 
         <dependency>
+            <groupId>com.wavefront</groupId>
+            <artifactId>wavefront-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
@@ -74,6 +80,32 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
     </dependencies>
+
+    <!-- Needed for Wavefront dependency -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.wavefront</groupId>
+                <artifactId>wavefront-spring-boot-bom</artifactId>
+                <version>${wavefront.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- Needed for Wavefront dependency -->
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <build>
         <plugins>
             <plugin>
@@ -95,8 +127,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <!-- Skip these tests. They won't pass without running RestWsApplication 
-					 first -->
+                <!-- Skip these tests. They won't pass without Wavefront API token
+                     property in the application.properties file -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
@@ -107,4 +139,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

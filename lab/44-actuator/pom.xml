@@ -71,17 +71,6 @@
                 <!-- TO-DO-07: Add build-info goal -->
                 <!-- TO-DO-08: Add additional properties of name, javaVersion, operatingSystem -->
             </plugin>
-            <plugin>
-                <!-- Skip these tests. They won't pass without running RestWsApplication 
-					 first -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <configuration>
-                    <excludes>
-                        <exclude>**/AccountClientTests.java</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
         </plugins>
     </build>
 </project>
