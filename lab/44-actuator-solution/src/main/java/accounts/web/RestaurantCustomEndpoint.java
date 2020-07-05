@@ -13,12 +13,12 @@ import java.util.Map;
 
 @Component
 @Endpoint(id = "restaurant")
-public class RestaurantEndpoint {
+public class RestaurantCustomEndpoint {
 
     Map<String, String> map = new HashMap<>();
 
-    public RestaurantEndpoint(RestaurantRepository restaurantRepository,
-                              @Value("${info.restaurant.location}") String location) {
+    public RestaurantCustomEndpoint(RestaurantRepository restaurantRepository,
+                                    @Value("${info.restaurant.location}") String location) {
         Long restaurantCount = restaurantRepository.getRestaurantCount();
         map.put("restaurant.count", restaurantCount.toString());
         map.put("restaurant.location", location);
