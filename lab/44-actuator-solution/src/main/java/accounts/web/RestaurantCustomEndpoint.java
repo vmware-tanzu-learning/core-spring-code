@@ -18,7 +18,7 @@ public class RestaurantCustomEndpoint {
     Map<String, String> map = new HashMap<>();
 
     public RestaurantCustomEndpoint(RestaurantRepository restaurantRepository,
-                                    @Value("${info.restaurant.location}") String location) {
+                                    @Value("${info.restaurant.location: New York}") String location) {
         Long restaurantCount = restaurantRepository.getRestaurantCount();
         map.put("restaurant.count", restaurantCount.toString());
         map.put("restaurant.location", location);
