@@ -14,6 +14,7 @@ Thumbs.db
 build/
 target/
 bin/
+out/
 dependency-reduced-pom.xml
 
 # Eclipse Project Files
