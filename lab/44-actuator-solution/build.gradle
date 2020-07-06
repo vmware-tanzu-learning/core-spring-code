@@ -38,8 +38,4 @@ springBoot  {
     }
 }
 
-// Skip these tests. They won't pass without setting Wavefront API token
-// property in the application.properties file
-test {
-    exclude '**/AccountClientTests.class'
-}
+
