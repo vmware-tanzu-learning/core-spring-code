@@ -60,7 +60,11 @@ import config.AppConfig;
  *   to use `data-with-restaurants.sql`
  * - Let the application to restart (via devtools)
  * - Access the health indicator - it should be UP this time
- * 
+ *
+ * ------------------------------------------------
+ *
+ * TODO-20: Look for TO-DO-20 in application.properties
+ *
  */
 @SpringBootApplication
 @Import(AppConfig.class)
@@ -74,7 +78,7 @@ public class ActuatorApplication {
 }
 
 /*
- * TODO-24 (Optional): Run "jconsole" (from <JDK-directory>/bin)
+ * TODO-25 (Optional): Run "jconsole" (from <JDK-directory>/bin)
  * (If you are short on time, skip this step.)
  * - Select "accounts.ActuatorApplication" under "Local Process"
  *   then click "Connect"

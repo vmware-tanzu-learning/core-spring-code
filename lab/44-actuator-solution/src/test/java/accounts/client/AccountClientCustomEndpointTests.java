@@ -22,7 +22,7 @@ public class AccountClientCustomEndpointTests {
     @Test
     public void restaurant_custom_endpoint_returns_valid_data() {
         ResponseEntity<String> responseEntity
-                = restTemplate.withBasicAuth("admin", "admin")
+                = restTemplate.withBasicAuth("actuator", "actuator")
                               .getForEntity("/actuator/restaurant", String.class);
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).contains("restaurant.location").contains("New York");
