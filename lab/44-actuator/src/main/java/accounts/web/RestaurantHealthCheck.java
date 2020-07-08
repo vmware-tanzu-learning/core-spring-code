@@ -4,10 +4,10 @@ package accounts.web;
  * TODO-16a: Create custom health indicator
  * - Make this class implement HealthIndicator interface
  * - Make this class a component
- * - Add a constructor to pass in the restaurant repository
- *   and use it to implement health().
+ * - Inject RestaurantRepository through constructor injection
  * - health() method should return DOWN if the repository is empty
- *   (no restaurants) or UP otherwise.
+ *   (no restaurants) or UP otherwise. (Note that RestaurantRepository
+ *   has a method that returns number of restaurants.)
  */
 public class RestaurantHealthCheck {
 
@@ -16,11 +16,14 @@ public class RestaurantHealthCheck {
 
 /**
  * TODO-25 (Optional): Experiment with HealthIndicator above
- * - Include the restaurant count as extra detail in the health endpoint.
- *   Have a look at the Health class to see how this might work.
+ * - Change "spring.datasource.data" to use "data-no-restaurants.sql"
+ *   in the "application.properties" file
+ * - Include the restaurant count as extra detail when DOWN state.
  * - Instead of returning DOWN when there are no restaurants,
- *   use a custom status (e.g. NO_RESTAURANTS).
- * - When there are no restaurants in the DB, what overall status
- *   is returned for the application? Fix this issue by adjusting
- *   the order of precedence for the health statuses.
+ *   define and use a custom status called NO_RESTAURANTS.
+ * - When there are no restaurants in the DB, what top-level status
+ *   is returned for the "application" health group?
+ *   Set "management.endpoint.health.status.order" property in
+ *   the "application.properties" file so that NO_RESTAURANTS
+ *   gets displayed as top-level status.
  */

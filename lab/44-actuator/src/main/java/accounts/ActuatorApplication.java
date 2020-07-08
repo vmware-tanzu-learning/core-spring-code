@@ -22,13 +22,14 @@ import config.AppConfig;
  *          (Look for TO-DO-04 in application.properties)
  *
  * TODO-05: Change log level via ./actuator/loggers endpoint
- * - Verify the current logging level of the accounts.web package is DEBUG
- * - Add logger.debug("Logging message within accountSummary()") inside
- *   accountSummary() method - this message will be used to verify if we can
- *   change the logging level without restarting the application
+ * - Verify the current logging level of the "accounts.web" package is DEBUG
+ * - Add "logger.debug("Logging message within accountSummary()");" inside
+ *   "accountSummary()" method in the "AccountController" class - this
+ *   message will be used to verify if we can change the
+ *   logging level without restarting the application
  * - Restart the application and access "/accounts" URL and verify
  *   the log message gets displayed
- * - Change logging level of accounts.web package to INFO using curl
+ * - Change logging level of "accounts.web" package to INFO using curl
  *   command below (or use Postman)
  *   curl -i -XPOST -H"Content-Type: application/json" localhost:8080/actuator/loggers/accounts.web -d'{"configuredLevel": "INFO"}'
  * - Access "/accounts" URL (WITHOUT restarting the application) and verify
@@ -37,12 +38,19 @@ import config.AppConfig;
  * TODO-06: Publish build information
  * - Add an appropriate plugin to pom.xml (for Maven) or BuildInfo task to
  *   build.gradle (for Gradle)
+ * - Rebuild the application preferably at the command line
+ *   ./mvnw -pl 00-rewards-common -pl 01-rewards-db -pl 44-actuator clean install (for Maven)
+ *   ./gradlew 44-actuator:clean 44-actuator:build (for Gradle)
+ * - Restart the application and access "info" endpoint and verify the build
+ *   info gets displayed
  *
  * TODO-07: Add additional build properties to the plugin (for Maven)
  *          or BuildInfo task (for Gradle)
  * - Add "javaVersion" and "operatingSystem" properties
  * - Feel free to see the lab document or solution project for
  *   more detailed instruction
+ * - Restart the application and access "info" endpoint and verify
+ *   additional build properties are displayed
  *
  * ------------------------------------------------
  *
@@ -62,7 +70,7 @@ import config.AppConfig;
  *
  * ------------------------------------------------
  *
- * TODO-20: Look for TO-DO-20 in application.properties
+ * TODO-20: Look for "TO-DO-20: Organize health indicators into groups" in the application.properties
  *
  */
 @SpringBootApplication
