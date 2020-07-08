@@ -3,7 +3,7 @@ package rewards.jms.client;
 import config.ClientConfig;
 import config.JmsInfrastructureConfig;
 import config.RootConfig;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +42,7 @@ public class DiningBatchProcessorTests {
 	private RewardConfirmationLogger confirmationLogger;
 
 	@Test
-	@Ignore
+	@Disabled
 	public void testBatch() throws Exception {
 		Dining dining1 = Dining.createDining("80.93", "1234123412341234", "1234567890");
 		Dining dining2 = Dining.createDining("56.12", "1234123412341234", "1234567890");
@@ -57,7 +57,7 @@ public class DiningBatchProcessorTests {
 		batch.add(dining4);
 		batch.add(dining5);
 
-		// TODO-10: Remove the @Ignore annotation at the top of this method.
+		// TODO-10: Remove the @Disabled annotation at the top of this method.
 		//	Invoke the DiningBatchProcessor to send dining list via JMS.
 
 		waitForBatch(batch.size(), 1000);
