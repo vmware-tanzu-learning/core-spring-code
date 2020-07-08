@@ -7,7 +7,6 @@ dependencies {
     // TO-DO-01: Note that the Actuator starter is already here for you.
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 // TO-DO-07: Add BuildInfo task to the Spring Boot Gradle plugin

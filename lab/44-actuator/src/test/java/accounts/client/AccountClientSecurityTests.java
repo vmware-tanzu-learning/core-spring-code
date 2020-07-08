@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 
 import static org.assertj.core.api.Assertions.*;
 
-// TODO-22: Run the tests checking security configuration for the actuator endpoints
+// TODO-24: Run the tests checking security configuration for the actuator endpoints
 // - Take some time to understand what each test is for
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass

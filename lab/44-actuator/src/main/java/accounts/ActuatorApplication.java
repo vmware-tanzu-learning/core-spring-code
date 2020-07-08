@@ -11,8 +11,7 @@ import config.AppConfig;
  * TODO-01: Note that the Actuator starter is already set up for you.
  *          (Look for TO-DO-01 in the pom.xml or build.gradle)
  *
- * TODO-02: Run this application. Enter "admin/admin" as username/password.
- *          Try these URLs:
+ * TODO-02: Run this application. Try these URLs:
  * - http://localhost:8080/actuator - should work
  * - http://localhost:8080/actuator/metrics - fails (404), why?
  *
@@ -78,7 +77,7 @@ public class ActuatorApplication {
 }
 
 /*
- * TODO-25 (Optional): Run "jconsole" (from <JDK-directory>/bin)
+ * TODO-27 (Optional): Run "jconsole" (from <JDK-directory>/bin)
  * (If you are short on time, skip this step.)
  * - Select "accounts.ActuatorApplication" under "Local Process"
  *   then click "Connect"

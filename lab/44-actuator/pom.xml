@@ -51,11 +51,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-
 		<!-- Automatic application restart -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -15,7 +15,7 @@ public class RestaurantHealthCheck {
 
 
 /**
- * TODO-23 (Optional): Experiment with HealthIndicator above
+ * TODO-25 (Optional): Experiment with HealthIndicator above
  * - Include the restaurant count as extra detail in the health endpoint.
  *   Have a look at the Health class to see how this might work.
  * - Instead of returning DOWN when there are no restaurants,
