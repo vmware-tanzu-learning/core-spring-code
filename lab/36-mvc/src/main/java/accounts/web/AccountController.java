@@ -31,7 +31,7 @@ public class AccountController {
 	}
 
 	/**
-	 * Provide a model with a list of all accounts for the account List page.
+	 * Return a list of all accounts
 	 */
 	// TODO-04: Add an appropriate annotation to make this method handle "/accounts"
 	public List<Account> accountList() {
