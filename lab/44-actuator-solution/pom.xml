@@ -119,7 +119,7 @@
                         <configuration>
                             <additionalProperties>
                                 <name>actuator app</name>
-                                <javaVersion>1.8.0_144</javaVersion>
+                                <javaVersion>11.0.7+10</javaVersion>
                                 <operatingSystem>Mac OS X (10.13.6)</operatingSystem>
                             </additionalProperties>
                         </configuration>
