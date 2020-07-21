@@ -30,7 +30,7 @@
 
         <!-- Add JAXB that is dropped in JDK 9 -->
         <jaxb-api.version>2.3.0</jaxb-api.version>
-        
+
         <!-- Without this, Eclipse will flag an error on pom.xml -->
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
     </properties>
@@ -150,10 +150,10 @@
                     <sourceIncludes>
                         <sourceInclude>**/*.*</sourceInclude>
                     </sourceIncludes>
-                    <!-- All of them are listed manually to solve a limitation of the 
-                        mvn eclipse plugin (https://issuetracker.springsource.com/browse/STS-2938). 
-                        This might cause some issues when migrating to the next version of Eclipse/STS) 
-                        also see spring-intro/pom.xml (projectnatures defined explicitely there 
+                    <!-- All of them are listed manually to solve a limitation of the
+                        mvn eclipse plugin (https://issuetracker.springsource.com/browse/STS-2938).
+                        This might cause some issues when migrating to the next version of Eclipse/STS)
+                        also see spring-intro/pom.xml (projectnatures defined explicitely there
                         as well) -->
                     <projectnatures>
                         <projectnature>org.springframework.ide.eclipse.core.springnature</projectnature>
@@ -189,7 +189,7 @@
         <!-- Section: Shared -->
         <module>00-rewards-common</module>
         <module>01-rewards-db</module>
-        
+
         <!-- Section: Spring Essentials -->
         <!-- Day 1 -->
         <module>10-spring-intro</module>
@@ -210,7 +210,7 @@
         <module>28-transactions-solution</module>
 
         <!-- Section: Spring Boot -->
-        
+
         <!-- Day 3 -->
         <module>30-jdbc-boot-solution</module>
         <module>32-jdbc-autoconfig</module>
@@ -221,10 +221,10 @@
         <module>36-mvc-solution</module>
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
- 
+
         <!-- Day 4 -->
         <module>40-boot-test</module>
-        <module>40-boot-test-solution</module>       
+        <module>40-boot-test-solution</module>
         <module>42-security-rest</module>
         <module>42-security-rest-solution</module>
         <module>44-actuator</module>
