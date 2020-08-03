@@ -17,8 +17,9 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 // TODO-10: Enable global method security
-// - Add an appropriate annotation to this class
-// - Make sure "prePostEnabled" attribute is set to true
+// - Add @EnableGlobalMethodSecurity(prePostEnabled = true)
+//   annotation to this class
+//   (For Spring Boot application, this is not needed)
 
 @Configuration
 @EnableWebSecurity      // Redundant in Spring Boot app
