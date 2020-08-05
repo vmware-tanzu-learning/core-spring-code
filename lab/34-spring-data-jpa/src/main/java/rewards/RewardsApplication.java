@@ -43,3 +43,4 @@ public class RewardsApplication {
 
 // TODO-07: Configure JPA as specified in the TO-DO-07 in the
 //          src/test/resources/application.properties
+//          ("application.properties" file used for testing)

@@ -2,7 +2,8 @@ apply plugin: "org.springframework.boot"
 
 dependencies {
     implementation project(':00-rewards-common')
-    // TO-DO-01 : Review the dependency for the Spring Boot Data JPA Starter. What does this do?
+    // TO-DO-01 : Review the dependency for the Spring Boot Data JPA Starter.
+    //            What does this do?
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
