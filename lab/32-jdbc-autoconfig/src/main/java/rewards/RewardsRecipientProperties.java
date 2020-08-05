@@ -14,9 +14,9 @@ package rewards;
 //   properties above in the RewardsRecipientProperties class
 // - Use one of the following 3 schemes to enable @ConfigurationProperties
 //   (1) Add @EnableConfigurationProperties(RewardsRecipientProperties.class)
-//       to this class or
-//   (2) Add @ConfigurationPropertiesScan to this class or
-//   (3) Annotate the RewardsRecipientProperties class with @Component
+//       to the RewardsApplication class
+//   (2) Add @ConfigurationPropertiesScan to RewardsApplication class or
+//   (3) Annotate this class with @Component
 // - Implement a new command line runner that displays the name of the rewards
 //   recipient when the application gets started
 public class RewardsRecipientProperties {
