@@ -158,17 +158,12 @@ public class AccountController {
 	}
 
 	/**
-	 * Return a response with the location of the new resource. It's URL is
-	 * assumed to be a child of the URL just received.
+	 * Return a response with the location of the new resource.
 	 *
 	 * Suppose we have just received an incoming URL of, say,
 	 * http://localhost:8080/accounts and resourceId
 	 * is "12345". Then the URL of the new resource will be
 	 * http://localhost:8080/accounts/12345.
-	 * 
-	 * @param resourceId
-	 *            Is of the new resource.
-	 * @return
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
 

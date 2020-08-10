@@ -76,8 +76,7 @@ public class AccountController {
 	}
 
 	/**
-	 * Return a response with the location of the new resource. It's URL is
-	 * assumed to be a child of the URL just received.
+	 * Return a response with the location of the new resource. 
 	 *
 	 * Suppose we have just received an incoming URL of, say,
 	 *   http://localhost:8080/accounts and resourceId is "1111".
