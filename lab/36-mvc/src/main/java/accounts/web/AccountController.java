@@ -7,7 +7,7 @@ import rewards.internal.account.Account;
 import java.util.List;
 
 /**
- * A Spring MVC REST Controller handling requests to view Account information.
+ * A Spring MVC REST Controller handling requests to retrieve Account information.
  *
  * Note that some of the Account related classes are imported from the
  * rewards-db project:
