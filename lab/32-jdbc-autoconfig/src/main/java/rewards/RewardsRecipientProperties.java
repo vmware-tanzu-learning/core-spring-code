@@ -1,6 +1,6 @@
 package rewards;
 
-// TODO-07 : Capture properties into a class using @ConfigurationProperties
+// TODO-06 : Capture properties into a class using @ConfigurationProperties
 // - Note that application.properties file already contains the following properties
 //
 //    rewards.recipient.name=John Doe

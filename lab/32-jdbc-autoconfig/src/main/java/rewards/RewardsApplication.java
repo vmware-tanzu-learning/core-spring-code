@@ -33,19 +33,19 @@ public class RewardsApplication {
         SpringApplication.run(RewardsApplication.class, args);
     }
 
-    // TODO-05 : Let Spring Boot execute database scripts
+    // TODO-04 : Let Spring Boot execute database scripts
     // - Move the SQL scripts (schema.sql and data.sql)
     //   from `src/test/resources/rewards/testdb` directory
     //   to `src/main/resources/` directory
 
-    // TODO-06 : Implement a command line runner that will query count from
+    // TODO-05 : Implement a command line runner that will query count from
     //           T_ACCOUNT table and log the count to the console
     // - Use the SQL query and logger provided above.
     // - Use the JdbcTemplate bean that Spring Boot auto-configured for you
     // - Run this application and verify "Hello, there are 21 accounts" log message
     //   gets displayed in the console
 
-    // TODO-08 (Optional): Enable full debugging in order to observe how Spring Boot
+    // TODO-07 (Optional): Enable full debugging in order to observe how Spring Boot
     //           performs its auto-configuration logic
     // - Follow TO-DO-08 in application.properties, then come back here.
     // - Run the application

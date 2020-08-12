@@ -18,7 +18,7 @@ import javax.sql.DataSource;
 public class SystemTestConfig {
 	private final Logger logger = LoggerFactory.getLogger(SystemTestConfig.class);
 
-	// TODO-04 : Use Spring Boot auto-configuration for DataSource
+	// TODO-08 : Use Spring Boot auto-configuration for DataSource
 	// - Comment out the @Bean method below so this method is no longer called
 
 	@Bean
