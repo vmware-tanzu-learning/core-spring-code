@@ -14,6 +14,13 @@ import rewards.internal.reward.RewardRepository;
  * the domain-layer to carry out the process of rewarding benefits to accounts for dining.
  * 
  * Said in other words, this class implements the "reward account for dining" use case.
+ *
+ * TODO-01: Review the Rewards Application document (Refer to the lab document)
+ * TODO-02: Review project dependencies (Refer to the lab document)
+ * TODO-03: Review Rewards Commons project (Refer to the lab document)
+ * TODO-04: Review RewardNetwork interface and RewardNetworkImpl class below
+ * TODO-05: Review the RewardNetworkImpl configuration logic (Refer to the lab document)
+ * TODO-06: Review sequence diagram (Refer to the lab document)
  */
 public class RewardNetworkImpl implements RewardNetwork {
 
@@ -37,9 +44,9 @@ public class RewardNetworkImpl implements RewardNetwork {
 	}
 
 	public RewardConfirmation rewardAccountFor(Dining dining) {
-		// TODO-01: Write code here for rewarding an account according to
+		// TODO-07: Write code here for rewarding an account according to
 		//          the sequence diagram in the lab document
-		// TODO-02: Return the corresponding reward confirmation
+		// TODO-08: Return the corresponding reward confirmation
 		return null;
 	}
 }
