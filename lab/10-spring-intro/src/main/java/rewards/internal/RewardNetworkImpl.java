@@ -37,7 +37,8 @@ public class RewardNetworkImpl implements RewardNetwork {
 	}
 
 	public RewardConfirmation rewardAccountFor(Dining dining) {
-		// TODO-01: Reward an account per the sequence diagram
+		// TODO-01: Write code here for rewarding an account according to
+		//          the sequence diagram in the lab document
 		// TODO-02: Return the corresponding reward confirmation
 		return null;
 	}
