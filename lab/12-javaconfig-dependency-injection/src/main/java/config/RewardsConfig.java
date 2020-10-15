@@ -26,7 +26,7 @@ import javax.sql.DataSource;
  *          needed to instantiate its object and set its
  *          dependencies
  * - You can create beans from the following implementation classes
- *   - rewardNetwork bean from rewardNetworkImpl class
+ *   - rewardNetwork bean from RewardNetworkImpl class
  *   - accountRepository bean from JdbcAccountRepository class
  *   - restaurantRepository bean from JdbcRestaurantRepository class
  *   - rewardRepository bean from JdbcRewardRepository class
