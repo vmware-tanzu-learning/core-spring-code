@@ -1,16 +1,16 @@
 package rewards;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 /**
  * Sets up a JNDI service for our test.
- * <p>
- * See {@link SimpleJndiHelper#SimpleJndiHelper} to see how this works.
+ *
+ * See SimpleJndiHelper class to see how this works.
  */
 @Configuration
 @Profile("jndi")
