@@ -23,7 +23,7 @@ public class RewardsConfig {
 
 	DataSource dataSource;
 
-	@Autowired  // Optional, Spring will autowire DataSource anyway
+	@Autowired  // This @Autowired annotation is optional here
 	public RewardsConfig(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
