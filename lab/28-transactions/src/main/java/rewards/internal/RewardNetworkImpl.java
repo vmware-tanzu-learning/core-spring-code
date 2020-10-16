@@ -46,6 +46,7 @@ public class RewardNetworkImpl implements RewardNetwork {
 	// Switch the propagation level to require a NEW transaction whenever invoked.  
 	
 	// TODO-01: Annotate this method as needing transactional behavior
+	// Make sure to use the annotation from Spring not from Java EE.
 	
 	public RewardConfirmation rewardAccountFor(Dining dining) {
 		Account account = accountRepository.findByCreditCard(dining.getCreditCardNumber());

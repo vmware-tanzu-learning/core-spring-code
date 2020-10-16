@@ -29,6 +29,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 //    We are going to address this in the subsequent steps.
 
 // TODO-07: Re-run this test, it should now pass.
+// - Think about why this test passes now.
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = { SystemTestConfig.class })
