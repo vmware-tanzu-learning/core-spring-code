@@ -37,11 +37,12 @@ import javax.sql.DataSource;
  *   testRewardForDining. Delete any code in the method body.
  * - Otherwise add a testRewardForDining method & annotate it with
  *   @Test (make sure to import org.junit.jupiter.api.Test).
- * - Run the test. If your setup() is working you get a green bar.
+ * - Run the test. If your setup() is working, you get a green bar.
  *
  * TODO-11: Finally run a real test.
  * - Copy the unit test (the @Test method) from
- *   RewardNetworkImplTests#testRewardForDining() - we are testing
+ *   RewardNetworkImplTests#testRewardForDining() under
+ *   rewards.internal test package - we are testing
  *   the same code, but using a different setup.
  * - Run the test - it should pass if you have configured everything
  *   correctly. Congratulations, you are done.
