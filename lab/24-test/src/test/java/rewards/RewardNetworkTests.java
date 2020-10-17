@@ -16,7 +16,12 @@ import static org.junit.jupiter.api.Assertions.*;
  * application for use in a test environment.
  */
 
-/* TODO-01: Use Spring TestContext framework
+/*
+ * TODO-00: The goals of this lab are
+ * - Using spring application context in the test
+ * - Using profiles in the test
+ *
+ * TODO-01: Use Spring TestContext framework
  * - Add annotation(s) to this class so that it can
  *   use Spring test context framework
  * - Remove setUp() and tearDown() methods
