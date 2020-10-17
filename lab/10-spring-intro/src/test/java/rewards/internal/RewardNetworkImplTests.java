@@ -31,12 +31,13 @@ public class RewardNetworkImplTests {
 	// TODO-09: Review the test setup
 	@BeforeEach
 	public void setUp() throws Exception {
-		// create stubs to facilitate fast in-memory testing with dummy data and no external dependencies
+		// Create stubs to facilitate fast in-memory testing with
+		// dummy data and no external dependencies
 		AccountRepository accountRepo = new StubAccountRepository();
 		RestaurantRepository restaurantRepo = new StubRestaurantRepository();
 		RewardRepository rewardRepo = new StubRewardRepository();
 
-		// setup the object being tested by handing what it needs to work
+		// Setup the object being tested by handing what it needs to work
 		rewardNetwork = new RewardNetworkImpl(accountRepo, restaurantRepo, rewardRepo);
 	}
 

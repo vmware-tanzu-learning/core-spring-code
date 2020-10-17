@@ -47,8 +47,8 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	private DataSource dataSource;
 
 	/**
-	 * The Restaurant object cache. Cached restaurants are indexed by their merchant
-	 * numbers.
+	 * The Restaurant object cache. Cached restaurants are indexed
+	 * by their merchant numbers.
 	 */
 	private Map<String, Restaurant> restaurantCache;
 

@@ -47,10 +47,10 @@ public class RewardsConfigTests {
 
 	/**
 	 * Ensure the data-source is set for the repository. Uses reflection as we do
-	 * not wish to provide a <tt>getDataSource()</tt> method.
+	 * not wish to provide a getDataSource() method.
 	 * 
-	 * @param repository
-	 *            One of our three repositories.
+	 * @param repository One of our three repositories.
+	 *
 	 */
 	private void checkDataSource(Object repository) {
 		Class<? extends Object> repositoryClass = repository.getClass();
