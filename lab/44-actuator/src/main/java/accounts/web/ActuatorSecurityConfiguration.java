@@ -20,7 +20,7 @@ public class ActuatorSecurityConfiguration /* extends WebSecurityConfigurerAdapt
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //
-//        // TODO-23: Configure access control to actuator endpoints
+//        // TODO-23: Configure access control to actuator endpoints as following
 //        // - Anybody can access "health" and "info" endpoints
 //        // - ADMIN role can access "conditions" endpoint
 //        // - ACTUATOR role can access all the other endpoints
