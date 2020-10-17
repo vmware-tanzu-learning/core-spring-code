@@ -38,8 +38,8 @@ public class AccountController {
 	// TODO-08: Add a Micrometer Counter
 	// - Inject a MeterRegistry through constructor injection
 	//   (Modify the existing constructor below)
-	// - Create the counter from the MeterRegistry
-	// - Name the counter "account.fetch" with a tag of "type"/"fromCode" key/value pair
+	// - Create a Counter from the MeterRegistry: Name the counter "account.fetch" with
+	//   a tag of "type"/"fromCode" key/value pair
 	@Autowired
 	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;

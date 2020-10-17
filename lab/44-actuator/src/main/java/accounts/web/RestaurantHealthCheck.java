@@ -26,4 +26,5 @@ public class RestaurantHealthCheck {
  * - Set "management.endpoint.health.group.application.status.order" property
  *   in the "application.properties" file so that NO_RESTAURANTS
  *   gets displayed as top-level status for the "application" health group.
+ * - Restart the application and verify the result.
  */
