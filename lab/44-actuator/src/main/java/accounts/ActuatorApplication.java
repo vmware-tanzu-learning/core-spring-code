@@ -41,10 +41,13 @@ import config.AppConfig;
  * - Rebuild the application preferably at the command line
  *   ./mvnw -pl 00-rewards-common -pl 01-rewards-db -pl 44-actuator clean install (for Maven)
  *   ./gradlew 44-actuator:clean 44-actuator:build (for Gradle)
+ * - Verify the presence of the build-info.properties file as following
+ *   ./target/classes/META-INF/build-info.properties (for Maven)
+ *   ./build/resources/main/META-INF/build-info.properties (for Gradle)
  * - Restart the application and access "info" endpoint and verify the build
  *   info gets displayed
  *
- * TODO-07: Add additional build properties to the plugin (for Maven)
+ * TODO-07 (Optional): Add additional build properties to the plugin (for Maven)
  *          or BuildInfo task (for Gradle)
  * - Add "javaVersion" and "operatingSystem" properties
  * - Feel free to see the lab document or solution project for
