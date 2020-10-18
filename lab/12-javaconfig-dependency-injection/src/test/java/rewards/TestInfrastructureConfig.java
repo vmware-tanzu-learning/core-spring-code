@@ -17,10 +17,12 @@ import javax.sql.DataSource;
  * - Do not modify this method.
  *
  * TODO-07: Import your application configuration file (RewardsConfig)
+ * - Now the test code should have access to all the beans defined in
+ *   the RewardConfig configuration class
  *
  * TODO-08: Create a new JUnit 5 test class
  * - Call it RewardNetworkTests
- * - Create it in the same package this class is located.
+ * - Create it in the same package this configuration class is located.
  * - Ask for a setUp() method to be generated within your IDE.
  *
  * NOTE: The appendices at the bottom of the course Home Page includes

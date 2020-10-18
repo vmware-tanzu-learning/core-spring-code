@@ -4,7 +4,8 @@ import javax.sql.DataSource;
 
 /**
  * TODO-00: In this lab, you are going to exercise the following:
- * - Creating Spring beans using configuration class and @Bean methods
+ * - Creating Spring configuration class
+ * - Defining bean definitions within the configuration class
  * - Specifying the dependency relationships among beans
  *
  * TODO-01: Make this class a Spring configuration class

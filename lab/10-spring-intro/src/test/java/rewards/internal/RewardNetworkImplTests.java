@@ -15,11 +15,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * Unit tests for the RewardNetworkImpl application logic. Configures the implementation with stub repositories
- * containing dummy data for fast in-memory testing without the overhead of an external data source.
+ * Unit tests for the RewardNetworkImpl application logic.
+ * Configures the implementation with stub repositories
+ * containing dummy data for fast in-memory testing without
+ * the overhead of an external data source.
  * 
- * Besides helping catch bugs early, tests are a great way for a new developer to learn an API as he or she can see the
- * API in action. Tests also help validate a design as they are a measure for how easy it is to use your code.
+ * Besides helping catch bugs early, tests are a great way
+ * for a new developer to learn an API as he or she can see the
+ * API in action. Tests also help validate a design as they
+ * are a measure for how easy it is to use your code.
  */
 public class RewardNetworkImplTests {
 
