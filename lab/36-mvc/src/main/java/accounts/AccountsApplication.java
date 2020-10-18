@@ -9,6 +9,14 @@ import config.AccountsConfig;
 /**
  * Spring Boot application.
  *
+ * TODO-00: In this lab, you are going to exercise the following:
+ * - Creating Spring Mvc REST controller
+ * - Implementing handlers that handle HTTP GET request
+ * - Using proper annotation for extracting value from the URL
+ * - Exercising Spring Dev Tools
+ * - Changing a port number of a Web application using server.port property
+ * - Writing assertions in the test code
+ *
  * TODO-01: Open pom.xml or build.gradle for this project and check the dependencies.
  * - Note that we are using Spring Boot starter for Web
  * - Note that we are also using devtools

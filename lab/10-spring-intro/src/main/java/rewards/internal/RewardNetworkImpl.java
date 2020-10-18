@@ -15,7 +15,7 @@ import rewards.internal.reward.RewardRepository;
  * 
  * Said in other words, this class implements the "reward account for dining" use case.
  *
- * TODO-00: The goals of this lab are
+ * TODO-00: In this lab, you are going to exercise the following:
  * - Understanding internal operations that need to be performed to implement
  *   "rewardAccountFor" method of the "RewardNetworkImpl" class
  * - Writing test code using stub implementations of dependencies

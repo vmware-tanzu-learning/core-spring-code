@@ -24,10 +24,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * Tests the JDBC reward repository with a test data source to verify
  * data access and relational-to-object mapping behavior works as expected.
  *
- * TODO-00: The goals of this lab are
+ * TODO-00: In this lab, you are going to exercise the following:
  * - Refactoring inefficient JDBC code to leverage Spring's JdbcTemplate
- * - Exercising various query methods of JdbcTemplate for retrieving data
- * - Exercising callbacks for converting retrieved data into domain object
+ * - Using various query methods of JdbcTemplate for retrieving data
+ * - Implementing callbacks for converting retrieved data into domain object
  */
 public class JdbcRewardRepositoryTests {
 

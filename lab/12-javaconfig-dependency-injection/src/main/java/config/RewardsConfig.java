@@ -3,7 +3,7 @@ package config;
 import javax.sql.DataSource;
 
 /**
- * TODO-00: The goals of this lab are
+ * TODO-00: In this lab, you are going to exercise the following:
  * - Creating Spring beans using configuration class and @Bean methods
  * - Specifying the dependency relationships among beans
  *

@@ -4,6 +4,15 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+// TODO-00: In this lab, you are going to exercise the following:
+// - Observing the default security behavior
+// - Configuring authorization based on roles
+// - Configuring authentication using in-memory storage
+// - Configuring method-level security
+// - Adding custom UserDetails
+// - Adding custom AuthenticationProvider
+// - Writing test code for security
+
 // TODO-01: Verify the presence of Spring security dependencies
 // - See TO-DO-01 in the pom.xml for Maven or build.gradle for Gradle
 

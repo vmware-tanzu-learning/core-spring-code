@@ -17,8 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 
 /*
- * TODO-00: The goals of this lab are
- * - Using spring application context in the test
+ * TODO-00: In this lab, you are going to exercise the following:
+ * - Creating and using spring application context in the test
  * - Using profiles in the test
  *
  * TODO-01: Use Spring TestContext framework

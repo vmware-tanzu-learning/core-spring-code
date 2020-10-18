@@ -21,7 +21,8 @@ import common.money.MonetaryAmount;
  * 
  * Said in other words, this class implements the "reward account for dining" use case.
  *
- * TODO-00: The goals of this lab are
+ * TODO-00: In this lab, you are going to exercise the following:
+ * - Enabling Spring Transaction
  * - Implementing transactional behavior using Spring Transaction
  * - Exercising transaction propagation
  * - Exercising transactional behavior in test

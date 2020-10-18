@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * application work together to reward for dining successfully.
  * Uses Spring to bootstrap the application for use in a test environment.
  * 
- * TODO-00: The goals of this lab are
+ * TODO-00: In this lab, you are going to exercise the following:
  * - Refactoring the current code that uses Spring configuration with
  *   @Bean methods so that it uses annotation and component-scanning instead
  *

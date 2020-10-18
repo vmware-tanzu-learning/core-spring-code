@@ -14,6 +14,14 @@ import java.util.Random;
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+// TODO-00: In this lab, you are going to exercise the following:
+// - Using @SpringBootTest and webEnvironment for end-to-end testing
+// - Understanding the different usage model of TestRestTemplate from RestTemplate
+//    * Usage of relative path rather than absolute path
+//    * Handling the 404 response from the service
+// - Using MockMvc for Web slice testing
+// - Understanding the difference between @MockBean and @Mock
+
 // TODO-01: Make this class a Spring Boot test class
 // - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
 public class AccountClientTests {

@@ -4,6 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 
+// TODO-00 : In this lab, you are going to exercise the following:
+// - Understanding how auto-configuration is triggered in Spring Boot application
+// - Using auto-configuring DataSource in test and application code
+// - Understanding how @SpringBootTest is used to create application context in test
+// - Implementing CommandLineRunner using auto-configured JdbcTemplate
+// - Disabling a particular auto-configuration
+// - Exercising the usage of @ConfigurationProperties
+
 // TODO-01 : Open pom.xml or build.gradle, look for TO-DO-01
 
 // TODO-02 : In pom.xml or build.gradle, look for TO-DO-02
