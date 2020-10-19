@@ -7,6 +7,7 @@ import javax.sql.DataSource;
  * - Creating Spring configuration class
  * - Defining bean definitions within the configuration class
  * - Specifying the dependency relationships among beans
+ * - Injecting external dependencies through constructor injection
  *
  * TODO-01: Make this class a Spring configuration class
  * - Use an appropriate annotation.
