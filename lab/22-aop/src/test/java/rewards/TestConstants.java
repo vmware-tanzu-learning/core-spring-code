@@ -2,10 +2,10 @@ package rewards;
 
 public class TestConstants {
 	
-	// TODO-00: The goals of this lab are
+	// TODO-00: In this lab, you are going to exercise the following:
 	// - Creating aspect using Spring AOP
-	// - Exercising pointcut expressions
-	// - Exercising various types of advices
+	// - Writing pointcut expressions
+	// - Using various types of advices
 	//
 	// TODO-01: Enable checking of console output in our Tests.
 	//
