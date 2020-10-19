@@ -15,15 +15,15 @@ import common.money.MonetaryAmount;
 /**
  * Rewards an Account for Dining at a Restaurant.
  * 
- * The sole Reward Network implementation. This object is an application-layer service responsible
- * for coordinating with the domain-layer to carry out the process of rewarding benefits to
- * accounts for dining.
+ * The sole Reward Network implementation. This object is an application-layer
+ * service responsible for coordinating with the domain-layer to carry out
+ * the process of rewarding benefits to accounts for dining.
  * 
  * Said in other words, this class implements the "reward account for dining" use case.
  *
  * TODO-00: In this lab, you are going to exercise the following:
  * - Enabling Spring Transaction
- * - Implementing transactional behavior using Spring Transaction
+ * - Adding transactional behavior to a method
  * - Exercising transaction propagation
  * - Exercising transactional behavior in test
  */

@@ -38,8 +38,8 @@ public class AccountController {
 	// TODO-08: Add a Micrometer Counter
 	// - Inject a MeterRegistry through constructor injection
 	//   (Modify the existing constructor below)
-	// - Create a Counter from the MeterRegistry: Name the counter "account.fetch" with
-	//   a tag of "type"/"fromCode" key/value pair
+	// - Create a Counter from the MeterRegistry: name the counter "account.fetch"
+	//   with a tag of "type"/"fromCode" key/value pair
 	@Autowired
 	public AccountController(AccountManager accountManager) {
 		this.accountManager = accountManager;
@@ -193,10 +193,6 @@ public class AccountController {
 	 * http://localhost:8080/accounts and resourceId is
 	 * "12345". Then the URL of the new resource will be
 	 * http://localhost:8080/accounts/12345.
-	 * 
-	 * @param resourceId
-	 *            Is of the new resource.
-	 * @return
 	 */
 	private ResponseEntity<Void> entityWithLocation(Object resourceId) {
 

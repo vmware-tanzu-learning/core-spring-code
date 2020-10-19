@@ -9,8 +9,8 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 /**
- * JDBC implementation of a reward repository that records the result of a reward transaction by inserting a reward
- * confirmation record.
+ * JDBC implementation of a reward repository that records the result
+ * of a reward transaction by inserting a reward confirmation record.
  */
 
 // TODO-08 (Optional) : Inject JdbcTemplate directly to this repository class
