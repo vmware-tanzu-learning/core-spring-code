@@ -19,8 +19,8 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
  * project as the Account Server, Spring Boot will pick up its JPA
  * configuration, so all JPA auto-configuration is disabled (we don't need it).
  *
- * TODO-01: Convert this application into an OAuth2 Server by adding a necessary
- * annotation to this class.
+ * TODO-01: Convert this application into an OAuth2 Server
+ * - Add a necessary annotation to this class.
  */
 @SpringBootApplication(
 		exclude = {JpaRepositoriesAutoConfiguration.class, HibernateJpaAutoConfiguration.class},
@@ -54,27 +54,28 @@ public class AuthorizationServer {
 			@Override
 			public void configure(AuthorizationServerSecurityConfigurer security) {
 				// TODO-03: Check token access - must have trusted client authority
-				// You can use ROLE_TRUSTED_CLIENT above.
+				// - Use ROLE_TRUSTED_CLIENT defined above.
 				security.checkTokenAccess("replace this string");
 			}
 
 			/**
-			 * TODO-04: Register Resource server and Client
-			 *          to the Authorization Server and start
+			 * TODO-04: Register/configure Resource server and Client
+			 *          application to the Authorization Server and start
 			 *          the Authorization server.
 			 *
-			 * Setup the following configuration and then
-			 * start this server application.
+			 * - Register/configure Resource server as following:
+			 *   - It uses account-server:secret as clientId/password
+			 *   - It uses CLIENT_CREDENTIALS as grant type
+			 *   - The token it sends to this authorization server
+             *     should have ROLE_TRUSTED_CLIENT authority
+             *     for successful validation
 			 *
-			 * To validate a token as the Resource server, you must:
-			 * - submit account-server:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant type
-			 * - have authority ROLE_TRUSTED_CLIENT
-			 *
-			 * To get an authorization token as a client, you must
-			 * - submit account-tester:secret as clientId/password
-			 * - have CLIENT_CREDENTIALS as grant type
-			 * - have scopes ACCOUNT_READ and ACCOUNT_WRITE
+			 * - Register/configure client application as following:
+			 *   - It uses account-tester:secret as clientId/password
+			 *   - It uses CLIENT_CREDENTIALS as grant type
+			 *   - The token should contain ACCOUNT_READ and ACCOUNT_WRITE scopes
+             *
+             * - Start this Authorization server
 			 *
 			 */
 			@Override
