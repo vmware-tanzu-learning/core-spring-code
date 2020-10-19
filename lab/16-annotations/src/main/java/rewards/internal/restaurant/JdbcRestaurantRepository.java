@@ -38,7 +38,7 @@ import java.util.Map;
  *
  * - Re-run the test. It should fail.
  * - Examine the stack trace and see if you can
- *   understand why. (If not, refer to the detailed lab instructions).
+ *   understand why. (If not, refer to lab document).
  *   We will fix this error in the next step.
  */
 
