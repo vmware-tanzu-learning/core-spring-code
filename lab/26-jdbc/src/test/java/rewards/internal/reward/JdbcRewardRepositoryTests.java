@@ -25,9 +25,12 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * data access and relational-to-object mapping behavior works as expected.
  *
  * TODO-00: In this lab, you are going to exercise the following:
- * - Refactoring inefficient JDBC code to leverage Spring's JdbcTemplate
+ * - Refactoring cumbersome JDBC code to leverage Spring's JdbcTemplate
  * - Using various query methods of JdbcTemplate for retrieving data
+ *   - queryForObject
  * - Implementing callbacks for converting retrieved data into domain object
+ *   - RowMapper
+ *   - ResultSetExtractor (optional)
  */
 public class JdbcRewardRepositoryTests {
 
