@@ -26,6 +26,11 @@ public class DBExceptionHandlingAspectTests {
     @Test
     @CaptureSystemOutput
     public void testReportException(OutputCapture capture) {
+    	
+    	// The repository.findByCreditCard(..) method below will 
+    	// result in an exception because we are using empty database
+    	// set by DbExceptionTestConfig configuration class
+    	// used by @ContextConfiguration annotation above.
         assertThrows(RewardDataAccessException.class, () -> {
             repository.findByCreditCard("1234123412341234");
         });
