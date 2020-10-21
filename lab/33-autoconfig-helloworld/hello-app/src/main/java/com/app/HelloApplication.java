@@ -95,6 +95,9 @@ import org.springframework.context.annotation.Bean;
 //
 // TODO-37: Comment out @Import statement and run the application
 //          and observe that "TypicalHelloService" bean wins.
+//          (If it does not work, please do "./mvnw clean install"
+//           or "./gradlew clean build" in a terminal window,
+//           then run the application again.)
 //
 // TODO-38: In the console, search for "HelloAutoConfig" and
 //          see how auto-configuration is performed.
