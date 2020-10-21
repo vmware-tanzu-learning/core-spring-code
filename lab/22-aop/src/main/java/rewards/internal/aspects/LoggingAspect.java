@@ -31,9 +31,9 @@ public class LoggingAspect {
 	}
 
 
-	//	TODO-03: Write Pointcut Expression
-	//	- Decide which advice type is most appropriate
-	//  - Write a pointcut expression that selects only find* methods on
+	// TODO-03: Write Pointcut Expression
+	// - Decide which advice type is most appropriate
+	// - Write a pointcut expression that selects only find* methods on
 	//    our repository classes.
 
 	public void implLogging(JoinPoint joinPoint) {
@@ -44,11 +44,10 @@ public class LoggingAspect {
 	}
 	
 	
-    //	TODO-07: Use AOP to time update...() methods.
-    //
-    //  - Mark this method as around advice.
-	//  - Write a pointcut expression to match on all update* methods
-	//	  on Repository classes.
+    // TODO-07: Use AOP to time update...() methods.
+    // - Mark this method as an around advice.
+	// - Write a pointcut expression to match on all update* methods
+	//	 on all Repository classes.
 
 	public Object monitor(ProceedingJoinPoint repositoryMethod) throws Throwable {
 		String name = createJoinPointTraceName(repositoryMethod);

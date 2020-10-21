@@ -18,12 +18,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 /*
  * TODO-00: In this lab, you are going to exercise the following:
- * - Creating and using spring application context in the test
+ * - Using annotation(s) from Spring TestContext Framework for
+ *   creating application context for the test
  * - Using profiles in the test
  *
- * TODO-01: Use Spring TestContext framework
+ * TODO-01: Use Spring TestContext Framework
+ * - Read through Spring document on Spring TestContext Framework
+ *   (https://docs.spring.io/spring-framework/docs/current/spring-framework-reference/testing.html#testcontext-framework)
  * - Add annotation(s) to this class so that it can
- *   use Spring test context framework
+ *   use Spring TestContext Framework
  * - Remove setUp() and tearDown() methods
  * - Remove the attribute "context" which is not needed anymore.
  * - Run the current test. Observe a test failure.

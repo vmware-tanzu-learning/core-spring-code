@@ -19,6 +19,7 @@ import rewards.internal.reward.RewardRepository;
  * - Understanding internal operations that need to be performed to implement
  *   "rewardAccountFor" method of the "RewardNetworkImpl" class
  * - Writing test code using stub implementations of dependencies
+ * - Writing both target code and test code without using Spring framework
  *
  * TODO-01: Review the Rewards Application document (Refer to the lab document)
  * TODO-02: Review project dependencies (Refer to the lab document)
