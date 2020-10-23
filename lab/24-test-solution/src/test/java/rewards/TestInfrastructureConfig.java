@@ -1,5 +1,6 @@
 package rewards;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
@@ -15,7 +16,8 @@ public class TestInfrastructureConfig {
 	/**
 	 * The bean logging post-processor from the bean lifecycle slides.
 	 */
-	public LoggingBeanPostProcessor loggingBean(){
+	@Bean
+	public static LoggingBeanPostProcessor loggingBean(){
 		return new LoggingBeanPostProcessor();
 	}
 }
