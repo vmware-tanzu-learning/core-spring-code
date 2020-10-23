@@ -17,13 +17,14 @@ import static org.junit.jupiter.api.Assertions.*;
 // TODO-00: In this lab, you are going to exercise the following:
 // - Using @SpringBootTest and webEnvironment for end-to-end testing
 // - Understanding the different usage model of TestRestTemplate from RestTemplate
-//    * Usage of relative path rather than absolute path
+//    * Usage of a relative path rather than an absolute path
 //    * Handling the 404 response from the service
 // - Using MockMvc for Web slice testing
 // - Understanding the difference between @MockBean and @Mock
 
 // TODO-01: Make this class a Spring Boot test class
 // - Add @SpringBootTest annotation with WebEnvironment.RANDOM_PORT
+
 public class AccountClientTests {
 
 	// TODO-02: Autowire TestRestTemplate bean to a field
@@ -87,8 +88,8 @@ public class AccountClientTests {
 	}
 
 	// TODO-04: Modify the code below so that it handles 404 HTTP response status
-	// from the server (instead of handling it as an exception as in the
-	// case of RestTemplate)
+	//          from the server (instead of handling it as an exception as in the
+	//          case of RestTemplate)
 	// - Remove the "assertThrows" statement (since you are not going to
 	//   check if an exception is thrown)
 	// - Use "getForEntity" method (instead of "getForObject" method) of
@@ -112,7 +113,8 @@ public class AccountClientTests {
 		assertThat(httpClientErrorException.getStatusCode()).isEqualTo(HttpStatus.NOT_FOUND);
 	}
 
-	// TODO-05: Observe a log message in the console indicating Tomcat started as part of testing
+	// TODO-05: Observe a log message in the console indicating
+	//          Tomcat started as part of testing
 	// - Search for "Tomcat started on port(s):"
 
 }
