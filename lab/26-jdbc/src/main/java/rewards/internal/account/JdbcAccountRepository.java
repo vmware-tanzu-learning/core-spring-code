@@ -23,8 +23,8 @@ import java.sql.SQLException;
 
 // TODO-05: Refactor this repository to use JdbcTemplate.
 // - Add a field of type JdbcTemplate.
-// - Refactor the constructor to instantiate it.
-// - Run the JdbcAccountRepositoryTests class. It should pass.
+// - Refactor the constructor to instantiate the JdbcTemplate
+//   object using the given DataSource object.
 public class JdbcAccountRepository implements AccountRepository {
 
 	private DataSource dataSource;
@@ -33,13 +33,11 @@ public class JdbcAccountRepository implements AccountRepository {
 		this.dataSource = dataSource;
 	}
 
-	// TODO-07 (Optional): Refactor this method using a ResultSetExtractor.
-	// - Create a private inner class called AccountExtractor which
-	//   implements ResultSetExtractor
-	// - Let the extractData() method of the AccountExtractor to call
+	// TODO-07 (Optional): Refactor this method using JdbcTemplate and ResultSetExtractor
+	// - Create a ResultSetExtractor object and pass it as an argument
+	//   to jdbcTemplate.query(..) method
+	// - Let the extractData() method of the ResultSetExtractor to call
 	//   mapAccount() method, which is provided in this class, to do all the work.
-	// - Use the JdbcTemplate to redo the SELECT below, using your new AccountExtractor
-	//   (If you prefer, use a Lambda expression instead of creating AccountExtractor)
     // - Run the JdbcAccountRepositoryTests class. It should pass.
 	public Account findByCreditCard(String creditCardNumber) {
 		String sql = "select a.ID as ID, a.NUMBER as ACCOUNT_NUMBER, a.NAME as ACCOUNT_NAME, c.NUMBER as CREDIT_CARD_NUMBER, " +
@@ -87,7 +85,7 @@ public class JdbcAccountRepository implements AccountRepository {
 		return account;
 	}
 
-	// TODO-06: Refactor this method to use Spring's JdbcTemplate.
+	// TODO-06: Refactor this method to use JdbcTemplate.
 	// - Use your JdbcTemplate to replace the UPDATE below
 	//   (Note that an account has multiple beneficiaries)
 	// - Rerun the JdbcAccountRepositoryTests. Verify it passes.

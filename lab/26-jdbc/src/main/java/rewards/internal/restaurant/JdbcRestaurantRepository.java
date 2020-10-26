@@ -22,18 +22,19 @@ import java.sql.SQLException;
 // - Refactor JdbcRestaurantRepositoryTests accordingly
 // - Run JdbcRestaurantRepositoryTests and verity it passes
 
-// TODO-04: Refactor the cumbersome JDBC in JdbcRestaurantRepository with JdbcTemplate.
-// - Add a field of type JdbcTemplate.
-// - Refactor the constructor to instantiate it.
-// - Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
-//   called RestaurantRowMapper.
-//
-//   Note #1: Create RestaurantRowMapper as an inner class
-//	 Note #2: The mapRestaurant() method in this class contains logic which
-//	       the RowMapper may wish to use
-//   (If you prefer, use a Lambda expression instead of creating RestaurantRowMapper class.)
-//
+// TODO-04: Refactor the cumbersome JDBC code to use JdbcTemplate.
 // - Run JdbcRestaurantRepositoryTests and verity it passes
+// - Add a field of type JdbcTemplate
+// - Refactor the constructor to instantiate JdbcTemplate
+//   from the given DataSource
+// - Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
+//
+//   #1: Create a RowMapper object and pass it to the
+//       jdbcTemplate.queryForObject(..) method as an argument
+//	 #2: The mapRestaurant(..) method provided in this class contains
+//	     logic, which the RowMapper may wish to use
+//
+// - Run JdbcRestaurantRepositoryTests again and verity it passes
 
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
@@ -95,8 +96,7 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	 * {@link BenefitAvailabilityPolicy} object. The key column is 'BENEFIT_AVAILABILITY_POLICY', which is a
 	 * discriminator column containing a string code that identifies the type of policy. Currently supported types are:
 	 * 'A' for 'always available' and 'N' for 'never available'.
-	 * 
-	 * <p>
+	 *
 	 * More types could be added easily by enhancing this method. For example, 'W' for 'Weekdays only' or 'M' for 'Max
 	 * Rewards per Month'. Some of these types might require additional database column values to be configured, for
 	 * example a 'MAX_REWARDS_PER_MONTH' data column.
