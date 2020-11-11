@@ -116,11 +116,12 @@ public class HelloApplication {
 
     // TODO-15: Run this application and you will experience a
     //          failure of "'HelloService' that could not be found"
+
     // TODO-16: Fix the problem (add @Bean definition of "HelloService"
     //          with Bean id "helloService") and run it again,
     //          verify it works.
     //
-    // Once this step is done, go to TO-DO-20
+    //          Once this step is done, go to TO-DO-20
     @Bean
     public CommandLineRunner commandLineRunner(HelloService helloService) {
 
