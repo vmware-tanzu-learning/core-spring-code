@@ -16,6 +16,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 // TODO-00: In this lab, you are going to exercise the following:
 // - Using @SpringBootTest and webEnvironment for end-to-end testing
+//   (You are going to refactor the test code of previous lab of "38-rest-ws"
+//    to use Spring Boot test framework.)
 // - Understanding the different usage model of TestRestTemplate from RestTemplate
 //    * Usage of a relative path rather than an absolute path
 //    * Handling the 404 response from the service
