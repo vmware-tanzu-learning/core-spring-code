@@ -61,8 +61,9 @@ public class AccountClientTests {
 		Account account = new Account(number, "John Doe");
 		account.addBeneficiary("Jane Doe");
 		
-		//	TODO-08: Remove the @Disabled on this test method.
-		//	- Then, create a new Account by POSTing to the right URL and
+		//	TODO-08: Create a new Account
+		//	- Remove the @Disabled on this test method.
+		//	- Create a new Account by POSTing to the right URL and
 		//    store its location in a variable
 		//  - Note that 'RestTemplate' has two methods for this.
 		//  - Use the one that returns the location of the newly created
@@ -88,7 +89,8 @@ public class AccountClientTests {
 	public void addAndDeleteBeneficiary() {
 		// perform both add and delete to avoid issues with side effects
 		
-		// TODO-13: Remove the @Disabled on this test method.
+		// TODO-13: Create a new Beneficiary
+		// - Remove the @Disabled on this test method.
 		// - Create a new Beneficiary called "David" for the account with id 1
 		//	 (POST the String "David" to the "/accounts/{accountId}/beneficiaries" URL).
 		// - Store the returned location URI in a variable.
@@ -99,13 +101,13 @@ public class AccountClientTests {
 		assertNotNull(newBeneficiary);
 		assertEquals("David", newBeneficiary.getName());
 		
-		// TODO-15: Delete the new Beneficiary
+		// TODO-15: Delete the newly created Beneficiary
 
 
 		HttpClientErrorException httpClientErrorException = assertThrows(HttpClientErrorException.class, () -> {
 			System.out.println("You SHOULD get the exception \"No such beneficiary with name 'David'\" in the server.");
 
-			// TODO-16: Try to retrieve the new Beneficiary again.
+			// TODO-16: Try to retrieve the newly created Beneficiary again.
 			// - Run this test, then. It should pass because we expect a 404 Not Found
 			//   If not, it is likely your delete in the previous step
 			//   was not successful.
