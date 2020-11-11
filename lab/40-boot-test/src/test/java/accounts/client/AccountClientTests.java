@@ -118,5 +118,7 @@ public class AccountClientTests {
 	// TODO-05: Observe a log message in the console indicating
 	//          Tomcat started as part of testing
 	// - Search for "Tomcat started on port(s):"
+	// - Note how long it takes for this test to finish - it is
+	//   in the range of several seconds
 
 }
