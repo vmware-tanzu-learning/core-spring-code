@@ -84,7 +84,8 @@ import config.AppConfig;
  *
  * ------------------------------------------------
  *
- * TODO-20: Look for "TO-DO-20: Organize health indicators into groups" in the application.properties
+ * TODO-20: Look for "TO-DO-20: Organize health indicators into groups"
+ *          in the application.properties
  *
  */
 @SpringBootApplication
