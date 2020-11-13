@@ -22,11 +22,11 @@ import java.sql.SQLException;
 // - Refactor JdbcRestaurantRepositoryTests accordingly
 // - Run JdbcRestaurantRepositoryTests and verity it passes
 
-// TODO-04: Refactor the cumbersome JDBC code to use JdbcTemplate.
+// TODO-04: Refactor the cumbersome low-level JDBC code to use JdbcTemplate.
 // - Run JdbcRestaurantRepositoryTests and verity it passes
 // - Add a field of type JdbcTemplate
-// - Refactor the constructor to instantiate JdbcTemplate
-//   from the given DataSource
+// - Refactor the code in the constructor to instantiate JdbcTemplate object
+//   from the given DataSource object
 // - Refactor findByMerchantNumber(..) to use the JdbcTemplate and a RowMapper
 //
 //   #1: Create a RowMapper object and pass it to the

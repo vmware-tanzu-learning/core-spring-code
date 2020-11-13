@@ -23,7 +23,7 @@ import java.sql.SQLException;
 
 // TODO-05: Refactor this repository to use JdbcTemplate.
 // - Add a field of type JdbcTemplate.
-// - Refactor the constructor to instantiate the JdbcTemplate
+// - Refactor the code in the constructor to instantiate the JdbcTemplate
 //   object using the given DataSource object.
 public class JdbcAccountRepository implements AccountRepository {
 
@@ -86,9 +86,10 @@ public class JdbcAccountRepository implements AccountRepository {
 	}
 
 	// TODO-06: Refactor this method to use JdbcTemplate.
-	// - Use your JdbcTemplate to replace the UPDATE below
-	//   (Note that an account has multiple beneficiaries)
-	// - Rerun the JdbcAccountRepositoryTests. Verify it passes.
+	// - Note that an account has multiple beneficiaries
+	//   and you are going to perform UPDATE operation using
+	//   JdbcTemplate for each of those beneficiaries
+	// - Rerun the JdbcAccountRepositoryTests and verify it passes
 	public void updateBeneficiaries(Account account) {
 		String sql = "update T_ACCOUNT_BENEFICIARY SET SAVINGS = ? where ACCOUNT_ID = ? and NAME = ?";
 		Connection conn = null;
