@@ -225,6 +225,8 @@
         <!-- Day 4 -->
         <module>40-boot-test</module>
         <module>40-boot-test-solution</module>
+        <module>41-boot-tdd</module>
+        <module>41-boot-tdd-solution</module>
         <module>42-security-rest</module>
         <module>42-security-rest-solution</module>
         <module>44-actuator</module>
