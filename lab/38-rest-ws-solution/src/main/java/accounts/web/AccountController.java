@@ -169,7 +169,10 @@ public class AccountController {
 
 		// Determines URL of child resource based on the full URL of the given
 		// request, appending the path info with the given resource Identifier
-		URI location = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{childId}").buildAndExpand(resourceId)
+		URI location = ServletUriComponentsBuilder
+				.fromCurrentRequestUri()
+				.path("/{resourceId}")
+				.buildAndExpand(resourceId)
 				.toUri();
 
 		// Return an HttpEntity object - it will be used to build the
