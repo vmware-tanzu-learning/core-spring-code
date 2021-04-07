@@ -30,7 +30,8 @@ import javax.sql.DataSource;
  *
  * TODO-09: Make sure the setUp() method in the RewardNetworkTests class is annotated with @BeforeEach.
  * - In the setUp() method, create an application context using
- *   this configuration class
+ *   this configuration class - use run(..) static method of
+ *   the SpringApplication class
  * - Then get the 'rewardNetwork' bean from the application context
  *   and assign it to a private field for use later.
  *
