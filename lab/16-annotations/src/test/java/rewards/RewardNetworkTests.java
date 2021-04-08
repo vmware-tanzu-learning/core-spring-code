@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
  * TODO-00: In this lab, you are going to exercise the following:
  * - Refactoring the current code that uses Spring configuration with
  *   @Bean methods so that it uses annotation and component-scanning instead
- * - Using constructor injection, setter injection
+ * - Using constructor injection and setter injection
  * - Using @PostConstruct and @PreDestroy
  *
  * TODO-01: Run this test before making any changes.
