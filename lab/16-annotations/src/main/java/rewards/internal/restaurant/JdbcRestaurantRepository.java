@@ -22,6 +22,8 @@ import java.util.Map;
  * - Annotate the class with an appropriate stereotype annotation
  *   to cause component-scanning to detect and load this bean.
  * - Inject dataSource. Use constructor injection in this case.
+ *   Note that there are already two constructors, one of which
+ *   is no-arg constructor.
  */
 
 /*
