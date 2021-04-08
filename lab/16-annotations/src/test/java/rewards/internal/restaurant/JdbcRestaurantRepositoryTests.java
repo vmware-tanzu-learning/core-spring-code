@@ -21,23 +21,15 @@ public class JdbcRestaurantRepositoryTests {
 
 	@BeforeEach
 	public void setUp() throws Exception {
-//		// simulate the Spring bean initialization lifecycle:
-//		// first, construct the bean
-//		repository = new JdbcRestaurantRepository();
-//
-//		// then, inject its dependencies
-//		repository.setDataSource(createTestDataSource());
-//
-//		// lastly, initialize the bean
-//		repository.populateRestaurantCache();
-
 		// simulate the Spring bean initialization lifecycle:
 		// first, construct the bean
-		repository = new JdbcRestaurantRepository(createTestDataSource());
+		repository = new JdbcRestaurantRepository();
+
+		// then, inject its dependencies
+		repository.setDataSource(createTestDataSource());
 
 		// lastly, initialize the bean
 		repository.populateRestaurantCache();
-
 	}
 
 	@AfterEach
