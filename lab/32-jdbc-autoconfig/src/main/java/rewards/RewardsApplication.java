@@ -26,7 +26,9 @@ import org.springframework.boot.SpringApplication;
 //   instead of auto-configured one
 // - Use 'exclude' attribute of '@SpringBootApplication'
 //   excluding 'DataSourceAutoConfiguration' class
-// - Import 'RewardsConfig' class. (Think about why.)
+// - Run this application and observe a failure
+// - Import 'RewardsConfig' class
+// - Run this application again and observe a successful execution
 
 // TODO-12 (Optional) : Look in application.properties for the next step.
 
