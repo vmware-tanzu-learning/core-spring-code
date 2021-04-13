@@ -23,7 +23,7 @@ import org.springframework.context.annotation.Bean;
 // "hello-lib" project.
 //
 // TODO-21: Comment out the explicit @Bean configuration you just
-//          added in the previous step
+//          added in the previous step (TO-DO-16 below in this class)
 //
 // TODO-22: Go to TO-DO-22 in the build.gradle (Gradle) or
 //          pom.xml (Maven) of the "hello-app" project
