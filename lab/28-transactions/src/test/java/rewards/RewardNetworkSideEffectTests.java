@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  *
  * TODO-09: Examine the @Test logic below. Note that committed results from the
  * first test will invalidate the assertions in the second test. Run this test,
- * it should fail. Do you know why?
+ * at the class level so that both tests run it should fail. Do you know why?
  *
  * TODO-10: Add @Transactional on the class and re-run the test. It should pass.
  * Do you know why?
