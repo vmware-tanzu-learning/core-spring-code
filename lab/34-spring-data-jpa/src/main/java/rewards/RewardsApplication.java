@@ -10,6 +10,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+// TODO-00: In this lab, you are going to exercise the following:
+// - Writing Spring Data repository interfaces
+// - Annotating a JPA Entity class
+// - Setting some JPA related properties
+
 // TODO-01: Review dependency as described in the TO-DO-01 
 //          in the pom.xml or build.gradle 
 
