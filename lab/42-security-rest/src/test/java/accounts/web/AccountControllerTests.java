@@ -188,6 +188,9 @@ public class AccountControllerTests {
     //          is not permitted to perform POST operation
     // - Use the code above (in the previous test) as a guidance
     //   but without using "given" and "verify" methods.
+    //   (The "given" and "verify" methods are not required for
+    //    this testing because security failure will prevent
+    //    calling a method of a dependency.)
     @Test
     public void createAccount_with_USER_role_should_return_403() throws Exception {
 
