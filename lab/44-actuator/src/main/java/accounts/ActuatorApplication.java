@@ -34,6 +34,7 @@ import config.AppConfig;
  *
  * TODO-05: Change log level via ./actuator/loggers endpoint
  * - Verify the current logging level of the "accounts.web" package is DEBUG
+ *   (Access localhost:8080/actuator/loggers/accounts.web)
  * - Add "logger.debug("Logging message within accountSummary()");" inside
  *   "accountSummary()" method in the "AccountController" class - this
  *   message will be used to verify if we can change the
