@@ -11,17 +11,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.3.1.RELEASE</version>
+        <version>2.6.4</version>
     </parent>
     <properties>
-        <!-- Override some defaults from Spring Boot. -->
-        <spring.cloud.build>Hoxton.RELEASE</spring.cloud.build>
-
         <!-- Versions of other dependencies not in spring IO. -->
         <easymock.version>4.1</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.82</jamon.version>
-
 
         <java.version>11</java.version>
 
@@ -60,11 +56,7 @@
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
         </dependency>
-        <!-- Add JAXB that is dropped in JDK 9 -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-        </dependency>
+
     </dependencies>
 
     <!-- Dependencies we may need, and their versions -->
@@ -80,20 +72,6 @@
                 <groupId>io.pivotal.education.core-spring</groupId>
                 <artifactId>01-rewards-db</artifactId>
                 <version>${project.version}</version>
-            </dependency>
-            <!-- Spring Cloud  -->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>${spring.cloud.build}</version>
-                <type>pom</type>
-                <scope>import</scope>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework.cloud</groupId>
-                        <artifactId>spring-cloud-aws-dependencies</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <!-- Other -->
             <dependency>
