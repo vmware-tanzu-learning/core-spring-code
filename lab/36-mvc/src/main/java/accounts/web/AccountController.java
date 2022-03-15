@@ -61,8 +61,8 @@ public class AccountController {
 	// - Save all work.
 
 
-	// TODO-10: Run the test in AccountControllerTests, it should pass.
-	// - Fix any errors before moving on
+	// TODO-10b: If AccountControllerTests.testHandleDetailsRequest()
+	//  fails, fix errors before moving on
 
 	// TODO-11: Run the application
 	// - You should now be able to invoke http://localhost:8080/accounts/N
