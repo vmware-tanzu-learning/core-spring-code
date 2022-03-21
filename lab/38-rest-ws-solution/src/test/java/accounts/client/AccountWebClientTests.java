@@ -131,13 +131,6 @@ public class AccountWebClientTests {
         account.addBeneficiary("Jane Doe");
 
         ClientResponse clientResponse = webClient.post()
-                                                 .uri("/accounts")
-                                                 .contentType(MediaType.APPLICATION_JSON)
-                                                 .bodyValue(account)
-                                                 .exchange()
-                                                 .block();
-
-        clientResponse = webClient.post()
                                   .uri("/accounts")
                                   .contentType(MediaType.APPLICATION_JSON)
                                   .bodyValue(account)
