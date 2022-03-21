@@ -19,11 +19,4 @@ public class RestWsApplication {
                 .run(args);
 
     }
-
-    // Start HSQLDB client swing app
-//    @PostConstruct
-//    public void getDbManager(){
-//        DatabaseManagerSwing.main(
-//                new String[] { "--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
-//    }
 }
