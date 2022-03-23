@@ -4,7 +4,7 @@
     <artifactId>32-jdbc-autoconfig-solution</artifactId>
     <organization>
         <name>Pivotal Education</name>
-        <url>http://pivotal.io/training</url>
+        <url>https://spring.io/training</url>
     </organization>
     <packaging>jar</packaging>
     <parent>
