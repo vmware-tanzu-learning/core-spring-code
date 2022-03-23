@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.pivotal.education.core-spring</groupId>
     <artifactId>parentProject</artifactId>
-    <version>5.0.c.RELEASE</version>
+    <version>5.3.16</version>
     <organization>
         <name>Pivotal Education</name>
         <url>http://pivotal.io/training</url>
