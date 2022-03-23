@@ -15,11 +15,6 @@ jobs:
     - name: Build and test with Maven
       run: |
         cd lab
-        sed -i 's/<java.version>11<\/java.version>/<java.version>1.8<\/java.version>/g' ./pom.xml
-        sed -i 's/<java.version>11<\/java.version>/<java.version>1.8<\/java.version>/g' ./30-jdbc-boot-solution/pom.xml
-        sed -i 's/<java.version>11<\/java.version>/<java.version>1.8<\/java.version>/g' ./33-autoconfig-helloworld/pom.xml
-        sed -i 's/<java.version>11<\/java.version>/<java.version>1.8<\/java.version>/g' ./33-autoconfig-helloworld-solution/pom.xml
-        sed -i "s/sourceCompatibility = '11'/sourceCompatibility = '8'/g" ./build.gradle
         ./mvnw clean package
     - name: Build and test with Gradle
       run: |
