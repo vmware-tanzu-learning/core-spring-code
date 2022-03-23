@@ -1,7 +1,7 @@
 name: Test all labs on Java 8
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   test-labs-java-8:
