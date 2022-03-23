@@ -18,7 +18,7 @@ plugins {
 allprojects {
     apply plugin: 'maven-publish'
 
-    group = 'io.pivotal.education.core-spring'
+    group = 'io.spring.training.core-spring'
     version = '5.3.16'
 }
 

@@ -6,13 +6,13 @@
     <artifactId>hello-starter</artifactId>
     <packaging>jar</packaging>
     <parent>
-        <groupId>io.pivotal.education.core-spring</groupId>
+        <groupId>io.spring.training.core-spring</groupId>
         <artifactId>parentHelloServiceProject</artifactId>
         <version>1.0</version>
     </parent>
     <dependencies>
         <dependency>
-            <groupId>io.pivotal.education.core-spring</groupId>
+            <groupId>io.spring.training.core-spring</groupId>
             <artifactId>hello-lib</artifactId>
         </dependency>
     </dependencies>

@@ -8,7 +8,7 @@
     </organization>
     <packaging>jar</packaging>
     <parent>
-        <groupId>io.pivotal.education.core-spring</groupId>
+        <groupId>io.spring.training.core-spring</groupId>
         <artifactId>parentProject</artifactId>
         <version>5.3.16</version>
     </parent>
@@ -19,7 +19,7 @@
     <dependencies>
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
-            <groupId>io.pivotal.education.core-spring</groupId>
+            <groupId>io.spring.training.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
         </dependency>
         <!--
@@ -29,7 +29,7 @@
   		  //       by this project - see rewards-db/pom.xml.
   		  -->
         <dependency>
-            <groupId>io.pivotal.education.core-spring</groupId>
+            <groupId>io.spring.training.core-spring</groupId>
             <artifactId>01-rewards-db</artifactId>
         </dependency>
 

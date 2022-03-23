@@ -8,7 +8,7 @@
     </organization>
     <packaging>jar</packaging>
     <parent>
-        <groupId>io.pivotal.education.core-spring</groupId>
+        <groupId>io.spring.training.core-spring</groupId>
         <artifactId>parentProject</artifactId>
         <version>5.3.16</version>
     </parent>
