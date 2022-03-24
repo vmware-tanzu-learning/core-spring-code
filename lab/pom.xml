@@ -4,7 +4,7 @@
     <artifactId>parentProject</artifactId>
     <version>5.3.16</version>
     <organization>
-        <name>Pivotal Education</name>
+        <name>Spring Training</name>
         <url>https://spring.io/training</url>
     </organization>
     <packaging>pom</packaging>

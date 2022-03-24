@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>28-transactions</artifactId>
     <organization>
-        <name>Pivotal Education</name>
+        <name>Spring Training</name>
         <url>https://spring.io/training</url>
     </organization>
     <packaging>jar</packaging>
