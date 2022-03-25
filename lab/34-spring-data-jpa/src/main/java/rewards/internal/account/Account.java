@@ -154,7 +154,6 @@ public class Account {
 	 * allocation percentage.
 	 * 
 	 * @param amount       the total amount to contribute
-	 * @param contribution the contribution summary
 	 */
 	public AccountContribution makeContribution(MonetaryAmount amount) {
 		if (!isValid()) {

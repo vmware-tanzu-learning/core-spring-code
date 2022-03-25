@@ -147,7 +147,6 @@ public class Account {
 	 * Make a monetary contribution to this account. The contribution amount is distributed among the account's
 	 * beneficiaries based on each beneficiary's allocation percentage.
 	 * @param amount the total amount to contribute
-	 * @param contribution the contribution summary
 	 */
 	public AccountContribution makeContribution(MonetaryAmount amount) {
 		if (!isValid()) {
