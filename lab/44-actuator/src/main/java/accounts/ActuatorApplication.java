@@ -78,7 +78,7 @@ import config.AppConfig;
  * - Access the health indicator - it should be DOWN as there are no restaurants.
  *
  * TODO-18: Verify the behavior of custom health indicator with change
- * - Modify the `spring.datasource.data` property in the application.properties
+ * - Modify the `spring.sql.init.data-locations` property in the application.properties
  *   to use `data-with-restaurants.sql`
  * - Let the application to restart (via devtools)
  * - Access the health indicator - it should be UP this time

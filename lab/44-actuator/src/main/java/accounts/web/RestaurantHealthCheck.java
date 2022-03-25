@@ -16,7 +16,7 @@ public class RestaurantHealthCheck {
 
 /**
  * TODO-25 (Optional): Experiment with HealthIndicator above
- * - Change "spring.datasource.data" property in the
+ * - Change "spring.sql.init.data-locations" property in the
  *   "application.properties" file back to use "data-no-restaurants.sql"
  * - Include the restaurant count as extra detail when DOWN state.
  * - Instead of returning DOWN when there are no restaurants,
