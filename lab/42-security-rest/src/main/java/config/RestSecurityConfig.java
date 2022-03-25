@@ -55,9 +55,7 @@ public class RestSecurityConfig extends WebSecurityConfigurerAdapter {
         // - "superadmin"/"superadmin" with "USER", "ADMIN", and "SUPERADMIN" roles
         // (Make sure to store the password in encoded form.)
         auth.inMemoryAuthentication()
-            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and()
-
-        ;
+            .withUser("user").password(passwordEncoder.encode("user")).roles("USER").and();
 
         // TODO-14 (Optional): Add authentication based upon the custom UserDetailsService
         // - Uncomment the line below and finish up the code
