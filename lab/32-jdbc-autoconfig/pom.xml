@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>32-jdbc-autoconfig</artifactId>
-    <version>5.3.17</version>
+    <version>5.3.18</version>
 
     <organization>
         <name>Spring Training</name>
@@ -12,7 +12,7 @@
     <parent>
         <groupId>io.spring.training.core-spring</groupId>
         <artifactId>parentProject</artifactId>
-        <version>5.3.17</version>
+        <version>5.3.18</version>
     </parent>
 
     <build>

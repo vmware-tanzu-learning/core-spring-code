@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.spring.training.core-spring</groupId>
     <artifactId>parentProject</artifactId>
-    <version>5.3.17</version>
+    <version>5.3.18</version>
     <organization>
         <name>Spring Training</name>
         <url>https://spring.io/training</url>
