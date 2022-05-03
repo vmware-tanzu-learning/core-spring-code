@@ -4,7 +4,7 @@ import common.datetime.SimpleDate;
 import common.money.MonetaryAmount;
 
 /**
- * A dining event that occurred, representing a charge made to an credit card by a restaurant on a specific date.
+ * A dining event that occurred, representing a charge made to an credit card by a merchant on a specific date.
  * 
  * For a dining to be eligible for reward, the credit card number should map to an account in the reward network. In
  * addition, the merchant number should map to a restaurant in the network.
