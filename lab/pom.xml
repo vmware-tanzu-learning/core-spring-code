@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.spring.training.core-spring</groupId>
     <artifactId>parentProject</artifactId>
-    <version>5.3.18</version>
+    <version>5.3.23</version>
     <organization>
         <name>Spring Training</name>
         <url>https://spring.io/training</url>
@@ -11,11 +11,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.6</version>
+        <version>2.7.4</version>
     </parent>
     <properties>
         <!-- Versions of other dependencies not in spring IO. -->
-        <easymock.version>4.1</easymock.version>
+        <easymock.version>4.3</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.82</jamon.version>
 
