@@ -5,18 +5,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import common.money.Percentage;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.MockBeans;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import rewards.internal.account.Account;
 
+import javax.persistence.EntityManagerFactory;
+import javax.sql.DataSource;
 import java.util.Arrays;
 import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.*;
+import static org.mockito.BDDMockito.anyLong;
+import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.verify;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -26,8 +29,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * These tests run the AccountController using the MockMVC framework.
  * The server does not need to be running.
  */
-@WebMvcTest(AccountController.class)
-@AutoConfigureDataJpa
+@WebMvcTest(AccountController.class) // WebMvcTest = MockMvc, @MockBean // JPA: @MockBeans
+@MockBeans({@MockBean(EntityManagerFactory.class), @MockBean(DataSource.class)})
 public class AccountControllerBootTests {
 
     @Autowired

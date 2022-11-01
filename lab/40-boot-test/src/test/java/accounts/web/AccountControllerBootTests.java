@@ -15,7 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 // TODO-07: Replace @ExtendWith(SpringExtension.class) with the following two annotations
 // - @WebMvcTest(AccountController.class) // includes @ExtendWith(SpringExtension.class)
-// - @AutoConfigureDataJpa
+// - @MockBeans({@MockBean(EntityManagerFactory.class), @MockBean(DataSource.class)})
 @ExtendWith(SpringExtension.class)
 public class AccountControllerBootTests {
 
