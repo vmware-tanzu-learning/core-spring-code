@@ -25,6 +25,8 @@ public class RewardNetworkTests {
 	@Autowired
 	private RewardNetwork rewardNetwork;
 
+	// TODO-08 Run this test (if running with Gradle, make sure to remove the test exclusion in the build.gradle file.
+	//  It should pass.
 	@Test
 	public void testRewardForDining() {
 		// create a new dining of 100.00 charged to credit card '1234123412341234' by merchant '123457890' as test input

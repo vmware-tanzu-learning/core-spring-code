@@ -8,6 +8,7 @@ dependencies {
 }
 
 test {
+    // TODO-08 comment out before running the RewardNetworkTests
     exclude '**/RewardNetworkTests.class'
 }
 
