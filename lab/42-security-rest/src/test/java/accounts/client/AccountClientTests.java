@@ -48,7 +48,7 @@ public class AccountClientTests {
         // we have to use Account[] instead of List<Account>, or Jackson won't know what type to unmarshal to
         ResponseEntity<Account[]> responseEntity
                 = restTemplate.withBasicAuth("user", "user")
-                              .getForEntity("/accounts", Account[].class);
+                              .getForEntity(url, Account[].class);
         Account[] accounts = responseEntity.getBody();
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(accounts.length >= 21).withFailMessage("Expected 21 accounts, but found " + accounts.length).isTrue();
@@ -64,7 +64,7 @@ public class AccountClientTests {
         // we have to use Account[] instead of List<Account>, or Jackson won't know what type to unmarshal to
         ResponseEntity<Account[]> responseEntity
                 = restTemplate.withBasicAuth("admin", "admin")
-                              .getForEntity("/accounts", Account[].class);
+                              .getForEntity(url, Account[].class);
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         Account[] accounts = responseEntity.getBody();
         assertThat(accounts.length >= 21).withFailMessage("Expected 21 accounts, but found " + accounts.length).isTrue();
