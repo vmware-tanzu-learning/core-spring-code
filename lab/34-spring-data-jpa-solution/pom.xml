@@ -10,7 +10,7 @@
     <parent>
         <groupId>io.spring.training.core-spring</groupId>
         <artifactId>parentProject</artifactId>
-        <version>5.3.18</version>
+        <version>5.3.23</version>
     </parent>
     <dependencies>
         <dependency>
