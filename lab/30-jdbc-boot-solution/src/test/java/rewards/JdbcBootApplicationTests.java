@@ -15,7 +15,7 @@ public class JdbcBootApplicationTests {
     private JdbcTemplate jdbcTemplate;
 
     @Test
-    public void testNumberOfAccount() throws Exception {
+    public void testNumberOfAccount() {
 
         long count = jdbcTemplate.queryForObject(QUERY, Long.class);
 
