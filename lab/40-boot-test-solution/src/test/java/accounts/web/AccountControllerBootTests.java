@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.boot.test.mock.mockito.MockBeans;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import rewards.internal.account.Account;
@@ -29,8 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * These tests run the AccountController using the MockMVC framework.
  * The server does not need to be running.
  */
-@WebMvcTest(AccountController.class) // WebMvcTest = MockMvc, @MockBean // JPA: @MockBeans
-@MockBeans({@MockBean(EntityManagerFactory.class), @MockBean(DataSource.class)})
+@WebMvcTest(AccountController.class) // WebMvcTest = MockMvc, @MockBean
 public class AccountControllerBootTests {
 
     @Autowired

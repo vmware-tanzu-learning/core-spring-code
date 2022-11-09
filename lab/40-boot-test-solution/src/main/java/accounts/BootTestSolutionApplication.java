@@ -10,8 +10,6 @@ import org.springframework.context.annotation.Import;
  * Runs the Account Server.
  */
 @SpringBootApplication
-@Import(AppConfig.class)
-@EntityScan("rewards.internal")
 public class BootTestSolutionApplication {
 
 	public static void main(String[] args) {
