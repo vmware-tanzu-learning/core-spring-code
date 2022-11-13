@@ -11,8 +11,6 @@ import config.AppConfig;
  * Runs the Account Server.
  */
 @SpringBootApplication
-@Import(AppConfig.class)
-@EntityScan("rewards.internal")
 public class BootTestApplication {
 
 	public static void main(String[] args) {

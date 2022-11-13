@@ -13,9 +13,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 //import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 //import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-// TODO-07: Replace @ExtendWith(SpringExtension.class) with the following two annotations
+// TODO-07: Replace @ExtendWith(SpringExtension.class) with the following annotation
 // - @WebMvcTest(AccountController.class) // includes @ExtendWith(SpringExtension.class)
-// - @MockBeans({@MockBean(EntityManagerFactory.class), @MockBean(DataSource.class)})
 @ExtendWith(SpringExtension.class)
 public class AccountControllerBootTests {
 
