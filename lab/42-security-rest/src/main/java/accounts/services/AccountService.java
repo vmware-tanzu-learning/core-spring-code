@@ -39,7 +39,7 @@ public class AccountService {
                 = null; // Modify this line
 
         return grantedAuthorities.stream()
-                                 .map(grantedAuthority -> grantedAuthority.getAuthority())
+                                 .map(GrantedAuthority::getAuthority)
                                  .collect(Collectors.toList());
     }
 

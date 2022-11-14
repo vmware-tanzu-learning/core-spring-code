@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 // - Configuring authorization based on roles
 // - Configuring authentication using in-memory storage
 // - Configuring method-level security
-// - Adding custom UserDetails
+// - Adding custom UserDetailsService
 // - Adding custom AuthenticationProvider
 // - Writing test code for security
 
@@ -36,14 +36,13 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 //   and observe a successful response
 
 @SpringBootApplication
-// TODO-03: Import security configuration class
-// - Uncomment the line below and go to RestSecurityConfig class
+//TODO-03: Import security configuration class
+//- Uncomment the line below and go to RestSecurityConfig class
 //@Import(RestSecurityConfig.class)
 @EntityScan("rewards.internal")
 public class RestWsApplication {
 
     public static void main(String[] args) {
-
         SpringApplication.run(RestWsApplication.class, args);
     }
 

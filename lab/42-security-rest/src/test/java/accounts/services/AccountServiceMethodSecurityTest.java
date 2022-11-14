@@ -17,8 +17,7 @@ import static org.assertj.core.api.Assertions.*;
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
 
-@SpringBootTest(classes = {RestWsApplication.class},
-        webEnvironment = WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 class AccountServiceMethodSecurityTest {
 
     @Autowired
