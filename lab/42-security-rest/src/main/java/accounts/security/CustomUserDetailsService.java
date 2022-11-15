@@ -1,5 +1,6 @@
 package accounts.security;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +22,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 //TODO-18b (Optional): Remove the CustomUserDetailsService definition
 // - Comment the @Component annotation added in a previous task
 
+@Primary
 public class CustomUserDetailsService implements UserDetailsService {
 
 	private PasswordEncoder passwordEncoder;

@@ -13,10 +13,9 @@ import org.springframework.security.core.authority.AuthorityUtils;
 //AuthenticationProvider handles a user with the following credentials
 //- "spring"/"spring" with "ROLE_ADMIN" role
 
-//TODO-18a (Optional): Add authentication based upon the custom
-		// AuthenticationProvider
-		// - Uncomment the line below and finish up the code
-		// auth.
+//TODO-18a (Optional): Add authentication based upon the custom AuthenticationProvider
+//- Annotate the class with @Component to make it a Spring manager bean
+
 public class CustomAuthenticationProvider implements AuthenticationProvider {
 
 	@Override

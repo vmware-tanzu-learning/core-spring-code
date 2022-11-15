@@ -32,8 +32,8 @@ public class RestSecurityConfig {
                 // - Allow GET on the /accounts resource (or any sub-resource)
                 //   for all roles - "USER", "ADMIN", "SUPERADMIN"
 
-                // For all other URL's, make sure the caller is authenticated
-                .mvcMatchers("/**").authenticated())
+                // Deny any request that doesn't match any authorization rule
+                .anyRequest().denyAll())
         .httpBasic(withDefaults())
         .csrf(CsrfConfigurer::disable);
         // @formatter:on

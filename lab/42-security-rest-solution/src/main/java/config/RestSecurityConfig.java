@@ -24,11 +24,11 @@ public class RestSecurityConfig {
 
         // @formatter:off
         http.authorizeHttpRequests((authz) -> authz
-                .mvcMatchers(HttpMethod.GET, "/accounts/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
-                .mvcMatchers(HttpMethod.PUT, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers(HttpMethod.POST, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
-                .mvcMatchers(HttpMethod.DELETE, "/accounts/**").hasAnyRole("SUPERADMIN")
-                .mvcMatchers("/**").authenticated())
+                .requestMatchers(HttpMethod.GET, "/accounts/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
+                .requestMatchers(HttpMethod.PUT, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers(HttpMethod.POST, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
+                .requestMatchers(HttpMethod.DELETE, "/accounts/**").hasAnyRole("SUPERADMIN")
+                .anyRequest().denyAll())
             .httpBasic(withDefaults())
             .csrf(CsrfConfigurer::disable);
         // @formatter:on
