@@ -12,8 +12,7 @@ import java.util.stream.Collectors;
 @Service
 public class AccountService {
 
-    @PreAuthorize("hasRole('ADMIN')   && " +
-            "#username == principal.username")
+    @PreAuthorize("hasRole('ADMIN') && #username == principal.username")
     public List<String> getAuthoritiesForUser(String username) {
 
         Collection<? extends GrantedAuthority> grantedAuthorities
@@ -22,7 +21,7 @@ public class AccountService {
                                        .getAuthorities();
 
         return grantedAuthorities.stream()
-                                 .map(grantedAuthority -> grantedAuthority.getAuthority())
+                                 .map(GrantedAuthority::getAuthority)
                                  .collect(Collectors.toList());
     }
 

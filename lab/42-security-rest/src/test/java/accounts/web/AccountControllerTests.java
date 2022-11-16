@@ -32,7 +32,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // - Remove @Disabled annotation from each test and run it
 // - Make sure all tests pass
 
-@AutoConfigureDataJpa
 @WebMvcTest(AccountController.class)
 @ContextConfiguration(classes = {RestWsApplication.class, RestSecurityConfig.class})
 public class AccountControllerTests {

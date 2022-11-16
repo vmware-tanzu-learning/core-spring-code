@@ -8,7 +8,6 @@ buildscript {
     repositories {
         mavenCentral()
     }
-
 }
 
 plugins {
@@ -28,9 +27,9 @@ subprojects {
     apply plugin: "io.spring.dependency-management"
 
     repositories {
-        maven {
-            url = 'https://repo.maven.apache.org/maven2'
-        }
+        mavenCentral()
+        maven { url 'https://repo.spring.io/milestone' }
+        maven { url 'https://repo.spring.io/snapshot' }
     }
 
     dependencyManagement {
@@ -38,7 +37,9 @@ subprojects {
             mavenBom("org.springframework.boot:spring-boot-dependencies:$springBootVersion")
         }
     }
-
+    
+    ext['spring-security.version'] = '5.8.0-RC1'
+    
     dependencies {
         implementation "org.springframework.boot:spring-boot-starter"
         implementation "org.springframework.boot:spring-boot-starter-jdbc"

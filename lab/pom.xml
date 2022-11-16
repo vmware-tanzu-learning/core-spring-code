@@ -18,6 +18,7 @@
         <easymock.version>4.3</easymock.version>
         <hibernate.jmx.version>3.5.6-Final</hibernate.jmx.version>
         <jamon.version>2.82</jamon.version>
+        <spring-security.version>5.8.0-RC1</spring-security.version>
 
         <java.version>11</java.version>
 
@@ -160,6 +161,45 @@
             </plugin>
         </plugins>
     </build>
+    
+    <repositories>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+    </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/milestone</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/snapshot</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+    
     <modules>
         <!--
           // KEEP IN SYNC WITH SLIDES
@@ -176,10 +216,10 @@
         <module>12-javaconfig-dependency-injection-solution</module>
         <module>16-annotations</module>
         <module>16-annotations-solution</module>
-        <module>22-aop</module>
-        <module>22-aop-solution</module>
 
         <!-- Day 2 -->
+        <module>22-aop</module>
+        <module>22-aop-solution</module>
         <module>24-test</module>
         <module>24-test-solution</module>
         <module>26-jdbc</module>
@@ -197,10 +237,10 @@
         <module>34-spring-data-jpa-solution</module>
         <module>36-mvc</module>
         <module>36-mvc-solution</module>
+        
+        <!-- Day 4 -->
         <module>38-rest-ws</module>
         <module>38-rest-ws-solution</module>
-
-        <!-- Day 4 -->
         <module>40-boot-test</module>
         <module>40-boot-test-solution</module>
         <module>42-security-rest</module>
