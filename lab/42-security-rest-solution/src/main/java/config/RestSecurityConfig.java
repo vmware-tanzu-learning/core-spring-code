@@ -28,6 +28,7 @@ public class RestSecurityConfig {
                 .requestMatchers(HttpMethod.PUT, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .requestMatchers(HttpMethod.POST, "/accounts/**").hasAnyRole("ADMIN", "SUPERADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/accounts/**").hasAnyRole("SUPERADMIN")
+                .requestMatchers(HttpMethod.GET, "/authorities").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
                 .anyRequest().denyAll())
             .httpBasic(withDefaults())
             .csrf(CsrfConfigurer::disable);

@@ -24,12 +24,14 @@ public class RestSecurityConfig {
 
 		// @formatter:off
         http.authorizeHttpRequests((authz) -> authz
-                // TODO-04: Configure authorization using mvcMatchers method
+                // TODO-04: Configure authorization using requestMatchers method
                 // - Allow DELETE on the /accounts resource (or any sub-resource)
                 //   for "SUPERADMIN" role only
                 // - Allow POST or PUT on the /accounts resource (or any sub-resource)
                 //   for "ADMIN" or "SUPERADMIN" role only
                 // - Allow GET on the /accounts resource (or any sub-resource)
+                //   for all roles - "USER", "ADMIN", "SUPERADMIN"
+        		// - Allow GET on the /authorities resource
                 //   for all roles - "USER", "ADMIN", "SUPERADMIN"
 
                 // Deny any request that doesn't match any authorization rule
