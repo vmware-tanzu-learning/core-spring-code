@@ -59,13 +59,8 @@ import config.AppConfig;
  * - Restart the application and access "info" endpoint and verify the build
  *   info gets displayed
  *
- * TODO-07 (Optional): Add additional build properties to the plugin (for Maven)
- *          or BuildInfo task (for Gradle)
- * - Add "javaVersion" and "operatingSystem" properties
- * - Feel free to see the lab document or solution project for
- *   more detailed instruction
- * - Restart the application and access "info" endpoint and verify
- *   additional build properties are displayed
+ * TODO-07 (Optional): Add additional properties to the info endpoint
+
  *
  * ------------------------------------------------
  *

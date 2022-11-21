@@ -23,7 +23,7 @@ public class RestaurantHealthCheck2 extends AbstractHealthIndicator {
             builder.up()
                    .withDetail("restaurantCount", restaurantCount);
         } else {
-            builder.status(new Status("NO_RESTAURANTS"));
+            builder.status("NO_RESTAURANTS");
         }
     }
 }

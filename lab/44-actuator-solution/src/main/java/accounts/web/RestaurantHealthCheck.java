@@ -22,7 +22,7 @@ public class RestaurantHealthCheck implements HealthIndicator {
                          .withDetail("restaurantCount", restaurantCount)
                          .build();
         } else {
-            return Health.status(new Status("NO_RESTAURANTS"))
+            return Health.status("NO_RESTAURANTS")
                          .build();
         }
     }
