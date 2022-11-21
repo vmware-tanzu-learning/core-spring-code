@@ -17,7 +17,6 @@ import config.AppConfig;
  * - Adding custom health indicator
  * - Configuring security against actuator endpoints
  * - Using AOP for counter operation (optional step)
- * - Using external monitoring system (optional step)
  *
  * TODO-01: Note that the Actuator starter is already set up for you.
  *          (Look for TO-DO-01 in the pom.xml or build.gradle)
