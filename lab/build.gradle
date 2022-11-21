@@ -28,8 +28,6 @@ subprojects {
 
     repositories {
         mavenCentral()
-        maven { url 'https://repo.spring.io/milestone' }
-        maven { url 'https://repo.spring.io/snapshot' }
     }
 
     dependencyManagement {
@@ -38,16 +36,14 @@ subprojects {
         }
     }
     
-    ext['spring-security.version'] = '5.8.0-RC1'
+    ext['spring-security.version'] = '5.8.0'
     
     dependencies {
         implementation "org.springframework.boot:spring-boot-starter"
         implementation "org.springframework.boot:spring-boot-starter-jdbc"
         implementation "org.hsqldb:hsqldb"
 
-        testImplementation('org.springframework.boot:spring-boot-starter-test') {
-            exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-        }
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
     }
 
     sourceCompatibility = '11'
