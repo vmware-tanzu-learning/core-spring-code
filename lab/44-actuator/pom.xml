@@ -64,8 +64,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <!-- TO-DO-07: Add build-info goal -->
-                <!-- TO-DO-08: Add additional properties of name, javaVersion, operatingSystem -->
+                <!-- TO-DO-06: Add build-info goal -->
             </plugin>
         </plugins>
     </build>

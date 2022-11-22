@@ -17,7 +17,6 @@ import config.AppConfig;
  * - Adding custom health indicator
  * - Configuring security against actuator endpoints
  * - Using AOP for counter operation (optional step)
- * - Using external monitoring system (optional step)
  *
  * TODO-01: Note that the Actuator starter is already set up for you.
  *          (Look for TO-DO-01 in the pom.xml or build.gradle)
@@ -59,13 +58,8 @@ import config.AppConfig;
  * - Restart the application and access "info" endpoint and verify the build
  *   info gets displayed
  *
- * TODO-07 (Optional): Add additional build properties to the plugin (for Maven)
- *          or BuildInfo task (for Gradle)
- * - Add "javaVersion" and "operatingSystem" properties
- * - Feel free to see the lab document or solution project for
- *   more detailed instruction
- * - Restart the application and access "info" endpoint and verify
- *   additional build properties are displayed
+ * TODO-07 (Optional): Add additional properties to the info endpoint
+
  *
  * ------------------------------------------------
  *
