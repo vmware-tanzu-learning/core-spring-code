@@ -48,7 +48,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <!-- Skip these tests.  They won't pass until the student completes the lab. -->
+                <!-- Skip these tests. They won't pass without running RestWsApplication first -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>

@@ -2,7 +2,6 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>32-jdbc-autoconfig</artifactId>
-
     <organization>
         <name>Spring Training</name>
         <url>https://spring.io/training</url>
@@ -14,25 +13,11 @@
         <version>5.3.23</version>
     </parent>
 
-    <build>
-         <plugins>
-		    <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
-		         for the XML you need. -->
-
-
-            <!-- Ensure resources are handled correctly -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
     <dependencies>
-       <!--
-          // Although we are not using Spring Boot yet, we are using
-          // SpringApplication which is a Spring Boot class.
-          -->
+        <!--
+        // Although we are not using Spring Boot yet, we are using
+        // SpringApplication which is a Spring Boot class.
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -47,10 +32,11 @@
             <artifactId>spring-jdbc</artifactId>
         </dependency>
 
-        <!--  Spring Integration testing support -->
+        <!-- Spring Integration testing support -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- Database - DO NOT MODIFY -->
@@ -59,11 +45,24 @@
             <artifactId>hsqldb</artifactId>
         </dependency>
 
-        <!--  Common convenience classes - DO NOT MODIFY -->
+        <!-- Common convenience classes - DO NOT MODIFY -->
         <dependency>
             <groupId>io.spring.training.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
         </dependency>
 
     </dependencies>
+
+    <build>
+         <plugins>
+            <!-- TO-DO-01 : Add the Spring Boot Plugin - see detailed instructions
+                for the XML you need. -->
+
+            <!-- Ensure resources are handled correctly -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

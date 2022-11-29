@@ -41,6 +41,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
             <groupId>io.spring.training.core-spring</groupId>
