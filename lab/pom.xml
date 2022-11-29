@@ -48,7 +48,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- Needed for the Spring jdbc namespace -->
+        <!-- Needed for Spring's JdbcTemplate -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
