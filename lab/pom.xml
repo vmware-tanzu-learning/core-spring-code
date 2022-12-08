@@ -33,11 +33,11 @@
     </properties>
     <dependencies>
         <!--
-          // Although we are not using Spring Boot until Day 3, we do use
-          // SpringApplication which is a Spring Boot class. The starters
-          // are also a convenient way of pulling in the most common
-          // Spring and Testing dependencies.
-          -->
+        // Although we are not using Spring Boot until Day 3, we do use
+        // SpringApplication which is a Spring Boot class. The starters
+        // are also a convenient way of pulling in the most common
+        // Spring and Testing dependencies.
+        -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -47,11 +47,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- Needed for the Spring jdbc namespace -->
+
+        <!-- Needed for Spring's JdbcTemplate -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
+
         <!-- Database -->
         <dependency>
             <groupId>org.hsqldb</groupId>
@@ -121,7 +123,7 @@
                 <!-- Set Project Natures -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
-		<version>2.10</version>
+                <version>2.10</version>
                 <configuration>
                     <downloadSources>true</downloadSources>
                     <downloadJavadocs>true</downloadJavadocs>

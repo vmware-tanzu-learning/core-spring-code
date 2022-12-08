@@ -31,22 +31,19 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- Common classes: Percentage, MonetaryAmount -->
         <dependency>
             <groupId>io.spring.training.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
         </dependency>
+
         <!--
-  		  // Defines: Account, Beneficiary, AccountManager.
-  		  //
-  		  // NOTE: Dependencies for JPA and Spring are also provided
-  		  //       by this project - see rewards-db/pom.xml.
-  		  -->
+        // Defines: Account, Beneficiary, AccountManager.
+        //
+        // NOTE: Dependencies for JPA and Spring are also provided
+        //       by this project - see rewards-db/pom.xml.
+        -->
         <dependency>
             <groupId>io.spring.training.core-spring</groupId>
             <artifactId>01-rewards-db</artifactId>
@@ -59,8 +56,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <!-- Skip these tests. They won't pass without running RestWsApplication
-					 first -->
+                <!-- Skip these tests. They won't pass without running RestWsApplication first -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>

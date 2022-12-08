@@ -28,11 +28,6 @@
             <optional>true</optional>
         </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
             <groupId>io.spring.training.core-spring</groupId>
             <artifactId>00-rewards-common</artifactId>
         </dependency>
@@ -48,7 +43,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
             <plugin>
-                <!-- Skip these tests.  They won't pass until the student completes the lab. -->
+                <!-- Skip these tests. They won't pass without running RestWsApplication first -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
